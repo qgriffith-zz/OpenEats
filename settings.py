@@ -98,6 +98,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'debug_toolbar',
+    'tagging',
     'reversion',
     'openeats.recipe',
     'openeats.recipe_groups',

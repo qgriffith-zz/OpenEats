@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from tagging.fields import TagField
 from recipe_groups.models import Course, Cuisine
 
 class Recipe(models.Model):
@@ -21,6 +22,7 @@ class Recipe(models.Model):
     servings = models.IntegerField()
     directions = models.TextField()
     shared = models.IntegerField(choices=SHARED_CHOCIES, default=SHARE_SHARED)
+    tags = TagField()
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 
