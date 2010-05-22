@@ -3,6 +3,9 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from tagging.fields import TagField
 from recipe_groups.models import Course, Cuisine
+from ingredient.models import Ingredient
+
+
 
 class Recipe(models.Model):
     SHARE_SHARED = 0
@@ -17,11 +20,12 @@ class Recipe(models.Model):
     author = models.ForeignKey(User)
     course = models.ForeignKey(Course)
     cuisine = models.ForeignKey(Cuisine)
-    detail = models.TextField()
-    cook_time = models.IntegerField()
-    servings = models.IntegerField()
+    info = models.TextField(help_text="enter information about the recipe")
+    ingredient = models.ManyToManyField(Ingredient, through="RecipeIngredient")
+    cook_time = models.IntegerField(help_text="enter time in miuntes")
+    servings = models.IntegerField(help_text="enter total number of servings")
     directions = models.TextField()
-    shared = models.IntegerField(choices=SHARED_CHOCIES, default=SHARE_SHARED)
+    shared = models.IntegerField(choices=SHARED_CHOCIES, default=SHARE_SHARED, help_text="share the recipe with the community or mark it private")
     tags = TagField()
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
@@ -40,7 +44,14 @@ class Recipe(models.Model):
     def get_absolute_url(self):
         return "/recipe/%s" %self.slug
 
-
+class RecipeIngredient(models.Model):
+    '''intermediate model between Ingredient and recipe.models.recipe for many to many'''
+    quantity =  models.IntegerField()
+    measurement = models.CharField(max_length=200)
+    ingredient = models.ForeignKey(Ingredient)
+    preparation = models.CharField(max_length=100)
+    recipe    = models.ForeignKey(Recipe)
+    
 
 
 
