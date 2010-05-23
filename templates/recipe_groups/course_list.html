@@ -4,7 +4,7 @@
     <h2>Course List</h2>
     <ul>
         {% for course in course_list %}
-            <li> {{ course.title }}({{ course.recipe_set.all.count }}) </li>
+            <li> {{ course.title }}(<a href="{% url course_recipes course=course.slug %}">{{ course.recipe_set.all.count }}</a> ) </li>
         {% endfor %}
     </ul>   
 {% endblock  %}

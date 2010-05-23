@@ -4,7 +4,7 @@
     <h2>Cuisine List</h2>
     <ul>
         {% for cuisine in cuisine_list %}
-            <li> {{ cuisine.title }}({{ cuisine.recipe_set.all.count }}) </li>
+            <li> {{ cuisine.title }}(<a href="{% url cuisine_recipes cuisine=cuisine.slug %}">{{ cuisine.recipe_set.all.count }}</a>) </li>
         {% endfor %}
     </ul>
 {% endblock  %}
