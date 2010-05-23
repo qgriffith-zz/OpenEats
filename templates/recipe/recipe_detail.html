@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {{ object }}
+    {{ object.course }}
+    <ul>
+        {% for ing in object.recipeingredient_set.all %}
+            <li>{{ ing.preparation }} {{ ing.ingredient }}</li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}
