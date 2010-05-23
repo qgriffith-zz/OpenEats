@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Cuisine List</h2>
+    <ul>
+        {% for cuisine in cuisine_list %}
+            <li> {{ cuisine.title }}({{ cuisine.recipe_set.all.count }}) </li>
+        {% endfor %}
+    </ul>
+{% endblock  %}

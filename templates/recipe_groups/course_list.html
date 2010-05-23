@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Course List</h2>
+    <ul>
+        {% for course in course_list %}
+            <li> {{ course.title }}({{ course.recipe_set.all.count }}) </li>
+        {% endfor %}
+    </ul>   
+{% endblock  %}
