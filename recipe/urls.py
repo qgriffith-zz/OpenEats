@@ -9,4 +9,5 @@ recipe_info={
 
 urlpatterns = patterns('',
     (r'^(?P<slug>[-\w]+)/$', list_detail.object_detail, recipe_info),
+    (r'^', 'openeats.recipe.views.index')
    )
