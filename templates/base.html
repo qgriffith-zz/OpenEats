@@ -3,10 +3,22 @@
     <head>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
         <title>{% block title %}OpenEats2{% endblock %}</title>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/oe.css" />
         <meta name="keywords" content="" />
         <meta name="description" content="" />
     </head>
     <body>
-        {% block content %}{% endblock %}
+        <div id="main">
+            <div class="main-box">
+                <div class="inside">
+                    <div id="content">
+                        {% block content %}{% endblock %}
+                    </div><!--end content div -->
+                 
+                </div> <!-- end of inside div -->
+
+            </div> <!-- end main box div -->
+        </div> <!-- end div main -->
+        
     </body>
 </html>

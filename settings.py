@@ -3,6 +3,7 @@ import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+SERVE_MEDIA = True
 
 ADMINS = (
     # ('Your Name', 'your_email@domain.com'),

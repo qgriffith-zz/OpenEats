@@ -1,0 +1,10 @@
+*{padding:0; margin:0;}
+
+body{ font-size:14px; font-family:Georgia, serif; background:url(../images/main-bg.gif) center top;}
+#main {margin:0 auto; padding:57px 0 65px; width:882px;}
+.wrapper, block { width:100%; overflow:hidden;}
+.main-box { background:#fff; width:100%;}
+.main-box .inside { padding:0 18px;}
+.box { background:#fff; width:100%;}
+/*content*/
+#content { padding:8px 0 9px 0;}
