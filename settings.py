@@ -74,6 +74,13 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.media",
+    "navbar.context_processors.navbars",
+)
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -100,6 +107,7 @@ INSTALLED_APPS = (
     'tagging',
     'reversion',
     'south',
+    'navbar',
     'openeats.recipe',
     'openeats.recipe_groups',
     'openeats.ingredient',

@@ -1,10 +1,17 @@
 *{padding:0; margin:0;}
 
 body{ font-size:14px; font-family:Georgia, serif; background:url(../images/main-bg.gif) center top;}
-#main {margin:0 auto; padding:57px 0 65px; width:882px;}
-.wrapper, block { width:100%; overflow:hidden;}
-.main-box { background:#fff; width:100%;}
-.main-box .inside { padding:0 18px;}
-.box { background:#fff; width:100%;}
-/*content*/
+div#page-wrap {width:882px; margin:0 auto; padding:57px 0 65px 0; }
+div#main{ background:#fff; width:100%; padding-left:10px;}
+div#logo{margin-bottom:20px; padding-top:10px;}
+
+/*Navagaion*/
+div#nav-bar{ background:url(../images/nav-bg.gif) left top repeat-x; margin-right:20px; margin-bottom:10px;}
+div#nav-bar ul {padding:8px 0 8px 0;}
+div#nav-bar li { display:inline;}
+div#nav-bar li a { color:#fff; text-decoration:none; font-size:1.1em; text-transform:lowercase; background:url(../images/divider.gif) no-repeat left top; padding:0 24px 0 27px; letter-spacing:.1em; font-size:1.4em;}
+div#nav-bar li a.first { background:none;}
+div#nav-bar li a:hover { text-decoration:underline;}
+
+/*Content*/
 #content { padding:8px 0 9px 0;}

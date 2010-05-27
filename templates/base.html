@@ -8,17 +8,20 @@
         <meta name="description" content="" />
     </head>
     <body>
-        <div id="main">
-            <div class="main-box">
-                <div class="inside">
-                    <div id="content">
-                        {% block content %}{% endblock %}
-                    </div><!--end content div -->
-                 
-                </div> <!-- end of inside div -->
-
-            </div> <!-- end main box div -->
-        </div> <!-- end div main -->
-        
+        <div id="page-wrap">
+            <div id="main">
+                <div id="header">
+                    <div id="logo"><img src="{{ MEDIA_URL }}images/logo.png" alt="logo" /></div>
+                </div>
+                <div id="nav-bar">
+                    {% load navbar %}
+                    {% navbars %}
+                </div><!--- end navbar div --->
+                <div id="content">
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+            
+        </div><!--- end page wrap div -->
     </body>
 </html>
