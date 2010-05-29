@@ -1,13 +1,41 @@
 {% extends "base.html" %}
-
+{% load i18n %} 
 {% block content %}
-    {{ object }}
-    {{ object.course }}
-    <ul>
-        {% for ing in object.recipeingredient_set.all %}
-            <li>{{ ing.preparation }} {{ ing.ingredient }}</li>
-        {% endfor %}
-    </ul>
+<div id="title">
+    <h3>{{ recipe }}</h3>
+</div>
+<div id="recipe-show">
+    <div id="recipe-info">
+        <p><span>{%trans "Course:" %}</span> {{ recipe.course }}</p>
+        <p><span>{%trans "Cuisine:" %}</span> {{ recipe.cuisine }}</p>
+        <p><span>{%trans "Chef:" %}</span> {{ recipe.author }}</p>
+    </div>
+    <div id="recipe-cook">
+        <ul>
+            <li><span>{%trans "servers" %}</span> {{ recipe.servings }}</li>
+            <li><span>{%trans "cook time" %}</span> {{ recipe.cook_time }} minute{{ recipe.cook_time|pluralize }}</li>
+        </ul>
+    </div>
+    <div id="recipe-info">
+        <hr />
+        <p>{{recipe.info}}</p>
+        <hr />
+    </div>
+    <div id="recipe-ing">
+        <h2>{%trans "Ingredients" %}</h2>
+        <ul>
+            {% for ing in recipe.recipeingredient_set.all %}
+            <li> {{ ing.quantity }} - {{ ing.ingredient }} {{ ing.preparation }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="recipe-directions">
+        <h2>{% trans "Directions" %}</h2>
+        {{ recipe.directions }}
+    </div>
+
+</div>
+
 
 
 {% endblock %}

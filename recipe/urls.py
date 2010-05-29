@@ -4,10 +4,16 @@ from models import Recipe
 
 recipe_info={
     'queryset': Recipe.objects.all(),
+    "template_object_name": 'recipe',
+}
+recipe_list={
+    'queryset': Recipe.objects.order_by('pub_date', 'title')[:10],
+    "template_object_name": 'recipe',
+    'template_name': 'recipe/index.html',
 }
 
 
 urlpatterns = patterns('',
     (r'^(?P<slug>[-\w]+)/$', list_detail.object_detail, recipe_info),
-    (r'^', 'openeats.recipe.views.index')
+    (r'^', list_detail.object_list, recipe_list)
    )
