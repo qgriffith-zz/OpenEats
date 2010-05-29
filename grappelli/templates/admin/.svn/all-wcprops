@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin
+END
+template_validator.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/template_validator.html
+END
+change_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/change_list.html
+END
+delete_selected_confirmation.html
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/delete_selected_confirmation.html
+END
+filter.html
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/filter.html
+END
+prepopulated_fields_js.html
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/prepopulated_fields_js.html
+END
+object_history.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/object_history.html
+END
+search_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/search_form.html
+END
+pagination.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/pagination.html
+END
+base_site.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/base_site.html
+END
+actions.html
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/actions.html
+END
+base_index.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/base_index.html
+END
+change_list_results.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/change_list_results.html
+END
+500.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/500.html
+END
+invalid_setup.html
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/invalid_setup.html
+END
+app_index.html
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/app_index.html
+END
+404.html
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/404.html
+END
+index.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/index.html
+END
+change_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/change_form.html
+END
+login.html
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/login.html
+END
+delete_confirmation.html
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/delete_confirmation.html
+END
+base.html
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/base.html
+END
+submit_line.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/submit_line.html
+END
+date_hierarchy.html
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/date_hierarchy.html
+END
+init.js
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/init.js
+END

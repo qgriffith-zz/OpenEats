@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 34
+/svn/!svn/ver/1060/trunk/grappelli
+END
+middleware.py
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/1050/trunk/grappelli/middleware.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/1050/trunk/grappelli/__init__.py
+END
+settings.py
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/1050/trunk/grappelli/settings.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/1050/trunk/grappelli/urls.py
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/1060/trunk/grappelli/README
+END

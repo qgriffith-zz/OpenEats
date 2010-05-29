@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/auth/user
+END
+change_password.html
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/auth/user/change_password.html
+END
+add_form.html
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/auth/user/add_form.html
+END

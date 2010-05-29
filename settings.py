@@ -79,7 +79,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.debug",
     "django.core.context_processors.media",
     "django.core.context_processors.i18n",
+    "django.core.context_processors.request",
     "navbar.context_processors.navbars",
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -104,6 +106,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'grappelli',
     'django.contrib.admin',
     'debug_toolbar',
     'tagging',

@@ -6,7 +6,7 @@ from django.template.defaultfilters import slugify
 class Ingredient(models.Model):
      title = models.CharField(max_length=250)
      slug = models.SlugField(unique=True, blank=True)
-     author = models.ForeignKey(User, blank=True, null=True)
+     author = models.ForeignKey(User, null=True, blank=True)
  
      class Meta:
          ordering = ['title']

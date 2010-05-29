@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1050/trunk/grappelli/media/tinymce/jscripts/tiny_mce
+END
+license.txt
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1050/trunk/grappelli/media/tinymce/jscripts/tiny_mce/license.txt
+END
+jquery.tinymce.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1050/trunk/grappelli/media/tinymce/jscripts/tiny_mce/jquery.tinymce.js
+END
+tiny_mce.js
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/1050/trunk/grappelli/media/tinymce/jscripts/tiny_mce/tiny_mce.js
+END
+tiny_mce_popup.js
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/1050/trunk/grappelli/media/tinymce/jscripts/tiny_mce/tiny_mce_popup.js
+END
+tiny_mce_src.js
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/1050/trunk/grappelli/media/tinymce/jscripts/tiny_mce/tiny_mce_src.js
+END
