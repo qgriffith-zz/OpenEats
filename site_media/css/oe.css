@@ -41,6 +41,7 @@ div#recipe-ing ul {background-color: #FEFDF2; border:1px solid #E6E5CB;  -moz-bo
 div#recipe-ing li {list-style: none; border-bottom: dotted 1px #C8C199; margin-bottom:15px; padding-bottom:14px;  color:#484846;}
 div#recipe-directions { padding:10px; margin-right:55px; margin-top:5px; float:right; color:#484846; width:45%;}
 div#recipe-directions h2{color:#434242; font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px;}
+div#recipe-comments{ margin-top:400px; width:550px;}
 
 /*Recipe List */
 div.recipe {padding-bottom:15px; border-bottom:dotted 1px gray; color:#484846; margin-bottom:15px;}

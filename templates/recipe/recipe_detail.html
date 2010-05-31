@@ -33,7 +33,11 @@
         <h2>{% trans "Directions" %}</h2>
         {{ recipe.directions }}
     </div>
-
+    <div id="recipe-comments">
+        {% load disqus_tags %}
+        {% disqus_dev %}
+        {% disqus_show_comments %}
+    </div>
 </div>
 
 

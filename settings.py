@@ -121,6 +121,7 @@ INSTALLED_APPS = (
     'reversion',
     'south',
     'navbar',
+    'disqus',
     'openeats.recipe',
     'openeats.recipe_groups',
     'openeats.ingredient',
@@ -144,3 +145,8 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.sql.SQLDebugPanel',
     'debug_toolbar.panels.logger.LoggingPanel',
 )
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
