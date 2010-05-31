@@ -36,6 +36,14 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
+ugettext = lambda s: s
+
+LANGUAGES = (
+     ('en', ugettext('English')),
+     ('de', ugettext('German')),
+   )
+
+
 SITE_ID = 1
 
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
@@ -76,18 +84,18 @@ TEMPLATE_LOADERS = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.media",
     "django.core.context_processors.i18n",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.media",   
     "django.core.context_processors.request",
     "navbar.context_processors.navbars",
 
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',

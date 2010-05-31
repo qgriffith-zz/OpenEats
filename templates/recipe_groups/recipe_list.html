@@ -1,7 +1,16 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
+    <div id="title"> <h3>{% trans "Recipes" %}</h3></div>
     {% for recipe in recipe_list %}
-        {{ recipe }}
+    <div class="recipe">
+        <h4><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h4>
+        <p class="chef">Chef: {{ recipe.author }} </p>
+        <p>{{ recipe.info }}</p>
+        <br />
+        <a class="recipe-more" href="{{ recipe.get_absolute_url }}"><em><b>Read More</b></em></a>
+        <br />
+    </div>
     {% endfor %}
+
 {% endblock %}

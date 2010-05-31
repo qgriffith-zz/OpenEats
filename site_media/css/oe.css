@@ -4,6 +4,7 @@ body{ font-size:14px; font-family:Georgia, serif; background:url(../images/main-
 div#page-wrap {width:882px; margin:0 auto; padding:57px 0 65px 0; }
 div#main{ background:#fff; width:100%; padding-left:10px;}
 div#logo{margin-bottom:20px; padding-top:10px;}
+div#title{background:url("../images/title-bg.gif") repeat-x top; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 
 /*Navagaion*/
 div#nav-bar{ background:url(../images/nav-bg.gif) left top repeat-x; margin-right:20px; margin-bottom:10px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
@@ -26,8 +27,6 @@ div#nav-bar li a:hover { text-decoration:underline;}
 
 
 /*Recipe Detail */
-
-div#title{background:url("../images/title-bg.gif") repeat-x top; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 div#title h3 {font-size:1.2em; line-height:1.42em; padding:2px 0 5px 10px; color:#484846}
 div#recipe-info { width: 500px; margin-bottom:10px;}
 div#recipe-info span { color: #c53c0c; }
@@ -42,4 +41,15 @@ div#recipe-ing ul {background-color: #FEFDF2; border:1px solid #E6E5CB;  -moz-bo
 div#recipe-ing li {list-style: none; border-bottom: dotted 1px #C8C199; margin-bottom:15px; padding-bottom:14px;  color:#484846;}
 div#recipe-directions { padding:10px; margin-right:55px; margin-top:5px; float:right; color:#484846; width:45%;}
 div#recipe-directions h2{color:#434242; font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px;}
+
+/*Recipe List */
+div.recipe {padding-bottom:15px; border-bottom:dotted 1px gray; color:#484846; margin-bottom:15px;}
+div.recipe h4 {margin-bottom:5px;}
+div.recipe p.chef { margin-bottom: 3px;}
+div.recipe h4 a { color:#BD2200;}
+div.recipe h4 a:hover { text-decoration:none;}
+a.recipe-more { display:block; float:left; background:url(../images/link2-bg.gif) left top repeat-x; color:#fff; text-decoration:none;}
+a.recipe-more em { display:block; background:url(../images/link2-left.gif) no-repeat left top; font-size:85%;}
+a.recipe-more b { display:block; background:url(../images/link2-right.gif) no-repeat right top; padding:2px 22px 5px 25px; font-style:normal;}
+a.recipe-more:hover { text-decoration:underline;}
 

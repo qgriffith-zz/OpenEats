@@ -42,7 +42,7 @@ class Recipe(models.Model):
         super(Recipe, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
-        return "/recipe/%s" %self.slug
+        return "/recipe/%s/" %self.slug
 
 class RecipeIngredient(models.Model):
     '''intermediate model between Ingredient and recipe.models.recipe for many to many'''
