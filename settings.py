@@ -122,6 +122,7 @@ INSTALLED_APPS = (
     'south',
     'navbar',
     'disqus',
+    'registration',
     'openeats.recipe',
     'openeats.recipe_groups',
     'openeats.ingredient',
@@ -145,6 +146,8 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.sql.SQLDebugPanel',
     'debug_toolbar.panels.logger.LoggingPanel',
 )
+
+LOGIN_REDIRECT_URL = "/recipe/"
 
 try:
     from local_settings import *

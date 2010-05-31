@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
-from tagging.fields import TagField
+from tagging.fields import TagField, Tag
 from recipe_groups.models import Course, Cuisine
 from ingredient.models import Ingredient
 
@@ -35,6 +35,9 @@ class Recipe(models.Model):
 
     def __unicode__(self):
         return self.title
+
+    def get_tags(self):
+        return Tag.objects.get_for_object(self)
 
     def save(self, *args, **kwargs):
         if (not self.id) and (not self.slug):

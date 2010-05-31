@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
+    (r'^accounts/', include('registration.backends.default.urls')),
     (r'^groups/', include('recipe_groups.urls')),
     (r'^recipe/', include('recipe.urls')),
 
