@@ -1,0 +1,1 @@
+You have been registered at {{ site }} your activation link is http://{{ site }}/accounts/activate/{{ activation_key }}/ your account will expire in {{expiration_days }} days if not activated

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="post" action="/accounts/register/">{% csrf_token %}
+    <p>{{ form.username.label_tag }}</p>
+    <p>{{ form.username }}</p>
+    <p>{{ form.email.label_tag }}</p>
+    <p>{{ form.email}}</p>
+    <p>{{ form.password1.label_tag }}</p>
+    <p>{{ form.password1 }}</p>
+    <p>{{ form.password2.label_tag }}</p>
+    <p>{{ form.password2 }}</p>
+    <input type="submit" value="create account" />
+</form>
+{% endblock %}

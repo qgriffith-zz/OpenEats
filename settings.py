@@ -146,8 +146,9 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.sql.SQLDebugPanel',
     'debug_toolbar.panels.logger.LoggingPanel',
 )
-
+#registration
 LOGIN_REDIRECT_URL = "/recipe/"
+ACCOUNT_ACTIVATION_DAYS = 7
 
 try:
     from local_settings import *
