@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load i18n %}
+{%block title %}{%trans "OpenEats - Login" %}{% endblock %}
 {% block content %}
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>

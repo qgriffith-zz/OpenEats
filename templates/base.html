@@ -1,8 +1,10 @@
 <!DOCTYPE html>
+{% load i18n %}
 <html>
     <head>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-        <title>{% block title %}OpenEats2{% endblock %}</title>
+        <title>{% block title %}{% trans "OpenEats2" %}{% endblock %}</title>
+        {% block jscript %}{% endblock %}
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/oe.css" />
         <meta name="keywords" content="" />
         <meta name="description" content="" />
@@ -18,6 +20,13 @@
                     {% navbars %}
                 </div><!--- end navbar div --->
                 <div id="content">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
                     {% block content %}{% endblock %}
                 </div>
                 <div id="footer">

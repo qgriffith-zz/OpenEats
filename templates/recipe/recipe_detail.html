@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% load i18n %} 
+{% load i18n %}
+{%block title %}{% blocktrans %} OpenEats - {{ recipe }} {% endblocktrans %}{% endblock %}
 {% block content %}
 <div id="title">
     <h3>{{ recipe }}</h3>

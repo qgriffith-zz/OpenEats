@@ -8,7 +8,7 @@ class RecipeInline(admin.TabularInline):
 class RecipeAdmin(VersionAdmin):
     prepopulated_fields = { 'slug' : ['title']}
     inlines = [RecipeInline,]
-    #class Media:
-     #   js = ['/site_media/admin/tinymce/jscripts/tiny_mce/tiny_mce.js', '/site_media/js/tinymce_setup.js',]
+    class Media:
+        js = ['/site_media/admin/tinymce/jscripts/tiny_mce/tiny_mce.js', '/site_media/js/tinymce_setup.js',]
 
 admin.site.register(Recipe, RecipeAdmin)
