@@ -14,6 +14,7 @@ recipe_list={
 
 
 urlpatterns = patterns('',
+    (r'^new/$', 'recipe.views.recipe'),
     (r'^(?P<slug>[-\w]+)/$', list_detail.object_detail, recipe_info),
-    (r'^', list_detail.object_list, recipe_list)
+    (r'^', list_detail.object_list, recipe_list),
    )

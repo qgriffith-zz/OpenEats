@@ -1,4 +1,5 @@
 from django.conf.urls.defaults import *
+from django.contrib import databrowse
 from django.conf import settings
 
 # Uncomment the next two lines to enable the admin:

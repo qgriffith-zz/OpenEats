@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
+
+   {{ formset }}
+     
+    <input type="submit" value="save" />
+</form>
+
+{% endblock %}
+
+
+

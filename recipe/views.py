@@ -1,8 +1,28 @@
-from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
+from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404, redirect
 from django.template import RequestContext
-from models import Recipe
+from django.forms.models import modelformset_factory, inlineformset_factory
+from models import Recipe, RecipeIngredient
+from ingredient.models import Ingredient
+from forms import RecipeForm
 
 '''def index(request):
     recipes = get_list_or_404(Recipe.objects.order_by('pub_date', 'title')[:10])
     return render_to_response('recipe/index.html', {'recipes':recipes},context_instance=RequestContext(request))'''
+
+def recipe(request):
+    IngFormSet = inlineformset_factory(Recipe, RecipeIngredient)
+    if request.method=='POST':
+        form = RecipeForm(request.POST)
+        formset = IngFormSet(request.POST)
+        if form.is_valid() and formset.is_valid():
+            new_recipe = form.save()
+            instances = formset.save(commit=False)
+            for instance in instances:
+                instance.recipe_id = new_recipe.id
+                instance.save()
+            return redirect('/recipe/')
+    else:
+        form = RecipeForm()
+        formset = IngFormSet(queryset=RecipeIngredient.objects.none())
+    return render_to_response('recipe/recipe_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
 

@@ -4,7 +4,6 @@
 <form acion="" method="post">{% csrf_token %}
     {{ form.title.errors }}
     <p>{{ form.title.label_tag }} {{ form.title }}</p>
-    <p> <input type="hidden" id="id_author" name="author" value="{{ user.id }}" /></p>
     <input type="submit" value="{% trans 'add course' %}" />
 </form>
 
