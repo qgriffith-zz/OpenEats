@@ -2,12 +2,41 @@
 {% load i18n %}
 {% block content %}
 <form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
+    <div id="recipe-form">
+        {{ form.title.errors }}
+        {{ form.title.label_tag }}
+        <p>{{ form.title }}</p>
+        {{ form.course.label_tag }}
+        {{ form.course.errors }}
+        <p>{{ form.course }}</p>
+        {{ form.cuisine.errors }}
+        {{ form.cuisine.label_tag }}
+        <p>{{ form.cuisine }}</p>
+        {{ form.info.errors }}
+        {{ form.info.label_tag }}
+        <p>{{ form.info }}</p>
+        <span>{{ form.info.help_text }}</span>
+        {{ form.cook_time.errors }}
+        {{ form.cook_time.label_tag }}
+        <p>{{ form.cook_time }} <span>{{ form.cook_time.help_text }}</span></p>
+        {{ form.servings.errors }}
+        {{ form.servings.label_tag }}
+        <p>{{ form.servings }}</p>
+        {{ form.directions.errors }}
+        {{ form.directions.label_tag }}
+        <p>{{ form.directions }}</p>
+        {{ form.shared.errors }}
+        {{ form.shared.label_tag }}
+        <p>{{ form.shared }}</p>
+        <span><span>{{ form.shared.help_text }}</span></span>
+        
 
+    </div>
+    <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
+    <h3>{% trans "Ingredients" %}</h3>
    {{ formset }}
      
-    <input type="submit" value="save" />
+   <p><input type="submit" value="save" /></p>
 </form>
 
 {% endblock %}

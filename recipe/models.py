@@ -52,7 +52,7 @@ class RecipeIngredient(models.Model):
     quantity =  models.IntegerField()
     measurement = models.CharField(max_length=200)
     ingredient = models.ForeignKey(Ingredient)
-    preparation = models.CharField(max_length=100)
+    preparation = models.CharField(max_length=100, blank=True, null=True)
     recipe    = models.ForeignKey(Recipe)
     
 
