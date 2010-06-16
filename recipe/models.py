@@ -26,7 +26,7 @@ class Recipe(models.Model):
     servings = models.IntegerField(help_text="enter total number of servings")
     directions = models.TextField()
     shared = models.IntegerField(choices=SHARED_CHOCIES, default=SHARE_SHARED, help_text="share the recipe with the community or mark it private")
-    tags = TagField()
+    tags = TagField(help_text="separate with commas")
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 

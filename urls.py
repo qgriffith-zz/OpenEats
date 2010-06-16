@@ -18,6 +18,7 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
     (r'^accounts/', include('registration.backends.default.urls')),
+    (r'^rosetta/', include('rosetta.urls')),
     (r'^groups/', include('recipe_groups.urls')),
     (r'^recipe/', include('recipe.urls')),
 

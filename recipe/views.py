@@ -12,7 +12,7 @@ from forms import RecipeForm
 
 @login_required
 def recipe(request):
-    IngFormSet = inlineformset_factory(Recipe, RecipeIngredient)
+    IngFormSet = inlineformset_factory(Recipe, RecipeIngredient, extra=5)
     if request.method=='POST':
         form = RecipeForm(request.POST)
         formset = IngFormSet(request.POST)

@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% block title %}{% trans "OpenEats | Add Recipe" %} {% endblock %}
+{% block jscript %}
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+ <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery.formset.js"></script>
+ <script type="text/javascript">
+           $(function() {
+               $('#ing-5').formset({
+                   prefix: '{{ formset.prefix }}'
+               });
+           })
+       </script>
+{% endblock %}
 {% block content %}
 <form action="" method="post">{% csrf_token %}
     <div id="recipe-form">
@@ -29,14 +41,29 @@
         {{ form.shared.label_tag }}
         <p>{{ form.shared }}</p>
         <span><span>{{ form.shared.help_text }}</span></span>
+        {{ form.tags_label_tag }}
+        <p>{{ form.tags }}<span>{{ form.tags.help_text }}</span></p>
+        <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
         
-
+        <div id="ingredients">
+           <h3>{% trans "Ingredients" %}</h3>
+            {{ formset.management_form }}
+            {% for field in formset.forms %}
+            <p id="ing-{{ forloop.counter }}">
+                {{ field.quantity.label_tag }}
+                {{ field.quantity }}
+                {{ field.measurement.label_tag }}
+                {{ field.measurement }}
+                {{ field.ingredient.label_tag }}
+                {{ field.ingredient }}
+                {{ field.preparation.label_tag }}
+                {{ field.preparation }}
+            </p>
+            {% endfor %}
+        </div>
     </div>
-    <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
-    <h3>{% trans "Ingredients" %}</h3>
-   {{ formset }}
-     
-   <p><input type="submit" value="save" /></p>
+
+    <p><input type="submit" value="save" /></p>
 </form>
 
 {% endblock %}
