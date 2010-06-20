@@ -26,7 +26,7 @@
         <h2>{%trans "Ingredients" %}</h2>
         <ul>
             {% for ing in recipe.recipeingredient_set.all %}
-            <li> {{ ing.quantity }} - {{ ing.ingredient }} {{ ing.preparation }}</li>
+            <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.ingredient }} {{ ing.preparation }}</li>
             {% endfor %}
         </ul>
     </div>
