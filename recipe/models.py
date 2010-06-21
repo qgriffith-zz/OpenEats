@@ -15,7 +15,7 @@ class Recipe(models.Model):
     (PRIVATE_SHARED, 'Private'),
     )
 
-    title = models.CharField(max_length=250)
+    title = models.CharField("Recipe Title", max_length=250)
     slug = models.SlugField(unique=True, blank=True)
     author = models.ForeignKey(User)
     course = models.ForeignKey(Course)

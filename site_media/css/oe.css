@@ -15,7 +15,7 @@ div#nav-bar li a.first { background:none;}
 div#nav-bar li a:hover { text-decoration:underline;}
 
 /*Content*/
-#content { padding:8px 0 85px 0; margin-bottom:800px;}
+#content { padding:8px 0 85px 0; margin-bottom:1400px;}
 
 
 /*footer*/
@@ -35,13 +35,13 @@ div#recipe-cook ul {text-align: center; color:#484846; font-size: 1.1em;}
 div#recipe-cook li {display:inline; list-style: none; padding-right:15px;}
 div#recipe-cook li span {font-weight:bold;}
 div#recipe-info hr { border: 0; width:80%;  margin:15px 0 10px; background-color: #DAD3A9; color: #DAD3A9; height:1px; line-height:1px;}
-div#recipe-ing{float:left; width: 40%; margin-right:5px; border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em; padding:10px;}
+div#recipe-ing{ float:left; width: 40%; margin-right:5px; border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em; padding:10px;}
 div#recipe-ing h2{ background:url("../images/title-bg2.jpg") no-repeat scroll left top transparent; padding:6px 0 7px 70px; color:#434242; font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px; margin-left:8px;}
 div#recipe-ing ul {background-color: #FEFDF2; border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em; padding:10px; }
 div#recipe-ing li {list-style: none; border-bottom: dotted 1px #C8C199; margin-bottom:15px; padding-bottom:14px;  color:#484846;}
 div#recipe-directions { padding:10px; margin-right:55px; margin-top:5px; float:right; color:#484846; width:45%;}
 div#recipe-directions h2{color:#434242; font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px;}
-div#recipe-comments{ margin-top:400px; width:550px;}
+div#recipe-comments{float:left; width:550px; margin-top:20px;}
 
 /*Recipe List */
 div.recipe {padding-bottom:15px; border-bottom:dotted 1px gray; color:#484846; margin-bottom:15px;}
@@ -56,14 +56,21 @@ a.recipe-more:hover { text-decoration:underline;}
 
 
 /* Recipe Form */
-div#ingredients{ width:90%;}
-div#recipe-form label {	float: left; text-align: right;	margin-right: 15px; width: 100px;}
+div#recipe-form input { height:20px;}
+div#recipe-form label {	color:#484846; float: left; text-align: right;	margin-right: 15px; width: 90px;}
 div#recipe-form textarea:focus, input:focus { border: 2px solid #900;}
 div#recipe-form label { font-size: 110%}
+div#recipe-form em { padding-left: 5px; color:#5f562a;}
 div#recipe-form p { margin-bottom: 10px;}
 table#ing-grid {border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em;}
-table#ing-grid thead { font-size:120%; font-weight:bold;}
+table#ing-grid thead { color:#5f562a; font-size:120%; font-weight:bold;}
+table#ing-grid thead th { padding:5px;}
 table#ing-grid td{ font-size: 90%; padding-bottom:15px;}
 table#ing-grid td#quantity input { width:40px;}
 table#ing-grid td#measurement input { width:50px;}
-table tr.row2 { background-color: #fefdf2;}
+table#ing-grid tr.row2 { background-color: #f6f4e2;}
+
+
+/*form errors */
+
+ul.errorlist li{list-style: none; color:red; font-size: 110%;}
