@@ -22,7 +22,7 @@ class Course(models.Model):
         return "course/self.slug"
 
 class Cuisine(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(unique=True, blank=True)
     author = models.ForeignKey(User)
 

@@ -1,15 +1,18 @@
+{% load i18n %}
 <html>
     <head>
-         <script type="text/javascript" src="/site_media/js/RelatedObjectLookups.js"></script>
-         <title>Add Course</title>
+         <script type="text/javascript" src="{{ MEDIA_URL }}js/RelatedObjectLookups.js"></script>
+         <title>{%trans "Add"%} {{ field }}</title>
     </head>
     <body>
-        <h1>Add {{ field }}</h1>
-        <form method="POST" action="/groups/add/{{ field }}/">
-            <table>
-                {{ form }}
-            </table>
-            <p><input type="submit" /> | <a href="javascript:window.close()">Cancel</a></p>
+        <h1>{% blocktrans %}Add {{ field }}{% endblocktrans %}</h1>
+        <form method="POST" action="/groups/popadd/{{ field }}/">{% csrf_token %}
+            <div id="popup-form">
+                {{ form.title.errors }}
+                <p>{{ form.title.label_tag }} {{ form.title }}</p>
+                <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
+            </div>
+            <p><input type="submit" value='{%trans "submit" %}'/> | <a href="javascript:window.close()">{%trans "Cancel" %}</a></p>
         </form>
     </body>
 </html>

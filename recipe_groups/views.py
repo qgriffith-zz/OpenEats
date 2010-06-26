@@ -2,9 +2,9 @@ from django.shortcuts import render_to_response, get_object_or_404, get_list_or_
 from django.template import RequestContext
 from models import Course, Cuisine
 from django.contrib.auth.decorators import login_required
-from forms import CoursePopForm
+from forms import CoursePopForm, CuisinePopForm
 from helpers.form_helper import handlePopAdd
-from django.views.decorators.csrf import csrf_exempt
+
 
 def course_recipes(request, slug):
     '''Rectrives the recipe objects in a list that belong to the course passed to the method'''
@@ -20,7 +20,11 @@ def cuisine_recipes(request, slug):
     return render_to_response('recipe_groups/recipe_list.html', {'recipe_list':recipe_list},context_instance=RequestContext(request))
 
 @login_required
-@csrf_exempt
 def course_pop(request):
     '''Is called via js from the recipe form to allow users to add a new course with out leaving the recipe form'''
     return handlePopAdd(request, CoursePopForm, 'course')
+
+@login_required
+def cuisine_pop(request):
+    '''Is called via js from the recipe form to allow users to add a new cuisine with out leaving the recipe form'''
+    return handlePopAdd(request, CuisinePopForm, 'cuisine')

@@ -2,6 +2,7 @@ from django.utils.html import escape
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 import django.forms as forms
+from django.template import RequestContext
 
 def handlePopAdd(request, addForm, field):
     ''''Used to submit the object to the database from the popup form'''
@@ -19,4 +20,4 @@ def handlePopAdd(request, addForm, field):
         form = addForm()
 
     pageContext = {'form': form, 'field': field}
-    return render_to_response("form/popadd.html", pageContext)
+    return render_to_response("form/popadd.html", pageContext, context_instance=RequestContext(request))
