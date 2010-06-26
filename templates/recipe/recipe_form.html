@@ -4,6 +4,7 @@
 {% block jscript %}
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
  <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery.formset.js"></script>
+ <script type="text/javascript" src="{{ MEDIA_URL }}js/RelatedObjectLookups.js"></script>
  <script type="text/javascript" src="{{ MEDIA_URL }}js/jqtransformplugin/jquery.jqtransform.js"></script>
  <script type="text/javascript">
            $(function() {
@@ -77,7 +78,7 @@
         </div>
     </div>
 
-    <p><input type="submit" value="save" /></p>
+    <p><input type="submit" value="{% trans "New Recipe" %}" /></p>
 </form>
 
 {% endblock %}

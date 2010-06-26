@@ -11,7 +11,7 @@ from forms import RecipeForm
     return render_to_response('recipe/index.html', {'recipes':recipes},context_instance=RequestContext(request))'''
 
 @login_required
-def recipe(request):
+def recipe(request):        
     IngFormSet = inlineformset_factory(Recipe, RecipeIngredient, extra=5)
     if request.method=='POST':
         form = RecipeForm(request.POST)
