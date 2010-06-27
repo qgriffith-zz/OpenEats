@@ -1,0 +1,5 @@
+/*Pop up from*/
+
+div#popup-form input { height:25px;}
+div#popup-form label {	font-size: 110%; color:#484846; float: left; text-align: right;	margin-right: 15px; width: 90px;}
+div#popup-form h1 { color:#5f562a; font-weight:bold;}

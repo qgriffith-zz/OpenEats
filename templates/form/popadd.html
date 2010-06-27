@@ -1,18 +1,20 @@
 {% load i18n %}
 <html>
     <head>
-         <script type="text/javascript" src="{{ MEDIA_URL }}js/RelatedObjectLookups.js"></script>
-         <title>{%trans "Add"%} {{ field }}</title>
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/RelatedObjectLookups.js"></script>
+        <link rel="stylesheet" href="{{ MEDIA_URL }}css/popup.css" />
+        <title>OpenEats | {%trans "Add"%} {{ field }}</title>
     </head>
     <body>
-        <h1>{% blocktrans %}Add {{ field }}{% endblocktrans %}</h1>
-        <form method="POST" action="/groups/popadd/{{ field }}/">{% csrf_token %}
-            <div id="popup-form">
+        <div id="popup-form">
+            <h1>{% blocktrans %}Add {{ field }}{% endblocktrans %}</h1>
+            <form method="POST" action="/groups/popadd/{{ field }}/">{% csrf_token %}
                 {{ form.title.errors }}
                 <p>{{ form.title.label_tag }} {{ form.title }}</p>
                 <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
-            </div>
-            <p><input type="submit" value='{%trans "submit" %}'/> | <a href="javascript:window.close()">{%trans "Cancel" %}</a></p>
-        </form>
+
+                <p><input type="submit" value='{%trans "submit" %}'/> | <a href="javascript:window.close()">{%trans "Cancel" %}</a></p>
+            </form>
+        </div>
     </body>
 </html>
