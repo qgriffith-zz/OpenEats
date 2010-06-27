@@ -21,7 +21,7 @@ class RecipeForm(ModelForm):
         speical widget that appends a link and graphic to the end of select field to allow
         users to add new items via a popup form'''
     course = forms.ModelChoiceField(Course.objects, widget=SelectWithPop)
-    cuisine = forms.ModelChoiceField(Course.objects, widget=SelectWithPop)
+    cuisine = forms.ModelChoiceField(Cuisine.objects, widget=SelectWithPop)
     class Meta:
         model = Recipe
         exclude=('slug','ingredient')

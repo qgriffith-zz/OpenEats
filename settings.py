@@ -125,6 +125,7 @@ INSTALLED_APPS = (
     'disqus',
     'registration',
     #'rosetta',
+    'imagekit',
     'openeats.recipe',
     'openeats.recipe_groups',
     'openeats.ingredient',

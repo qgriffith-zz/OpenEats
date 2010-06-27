@@ -4,10 +4,10 @@ from django.template.defaultfilters import slugify
 from tagging.fields import TagField, Tag
 from recipe_groups.models import Course, Cuisine
 from ingredient.models import Ingredient
+from imagekit.models import ImageModel
 
 
-
-class Recipe(models.Model):
+class Recipe(ImageModel):
     SHARE_SHARED = 0
     PRIVATE_SHARED = 1
     SHARED_CHOCIES = (
@@ -18,6 +18,7 @@ class Recipe(models.Model):
     title = models.CharField("Recipe Title", max_length=250)
     slug = models.SlugField(unique=True, blank=True)
     author = models.ForeignKey(User)
+    photo = models.ImageField(blank=True, null=True, upload_to="upload/recipe_photos")
     course = models.ForeignKey(Course)
     cuisine = models.ForeignKey(Cuisine)
     info = models.TextField(help_text="enter information about the recipe")
@@ -29,6 +30,13 @@ class Recipe(models.Model):
     tags = TagField(help_text="separate with commas")
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
+
+    class IKOptions:
+        '''image kit options'''
+        spec_module = 'recipe.ikspec'
+        cache_dir = 'upload/recipe_photos/cache'
+        image_field = 'photo'
+
 
     class Meta:
         ordering = ['pub_date', 'title']

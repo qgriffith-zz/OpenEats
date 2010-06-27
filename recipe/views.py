@@ -14,7 +14,7 @@ from forms import RecipeForm
 def recipe(request):        
     IngFormSet = inlineformset_factory(Recipe, RecipeIngredient, extra=5)
     if request.method=='POST':
-        form = RecipeForm(request.POST)
+        form = RecipeForm(request.POST, request.FILES)
         formset = IngFormSet(request.POST)
         if form.is_valid() and formset.is_valid():
             new_recipe = form.save()

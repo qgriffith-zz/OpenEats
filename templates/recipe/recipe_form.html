@@ -16,13 +16,15 @@
        </script>
 {% endblock %}
 {% block content %}
-<form action="" method="post">{% csrf_token %}
+<form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
     <div id="recipe-form">
      
         {{ form.title.errors }}
         <p>{{ form.title.label_tag }} {{ form.title }}</p>
     
-       
+        {{ form.photo.errors }}
+        <p>{{ form.photo.label_tag }}{{ form.photo }} </p>
+
         {{ form.course.errors }}
         <p>{{ form.course.label_tag }}{{ form.course }} </p>
         
