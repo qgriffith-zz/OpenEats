@@ -6,7 +6,6 @@ from recipe_groups.models import Course, Cuisine
 from ingredient.models import Ingredient
 from imagekit.models import ImageModel
 
-
 class Recipe(ImageModel):
     SHARE_SHARED = 0
     PRIVATE_SHARED = 1
@@ -18,7 +17,7 @@ class Recipe(ImageModel):
     title = models.CharField("Recipe Title", max_length=250)
     slug = models.SlugField(unique=True, blank=True)
     author = models.ForeignKey(User)
-    photo = models.ImageField(blank=True, null=True, upload_to="upload/recipe_photos")
+    photo = models.ImageField(blank=True, upload_to="upload/recipe_photos")
     course = models.ForeignKey(Course)
     cuisine = models.ForeignKey(Cuisine)
     info = models.TextField(help_text="enter information about the recipe")
