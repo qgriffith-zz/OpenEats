@@ -4,6 +4,7 @@
     <div id="title"> <h3>{% trans "Recipes" %}</h3></div>
     {% for recipe in recipe_list %}
     <div class="recipe">
+        <img id="list-thumb"src="{{ recipe.list_thumbnail.url }}" alt="{{ recipe.photo.name }}"
         <h4><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h4>
         <p class="chef">Chef: {{ recipe.author }} </p>
         <p>{{ recipe.info }}</p>

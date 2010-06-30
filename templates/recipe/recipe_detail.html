@@ -4,7 +4,7 @@
 {% block content %}
 <div id="title">
     <h3>{{ recipe }}</h3>
-    <img src="{{ recipe.thumbnail_image.url   }}" alt="picture" />
+    <img src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe.photo.name }}" />
 </div>
 <div id="recipe-show">
     <div id="recipe-info">
