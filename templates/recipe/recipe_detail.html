@@ -1,10 +1,22 @@
 {% extends "base.html" %}
 {% load i18n %}
 {%block title %}{% blocktrans %} OpenEats - {{ recipe }} {% endblocktrans %}{% endblock %}
+{% block jscript %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox.css" />
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("a#recipe-photo").fancybox();
+
+        });
+    </script>
+{% endblock %}
+
 {% block content %}
 <div id="title">
     <h3>{{ recipe }}</h3>
-    <img src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe.photo.name }}" />
+    <a id="recipe-photo" href="{{recipe.display.url }}"<img src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe.photo.name }}" /></a>
 </div>
 <div id="recipe-show">
     <div id="recipe-info">
@@ -40,6 +52,7 @@
         {% disqus_dev %}
         {% disqus_show_comments %}
     </div>
+
 </div>
 
 
