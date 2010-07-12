@@ -2,5 +2,5 @@
 {% load i18n %}
 {% block content %}
 
-<p>{% trans "Your account is now active! Feel free to login to the site." %}</p>
+<p>{% block trans %} Your account is now active! Feel free to <a href="/accounts/login" > login </a> to the site. {% endblock %}</p>
 {% endblock %}

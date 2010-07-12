@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 class UserProfiles(models.Model):
     user = models.ForeignKey(User, unique=True)
-    about = models.TextField(blank=True, null=True)
+    about = models.TextField(blank=True,default="Tell everyone something about yourself")
     url = models.URLField("Website", blank=True)
 
     def __unicode__(self):

@@ -2,6 +2,7 @@ from django.conf.urls.defaults import *
 from django.contrib import databrowse
 from django.conf import settings
 from openeats.accounts.forms import ProfileForm
+import helpers.signals
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
