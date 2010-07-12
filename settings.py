@@ -75,6 +75,8 @@ ADMIN_MEDIA_PREFIX = '/site_media/admin/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'tk1ig_pa_p9^muz4vw4%#q@0no$=ce1*b$#s343jouyq9lj)k33j('
 
+AUTH_PROFILE_MODULE = 'accounts.UserProfiles'
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -125,10 +127,12 @@ INSTALLED_APPS = (
     'disqus',
     'registration',
     #'rosetta',
+    'profiles',
     'imagekit',
     'openeats.recipe',
     'openeats.recipe_groups',
     'openeats.ingredient',
+    'openeats.accounts',
 )
 
 

@@ -6,7 +6,7 @@
     <div class="recipe">
         <img id="list-thumb"src="{{ recipe.list_thumbnail.url }}" alt="{{ recipe.photo.name }}"
         <h4><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h4>
-        <p class="chef">Chef: {{ recipe.author }} </p>
+        <p class="chef">Chef: <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a> </p>
         <p>{{ recipe.info }}</p>
         <br />
         <a class="recipe-more" href="{{ recipe.get_absolute_url }}"><em><b>Read More</b></em></a>

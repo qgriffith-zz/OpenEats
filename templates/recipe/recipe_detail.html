@@ -22,7 +22,7 @@
     <div id="recipe-info">
         <p><span>{%trans "Course:" %}</span> {{ recipe.course }}</p>
         <p><span>{%trans "Cuisine:" %}</span> {{ recipe.cuisine }}</p>
-        <p><span>{%trans "Chef:" %}</span> {{ recipe.author }}</p>
+        <p><span>{%trans "Chef:" %}</span> <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
     </div>
     <div id="recipe-cook">
         <ul>
@@ -32,7 +32,7 @@
     </div>
     <div id="recipe-info">
         <hr />
-        <p>{{recipe.info}}</p>
+        <p>{{recipe.info|safe}}</p>
         <hr />
     </div>
     <div id="recipe-ing">
@@ -45,7 +45,7 @@
     </div>
     <div id="recipe-directions">
         <h2>{% trans "Directions" %}</h2>
-        {{ recipe.directions }}
+        {{ recipe.directions|safe }}
     </div>
     <div id="recipe-comments">
         {% load disqus_tags %}

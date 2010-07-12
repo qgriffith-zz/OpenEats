@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{{ profile.user.username }} {%trans 'profile' %} {% endblock %}
+{% block content %}
+<h1>{{ profile.user.username }} {%trans 'profile' %} </h1>
+<div id="user_profile" >
+    <h3>{% trans 'all about me' %}</h3>
+    <p>{{ profile.about }}</p>
+    <h3>{% trans 'webpage' %}</h3>
+    <p><a href="{{ profile.url }}">{{ profile.url }}</a></p>
+</div>
+{% endblock %}

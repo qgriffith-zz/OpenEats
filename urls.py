@@ -1,6 +1,7 @@
 from django.conf.urls.defaults import *
 from django.contrib import databrowse
 from django.conf import settings
+from openeats.accounts.forms import ProfileForm
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -18,6 +19,8 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^grappelli/', include('grappelli.urls')),
     (r'^accounts/', include('registration.backends.default.urls')),
+    ('^profiles/edit', 'profiles.views.edit_profile', {'form_class': ProfileForm,}),
+    (r'^profiles/', include('profiles.urls')),
     (r'^rosetta/', include('rosetta.urls')),
     (r'^groups/', include('recipe_groups.urls')),
     (r'^recipe/', include('recipe.urls')),

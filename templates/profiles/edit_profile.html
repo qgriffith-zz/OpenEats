@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{%trans 'edit' %} {{ profile.user.username }} {%trans 'profile' %} {% endblock %}
+{% block content %}
+<h1>Edit contact info for {{ user }} </h1>
+
+<form method="POST" action="">{% csrf_token %}
+    {{ form }}
+    <input type="submit" name="submit" value="Update" id="submit">
+</form>
+{% endblock %}
