@@ -1,14 +1,14 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli/media/jquery
 http://django-grappelli.googlecode.com/svn
 
 
 
-2010-05-27T11:45:12.654052Z
-1041
+2010-06-11T10:59:18.168016Z
+1066
 klemens.mantzos
 
 
@@ -28,80 +28,6 @@ klemens.mantzos
 
 i18n
 dir
-
-grappelli
-dir
-
-jquery-ui-1.7.2.custom.min.js
-file
-
-
-
-
-2010-05-29T18:56:08.000000Z
-a9d4e7303abf8fe3e32fe69969560501
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-185808
-
-custom-theme
-dir
-
-jquery-1.3.2.min.js
-file
-
-
-
-
-2010-05-29T18:56:08.000000Z
-bb381e2d19d8eace86b34d20759491a5
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-57254
 
 jquery-1.4.2.min.js
 file

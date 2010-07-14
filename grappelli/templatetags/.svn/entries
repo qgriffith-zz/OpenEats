@@ -1,15 +1,15 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli/templatetags
 http://django-grappelli.googlecode.com/svn
 
 
 
-2010-05-26T17:10:12.196413Z
-1031
-klemens.mantzos
+2010-07-07T15:04:52.608479Z
+1082
+sehmaschine
 
 
 
@@ -66,11 +66,11 @@ file
 
 
 
-2010-05-29T18:56:24.000000Z
-785c6df5b84e0e36998f7f97e74f7cfc
-2010-05-26T17:10:12.196413Z
-1031
-klemens.mantzos
+2010-07-14T23:30:00.000000Z
+87537dafea989c5d0304d0100c289c71
+2010-07-07T15:04:52.608479Z
+1082
+sehmaschine
 
 
 
@@ -92,5 +92,5 @@ klemens.mantzos
 
 
 
-1819
+3051
 

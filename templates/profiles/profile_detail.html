@@ -8,5 +8,10 @@
     <p>{{ profile.about }}</p>
     <h3>{% trans 'webpage' %}</h3>
     <p><a href="{{ profile.url }}">{{ profile.url }}</a></p>
+    {% if profile.user.username == request.user.username %}
+        <a href="/profiles/edit/">{%trans 'edit Profile' %}</a>
+        <a href="/accounts/password/change/">{%trans 'change password' %}</a>
+        <a href="/accounts/logout/">{%trans 'logout' %}</a>
+    {% endif %}
 </div>
 {% endblock %}

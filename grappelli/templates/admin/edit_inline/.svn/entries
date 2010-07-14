@@ -1,14 +1,14 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli/templates/admin/edit_inline
 http://django-grappelli.googlecode.com/svn
 
 
 
-2010-05-27T14:09:40.573569Z
-1045
+2010-07-07T13:56:00.130655Z
+1081
 sehmaschine
 
 
@@ -32,10 +32,10 @@ file
 
 
 
-2010-05-29T18:56:24.000000Z
-c98847f6dc38820cc9d94915c2f5a0ec
-2010-05-27T14:09:40.573569Z
-1045
+2010-07-14T23:30:00.000000Z
+7e80da4f43ab3f3e0f0ca8ede4d33d70
+2010-07-07T13:40:13.821310Z
+1080
 sehmaschine
 
 
@@ -58,7 +58,7 @@ sehmaschine
 
 
 
-6269
+6387
 
 tabular.html
 file
@@ -66,10 +66,10 @@ file
 
 
 
-2010-05-29T18:56:24.000000Z
-c39140623bdf9e56ca77aa13a69896ad
-2010-05-27T14:09:40.573569Z
-1045
+2010-07-14T23:30:00.000000Z
+dfea0d8f589c2912f94a12c9b9ff8d14
+2010-07-07T13:56:00.130655Z
+1081
 sehmaschine
 
 
@@ -92,5 +92,5 @@ sehmaschine
 
 
 
-6798
+6817
 

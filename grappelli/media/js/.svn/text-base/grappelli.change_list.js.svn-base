@@ -238,25 +238,21 @@
             });
         }
         
-        $("input.action-select, input#action-toggle").click(function() {
+        $("input.action-select, input#action-toggle, a.cancel-link").click(function() {
             $("div#submit").hide();
         });
         
-        $("input[name!='_selected_action'][id!='action-toggle'][id!='searchbar']").focus(showSubmitFooter);
+        //var edit_inlines = $("input[name!='_selected_action'][id!='action-toggle'][id!='searchbar']");
+        //edit_inlines.focus(showSubmitFooter);
+        // safari (5) needs this because focus event doesn't work on checkboxes (anymore)
+        //edit_inlines.end().find(":checkbox").click(showSubmitFooter);
+        $("input[name!='_selected_action'][id!='action-toggle'][id!='searchbar']").click(showSubmitFooter);
         $("select[class!='filter_choice'][name!='action']").click(showSubmitFooter);
         // FilebrowseField's button
         $("a.fb_show").click(showSubmitFooter);
         
-        $("td input.vForeignKeyRawIdAdminField").each(function() {
+        $("td input.vForeignKeyRawIdAdminField, td input.vFileBrowseField, td a.add-another").each(function() {
             $(this).parent().addClass('nowrap');
-        })
-        
-        $("td input.vFileBrowseField").each(function() {
-            $(this).parent().addClass('nowrap');
-        })
-        
-        $("a.cancel-link").click(function() {
-            $("div#submit").hide();
         });
         
         // Check state of checkboxes and reinit state if needed
@@ -299,5 +295,5 @@
         actionSelect: "div.changelist-actions select",
         initialSearchVal: "Search"
     };
-})(jQuery);
+})(django.jQuery);
 

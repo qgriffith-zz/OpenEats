@@ -1,15 +1,15 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli/media/js
 http://django-grappelli.googlecode.com/svn
 
 
 
-2010-05-26T17:28:51.458784Z
-1032
-klemens.mantzos
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
 
 
 
@@ -25,6 +25,40 @@ klemens.mantzos
 
 
 35d8ae9e-4555-0410-bd5f-97af217b58d9
+
+SelectFilter2.js
+file
+
+
+
+
+2010-07-14T23:30:00.000000Z
+bfef0af70017243b5d2554e9ee73db7f
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+6507
 
 compress.py
 file
@@ -60,14 +94,14 @@ has-props
 
 1896
 
-SelectFilter2.js
+dateparse.js
 file
 
 
 
 
 2010-05-29T18:56:23.000000Z
-9b1e7c4a880c66c4929e82c39320b8e9
+71369fd9604d828197cacd9bed2fb70a
 2010-04-27T13:29:18.203625Z
 876
 klemens.mantzos
@@ -92,7 +126,7 @@ has-props
 
 
 
-6451
+7172
 
 getElementsBySelector.js
 file
@@ -128,74 +162,6 @@ has-props
 
 6427
 
-dateparse.js
-file
-
-
-
-
-2010-05-29T18:56:23.000000Z
-71369fd9604d828197cacd9bed2fb70a
-2010-04-27T13:29:18.203625Z
-876
-klemens.mantzos
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-7172
-
-documentation.js
-file
-
-
-
-
-2010-05-29T18:56:23.000000Z
-694af3b4a701ecefe6a9da7faf7e3ecd
-2010-04-30T14:48:47.975092Z
-926
-sehmaschine
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-934
-
 calendar.js
 file
 
@@ -230,18 +196,17 @@ has-props
 
 86
 
-grappelli.timepicker.js
+documentation.js
 file
 
 
 
 
-2010-05-29T18:56:23.000000Z
-d10b9e282ff474c1c5a72af4133e1bdf
-2010-05-26T15:26:31.114686Z
-1023
-klemens.mantzos
-has-props
+2010-07-14T23:30:00.000000Z
+11b85d51c345868e8657d43065f3b4fb
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
 
 
 
@@ -262,7 +227,8 @@ has-props
 
 
 
-4500
+
+928
 
 urlify.js
 file
@@ -298,20 +264,17 @@ has-props
 
 5585
 
-admin
-dir
-
-grappelli.js
+grappelli.timepicker.js
 file
 
 
 
 
-2010-05-29T18:56:23.000000Z
-00eb916c0af6850b49f5d65983e6c741
-2010-05-04T16:33:59.554287Z
-943
-klemens.mantzos
+2010-07-14T23:30:00.000000Z
+a92913a7177495f809fb85e510b10cac
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
 has-props
 
 
@@ -333,7 +296,10 @@ has-props
 
 
 
-3144
+4820
+
+admin
+dir
 
 jquery.js
 file
@@ -369,6 +335,108 @@ has-props
 
 44
 
+grappelli.js
+file
+
+
+
+
+2010-07-14T23:30:00.000000Z
+1cbf061772484b99e25e829302161897
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3180
+
+grappelli.init.js
+file
+
+
+
+
+2010-07-14T23:30:00.000000Z
+f169d91cf5ba06f92d97f2bcd5d74d11
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+107
+
+jquery.init.js
+file
+
+
+
+
+2010-07-14T23:30:00.000000Z
+a5b3858d4c44aefc367a9e6843040996
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+11
+
 actions.min.js
 file
 
@@ -403,17 +471,51 @@ has-props
 
 19
 
+prepopulate.min.js
+file
+
+
+
+
+2010-07-14T23:30:00.000000Z
+2cbb715ed760583c1ade5bd566e33e5e
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+10
+
 inlines.min.js
 file
 
 
 
 
-2010-05-29T18:56:23.000000Z
-f2dab9d51d2703da938f827d9850b173
-2010-05-18T04:46:15.013586Z
-968
-haineault
+2010-07-14T23:30:00.000000Z
+14ec562d12771112b6aa576ad1107b40
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
 has-props
 
 
@@ -435,7 +537,7 @@ has-props
 
 
 
-12756
+11067
 
 collapse.min.js
 file
@@ -579,11 +681,11 @@ file
 
 
 
-2010-05-29T18:56:23.000000Z
-6df5d090121dcb1f691f70326713fff7
-2010-05-04T16:33:59.554287Z
-943
-klemens.mantzos
+2010-07-14T23:30:00.000000Z
+313d2111882f1ed7d57df9641ba7f28a
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
 
 
 
@@ -605,7 +707,7 @@ klemens.mantzos
 
 
 
-955
+974
 
 grappelli.change_list.js
 file
@@ -613,11 +715,11 @@ file
 
 
 
-2010-05-29T18:56:23.000000Z
-ae31ee6ae80370043e9aee6e9e6d03ae
-2010-05-26T17:28:51.458784Z
-1032
-klemens.mantzos
+2010-07-14T23:30:00.000000Z
+95611f3bc4070f4c68350427bec12376
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
 has-props
 
 
@@ -639,7 +741,7 @@ has-props
 
 
 
-11328
+11482
 
 actions.js
 file
@@ -681,11 +783,11 @@ file
 
 
 
-2010-05-29T18:56:23.000000Z
-017d02156c47c0805c9e457069ec5e2d
-2010-05-24T08:19:40.582468Z
-1017
-klemens.mantzos
+2010-07-14T23:30:00.000000Z
+250451fe3234c8d1c3a530b95f393af9
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
 has-props
 
 
@@ -707,7 +809,7 @@ has-props
 
 
 
-4314
+4315
 
 jquery.min.js
 file
@@ -749,11 +851,11 @@ file
 
 
 
-2010-05-29T18:56:23.000000Z
-3c2902fc577a446cddfc1cb4e870902c
-2010-05-18T14:57:33.206006Z
-1000
-klemens.mantzos
+2010-07-14T23:30:00.000000Z
+14ec562d12771112b6aa576ad1107b40
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
 has-props
 
 
@@ -775,7 +877,7 @@ has-props
 
 
 
-12735
+11067
 
 grappelli.RelatedObjectLookups.js
 file
@@ -783,11 +885,11 @@ file
 
 
 
-2010-05-29T18:56:23.000000Z
-74aebb36c350a83a53ddb78afae228c3
-2010-05-11T14:13:16.610739Z
-959
-klemens.mantzos
+2010-07-14T23:30:00.000000Z
+5014d1980289c304198f903d102fdfa8
+2010-07-07T13:40:13.821310Z
+1080
+sehmaschine
 has-props
 
 
@@ -809,7 +911,7 @@ has-props
 
 
 
-11295
+11360
 
 collapse.js
 file

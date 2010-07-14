@@ -1,7 +1,7 @@
 K 25
 svn:wc:ra_dav:version-url
 V 47
-/svn/!svn/ver/1050/trunk/grappelli/templatetags
+/svn/!svn/ver/1082/trunk/grappelli/templatetags
 END
 __init__.py
 K 25
@@ -13,5 +13,5 @@ grp_tags.py
 K 25
 svn:wc:ra_dav:version-url
 V 59
-/svn/!svn/ver/1050/trunk/grappelli/templatetags/grp_tags.py
+/svn/!svn/ver/1082/trunk/grappelli/templatetags/grp_tags.py
 END

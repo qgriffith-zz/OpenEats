@@ -15,7 +15,6 @@
     <script type="text/javascript" charset="utf-8">
         (function($) {
             $(document).ready(function() {
-                
                 {% if is_popup %}
                     // UGLY HACK: REMOVE ACTIONS and LIST_EDITABLES FOR POPUPS
                     // shouldn't be there in the first place, see
@@ -33,7 +32,7 @@
                 
                 $('body').change_list();
             });
-        })(jQuery.noConflict());
+        })(django.jQuery);
     </script>
 {% endblock %}
 
@@ -74,11 +73,11 @@
 
 <!-- CONTENT -->
 {% block content %}
-    {% if search_form or cl.has_filters or cl.date_hierarchy %}
+    {% if cl.search_fields or cl.has_filters or cl.date_hierarchy %}
         <div class="module changelist-filters">
             <!-- PAGINATION TOP -->
             {% pagination cl %}
-            {% if cl.has_filters or search_form %}
+            {% if cl.has_filters or cl.search_fields %}
                 <!-- FILTERS -->
                 {% if cl.has_filters %}
                     <div id="filters" class="module filter span-6">
@@ -90,12 +89,12 @@
                         </div>
                     </div>
                 {% endif %}
-                    <!-- SEARCH -->
-                    {% if not search_form %}
-                        <div id="search" class="module search span-6">
-                            {% block search %}{% search_form cl %}{% endblock %}
-                        </div>
-                    {% endif %}
+                <!-- SEARCH -->
+                {% if cl.search_fields %}
+                    <div id="search" class="module search span-6">
+                        {% block search %}{% search_form cl %}{% endblock %}
+                    </div>
+                {% endif %}
             {% endif %}
             <br clear="all" />
         </div>
@@ -135,7 +134,7 @@
             <div id="submit" class="module footer" style="display: none;">
                 <ul class="submit-row">
                     <li class="left delete-link-container"><a href="javascript://" class="cancel-link">Cancel</a></li>
-                    <li class="submit-button-container"><input type="submit" class="default" value="Save"/></li>
+                    <li class="submit-button-container"><input type="submit" class="default" name="_save" value="Save"/></li>
                 </ul>
             </div>
         {% endif %}

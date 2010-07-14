@@ -1,7 +1,7 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli/media/img/admin
 http://django-grappelli.googlecode.com/svn
 
@@ -502,40 +502,6 @@ has-props
 
 234
 
-selector-addall.gif
-file
-
-
-
-
-2010-05-29T18:56:21.000000Z
-895d0934dc053a89b881c2ae97534ea1
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-358
-
 tooltag-arrowright.gif
 file
 
@@ -569,6 +535,40 @@ has-props
 
 
 351
+
+selector-addall.gif
+file
+
+
+
+
+2010-05-29T18:56:21.000000Z
+895d0934dc053a89b881c2ae97534ea1
+2010-02-23T16:16:13.908876Z
+755
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+358
 
 tool-left_over.gif
 file
@@ -706,40 +706,6 @@ has-props
 
 612
 
-browser_firefox.gif
-file
-
-
-
-
-2010-05-29T18:56:21.000000Z
-f7bdedc216dbb576de54a9d60aac0181
-2010-03-21T20:06:00.327637Z
-807
-haineault
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-4202
-
 icon_searchbox.png
 file
 
@@ -773,6 +739,40 @@ has-props
 
 
 667
+
+browser_firefox.gif
+file
+
+
+
+
+2010-05-29T18:56:21.000000Z
+f7bdedc216dbb576de54a9d60aac0181
+2010-03-21T20:06:00.327637Z
+807
+haineault
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4202
 
 changelist-bg.gif
 file
@@ -944,40 +944,6 @@ has-props
 
 3803
 
-icon_calendar.gif
-file
-
-
-
-
-2010-05-29T18:56:21.000000Z
-b4704fc81e9d19f1ac2e2ba516c113aa
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-192
-
 browser-warning-box-bg.png
 file
 
@@ -1012,14 +978,14 @@ has-props
 
 130
 
-selector-search.gif
+icon_calendar.gif
 file
 
 
 
 
 2010-05-29T18:56:21.000000Z
-a5de786630beef39a2a28207b3d91623
+b4704fc81e9d19f1ac2e2ba516c113aa
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -1044,7 +1010,7 @@ has-props
 
 
 
-552
+192
 
 default-bg-reverse.gif
 file
@@ -1079,6 +1045,40 @@ has-props
 
 
 843
+
+selector-search.gif
+file
+
+
+
+
+2010-05-29T18:56:21.000000Z
+a5de786630beef39a2a28207b3d91623
+2010-02-23T16:16:13.908876Z
+755
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+552
 
 tool-right_over.gif
 file

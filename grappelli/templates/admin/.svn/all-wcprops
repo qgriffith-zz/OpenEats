@@ -1,19 +1,19 @@
 K 25
 svn:wc:ra_dav:version-url
 V 50
-/svn/!svn/ver/1050/trunk/grappelli/templates/admin
+/svn/!svn/ver/1086/trunk/grappelli/templates/admin
+END
+change_list.html
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/1086/trunk/grappelli/templates/admin/change_list.html
 END
 template_validator.html
 K 25
 svn:wc:ra_dav:version-url
 V 74
 /svn/!svn/ver/1050/trunk/grappelli/templates/admin/template_validator.html
-END
-change_list.html
-K 25
-svn:wc:ra_dav:version-url
-V 67
-/svn/!svn/ver/1050/trunk/grappelli/templates/admin/change_list.html
 END
 delete_selected_confirmation.html
 K 25
@@ -31,7 +31,7 @@ prepopulated_fields_js.html
 K 25
 svn:wc:ra_dav:version-url
 V 78
-/svn/!svn/ver/1050/trunk/grappelli/templates/admin/prepopulated_fields_js.html
+/svn/!svn/ver/1080/trunk/grappelli/templates/admin/prepopulated_fields_js.html
 END
 object_history.html
 K 25
@@ -43,13 +43,13 @@ search_form.html
 K 25
 svn:wc:ra_dav:version-url
 V 67
-/svn/!svn/ver/1050/trunk/grappelli/templates/admin/search_form.html
+/svn/!svn/ver/1083/trunk/grappelli/templates/admin/search_form.html
 END
 pagination.html
 K 25
 svn:wc:ra_dav:version-url
 V 66
-/svn/!svn/ver/1050/trunk/grappelli/templates/admin/pagination.html
+/svn/!svn/ver/1085/trunk/grappelli/templates/admin/pagination.html
 END
 base_site.html
 K 25
@@ -63,17 +63,17 @@ svn:wc:ra_dav:version-url
 V 63
 /svn/!svn/ver/1050/trunk/grappelli/templates/admin/actions.html
 END
-base_index.html
-K 25
-svn:wc:ra_dav:version-url
-V 66
-/svn/!svn/ver/1050/trunk/grappelli/templates/admin/base_index.html
-END
 change_list_results.html
 K 25
 svn:wc:ra_dav:version-url
 V 75
 /svn/!svn/ver/1050/trunk/grappelli/templates/admin/change_list_results.html
+END
+base_index.html
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/1050/trunk/grappelli/templates/admin/base_index.html
 END
 500.html
 K 25
@@ -109,13 +109,13 @@ change_form.html
 K 25
 svn:wc:ra_dav:version-url
 V 67
-/svn/!svn/ver/1050/trunk/grappelli/templates/admin/change_form.html
+/svn/!svn/ver/1080/trunk/grappelli/templates/admin/change_form.html
 END
 login.html
 K 25
 svn:wc:ra_dav:version-url
 V 61
-/svn/!svn/ver/1050/trunk/grappelli/templates/admin/login.html
+/svn/!svn/ver/1080/trunk/grappelli/templates/admin/login.html
 END
 delete_confirmation.html
 K 25
@@ -127,7 +127,7 @@ base.html
 K 25
 svn:wc:ra_dav:version-url
 V 60
-/svn/!svn/ver/1050/trunk/grappelli/templates/admin/base.html
+/svn/!svn/ver/1080/trunk/grappelli/templates/admin/base.html
 END
 submit_line.html
 K 25

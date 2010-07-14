@@ -1,7 +1,7 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli/media/tinymce/jscripts/tiny_mce/plugins
 http://django-grappelli.googlecode.com/svn
 
@@ -71,16 +71,16 @@ dir
 advhr
 dir
 
-tabfocus
-dir
-
 advlist
 dir
 
-advlink_orig
+tabfocus
 dir
 
 grappelli_contextmenu
+dir
+
+advlink_orig
 dir
 
 layer
@@ -98,19 +98,19 @@ dir
 directionality
 dir
 
-wordcount
+visualchars
 dir
 
-visualchars
+wordcount
 dir
 
 legacyoutput
 dir
 
-table
+autosave
 dir
 
-autosave
+table
 dir
 
 advlink

@@ -1,28 +1,38 @@
 (function( $ ) {
-
-
 $.widget("ui.timepicker", {
     // default options
     options: {
         template: '<div id="ui-timepicker" class="module" style="position: absolute; display: none;"></div>',
         timepicker_selector: "#ui-timepicker",
         offset: {
-            top: 5
+            top: 0
         },
         time_list: [
             'now',
+            '00:00',
+            '01:00',
+            '02:00',
+            '03:00',
+            '04:00',
+            '05:00',
+            '06:00',
+            '07:00',
+            '08:00',
+            '09:00',
+            '10:00',
+            '11:00',
+            '12:00',
+            '13:00',
+            '14:00',
+            '15:00',
+            '16:00',
+            '17:00',
             '18:00',
-            '18:30',
             '19:00',
-            '19:30',
             '20:00',
-            '20:30',
             '21:00',
-            '21:30',
             '22:00',
-            '22:30',
-            '23:00',
-            '23:30'
+            '23:00'
         ]
     },
     
@@ -45,11 +55,15 @@ $.widget("ui.timepicker", {
         this.timepicker = $(options.timepicker_selector);
         this.timepicker.hide();
         
-        // register events
-        this.button.click(function() {
-            if (self.element.attr("disabled")) return;
-            self._toggleTimepicker();
-        });
+        if (this.element.attr("disabled")) {
+            this.button.attr("disabled", true);
+        } else {
+            // register events
+            this.button.click(function() {
+                self._toggleTimepicker();
+            });
+        }
+        
         //this.element.focus(function() {
         //    self._toggleTimepicker();
         //})
@@ -62,7 +76,6 @@ $.widget("ui.timepicker", {
             options = self.options,
             template = $(options.template),
             template_str = "<ul>";
-            
         
         for (var i = 0; i < options.time_list.length; i++) {
             if (options.time_list[i] == "now") {
@@ -132,5 +145,4 @@ $.widget("ui.timepicker", {
         // now do other stuff particular to this widget
     }
 });
-
-})(jQuery.noConflict());
+})(django.jQuery);

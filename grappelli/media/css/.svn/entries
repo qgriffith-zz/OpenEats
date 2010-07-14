@@ -1,14 +1,14 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli/media/css
 http://django-grappelli.googlecode.com/svn
 
 
 
-2010-05-28T12:30:12.584501Z
-1047
+2010-07-07T15:55:33.936100Z
+1086
 sehmaschine
 
 
@@ -100,11 +100,11 @@ file
 
 
 
-2010-05-29T18:56:20.000000Z
-f70f40bd9cbfa25021b3881e33316422
-2010-05-27T14:09:40.573569Z
-1045
-sehmaschine
+2010-07-14T23:30:00.000000Z
+29c23e7e5c267ed9c8cfdaa902f0bc55
+2010-06-28T10:30:47.682409Z
+1079
+axel@vonautomatisch.at
 has-props
 
 
@@ -126,7 +126,7 @@ has-props
 
 
 
-9606
+9591
 
 tools.css
 file
@@ -236,11 +236,11 @@ file
 
 
 
-2010-05-29T18:56:20.000000Z
-80fa2864d1e17f1de4eba8776b744a26
-2010-05-27T14:09:40.573569Z
-1045
-sehmaschine
+2010-07-14T23:30:00.000000Z
+08eea080685a12225c139fdda87fedff
+2010-06-28T10:00:38.626888Z
+1075
+axel@vonautomatisch.at
 
 
 
@@ -262,7 +262,7 @@ sehmaschine
 
 
 
-54354
+54438
 
 structures.css
 file
@@ -341,10 +341,10 @@ file
 
 
 
-2010-05-29T18:56:20.000000Z
-cd40740813dddaf1720b50f15c1d29eb
-2010-05-28T12:30:12.584501Z
-1047
+2010-07-14T23:30:00.000000Z
+de04ff514a6375f6b2c8456a48ad681a
+2010-07-07T15:55:33.936100Z
+1086
 sehmaschine
 
 
@@ -367,7 +367,7 @@ sehmaschine
 
 
 
-19069
+19186
 
 typography.css
 file
@@ -375,11 +375,11 @@ file
 
 
 
-2010-05-29T18:56:20.000000Z
-c50fdf7d25436145a57ea0e1b062bc69
-2010-05-27T14:09:40.573569Z
-1045
-sehmaschine
+2010-07-14T23:30:00.000000Z
+b3a08f9f4a8dcd48100ee2e7b80c7d54
+2010-06-28T10:28:16.974586Z
+1078
+axel@vonautomatisch.at
 
 
 
@@ -401,7 +401,7 @@ sehmaschine
 
 
 
-4655
+4789
 
 forms.css
 file
@@ -409,11 +409,11 @@ file
 
 
 
-2010-05-29T18:56:20.000000Z
-daf88964149589c74d5809a2c8d3774c
-2010-05-27T14:09:40.573569Z
-1045
-sehmaschine
+2010-07-14T23:30:00.000000Z
+b1d5b9ffd7f6502e5d555ca0e61395bf
+2010-06-28T10:00:38.626888Z
+1075
+axel@vonautomatisch.at
 
 
 
@@ -435,5 +435,5 @@ sehmaschine
 
 
 
-19910
+20702
 

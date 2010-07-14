@@ -1,7 +1,7 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli/media/img/icons
 http://django-grappelli.googlecode.com/svn
 
@@ -25,74 +25,6 @@ sehmaschine
 
 
 35d8ae9e-4555-0410-bd5f-97af217b58d9
-
-icon-related-lookup-hover.png
-file
-
-
-
-
-2010-05-29T18:56:22.000000Z
-a1d8147112a125c752296d5561f0bad9
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3136
-
-icon-date-hierarchy-back-hover.png
-file
-
-
-
-
-2010-05-29T18:56:22.000000Z
-86fca70d5ae6d0b565398abe120df55e
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-170
 
 icon-fb_show-hover.png
 file
@@ -128,14 +60,14 @@ has-props
 
 3312
 
-icon-tools-viewsite-link-hover.png
+icon-date-hierarchy-back-hover.png
 file
 
 
 
 
 2010-05-29T18:56:22.000000Z
-6410dae709c5872a543b818e5527863e
+86fca70d5ae6d0b565398abe120df55e
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -160,16 +92,16 @@ has-props
 
 
 
-190
+170
 
-icon-actionlist_deletelink.png
+icon-related-lookup-hover.png
 file
 
 
 
 
 2010-05-29T18:56:22.000000Z
-a5945987e2e267470829e27524aad185
+a1d8147112a125c752296d5561f0bad9
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -194,7 +126,7 @@ has-props
 
 
 
-137
+3136
 
 icon-related_lookup.png
 file
@@ -230,14 +162,14 @@ has-props
 
 3139
 
-icon-calendarnav_next.png
+icon-actionlist_deletelink.png
 file
 
 
 
 
 2010-05-29T18:56:22.000000Z
-92e5b94b3c8224d8ae779f9ed10f4dfc
+a5945987e2e267470829e27524aad185
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -262,16 +194,16 @@ has-props
 
 
 
-186
+137
 
-icon-no.png
+icon-tools-viewsite-link-hover.png
 file
 
 
 
 
 2010-05-29T18:56:22.000000Z
-e45e3b52fcf92931a964250554c8b1db
+6410dae709c5872a543b818e5527863e
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -296,7 +228,41 @@ has-props
 
 
 
-140
+190
+
+icon-clock-hover.png
+file
+
+
+
+
+2010-05-29T18:56:22.000000Z
+86f06a0bdf44e0b4b0688d27f82058bf
+2010-02-23T16:16:13.908876Z
+755
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3214
 
 icon-th-descending.png
 file
@@ -332,14 +298,14 @@ has-props
 
 243
 
-icon-clock-hover.png
+icon-no.png
 file
 
 
 
 
 2010-05-29T18:56:22.000000Z
-86f06a0bdf44e0b4b0688d27f82058bf
+e45e3b52fcf92931a964250554c8b1db
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -364,7 +330,41 @@ has-props
 
 
 
-3214
+140
+
+icon-calendarnav_next.png
+file
+
+
+
+
+2010-05-29T18:56:22.000000Z
+92e5b94b3c8224d8ae779f9ed10f4dfc
+2010-02-23T16:16:13.908876Z
+755
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+186
 
 icon-bookmark_manage.png
 file
@@ -1080,40 +1080,6 @@ has-props
 
 380
 
-icon-tools-remove-handler.png
-file
-
-
-
-
-2010-05-29T18:56:22.000000Z
-77a7f20b846776a4f24b1ad8a21d59c1
-2010-05-26T15:53:48.445020Z
-1026
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-152
-
 icon-inline_item_tools-draghandler-hover.png
 file
 
@@ -1147,6 +1113,40 @@ has-props
 
 
 246
+
+icon-tools-remove-handler.png
+file
+
+
+
+
+2010-05-29T18:56:22.000000Z
+77a7f20b846776a4f24b1ad8a21d59c1
+2010-05-26T15:53:48.445020Z
+1026
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+152
 
 icon-tools-drag-handler-hover.png
 file
@@ -1182,40 +1182,6 @@ has-props
 
 183
 
-icon-inline_item_tools-viewsitelink-hover.png
-file
-
-
-
-
-2010-05-29T18:56:22.000000Z
-1b4c7fca35c1d1d6d3163821c2b2ac35
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-199
-
 icon-add_another.png
 file
 
@@ -1249,6 +1215,40 @@ has-props
 
 
 166
+
+icon-inline_item_tools-viewsitelink-hover.png
+file
+
+
+
+
+2010-05-29T18:56:22.000000Z
+1b4c7fca35c1d1d6d3163821c2b2ac35
+2010-02-23T16:16:13.908876Z
+755
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+199
 
 icon-inline_item_tools-openhandler.png
 file
@@ -1318,14 +1318,14 @@ has-props
 
 186
 
-icon-inline_item_tools-deletelink-hover.png
+icon-selector_add-m2m_horizontal-hover.png
 file
 
 
 
 
 2010-05-29T18:56:22.000000Z
-4c897694eb3c09bfaf66a42f4cd0ebbf
+6611b5d204357740773afae0a4364a80
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -1350,7 +1350,7 @@ has-props
 
 
 
-266
+2995
 
 icon-tools-delete-handler.png
 file
@@ -1386,14 +1386,14 @@ has-props
 
 200
 
-icon-selector_add-m2m_horizontal-hover.png
+icon-inline_item_tools-deletelink-hover.png
 file
 
 
 
 
 2010-05-29T18:56:22.000000Z
-6611b5d204357740773afae0a4364a80
+4c897694eb3c09bfaf66a42f4cd0ebbf
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -1418,75 +1418,7 @@ has-props
 
 
 
-2995
-
-icon_inline-item-tools_closehandler.png
-file
-
-
-
-
-2010-05-29T18:56:22.000000Z
-10963c7c09e4800d4ab24ede87cc7491
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3046
-
-icon-menulist_internal-hover.png
-file
-
-
-
-
-2010-05-29T18:56:22.000000Z
-5609b64fa9d438409e86190712dba4ac
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2980
+266
 
 icon-timepicker-hover.png
 file
@@ -1522,14 +1454,14 @@ has-props
 
 3214
 
-icon-searchbox.png
+icon-menulist_internal-hover.png
 file
 
 
 
 
 2010-05-29T18:56:22.000000Z
-6d5291e242eb59ec6dc287a16386529f
+5609b64fa9d438409e86190712dba4ac
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -1554,7 +1486,41 @@ has-props
 
 
 
-3136
+2980
+
+icon_inline-item-tools_closehandler.png
+file
+
+
+
+
+2010-05-29T18:56:22.000000Z
+10963c7c09e4800d4ab24ede87cc7491
+2010-02-23T16:16:13.908876Z
+755
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3046
 
 icon-tools-close-handler.png
 file
@@ -1589,6 +1555,40 @@ has-props
 
 
 248
+
+icon-searchbox.png
+file
+
+
+
+
+2010-05-29T18:56:22.000000Z
+6d5291e242eb59ec6dc287a16386529f
+2010-02-23T16:16:13.908876Z
+755
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3136
 
 icon-inline_item_tools-addhandler-hover.png
 file
@@ -1658,40 +1658,6 @@ has-props
 
 2989
 
-icon-tools-drag-handler.png
-file
-
-
-
-
-2010-05-29T18:56:22.000000Z
-be81016852bce56e2e4205bda5ebc97d
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-229
-
 icon-search-hover.png
 file
 
@@ -1725,6 +1691,40 @@ has-props
 
 
 3136
+
+icon-tools-drag-handler.png
+file
+
+
+
+
+2010-05-29T18:56:22.000000Z
+be81016852bce56e2e4205bda5ebc97d
+2010-02-23T16:16:13.908876Z
+755
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+229
 
 icon-addlink-hover.png
 file
@@ -1760,14 +1760,14 @@ has-props
 
 165
 
-icon-related_lookup-hover.png
+icon-inline_item_tools-deletelink.png
 file
 
 
 
 
 2010-05-29T18:56:22.000000Z
-a1d8147112a125c752296d5561f0bad9
+1a4a4a4ea93e13d66fe127af83c65890
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -1792,7 +1792,7 @@ has-props
 
 
 
-3136
+237
 
 icon-selector_add-m2m_horizontal.png
 file
@@ -1828,14 +1828,14 @@ has-props
 
 2991
 
-icon-inline_item_tools-deletelink.png
+icon-related_lookup-hover.png
 file
 
 
 
 
 2010-05-29T18:56:22.000000Z
-1a4a4a4ea93e13d66fe127af83c65890
+a1d8147112a125c752296d5561f0bad9
 2010-02-23T16:16:13.908876Z
 755
 sehmaschine
@@ -1860,41 +1860,7 @@ has-props
 
 
 
-237
-
-icon-menulist_internal.png
-file
-
-
-
-
-2010-05-29T18:56:22.000000Z
-40427ed48c694a4bf39bd0a6e1ac3db2
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2957
+3136
 
 icon-timepicker.png
 file
@@ -1929,6 +1895,40 @@ has-props
 
 
 3213
+
+icon-menulist_internal.png
+file
+
+
+
+
+2010-05-29T18:56:22.000000Z
+40427ed48c694a4bf39bd0a6e1ac3db2
+2010-02-23T16:16:13.908876Z
+755
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2957
 
 ui-datepicker-next-hover.png
 file
@@ -2032,40 +2032,6 @@ has-props
 
 131
 
-icon-selector_remove-m2m_vertical-hover.png
-file
-
-
-
-
-2010-05-29T18:56:22.000000Z
-55bccf6ba220c8b4974be8782c71b4c7
-2010-02-23T16:16:13.908876Z
-755
-sehmaschine
-has-props
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3009
-
 icon-inline_item_tools-addhandler.png
 file
 
@@ -2099,6 +2065,40 @@ has-props
 
 
 163
+
+icon-selector_remove-m2m_vertical-hover.png
+file
+
+
+
+
+2010-05-29T18:56:22.000000Z
+55bccf6ba220c8b4974be8782c71b4c7
+2010-02-23T16:16:13.908876Z
+755
+sehmaschine
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3009
 
 icon-actions_changelist.png
 file

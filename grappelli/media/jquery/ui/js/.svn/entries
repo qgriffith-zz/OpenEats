@@ -1,15 +1,15 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli/media/jquery/ui/js
 http://django-grappelli.googlecode.com/svn
 
 
 
-2010-03-21T06:04:37.529743Z
-804
-haineault
+2010-06-11T10:59:18.168016Z
+1066
+klemens.mantzos
 
 
 
@@ -59,38 +59,4 @@ haineault
 
 
 195472
-
-jquery-1.4.2.min.js
-file
-
-
-
-
-2010-05-29T18:56:08.000000Z
-10092eee563dec2dca82b77d2cf5a1ae
-2010-03-21T06:04:37.529743Z
-804
-haineault
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-72174
 

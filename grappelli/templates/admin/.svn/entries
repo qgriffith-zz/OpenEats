@@ -1,14 +1,14 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli/templates/admin
 http://django-grappelli.googlecode.com/svn
 
 
 
-2010-05-27T14:09:40.573569Z
-1045
+2010-07-07T15:55:33.936100Z
+1086
 sehmaschine
 
 
@@ -25,6 +25,43 @@ sehmaschine
 
 
 35d8ae9e-4555-0410-bd5f-97af217b58d9
+
+edit_inline
+dir
+
+change_list.html
+file
+
+
+
+
+2010-07-14T23:30:00.000000Z
+c73d4d489db8a9ad4b4238a9362fceff
+2010-07-07T15:55:33.936100Z
+1086
+sehmaschine
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+5803
 
 template_validator.html
 file
@@ -59,43 +96,6 @@ sehmaschine
 
 
 1613
-
-change_list.html
-file
-
-
-
-
-2010-05-29T18:56:24.000000Z
-a666f0d89a96a63e2b8143352522cfdf
-2010-05-27T14:09:40.573569Z
-1045
-sehmaschine
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-5826
-
-edit_inline
-dir
 
 delete_selected_confirmation.html
 file
@@ -171,10 +171,10 @@ file
 
 
 
-2010-05-29T18:56:24.000000Z
-e5335d9581c6cc5e935e0bd25123e608
-2010-05-27T14:09:40.573569Z
-1045
+2010-07-14T23:30:00.000000Z
+07afdc858fb650fba2fa68fb1c9bf2ca
+2010-07-07T13:40:13.821310Z
+1080
 sehmaschine
 
 
@@ -197,7 +197,7 @@ sehmaschine
 
 
 
-826
+820
 
 object_history.html
 file
@@ -239,44 +239,10 @@ file
 
 
 
-2010-05-29T18:56:24.000000Z
-e2fb1dc24e5030c32b3465552fc85334
-2010-04-29T15:53:41.730154Z
-902
-klemens.mantzos
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-584
-
-pagination.html
-file
-
-
-
-
-2010-05-29T18:56:24.000000Z
-a7e5d077ff7df5f7b89d0d49a68d5237
-2010-05-27T14:09:40.573569Z
-1045
+2010-07-14T23:30:00.000000Z
+2fa97c8ba4c8576dcff1e85415b980b7
+2010-07-07T15:18:33.719921Z
+1083
 sehmaschine
 
 
@@ -299,7 +265,44 @@ sehmaschine
 
 
 
-1330
+803
+
+pagination.html
+file
+
+
+
+
+2010-07-14T23:30:00.000000Z
+1f0abb207f0e4d6b0daed3561ee28cf1
+2010-07-07T15:40:52.343756Z
+1085
+sehmaschine
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1487
+
+auth
+dir
 
 base_site.html
 file
@@ -335,9 +338,6 @@ klemens.mantzos
 
 300
 
-auth
-dir
-
 actions.html
 file
 
@@ -372,40 +372,6 @@ sehmaschine
 
 1112
 
-change_list_results.html
-file
-
-
-
-
-2010-05-29T18:56:24.000000Z
-76e3e0c1d63f7ee3418938a2c7850a63
-2010-05-27T14:09:40.573569Z
-1045
-sehmaschine
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-901
-
 base_index.html
 file
 
@@ -439,6 +405,40 @@ sehmaschine
 
 
 2777
+
+change_list_results.html
+file
+
+
+
+
+2010-05-29T18:56:24.000000Z
+76e3e0c1d63f7ee3418938a2c7850a63
+2010-05-27T14:09:40.573569Z
+1045
+sehmaschine
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+901
 
 includes_grappelli
 dir
@@ -622,10 +622,10 @@ file
 
 
 
-2010-05-29T18:56:24.000000Z
-ca9e98c6653508656eb2938e4e8d7c0a
-2010-05-27T14:09:40.573569Z
-1045
+2010-07-14T23:30:00.000000Z
+aa8db12a738532ac788d68ea6af73ca6
+2010-07-07T13:40:13.821310Z
+1080
 sehmaschine
 
 
@@ -648,7 +648,7 @@ sehmaschine
 
 
 
-4384
+4285
 
 login.html
 file
@@ -656,10 +656,10 @@ file
 
 
 
-2010-05-29T18:56:24.000000Z
-625771b1670fb07559db473c6162deb1
-2010-05-27T14:09:40.573569Z
-1045
+2010-07-14T23:30:00.000000Z
+cf4ec569932b58d7d334b184736af872
+2010-07-07T13:40:13.821310Z
+1080
 sehmaschine
 
 
@@ -682,7 +682,7 @@ sehmaschine
 
 
 
-1953
+1947
 
 delete_confirmation.html
 file
@@ -724,10 +724,10 @@ file
 
 
 
-2010-05-29T18:56:24.000000Z
-e4ed0fc6a0f5352f0497f7d5ff7e88c8
-2010-05-27T14:09:40.573569Z
-1045
+2010-07-14T23:30:00.000000Z
+b1685418f15020d3b9b5eb26d4667d8b
+2010-07-07T13:40:13.821310Z
+1080
 sehmaschine
 
 
@@ -750,7 +750,7 @@ sehmaschine
 
 
 
-3446
+3546
 
 submit_line.html
 file

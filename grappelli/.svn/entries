@@ -1,15 +1,15 @@
 10
 
 dir
-1060
+1087
 http://django-grappelli.googlecode.com/svn/trunk/grappelli
 http://django-grappelli.googlecode.com/svn
 
 
 
-2010-05-29T15:45:01.229104Z
-1060
-haineault
+2010-07-07T16:47:56.203212Z
+1087
+sehmaschine
 
 
 
@@ -29,16 +29,16 @@ haineault
 media
 dir
 
-middleware.py
+admin.py
 file
 
 
 
 
-2010-05-29T18:56:24.000000Z
-59d8a204bb7d7b34eac81ff0699caafe
-2010-04-30T14:48:47.975092Z
-926
+2010-07-14T23:30:00.000000Z
+64ee0ea9ccb300615f47dba5c9475193
+2010-07-07T16:47:56.203212Z
+1087
 sehmaschine
 
 
@@ -61,7 +61,41 @@ sehmaschine
 
 
 
-670
+428
+
+middleware.py
+file
+
+
+
+
+2010-07-14T23:30:00.000000Z
+2459e7cf83688ca8f1b2de4c3e43794b
+2010-05-30T05:22:37.205610Z
+1061
+haineault
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+650
 
 __init__.py
 file
@@ -69,10 +103,10 @@ file
 
 
 
-2010-05-29T18:56:24.000000Z
-6e2da08690190b1d1322d71629cbc2d1
-2010-05-11T14:51:42.903805Z
-961
+2010-07-14T23:30:00.000000Z
+e7d8c3eb0fc269fb6afaf346e9015963
+2010-06-14T15:15:58.344367Z
+1071
 klemens.mantzos
 
 
@@ -95,7 +129,7 @@ klemens.mantzos
 
 
 
-20
+15
 
 settings.py
 file

@@ -1,4 +1,3 @@
-
 var CHAR_MAX_LENGTH = 30;
 
 // customized from RelatedObjectLoopups.js
@@ -152,7 +151,7 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
             }
         });
     }
-
+    
     function M2MLookup(obj) {
         // check if val isn't empty string or the same value as before
         if (obj.val() == obj.data('old_val')) return;
@@ -162,7 +161,7 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
         var text = obj.next().next();
         var app_label = link.attr('href').split('/')[2];
         var model_name= link.attr('href').split('/')[3];
-
+        
         if (obj.val() == "") {
             text.text('');
             return;
@@ -187,7 +186,7 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
             }
         });
     }
-
+    
     function GenericLookup(obj) {
         // check if val isn't empty string or the same value as before
         if (obj.val() == obj.data('old_val')) return;
@@ -197,9 +196,9 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
         var text = obj.next().next();
         var app_label = link.attr('href').split('/')[2];
         var model_name= link.attr('href').split('/')[3];
-
+        
         text.text('loading ...');
-
+        
         // get object
         $.get('/grappelli/lookup/related/', {object_id: obj.val(), app_label: app_label, model_name: model_name}, function(data) {
             var item = data;
@@ -244,7 +243,7 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
             }
         });
     }
-
+    
     function InitContentType(obj) {
         obj.bind("change", function() {
             var node = $(this).closest('div[class*="content_type"]').next(),
@@ -270,7 +269,7 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
             }
         });
     }
-
+    
     function GenericHandler(obj) {
         // related lookup handler
         obj.bind("change focus keyup", function() {
@@ -283,7 +282,7 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
            href = $(this).attr('href').replace('../../../', ADMIN_URL);
            $(this).attr('href', href);
         });
-
+        
         // related lookup setup
         $("input.vForeignKeyRawIdAdminField").each(function() {
             // insert empty text-elements after all empty foreignkeys
@@ -291,19 +290,19 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
                 $(this).next().after('&nbsp;<strong></strong>');
             }
         });
-
+        
         // m2m lookup setup
         $("input.vManyToManyRawIdAdminField").each(function() {
             // insert empty text-elements after all m2m fields
             $(this).next().after('&nbsp;<strong>&nbsp;</strong>');
             M2MLookup($(this));
         });
-
+        
         RelatedHandler($("input.vForeignKeyRawIdAdminField"));
         M2MHandler($("input.vManyToManyRawIdAdminField"));
-
+        
         InitObjectID($('input[name*="object_id"]'));
         InitContentType($(':input[name*="content_type"]'));
         GenericHandler($('input[name*="object_id"]'));
     });
-})(jQuery.noConflict());
+})(django.jQuery);
