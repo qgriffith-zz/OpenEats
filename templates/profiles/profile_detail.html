@@ -3,6 +3,8 @@
 {% block title %}{{ profile.user.username }} {%trans 'profile' %} {% endblock %}
 {% block content %}
 <h1>{{ profile.user.username }} {%trans 'profile' %} </h1>
+{% load gravatar_profile %}
+{% gravatar profile.user %}
 <div id="user_profile" >
     <h3>{% trans 'all about me' %}</h3>
     <p>{{ profile.about }}</p>

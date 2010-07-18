@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     #'rosetta',
     'profiles',
     'imagekit',
+    #'ajax_select',
     'openeats.recipe',
     'openeats.recipe_groups',
     'openeats.ingredient',

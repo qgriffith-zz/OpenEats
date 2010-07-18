@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory, inlineformset_factory
 from models import Recipe, RecipeIngredient
 from ingredient.models import Ingredient
-from forms import RecipeForm
+from forms import RecipeForm, BaseIngFormSet
 
 '''def index(request):
     recipes = get_list_or_404(Recipe.objects.order_by('pub_date', 'title')[:10])
