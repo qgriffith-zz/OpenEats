@@ -1,0 +1,33 @@
+{% load i18n %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" media="print" href="{{MEDIA_URL}}/css/prints.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="{{MEDIA_URL}}/css/print.css" />
+        <title>{% trans 'OpenEats Print'%} {{ recipe }}</title>
+    </head>
+    <body>
+        <a id="notvisable" href="javascript:window.print()">Print</a>
+        <h3> {{ recipe }} - <span class="print-site"> OpenEats</span></h3>
+        <p id="print-user"><b>{% trans 'Chef:' %}</b> {{ recipe.author }}</p>
+        <div class="print-desc">
+            {{ recipe.info|safe }}
+        </div>
+        <div>
+            <ul class="list">
+                <li><b>{%trans "servers" %}</b> {{ recipe.servings }}</li>
+                <li><b>{%trans "cook time" %}</b> {{ recipe.cook_time }} {% trans 'mintues' %}</li>
+            </ul>
+        </div>
+        <div>
+            <h4>{%trans "Ingredients" %}</h4>
+            <ul>
+                {% for ing in recipe.recipeingredient_set.all %}
+                <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.ingredient }} {{ ing.preparation }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <h4>{% trans 'Steps' %}</h4>
+           {{ recipe.directions|safe }}
+        </div>
+    </body>
