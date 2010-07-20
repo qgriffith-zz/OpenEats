@@ -1,5 +1,6 @@
 from django.forms import ModelForm
 from django import forms
+from django.forms.widgets import RadioSelect
 from models import UserProfiles
 from django.contrib.auth.models import User
 
@@ -11,10 +12,13 @@ class ProfileForm(ModelForm):
         except User.DoesNotExist:
             pass
     email = forms.EmailField(label="email")
-
+   
     class Meta:
         model = UserProfiles
         exclude = ('user',)
+        widgets = {
+            'gender': RadioSelect(),
+        }
     def save(self, *args, **kwargs):
         """
         Update the primary email address on the related User object as well.

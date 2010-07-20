@@ -130,6 +130,7 @@ INSTALLED_APPS = (
     'profiles',
     'imagekit',
     #'ajax_select',
+    'openeats',
     'openeats.recipe',
     'openeats.recipe_groups',
     'openeats.ingredient',

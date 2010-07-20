@@ -2,9 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class UserProfiles(models.Model):
+    GENDER_CHOICES = (
+        ('M', 'Male'),
+        ('F', 'Female'),
+    )
     user = models.ForeignKey(User, unique=True)
-    about = models.TextField(blank=True,default="Tell everyone something about yourself")
-    url = models.URLField("Website", blank=True)
+    about = models.TextField('about',blank=True,default="Tell everyone something about yourself")
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES, help_text="What are ya?", null=True, default='None')
+    url = models.URLField(blank=True)
+    location = models.CharField(max_length=150, blank=True, default='')
+    pub_date = models.DateTimeField(auto_now_add=True)
+    update_date = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
         return self.user.username
