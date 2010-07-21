@@ -20,36 +20,36 @@
     <div id="recipe-form">
      
         {{ form.title.errors }}
-        <p>{{ form.title.label_tag }} {{ form.title }}</p>
+        <p>{{ form.title.label_tag|lower }} {{ form.title }}</p>
     
         {{ form.photo.errors }}
-        <p>{{ form.photo.label_tag }}{{ form.photo }} </p>
+        <p>{{ form.photo.label_tag|lower }}{{ form.photo }} </p>
 
         {{ form.course.errors }}
-        <p>{{ form.course.label_tag }}{{ form.course }} </p>
+        <p>{{ form.course.label_tag|lower }}{{ form.course }} </p>
         
 
         {{ form.cuisine.errors }}
-        <p>{{ form.cuisine.label_tag }} {{ form.cuisine }}</p>
+        <p>{{ form.cuisine.label_tag|lower }} {{ form.cuisine }}</p>
 
         {{ form.info.errors }}
-        <p>{{ form.info.label_tag }} {{ form.info }} <em>{{ form.info.help_text }}</em></p>
+        <p>{{ form.info.label_tag|lower }} {{ form.info }} <em>{{ form.info.help_text }}</em></p>
        
 
         {{ form.cook_time.errors }}
-        <p>{{ form.cook_time.label_tag }} {{ form.cook_time }} <em>{{ form.cook_time.help_text }}</em></p>
+        <p>{{ form.cook_time.label_tag|lower }} {{ form.cook_time }} <em>{{ form.cook_time.help_text }}</em></p>
 
         {{ form.servings.errors }}
-        <p>{{ form.servings.label_tag }} {{ form.servings }}</p>
+        <p>{{ form.servings.label_tag|lower }} {{ form.servings }}</p>
 
         {{ form.directions.errors }}
-        <p>{{ form.directions.label_tag }} {{ form.directions }}</p>
+        <p>{{ form.directions.label_tag|lower }} {{ form.directions }}</p>
 
         {{ form.shared.errors }}
-        <p>{{ form.shared.label_tag }} {{ form.shared }} <em>{{ form.shared.help_text }}</em></p>
+        <p>{{ form.shared.label_tag|lower }} {{ form.shared }} <em>{{ form.shared.help_text }}</em></p>
         
 
-        <p>{{ form.tags.label_tag }} {{ form.tags }}<em>{{ form.tags.help_text }}</em></p>
+        <p>{{ form.tags.label_tag|lower }} {{ form.tags }}<em>{{ form.tags.help_text }}</em></p>
 
         <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
         <!-- ugh going to do a form here since it is tabular data but still don't like it -->
@@ -57,20 +57,20 @@
             <table id="ing-grid">
                 <thead>
                     <tr>
-                        <th>{% trans "Ingredients" %}</th>
+                        <th>{% trans "ingredients" %}</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{ formset.management_form }}
                     {% for field in formset.forms %}
                     <tr class="{% cycle 'row1' 'row2' %}" id="ing-{{ forloop.counter }}">
-                        <td>{{ field.quantity.label_tag }}</td>
+                        <td>{{ field.quantity.label_tag|lower }}</td>
                         <td id="quantity">{{ field.quantity }}</td>
-                        <td>{{ field.measurement.label_tag }}</td>
+                        <td>{{ field.measurement.label_tag|lower }}</td>
                         <td id="measurement"">{{ field.measurement }}</td>
-                        <td>{{ field.ingredient.label_tag }}</td>
+                        <td>{{ field.ingredient.label_tag|lower }}</td>
                         <td id="ing-field">{{ field.ingredient }}</td>
-                        <td>{{ field.preparation.label_tag }}</td>
+                        <td>{{ field.preparation.label_tag|lower }}</td>
                         <td id="preparation">{{ field.preparation }}</td>
                     </tr>
                     {% endfor %}

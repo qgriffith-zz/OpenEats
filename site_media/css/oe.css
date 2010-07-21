@@ -77,14 +77,14 @@ table#ing-grid tr.row2 { background-color: #f6f4e2;}
 ul.errorlist li{list-style: none; color:red; font-size: 110%;}
 
 /* Profile Form */
-div#profile-form h1 {color: #5f562a; margin-bottom:20px;}
+div#profile-form h2 {color: #5f562a; margin-bottom:20px;}
 div#profile-form { margin-top:20px; padding-bottom:10px;}
 div#profile-form input { height:20px; }
 div#profile-form input#id_url, div#profile-form input#id_email { width:140px;}
 div#profile-form label {color:#484846; float: left; text-align: right;	margin-right: 15px; width: 90px; font-size: 110%}
 div#profile-form li { display:inline;}
-div#profile-form ul {padding-bottom:45px; }
-div#profile-form p#gender, div#profile-form ul { margin-top:25px;}
+div#profile-form ul {padding-bottom:25px; }
+div#profile-form p#gender, div#profile-form ul { margin-top:15px;}
 div#profile-form p { margin-bottom: 15px;}
 div#profile-form div#profile-pic img { border:solid 1px #E6E5CB;  margin-bottom:8px; padding:8px;}
 div#profile-form div#profile-pic { width: 350px; margin-bottom:30px;}
