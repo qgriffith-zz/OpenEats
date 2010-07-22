@@ -86,6 +86,12 @@ div#profile-form li { display:inline;}
 div#profile-form ul {padding-bottom:25px; }
 div#profile-form p#gender, div#profile-form ul { margin-top:15px;}
 div#profile-form p { margin-bottom: 15px;}
-div#profile-form div#profile-pic img { border:solid 1px #E6E5CB;  margin-bottom:8px; padding:8px;}
-div#profile-form div#profile-pic { width: 350px; margin-bottom:30px;}
+div#profile-pic img { border:solid 1px #E6E5CB;  margin-bottom:8px; padding:8px;}
+div#profile-pic { width: 350px; margin-bottom:30px;}
 div#profile-form em { padding-left: 8px; color:#5f562a;}
+
+/* Profile View */
+div#user-profile { color: #484846 }
+div#user-profile h2 { width:75%; color: #5f562a; margin-bottom:20px; padding-bottom: 25px; padding-top:15px; border-bottom: 1px solid #5f562a; }
+span.profile-info { color:#c53c0c }
+div#user-profile div#profile-about { width: 35%;  padding: 5px 10px 40px 10px; margin-bottom: 20px; margin-top: 20px;border: 1px solid #5f562a;}

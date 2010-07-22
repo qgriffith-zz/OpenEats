@@ -2,14 +2,27 @@
 {% load i18n %}
 {% block title %}{{ profile.user.username }} {%trans 'profile' %} {% endblock %}
 {% block content %}
-<h1>{{ profile.user.username }} {%trans 'profile' %} </h1>
-{% load gravatar_profile %}
-{% gravatar profile.user %}
-<div id="user_profile" >
+<div id="user-profile" >
+    <h2>{{ profile.user.username }} {%trans 'profile' %} </h2>
+    <div id="profile-pic" >
+        {% load gravatar_profile %}
+        {% gravatar profile.user 120%}
+        {% if profile.location %}
+         <p><span class="profile-info">{%trans 'location:' %}</span> {{ profile.location }}</p>
+        {% endif %}
+          {% if profile.url %}
+            <p><span class="profile-info">{%trans 'website:' %}</span> <a href="{{ profile.url }}"> {{ profile.url }}</a></p>
+        {% endif %}
+        {% if profile.gender %}
+            <p><span class="profile-info">{%trans 'gender:' %}</span>{{ profile.gender }}</p>
+        {% endif %}
+        <p><span class="profile-info">{% trans 'member for:' %}</span>{%trans 'days' %}</p> {# todo: use the creation date to determine how many days #}
+    </div>
     <h3>{% trans 'all about me' %}</h3>
-    <p>{{ profile.about }}</p>
-    <h3>{% trans 'webpage' %}</h3>
-    <p><a href="{{ profile.url }}">{{ profile.url }}</a></p>
+    <div id="profile-about">   
+        <p>{{ profile.about }}</p>
+    </div>
+
     {% if profile.user.username == request.user.username %}
         <a href="/profiles/edit/">{%trans 'edit Profile' %}</a>
         <a href="/accounts/password/change/">{%trans 'change password' %}</a>
