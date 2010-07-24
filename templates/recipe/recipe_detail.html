@@ -16,7 +16,11 @@
 {% block content %}
 <div id="title">
     <h3>{{ recipe }}</h3>
-    <a id="recipe-photo" href="{{recipe.display.url }}"<img src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe.photo.name }}" /></a>
+    {% if recipe.photo %}
+       <a id="recipe-photo" href="{{recipe.display.url }}"<img src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe.photo.name }}" /></a>
+    {% else %}
+       <a id="recipe-photo" href="{{ MEDIA_URL  }}images/parsley.jpg" <img src="{{ MEDIA_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
+    {% endif %}
 </div>
 <div id="recipe-show">
     <div id="recipe-info">
