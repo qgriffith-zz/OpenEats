@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
 from django.template import RequestContext
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from models import Course, Cuisine
 from django.contrib.auth.decorators import login_required
 from forms import CoursePopForm, CuisinePopForm
@@ -10,14 +11,40 @@ def course_recipes(request, slug):
     '''Rectrives the recipe objects in a list that belong to the course passed to the method'''
     #recipe_list = Recipe.objects.filter(course__title__exact=course)
     course_object = get_object_or_404(Course, slug=slug)
-    recipe_list = course_object.recipe_set.all();
-    return render_to_response('recipe_groups/recipe_list.html', {'recipe_list':recipe_list},context_instance=RequestContext(request) )
+    recipe_list = course_object.recipe_set.all()
+    paginator = Paginator(recipe_list, 10)
+
+    # Make sure page request is an int. If not, deliver first page.
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    # If page request (9999) is out of range, deliver last page of results.
+    try:
+        recipes = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        recipes = paginator.page(paginator.num_pages)
+    return render_to_response('recipe_groups/recipe_list.html', {'recipe_list':recipes},context_instance=RequestContext(request) )
 
 def cuisine_recipes(request, slug):
     '''Retrives the recipe objects in a list that belong to the cuisnie passed to the method'''
     cuisine_object = get_object_or_404(Cuisine, slug=slug)
     recipe_list = cuisine_object.recipe_set.all();
-    return render_to_response('recipe_groups/recipe_list.html', {'recipe_list':recipe_list},context_instance=RequestContext(request))
+    paginator = Paginator(recipe_list, 10)
+
+    # Make sure page request is an int. If not, deliver first page.
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    # If page request (9999) is out of range, deliver last page of results.
+    try:
+        recipes = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        recipes = paginator.page(paginator.num_pages)
+    return render_to_response('recipe_groups/recipe_list.html', {'recipe_list':recipes},context_instance=RequestContext(request))
 
 @login_required
 def course_pop(request):
