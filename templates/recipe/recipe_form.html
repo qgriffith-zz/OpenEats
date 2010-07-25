@@ -9,6 +9,17 @@
  <script type="text/javascript" src="{{ MEDIA_URL }}js/RelatedObjectLookups.js"></script>
  <script type="text/javascript" src="{{ MEDIA_URL }}js/jqtransformplugin/jquery.jqtransform.js"></script>
  <script type="text/javascript" src="{{ MEDIA_URL }}js/oe.js"></script>
+ <script type="text/javascript">
+
+     function stopRKey(evt) {
+         var evt = (evt) ? evt : ((event) ? event : null);
+         var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+         if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+     }
+
+     document.onkeypress = stopRKey;
+
+ </script>
 {% endblock %}
 {% block content %}
 <form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
