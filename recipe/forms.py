@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 from django.template.loader import render_to_string
-from models import Recipe, RecipeIngredient
+from models import Recipe
 from recipe_groups.models import Course, Cuisine
 from ingredient.models import Ingredient
 import django.forms as forms

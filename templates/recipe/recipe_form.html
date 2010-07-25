@@ -3,17 +3,32 @@
 {% block title %}{% trans "OpenEats | Add Recipe" %} {% endblock %}
 {% block jscript %}
  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+ <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/start/jquery-ui.css" rel="stylesheet" />
  <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery.formset.js"></script>
  <script type="text/javascript" src="{{ MEDIA_URL }}js/RelatedObjectLookups.js"></script>
  <script type="text/javascript" src="{{ MEDIA_URL }}js/jqtransformplugin/jquery.jqtransform.js"></script>
  <script type="text/javascript">
-           $(function() {
-               $('#ing-5').formset({
-                   prefix: '{{ formset.prefix }}',
-                   extraClasses: ['row1', 'row2']
-               });
-           })
-       </script>
+     $(function() {
+         $('#ing-5').formset({
+             prefix: '{{ formset.prefix }}',
+             added: function(row){
+                 var txt = row.find('#ing-field input');
+                 txt.unbind();
+                 auto();
+             },
+             extraClasses: ['row1', 'row2']
+         });
+     })
+ </script>
+ <script type="text/javascript">
+     function auto() { $(function() {
+             $("#ing-field input").autocomplete({
+                 source: '/ingredient/auto/'
+             });
+         })};
+     auto();
+ </script>
 {% endblock %}
 {% block content %}
 <form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
@@ -68,8 +83,8 @@
                         <td id="quantity">{{ field.quantity }}</td>
                         <td>{{ field.measurement.label_tag|lower }}</td>
                         <td id="measurement"">{{ field.measurement }}</td>
-                        <td>{{ field.ingredient.label_tag|lower }}</td>
-                        <td id="ing-field">{{ field.ingredient }}</td>
+                        <td>{{ field.title.label_tag|lower }}</td>
+                        <td id="ing-field">{{ field.title }}</td>
                         <td>{{ field.preparation.label_tag|lower }}</td>
                         <td id="preparation">{{ field.preparation }}</td>
                     </tr>

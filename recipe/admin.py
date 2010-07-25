@@ -1,9 +1,10 @@
 from django.contrib import admin
-from models import Recipe, RecipeIngredient
+from models import Recipe
+from ingredient.models import Ingredient
 from reversion.admin import VersionAdmin
 
 class RecipeInline(admin.TabularInline):
-    model = RecipeIngredient
+    model = Ingredient
 
 class RecipeAdmin(VersionAdmin):
     prepopulated_fields = { 'slug' : ['title']}

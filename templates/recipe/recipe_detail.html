@@ -42,8 +42,8 @@
     <div id="recipe-ing">
         <h2>{%trans "Ingredients" %}</h2>
         <ul>
-            {% for ing in recipe.recipeingredient_set.all %}
-            <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.ingredient }} {{ ing.preparation }}</li>
+            {% for ing in recipe.ingredient_set.all %}
+            <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.title }} {{ ing.preparation }}</li>
             {% endfor %}
         </ul>
     </div>
@@ -56,10 +56,5 @@
         {% disqus_dev %}
         {% disqus_show_comments %}
     </div>
-
 </div>
-
-
-
-
 {% endblock %}

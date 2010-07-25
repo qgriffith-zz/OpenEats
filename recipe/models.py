@@ -3,7 +3,6 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from tagging.fields import TagField, Tag
 from recipe_groups.models import Course, Cuisine
-from ingredient.models import Ingredient
 from imagekit.models import ImageModel
 
 class Recipe(ImageModel):
@@ -21,7 +20,6 @@ class Recipe(ImageModel):
     course = models.ForeignKey(Course)
     cuisine = models.ForeignKey(Cuisine)
     info = models.TextField(help_text="enter information about the recipe")
-    ingredient = models.ManyToManyField(Ingredient, through="RecipeIngredient")
     cook_time = models.IntegerField(help_text="enter time in miuntes")
     servings = models.IntegerField(help_text="enter total number of servings")
     directions = models.TextField()
@@ -53,15 +51,4 @@ class Recipe(ImageModel):
 
     def get_absolute_url(self):
         return "/recipe/%s/" %self.slug
-
-class RecipeIngredient(models.Model):
-    '''intermediate model between Ingredient and recipe.models.recipe for many to many'''
-    quantity =  models.IntegerField()
-    measurement = models.CharField(max_length=200)
-    ingredient = models.ForeignKey(Ingredient)
-    preparation = models.CharField(max_length=100, blank=True, null=True)
-    recipe    = models.ForeignKey(Recipe)
-    
-
-
 

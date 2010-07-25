@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     (r'^rosetta/', include('rosetta.urls')),
     (r'^groups/', include('recipe_groups.urls')),
     (r'^recipe/', include('recipe.urls')),
+    (r'^ingredient/', include('ingredient.urls')),
 
 )
 
