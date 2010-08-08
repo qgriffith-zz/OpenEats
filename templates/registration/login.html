@@ -10,6 +10,7 @@
     <p>{{ form.username }}</p>
     <p>{{ form.password.label_tag }}</p>
     <p>{{ form.password }} </p>
+    <input type="hidden" name="next" value="{{ next }}" />
     <input type="submit" value="login" />
 </form>
 {% endblock %}

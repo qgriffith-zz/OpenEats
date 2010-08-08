@@ -17,7 +17,8 @@ $(function() {
 function makeAutoComplete() {
     $(function() {
         $("#ing-field input").autocomplete({
-            source: '/ingredient/auto/'
+            source: '/ingredient/auto/',
+            minLength: 2
         });
     })
     };
