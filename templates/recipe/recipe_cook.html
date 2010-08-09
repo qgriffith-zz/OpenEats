@@ -1,0 +1,22 @@
+{% load i18n %}
+<html>
+    <head>
+        <title>{% trans 'Cook View' %} - {{ recipe }} </title>
+        <style type="text/css">
+          .tenfoot{font-size:xx-large;}
+        </style>
+    </head>
+    <body>
+        <h1> {{ recipe }} </h1>
+        <h2>{% trans 'Ingredients' %}</h2>
+        <ul class="tenfoot">
+            {% for ing in recipe.ingredient_set.all %}
+            <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.title }} {{ ing.preparation }}</li>
+            {% endfor %}
+        </ul>
+        <div class="tenfoot">
+            <h2>{%trans 'Directions' %}</h2>
+            {{ recipe.directions }}
+        </div>
+    </body>
+</html>
