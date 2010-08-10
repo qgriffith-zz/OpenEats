@@ -27,7 +27,10 @@ div#nav-bar li a:hover { text-decoration:underline;}
 
 
 /*Recipe Detail */
-div#title h3 {font-size:1.2em; line-height:1.42em; padding:2px 0 5px 10px; color:#484846}
+div#toolbar{height:45px; background:url("../images/title-bg.gif") repeat-x top #FF9F00; border:1px black solid; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+div#toolbar span#title { font-size:1.8em; line-height:1.50em; padding-left:20px; padding-right:30px; color:#484846; border-right:white 1px dotted;}
+div#toolbar span#toolbar-buttons{padding-left:15px;}
+div#toolbar span#toolbar-buttons a {margin-left:5px;}
 div#recipe-info { width: 500px; margin-bottom:10px;}
 div#recipe-info span { color: #c53c0c; }
 div#recipe-cook{ width: 600px; padding:5px; margin-bottom:5px; border:dotted 1px black; background-color: #FEFDF2; }
@@ -95,3 +98,9 @@ div#user-profile { color: #484846 }
 div#user-profile h2 { width:75%; color: #5f562a; margin-bottom:20px; padding-bottom: 25px; padding-top:15px; border-bottom: 1px solid #5f562a; }
 span.profile-info { color:#c53c0c }
 div#user-profile div#profile-about { width: 35%;  padding: 5px 10px 40px 10px; margin-bottom: 20px; margin-top: 20px;border: 1px solid #5f562a;}
+
+/* Cook View */
+div#tenfoot{font-size:xx-large; width:800px;}
+div#tenfoot hr { margin-bottom: 15px;}
+div#tenfoot h2 { margin-bottom: 10px;}
+div#tenfoot ul { margin-bottom: 15px;}

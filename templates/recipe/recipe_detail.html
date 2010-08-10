@@ -3,19 +3,39 @@
 {%block title %}{% blocktrans %} OpenEats - {{ recipe }} {% endblocktrans %}{% endblock %}
 {% block jscript %}
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/humanity/jquery-ui.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox.css" />
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $("a#recipe-photo").fancybox();
+            $("a#cook-view").fancybox({
+		'autoDimensions': false,
+                'autoScale': false,
+                'width': 1000,
+                'height': 1000
+	});
 
+        });
+    </script>
+    <script type="text/javascript">
+        $(function() {
+            $("a", "#toolbar").button();
+           
         });
     </script>
 {% endblock %}
 
 {% block content %}
-<div id="title">
-    <h3>{{ recipe }}</h3>
+<div id="toolbar">
+    <span id="title">{{ recipe }}</span>
+    <span id="toolbar-buttons"
+         <a href="/recipe/print/{{ recipe }}/">{%trans 'print' %}</a>
+         <a id="cook-view" href="/recipe/cook/{{ recipe }}/">{%trans 'cook' %}</a>
+    </span>
+</div>
+<div id="photo">
     {% if recipe.photo %}
        <a id="recipe-photo" href="{{recipe.display.url }}"<img src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe.photo.name }}" /></a>
     {% else %}
