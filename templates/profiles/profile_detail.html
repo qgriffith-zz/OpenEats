@@ -7,11 +7,12 @@
     <div id="profile-pic" >
         {% load gravatar_profile %}
         {% gravatar profile.user 120%}
+        <p><span class="profile-info">{%trans 'recipes:' %}</span> {{ profile.user.recipe_set.count }}</p>
         {% if profile.location %}
          <p><span class="profile-info">{%trans 'location:' %}</span> {{ profile.location }}</p>
         {% endif %}
         {% if profile.gender %}
-          <p><span class="profile-info">{%trans 'gender:' %}</span>{{ profile.gender }}</p>
+          <p><span class="profile-info">{%trans 'gender:' %}</span> {{ profile.gender }}</p>
         {% endif %}
         {% if profile.url %}
           <p><span class="profile-info">{%trans 'website:' %}</span> <a href="{{ profile.url }}"> {{ profile.url }}</a></p>
