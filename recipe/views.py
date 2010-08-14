@@ -35,7 +35,7 @@ def recipe(request):
 def recipeUser(request, user):
     '''Returns a list of recipes for a giving user'''
     recipe_list = Recipe.objects.filter(author__username=user)
-    paginator = Paginator(recipe_list, 10)
+    '''paginator = Paginator(recipe_list, 10)
 
      # Make sure page request is an int. If not, deliver first page.
     try:
@@ -47,8 +47,8 @@ def recipeUser(request, user):
     try:
         recipes = paginator.page(page)
     except (EmptyPage, InvalidPage):
-        recipes = paginator.page(paginator.num_pages)
+        recipes = paginator.page(paginator.num_pages)'''
     
-    return render_to_response('recipe/recipe_userlist.html', {'recipe_list': recipes, 'user': user}, context_instance=RequestContext(request))
+    return render_to_response('recipe/recipe_userlist.html', {'recipe_list': recipe_list, 'user': user}, context_instance=RequestContext(request))
 
     

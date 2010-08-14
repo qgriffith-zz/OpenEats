@@ -43,22 +43,23 @@
         <p>{{ profile.about }}</p>
     </div>
 
-    {% if profile.user.username == request.user.username %} {# need to replace these links with tabs or buttons #}
-        <a href="/profiles/edit/">{%trans 'edit Profile' %}</a>
-        <a href="/accounts/password/change/">{%trans 'change password' %}</a>
-        <a href="/accounts/logout/">{%trans 'logout' %}</a>
-    {% endif %}
-
-    <div id="tabs">
+     <div id="tabs">
         <ul>
             <li><a href="/recipe/ajaxulist/{{ profile.user.username }}/">{%trans 'recipes' %}({{ profile.user.recipe_set.count }})</a></li>
             <li><a href="#">{%trans 'favorites' %}</a></li>
             <li><a href="#">{%trans 'lists' %}</a></li>
             {% if profile.user.username == request.user.username %}
-             <li><a href="#">{%trans 'settings' %}</a></li>
+             <li><a href="#settings">{%trans 'settings' %}</a></li>
             {% endif %}
 
         </ul>
+        {% if profile.user.username == request.user.username %}
+        <div id="settings">
+              <a href="/profiles/edit/">{%trans 'edit Profile' %}</a>
+              <a href="/accounts/password/change/">{%trans 'change password' %}</a>
+              <a href="/accounts/logout/">{%trans 'logout' %}</a>
+        </div>
+        {% endif %}
     </div>
 
 </div>
