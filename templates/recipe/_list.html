@@ -1,0 +1,15 @@
+{% load i18n %}
+<div class="recipe">
+
+    {% if recipe.photo %}
+    <img id="list-thumb"src="{{ recipe.list_thumbnail.url }}" alt="{{ recipe.photo.name }}" />
+    {% else %}
+    <img id="list-thumb"src="{{ MEDIA_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" />
+    {% endif %}
+    <h4><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h4>
+    <p class="chef">{%trans 'Chef:' %} <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a> </p>
+    <p>{{ recipe.info|safe }}</p>
+    <br />
+    <a class="recipe-more" href="{{ recipe.get_absolute_url }}"><em><b>{%trans 'Read More' %}</b></em></a>
+    <br />
+</div>
