@@ -1,13 +1,32 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block title %}{{ profile.user.username }} {%trans 'profile' %} {% endblock %}
+
+{% block jscript %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/humanity/jquery-ui.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        $(function() {
+            $("#tabs").tabs({
+                ajaxOptions: {
+                    error: function(xhr, status, index, anchor) {
+                        $(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible.");
+                    }
+                }
+            });
+        });
+    </script>
+
+
+{% endblock %}
 {% block content %}
 <div id="user-profile" >
     <h2>{{ profile.user.username }} {%trans 'profile' %} </h2>
     <div id="profile-pic" >
         {% load gravatar_profile %}
         {% gravatar profile.user 120%}
-        <p><span class="profile-info">{%trans 'recipes:' %}</span> {{ profile.user.recipe_set.count }}</p>
         {% if profile.location %}
          <p><span class="profile-info">{%trans 'location:' %}</span> {{ profile.location }}</p>
         {% endif %}
@@ -29,5 +48,18 @@
         <a href="/accounts/password/change/">{%trans 'change password' %}</a>
         <a href="/accounts/logout/">{%trans 'logout' %}</a>
     {% endif %}
+
+    <div id="tabs">
+        <ul>
+            <li><a href="/recipe/ajaxulist/{{ profile.user.username }}/">{%trans 'recipes' %}({{ profile.user.recipe_set.count }})</a></li>
+            <li><a href="#">{%trans 'favorites' %}</a></li>
+            <li><a href="#">{%trans 'lists' %}</a></li>
+            {% if profile.user.username == request.user.username %}
+             <li><a href="#">{%trans 'settings' %}</a></li>
+            {% endif %}
+
+        </ul>
+    </div>
+
 </div>
 {% endblock %}

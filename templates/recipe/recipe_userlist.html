@@ -1,0 +1,42 @@
+{% comment %}This template is used via an ajax call from the users profile page to display all the recipes for a giving user {% endcomment %}
+{% load i18n %}
+<html>
+    <head></head>
+    <body>
+        
+        {% if recipe_list.object_list.count > 0 %}
+        {% for recipe in recipe_list.object_list %}
+        <div class="recipe">
+            {% if recipe.photo %}
+            <img id="list-thumb"src="{{ recipe.list_thumbnail.url }}" alt="{{ recipe.photo.name }}" />
+            {% else %}
+            <img id="list-thumb"src="{{ MEDIA_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" />
+            {% endif %}
+            <h4><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h4>
+            <p class="chef">{%trans 'Chef:' %} <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a> </p>
+            <p>{{ recipe.info|safe }}</p>
+            <br />
+            <a class="recipe-more" href="{{ recipe.get_absolute_url }}"><em><b>{%trans 'Read More' %}</b></em></a>
+            <br />
+        </div>
+        {% endfor %}
+        {% else %}
+        <p>{{ user }} {% trans 'has not added any recipes yet!' %}</p>
+        {% endif %}
+        <div class="pagination">
+            <span class="step-links">
+                {% if recipe_list.has_previous %}
+                <a href="?page={{ recipe_list.previous_page_number }}">{%trans 'previous' %}</a>
+                {% endif %}
+
+                <span class="current">
+                    {%trans 'Page' %} {{ recipe_list.number }} {%trans 'of' %} {{ recipe_list.paginator.num_pages }}.
+                </span>
+
+                {% if recipe_list.has_next %}
+                <a href="?page={{ recipe_list.next_page_number }}">{%trans 'next' %}</a>
+                {% endif %}
+            </span>
+        </div>
+    </body>
+</html>

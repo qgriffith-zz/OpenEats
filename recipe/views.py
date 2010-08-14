@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response, get_object_or_404, get_list_or_
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory, inlineformset_factory
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from models import Recipe
 from ingredient.models import Ingredient
 from forms import RecipeForm, BaseIngFormSet
@@ -31,3 +32,23 @@ def recipe(request):
         formset = IngFormSet(queryset=Ingredient.objects.none())
     return render_to_response('recipe/recipe_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
 
+def recipeUser(request, user):
+    '''Returns a list of recipes for a giving user'''
+    recipe_list = Recipe.objects.filter(author__username=user)
+    paginator = Paginator(recipe_list, 10)
+
+     # Make sure page request is an int. If not, deliver first page.
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    # If page request (9999) is out of range, deliver last page of results.
+    try:
+        recipes = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        recipes = paginator.page(paginator.num_pages)
+    
+    return render_to_response('recipe/recipe_userlist.html', {'recipe_list': recipes, 'user': user}, context_instance=RequestContext(request))
+
+    
