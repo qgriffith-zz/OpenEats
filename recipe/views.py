@@ -32,9 +32,12 @@ def recipe(request):
         formset = IngFormSet(queryset=Ingredient.objects.none())
     return render_to_response('recipe/recipe_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
 
-def recipeUser(request, user):
+def recipeUser(request, shared, user):
     '''Returns a list of recipes for a giving user'''
-    recipe_list = Recipe.objects.filter(author__username=user)
+    if shared =='share':
+        recipe_list = Recipe.objects.filter(author__username=user, shared=0)
+    else:
+        recipe_list = Recipe.objects.filter(author__username=user, shared=1)
     '''paginator = Paginator(recipe_list, 10)
 
      # Make sure page request is an int. If not, deliver first page.
@@ -49,6 +52,5 @@ def recipeUser(request, user):
     except (EmptyPage, InvalidPage):
         recipes = paginator.page(paginator.num_pages)'''
     
-    return render_to_response('recipe/recipe_userlist.html', {'recipe_list': recipe_list, 'user': user}, context_instance=RequestContext(request))
+    return render_to_response('recipe/recipe_userlist.html', {'recipe_list': recipe_list, 'user': user, 'shared': shared}, context_instance=RequestContext(request))
 
-    
