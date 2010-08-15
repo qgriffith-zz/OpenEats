@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load sanitize %}
 {%block title %}{% blocktrans %} OpenEats - {{ recipe }} {% endblocktrans %}{% endblock %}
 {% block jscript %}
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
@@ -56,7 +57,7 @@
     </div>
     <div id="recipe-info">
         <hr />
-        <p>{{recipe.info|safe}}</p>
+        <p>{{recipe.info|sanitize_html|safe}}</p>
         <hr />
     </div>
     <div id="recipe-ing">
@@ -69,7 +70,7 @@
     </div>
     <div id="recipe-directions">
         <h2>{% trans "Directions" %}</h2>
-        {{ recipe.directions|safe }}
+        {{ recipe.directions|sanitize_html|safe }}
     </div>
     <div id="recipe-comments">
         {% load disqus_tags %}
