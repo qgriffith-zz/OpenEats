@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load recipe_count %}
 {% block title %}{{ profile.user.username }} {%trans 'profile' %} {% endblock %}
 
 {% block jscript %}
@@ -45,9 +46,9 @@
 
      <div id="tabs">
         <ul>
-            <li><a href="/recipe/ajaxulist/share/{{ profile.user.username }}/">{%trans 'recipes' %}({{ profile.user.recipe_set.count }})</a></li>
+            <li><a href="/recipe/ajaxulist/share/{{ profile.user.username }}/">{%trans 'recipes' %}({{ profile.user.username|recipeCount:'shared'}})</a></li>
             {% if profile.user.username == request.user.username %}
-             <li><a href="/recipe/ajaxulist/private/{{ profile.user.username }}/">{%trans 'private recipes' %}</a></li>
+             <li><a href="/recipe/ajaxulist/private/{{ profile.user.username }}/">{%trans 'private recipes' %}({{ profile.user.username|recipeCount:'private'}})</a></li>
              <li><a href="#settings">{%trans 'settings' %}</a></li>
             {% endif %}
 
