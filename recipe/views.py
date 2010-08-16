@@ -35,9 +35,9 @@ def recipe(request):
 def recipeUser(request, shared, user):
     '''Returns a list of recipes for a giving user'''
     if shared =='share':
-        recipe_list = Recipe.objects.filter(author__username=user, shared=0)
+        recipe_list = Recipe.objects.filter(author__username=user, shared = Recipe.SHARE_SHARED)
     else:
-        recipe_list = Recipe.objects.filter(author__username=user, shared=1)
+        recipe_list = Recipe.objects.filter(author__username=user, shared = Recipe.PRIVATE_SHARED)
     '''paginator = Paginator(recipe_list, 10)
 
      # Make sure page request is an int. If not, deliver first page.

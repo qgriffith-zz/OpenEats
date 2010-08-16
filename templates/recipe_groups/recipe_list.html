@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load sanitize %}
 {% block content %}
     <div id="title"> <h3>{% trans "Recipes" %}</h3></div>
     {% for recipe in recipe_list.object_list %}
@@ -11,7 +12,7 @@
         {% endif %}
         <h4><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h4>
         <p class="chef">{%trans 'Chef:' %} <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a> </p>
-        <p>{{ recipe.info|safe }}</p>
+        <p>{{ recipe.info|sanitize_html|safe }}</p>
         <br />
         <a class="recipe-more" href="{{ recipe.get_absolute_url }}"><em><b>{%trans 'Read More' %}</b></em></a>
         <br />
