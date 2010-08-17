@@ -8,6 +8,8 @@
     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/humanity/jquery-ui.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox.css" />
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
+    <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function() {
             $("a#recipe-photo").fancybox();
@@ -24,6 +26,15 @@
         $(function() {
             $("a", "#toolbar").button();
            
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+        $("#recipe-rate").stars({
+            inputType: "select",
+            captionEl: $("#rating-cap"),
+            oneVoteOnly: true
+          });
         });
     </script>
 {% endblock %}
@@ -43,6 +54,18 @@
        <a id="recipe-photo" href="{{ MEDIA_URL  }}images/parsley.jpg" <img src="{{ MEDIA_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
     {% endif %}
 </div>
+<form>
+<div id="recipe-rate">
+    <p>{%trans 'rating:' %} <span id="rating-cap"></span></p>
+    <select name="selrate">
+        <option value="1">Poor</option>
+        <option value="2">Fair</option>
+        <option value="3">OK</option>
+        <option value="4">Good</option>
+        <option value="5">Wow</option>
+    </select>
+</div>
+</form>
 <div id="recipe-show">
     <div id="recipe-info">
         <p><span>{%trans "Course:" %}</span> {{ recipe.course }}</p>
