@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     #'rosetta',
     'profiles',
     'imagekit',
+    'djangoratings',
     'openeats',
     'openeats.recipe',
     'openeats.recipe_groups',

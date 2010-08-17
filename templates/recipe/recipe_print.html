@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load sanitize %}
 <html>
     <head>
         <link rel="stylesheet" type="text/css" media="print" href="{{MEDIA_URL}}/css/prints.css" />
@@ -10,7 +11,7 @@
         <h3> {{ recipe }} - <span class="print-site"> OpenEats</span></h3>
         <p id="print-user"><b>{% trans 'Chef:' %}</b> {{ recipe.author }}</p>
         <div class="print-desc">
-            {{ recipe.info|safe }}
+            {{ recipe.info|sanitize_html|safe }}
         </div>
         <div>
             <ul class="list">
@@ -28,6 +29,6 @@
         </div>
         <div>
             <h4>{% trans 'Steps' %}</h4>
-           {{ recipe.directions|safe }}
+           {{ recipe.directions|sanitize_html|safe }}
         </div>
     </body>

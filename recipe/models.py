@@ -4,6 +4,7 @@ from django.template.defaultfilters import slugify
 from tagging.fields import TagField, Tag
 from recipe_groups.models import Course, Cuisine
 from imagekit.models import ImageModel
+from djangoratings.fields import RatingField
 
 class Recipe(ImageModel):
     SHARE_SHARED = 0
@@ -25,6 +26,7 @@ class Recipe(ImageModel):
     directions = models.TextField()
     shared = models.IntegerField(choices=SHARED_CHOCIES, default=SHARE_SHARED, help_text="share the recipe with the community or mark it private")
     tags = TagField(help_text="separate with commas")
+    rating = RatingField(range=5)
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 

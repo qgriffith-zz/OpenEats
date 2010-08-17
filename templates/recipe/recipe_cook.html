@@ -1,4 +1,5 @@
 {% load i18n %}
+{% load sanitize %}
 <html>
     <head>
         <title>{% trans 'Cook View' %} - {{ recipe }} </title>
@@ -15,7 +16,7 @@
         </ul>
         <div cook-dir>
             <h2>{%trans 'Directions' %}</h2>
-            {{ recipe.directions }}
+            {{ recipe.directions|sanitize_html|safe }}
         </div>
     </div>
     </body>
