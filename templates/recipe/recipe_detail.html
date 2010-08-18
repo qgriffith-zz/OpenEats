@@ -33,7 +33,11 @@
         $("#recipe-rate").stars({
             inputType: "select",
             captionEl: $("#rating-cap"),
-            oneVoteOnly: true
+            oneVoteOnly: true,
+            callback: function(ui, type, value)
+            {
+                $.post('/recipe/ajax-raterecipe/{{ recipe.id }}/' + value)
+            }
           });
         });
     </script>

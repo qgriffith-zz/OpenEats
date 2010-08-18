@@ -3,10 +3,11 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory, inlineformset_factory
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
+from django.http import HttpResponse, Http404
 from models import Recipe
 from ingredient.models import Ingredient
 from forms import RecipeForm, BaseIngFormSet
-import json
+from djangoratings.views import AddRatingView
 
 '''def index(request):
     recipes = get_list_or_404(Recipe.objects.order_by('pub_date', 'title')[:10])
@@ -54,3 +55,15 @@ def recipeUser(request, shared, user):
     
     return render_to_response('recipe/recipe_userlist.html', {'recipe_list': recipe_list, 'user': user, 'shared': shared}, context_instance=RequestContext(request))
 
+def recipeRate(request, object_id, score):
+    params = {
+        'content_type_id': 16,  #this is the content type id of the recipe models per django.contrib.contentetype
+        'object_id': object_id,
+        'field_name': 'rating', # this should match the field name defined in your model
+        'score': score,
+    }
+    response = AddRatingView()(request, **params)
+    if response.status_code == 200:
+        return HttpResponse('Vote recorded.')
+    else:
+        return HttpResponse('shit')
