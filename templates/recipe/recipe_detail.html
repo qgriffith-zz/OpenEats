@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load sanitize %}
+{% load ratings %}
 {%block title %}{% blocktrans %} OpenEats - {{ recipe }} {% endblocktrans %}{% endblock %}
 {% block jscript %}
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
@@ -28,22 +29,62 @@
            
         });
     </script>
+   {% rating_by_request request on recipe.rating as vote %}{% comment %}check to see if the user has voted on this before {% endcomment %}
+    
+    {% if request.user.is_authenticated and vote == False %}
     <script type="text/javascript">
         $(document).ready(function () {
+        // Create caption element
+	var $caption = $('<div id="caption"/>');
         $("#recipe-rate").stars({
             inputType: "select",
             captionEl: $("#rating-cap"),
             oneVoteOnly: true,
             callback: function(ui, type, value)
             {
-                $.post('/recipe/ajax-raterecipe/{{ recipe.id }}/' + value)
+                // Display message to the user at the begining of request
+		$("#messages").text("Saving...").fadeIn(30);
+                $.post('/recipe/ajax-raterecipe/{{ recipe.id }}/' + value, function(json)
+                {
+                  // Change widget's title
+		  $("#rating-title").text("Average rating");
+                  // Select stars from "Average rating" control to match the returned average rating value
+		  ui.select(Math.round(json.avg));
+                  
+                  // Update widget's caption
+		  $caption.text(" (" + json.votes + " votes; " + json.avg + ")");
+
+                  // Display confirmation message to the user
+		  $("#messages").text("Rating saved (" + value + "). Thanks!").stop().css("opacity", 1).fadeIn(30);
+
+                  // Hide confirmation message after 2 sec...
+                    setTimeout(function(){
+                        $("#messages").fadeOut(1000)
+                    }, 2000);
+                }, "json");
             }
-          });
         });
-    </script>
+        // Append caption element !after! the Stars
+	$caption.appendTo("#recipe-rate");
+
+	// Create element to use for confirmation messages
+	$('<div id="messages"/>').appendTo("#recipe-rate");
+     });  
+ </script>
+ {% else %}
+ <script type="text/javascript">
+     $(document).ready(function () {
+         $("#recipe-rate").stars({
+             inputType: "select",
+              disabled: true
+         });
+     });
+ </script>
+ {% endif %}
 {% endblock %}
 
 {% block content %}
+
 <div id="toolbar">
     <span id="title">{{ recipe }}</span>
     <span id="toolbar-buttons"
@@ -60,7 +101,7 @@
 </div>
 <form>
 <div id="recipe-rate">
-    <p>{%trans 'rating:' %} <span id="rating-cap"></span></p>
+    <p id="rating-title""><strong>{%trans 'rate this:' %}</strong> <span id="rating-cap"></span></p>
     <select name="selrate">
         <option value="1">Poor</option>
         <option value="2">Fair</option>

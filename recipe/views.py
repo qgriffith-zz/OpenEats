@@ -8,6 +8,7 @@ from models import Recipe
 from ingredient.models import Ingredient
 from forms import RecipeForm, BaseIngFormSet
 from djangoratings.views import AddRatingView
+from django.utils import simplejson
 
 '''def index(request):
     recipes = get_list_or_404(Recipe.objects.order_by('pub_date', 'title')[:10])
@@ -62,8 +63,13 @@ def recipeRate(request, object_id, score):
         'field_name': 'rating', # this should match the field name defined in your model
         'score': score,
     }
+    results = {}
     response = AddRatingView()(request, **params)
-    if response.status_code == 200:
-        return HttpResponse('Vote recorded.')
-    else:
-        return HttpResponse('shit')
+    results['message'] = response.content
+    r = Recipe.objects.get(pk=object_id) #get recipe object so we can return the average rating
+    avg = r.rating.score / r.rating.votes
+    results['avg'] = avg
+    results['votes'] = r.rating.votes
+    json = simplejson.dumps(results)
+    return HttpResponse(json, mimetype="application/json")
+    
