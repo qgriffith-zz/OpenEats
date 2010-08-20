@@ -74,10 +74,19 @@
  {% else %}
  <script type="text/javascript">
      $(document).ready(function () {
+         var $caption = $('<div id="caption"/>');
          $("#recipe-rate").stars({
              inputType: "select",
-              disabled: true
+             disabled: true
          });
+         // Change widget's title
+        $("#rating-title").text("Average rating");
+         var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
+         var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
+       $("#recipe-rate").stars("selectID", selectid); //set the select value to the avg rate
+       $caption.text(" (" + '{{ recipe.rating.votes }}' + " votes; " + avg  + ")");
+       // Append caption element !after! the Stars
+	$caption.appendTo("#recipe-rate");
      });
  </script>
  {% endif %}
