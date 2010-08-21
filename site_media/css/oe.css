@@ -60,6 +60,8 @@ a.recipe-more em { display:block; background:url(../images/link2-left.gif) no-re
 a.recipe-more b { display:block; background:url(../images/link2-right.gif) no-repeat right top; padding:2px 22px 5px 25px; font-style:normal;}
 a.recipe-more:hover { text-decoration:underline;}
 img#list-thumb{float:left; padding-right:10px;}
+div.recipe-rate{float:right;}
+
 
 /* Recipe Form */
 div#recipe-form { margin-top:20px; padding-bottom:10px;}

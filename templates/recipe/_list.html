@@ -1,5 +1,25 @@
 {% load i18n %}
 {% load sanitize %}
+{% block jscript %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
+    <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".{{ recipe }}-rate").stars({
+                inputType: "select",
+                disabled: true
+            });
+            var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
+            var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
+            $(".{{ recipe }}-rate").stars("selectID", selectid); //set the select value to the avg rate
+        });
+    </script>
+
+{% endblock %}
+
 <div class="recipe">
 
     {% if recipe.photo %}
@@ -10,7 +30,20 @@
     <h4><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h4>
     <p class="chef">{%trans 'Chef:' %} <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a> </p>
     <p>{{ recipe.info|sanitize_html|safe }}</p>
+    <form>
+        <div class="{{ recipe }}-rate recipe-rate">
+            <p class="rating-title""><strong>{%trans 'Average Rating:' %}</strong> <span class="rating-cap"></span></p>
+            <select name="selrate">
+                <option value="1">Poor</option>
+                <option value="2">Fair</option>
+                <option value="3">OK</option>
+                <option value="4">Good</option>
+                <option value="5">Wow</option>
+            </select>
+        </div>
+    </form>
     <br />
     <a class="recipe-more" href="{{ recipe.get_absolute_url }}"><em><b>{%trans 'Read More' %}</b></em></a>
     <br />
+ 
 </div>
