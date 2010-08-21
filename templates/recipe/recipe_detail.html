@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox.css" />
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
-    <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
+    <link href="{{ MEDIA_URL }}js/jquery.ui.stars/crystal-stars.css" rel="stylesheet" />
     <script type="text/javascript">
         $(document).ready(function() {
             $("a#recipe-photo").fancybox();
@@ -84,7 +84,7 @@
          var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
          var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
        $("#recipe-rate").stars("selectID", selectid); //set the select value to the avg rate
-       $caption.text(" (" + '{{ recipe.rating.votes }}' + " votes; " + avg  + ")");
+       $caption.text(" (" + '{{ recipe.rating.votes }}' + " votes)");
        // Append caption element !after! the Stars
 	$caption.appendTo("#recipe-rate");
      });

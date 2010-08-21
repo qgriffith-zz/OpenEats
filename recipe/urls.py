@@ -23,5 +23,5 @@ urlpatterns = patterns('',
     #url(r'^ajax-raterecipe/(?P<object_id>\d+)/(?P<score>\d+)', AddRatingFromModel(), {'app_label': 'recipe','model': 'recipe', 'field_name': 'rating',}),
     (r'^ajax-raterecipe/(?P<object_id>\d+)/(?P<score>\d+)', 'recipe.views.recipeRate'),
     (r'^(?P<slug>[-\w]+)/$', list_detail.object_detail, recipe_info),
-    (r'^/$', list_detail.object_list, recipe_list),
+    (r'^$', list_detail.object_list, recipe_list),
    )
