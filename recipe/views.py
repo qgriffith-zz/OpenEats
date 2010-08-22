@@ -86,5 +86,15 @@ def recipeStore(request, object_id):
         new_store.save()
         return HttpResponse("Recipe added to your favorites!")
 
+@login_required
+def recipeUserFavs(request):
+    '''returns a list of a users favorite recipes'''
+    stored_list = StoredRecipe.objects.filter(user=request.user.id)
+    recipe_list = []
+    for stored in stored_list:
+        recipe_list.append(stored.recipe)
+    return render_to_response('recipe/recipe_userfav.html', {'recipe_list': recipe_list}, context_instance=RequestContext(request))
+
+
 
     
