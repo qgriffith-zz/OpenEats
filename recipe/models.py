@@ -54,3 +54,9 @@ class Recipe(ImageModel):
     def get_absolute_url(self):
         return "/recipe/%s/" %self.slug
 
+class StoredRecipe(models.Model):
+    recipe = models.ForeignKey(Recipe)
+    user = models.ForeignKey(User)
+
+    def __unicode__(self):
+        return self.recipe.title

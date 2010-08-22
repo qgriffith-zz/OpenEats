@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Recipe
+from models import Recipe, StoredRecipe
 from ingredient.models import Ingredient
 from reversion.admin import VersionAdmin
 
@@ -14,4 +14,8 @@ class RecipeAdmin(VersionAdmin):
     class Media:
         js = ['/site_media/admin/tinymce/jscripts/tiny_mce/tiny_mce.js', '/site_media/js/tinymce_setup.js',]
 
+class StoredRecipeAdmin(admin.ModelAdmin):
+    list_display = ['user', 'recipe']
+
 admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(StoredRecipe, StoredRecipeAdmin)

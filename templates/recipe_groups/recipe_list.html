@@ -1,22 +1,32 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load sanitize %}
+
+{% block jscript %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
+    <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".{{ recipe }}-rate").stars({
+                inputType: "select",
+                disabled: true
+            });
+            var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
+            var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
+            $(".{{ recipe }}-rate").stars("selectID", selectid); //set the select value to the avg rate
+        });
+    </script>
+
+{% endblock %}
+
+
 {% block content %}
     <div id="title"> <h3>{% trans "Recipes" %}</h3></div>
     {% for recipe in recipe_list.object_list %}
-    <div class="recipe">
-        {% if recipe.photo %}
-            <img id="list-thumb"src="{{ recipe.list_thumbnail.url }}" alt="{{ recipe.photo.name }}" />
-        {% else %}
-            <img id="list-thumb"src="{{ MEDIA_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" />
-        {% endif %}
-        <h4><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h4>
-        <p class="chef">{%trans 'Chef:' %} <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a> </p>
-        <p>{{ recipe.info|sanitize_html|safe }}</p>
-        <br />
-        <a class="recipe-more" href="{{ recipe.get_absolute_url }}"><em><b>{%trans 'Read More' %}</b></em></a>
-        <br />
-    </div>
+      {% include '/recipe/_list.html' %}
     {% endfor %}
     <div class="pagination">
     <span class="step-links">

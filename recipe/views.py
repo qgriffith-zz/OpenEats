@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory, inlineformset_factory
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.http import HttpResponse, Http404
-from models import Recipe
+from models import Recipe, StoredRecipe
 from ingredient.models import Ingredient
 from forms import RecipeForm, BaseIngFormSet
 from djangoratings.views import AddRatingView
@@ -56,6 +56,7 @@ def recipeUser(request, shared, user):
     
     return render_to_response('recipe/recipe_userlist.html', {'recipe_list': recipe_list, 'user': user, 'shared': shared}, context_instance=RequestContext(request))
 
+@login_required
 def recipeRate(request, object_id, score):
     params = {
         'content_type_id': 16,  #this is the content type id of the recipe models per django.contrib.contentetype
@@ -72,4 +73,18 @@ def recipeRate(request, object_id, score):
     results['votes'] = r.rating.votes
     json = simplejson.dumps(results)
     return HttpResponse(json, mimetype="application/json")
+
+@login_required
+def recipeStore(request, object_id):
+    '''Take the recipe id and the user id passed via the url check that the recipe is not already stored for that user then store it if it is'''
+    stored = StoredRecipe.objects.filter(recipe=object_id, user=request.user.id)
+    if stored:
+        return HttpResponse("Recipe already in your favorites!")
+    else: #save the recipe
+        r = get_object_or_404(Recipe, pk=object_id)
+        new_store = StoredRecipe(recipe=r, user=request.user)
+        new_store.save()
+        return HttpResponse("Recipe added to your favorites!")
+
+
     
