@@ -48,6 +48,7 @@ div#recipe-comments{float:left; width:550px; margin-top:20px;}
 div#recipe-rate{float:right; padding:5px 40px 5px 5px; width:200px; border:1px burlywood dashed; border-right: none;}
 div#caption{margin-right:60px;}
 #messages {color: #fd1c24;}
+#ajax-messages{ margin-bottom:10px; padding:10px; border:1px green dashed; background-color: lightgreen; font-size: 140%; color:white; font-weight:bold; width:80%}
 
 /*Recipe List */
 div.recipe {padding-bottom:25px; border-bottom:dotted 1px gray; color:#484846; margin-bottom:15px;}

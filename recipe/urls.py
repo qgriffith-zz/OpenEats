@@ -9,7 +9,7 @@ recipe_info={
 }
 
 recipe_list={
-    'queryset': Recipe.objects.order_by('pub_date', 'title')[:10],
+    'queryset': Recipe.objects.filter(shared=Recipe.SHARE_SHARED).order_by('pub_date', 'title')[:10],
     "template_object_name": 'recipe',
     'template_name': 'recipe/index.html',
 }

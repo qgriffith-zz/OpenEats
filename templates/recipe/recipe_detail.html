@@ -25,8 +25,13 @@
     </script>
     <script type="text/javascript">
         $(function() {
-            $("a", "#toolbar").button();
-           
+            $("a, button", "#toolbar").button();
+            $('#recipe-store').click(function() {
+                $.post('/recipe/store/{{ recipe.id }}/', function(data) {
+                    $('#ajax-messages').html(data).fadeIn(600).delay(3000).fadeOut(600);
+                });
+            });
+
         });
     </script>
    {% rating_by_request request on recipe.rating as vote %}{% comment %}check to see if the user has voted on this before {% endcomment %}
@@ -93,12 +98,13 @@
 {% endblock %}
 
 {% block content %}
-
+<div id="ajax-messages" style="display:none;"></div>
 <div id="toolbar">
     <span id="title">{{ recipe }}</span>
     <span id="toolbar-buttons"
          <a href="/recipe/print/{{ recipe }}/">{%trans 'print' %}</a>
          <a id="cook-view" href="/recipe/cook/{{ recipe }}/">{%trans 'cook' %}</a>
+         <button id="recipe-store">{%trans 'favorite' %}</button> {#comment todo: change this to a template tag that will show if the recipe is already stored #}
     </span>
 </div>
 <div id="photo">
@@ -112,11 +118,11 @@
 <div id="recipe-rate">
     <p id="rating-title""><strong>{%trans 'rate this:' %}</strong> <span id="rating-cap"></span></p>
     <select name="selrate">
-        <option value="1">Poor</option>
-        <option value="2">Fair</option>
-        <option value="3">OK</option>
-        <option value="4">Good</option>
-        <option value="5">Wow</option>
+        <option value="1">{%trans 'Poor' %}</option>
+        <option value="2">{%trans 'Fair' %}</option>
+        <option value="3">{%trans 'OK' %}</option>
+        <option value="4">{%trans 'Good' %}</option>
+        <option value="5">{%trans 'Wow' %}</option>
     </select>
 </div>
 </form>
