@@ -20,7 +20,7 @@
 
 {% endblock %}
 
-<div class="recipe">
+<div class="recipe" id="recipe-{{recipe.id}}">
 
     {% if recipe.photo %}
     <img id="list-thumb"src="{{ recipe.list_thumbnail.url }}" alt="{{ recipe.photo.name }}" />
