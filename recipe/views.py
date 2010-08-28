@@ -1,5 +1,4 @@
 from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404, redirect
-from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory, inlineformset_factory
@@ -10,6 +9,7 @@ from ingredient.models import Ingredient
 from forms import RecipeForm, BaseIngFormSet
 from djangoratings.views import AddRatingView
 from django.utils import simplejson
+
 
 '''def index(request):
     recipes = get_list_or_404(Recipe.objects.order_by('pub_date', 'title')[:10])
@@ -91,14 +91,15 @@ def recipeStore(request, object_id):
 @login_required
 def recipeUnStore(request):
     '''Take the recipe id via the url check that the recipe is not already stored for that user then remove it if it is'''
-    object_id = request.POST['recipe_id']
-    stored = StoredRecipe.objects.get(recipe=object_id, user=request.user.id)
-    if stored:
-        stored.delete()
-        #return HttpResponse("Recipe removed from your favorites!")
-        return HttpResponseRedirect("/recipe/ajax-favrecipe/")
-
-
+    if request.method == 'POST':
+        if request.POST['recipe_id']:
+            try:
+                stored_recipe = StoredRecipe.objects.get(recipe=request.POST['recipe_id'], user=request.user.id)
+            except StoredRecipe.DoesNotExist:
+                raise Http404
+            stored_recipe.delete()
+            return redirect("/recipe/ajax-favrecipe/")
+    
 
 @login_required
 def recipeUserFavs(request):

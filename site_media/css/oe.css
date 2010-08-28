@@ -49,6 +49,7 @@ div#recipe-rate{float:right; padding:5px 40px 5px 5px; width:200px; border:1px b
 div#caption{margin-right:60px;}
 #messages {color: #fd1c24;}
 #ajax-messages{ margin-bottom:10px; padding:10px; border:1px green dashed; background-color: lightgreen; font-size: 140%; color:white; font-weight:bold; width:80%}
+.remove-fav { float:right;}
 
 /*Recipe List */
 div.recipe {padding-bottom:25px; border-bottom:dotted 1px gray; color:#484846; margin-bottom:15px;}

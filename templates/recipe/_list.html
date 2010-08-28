@@ -18,6 +18,19 @@
         });
     </script>
 
+    <script type="text/javascript">
+        $(function () {
+            $(".remove-fav").click( function () {
+                var id = $(this).attr("id");
+                $.post('/recipe/unstore/', {'recipe_id': id},
+                function (data) {
+                    $("#user-fav").hide().html(data).fadeIn('slow');
+
+                });
+            });
+        });
+    </script>
+
 {% endblock %}
 
 <div class="recipe" id="recipe-{{recipe.id}}">
