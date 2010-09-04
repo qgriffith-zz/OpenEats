@@ -1,7 +1,5 @@
 from django.db import models
 from recipe.models import Recipe
-from django.contrib.auth.models import User
-from django.template.defaultfilters import slugify
 
 
 class Ingredient(models.Model):

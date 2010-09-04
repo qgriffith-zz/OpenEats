@@ -3,41 +3,46 @@ from imagekit import processors
 
 '''image kit module spec'''
 
-# thumbnail resize processor
 class ResizeThumb(processors.Resize):
+    ''' Thumbnail resize proccessor'''
     height = 250
     width = 200
     crop = False
 
 class ResizeAdminThumb(processors.Resize):
+    '''Admin Thumbnail resize proccessor'''
     height = 75
     width = 75
     crop = True
 
 class ResizeListThumb(processors.Resize):
+    '''Recipe list view thumbnail resize proccessor'''
     height = 100
     width = 100
     crop = True
 
-# display resize proccessor
 class ResizeDisplay(processors.Resize):
+    '''Recipe show view thumbnail proccessor'''
     height = 400
 
-# now we can define our thumbnail spec
 class Thumbnail(ImageSpec):
+    '''Thumbnail spec'''
     access_as = 'thumbnail_image'
     pre_cache = True
     processors = [ResizeThumb]
 
 class Display(ImageSpec):
+    '''Display thumbnail spec'''
     processors = [ResizeDisplay]
 
 class AdminThumbnail(ImageSpec):
+    '''Admin thumbnail spec'''
     access_as ='admin_thumbnail'
     pre_cache = True
     processors = [ResizeAdminThumb]
 
 class ListThumbnail(ImageSpec):
+    '''List Thumbnail spec'''
     access_as = 'list_thumbnail'
     pre_cache = True
     processors = [ResizeListThumb]

@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 class UserProfiles(models.Model):
+    '''UserProfile fields extends the user model by adding extra fields tied to a users profile'''
     GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),

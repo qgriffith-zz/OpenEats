@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404
+from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from models import Course, Cuisine
@@ -9,7 +9,6 @@ from helpers.form_helper import handlePopAdd
 
 def course_recipes(request, slug):
     '''Rectrives the recipe objects in a list that belong to the course passed to the method'''
-    #recipe_list = Recipe.objects.filter(course__title__exact=course)
     course_object = get_object_or_404(Course, slug=slug)
     recipe_list = course_object.recipe_set.all()
     paginator = Paginator(recipe_list, 10)

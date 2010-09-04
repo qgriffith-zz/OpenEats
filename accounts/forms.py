@@ -5,6 +5,9 @@ from models import UserProfiles
 from django.contrib.auth.models import User
 
 class ProfileForm(ModelForm):
+    '''Override the default profile model to add a gender radio select and to
+       Allow users to edit their emails on the profile page'''
+
     def __init__(self, *args, **kwargs):
         super(ProfileForm,self).__init__(*args, **kwargs)
         try:

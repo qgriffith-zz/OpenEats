@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, get_object_or_404, get_list_or_404, redirect
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory, inlineformset_factory
@@ -10,24 +10,18 @@ from forms import RecipeForm, BaseIngFormSet
 from djangoratings.views import AddRatingView
 from django.utils import simplejson
 
-
-'''def index(request):
-    recipes = get_list_or_404(Recipe.objects.order_by('pub_date', 'title')[:10])
-    return render_to_response('recipe/index.html', {'recipes':recipes},context_instance=RequestContext(request))'''
-
 @login_required
 def recipe(request):        
-    IngFormSet = inlineformset_factory(Recipe, Ingredient, extra=5)
-   # ing_title = Ingredient.objects.values_list('title', flat=True).order_by('title')
-  
+    IngFormSet = inlineformset_factory(Recipe, Ingredient, extra=5) #creat the ingredient form with 5 empty fields
+     
     if request.method=='POST':
         form = RecipeForm(request.POST, request.FILES)
         formset = IngFormSet(request.POST)
         if form.is_valid() and formset.is_valid():
             new_recipe = form.save()
-            instances = formset.save(commit=False)
+            instances = formset.save(commit=False)#save the ingredients seperatly
             for instance in instances:
-                instance.recipe_id = new_recipe.id
+                instance.recipe_id = new_recipe.id #set the recipe id foregin key to the this recipe id
                 instance.save()
             return redirect(new_recipe.get_absolute_url())
     else:
@@ -36,12 +30,14 @@ def recipe(request):
     return render_to_response('recipe/recipe_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
 
 def recipeUser(request, shared, user):
-    '''Returns a list of recipes for a giving user'''
+    '''Returns a list of recipes for a giving user if shared is set to share then it will show the shared recipes if it is set to private
+       then only the private recipes will be shown this is mostly used for the users profile to display the users recipes
+    '''
     if shared =='share':
         recipe_list = Recipe.objects.filter(author__username=user, shared = Recipe.SHARE_SHARED)
     else:
         recipe_list = Recipe.objects.filter(author__username=user, shared = Recipe.PRIVATE_SHARED)
-    '''paginator = Paginator(recipe_list, 10)
+    '''paginator = Paginator(recipe_list, 10) #this is commented out because the pageinator does not seem to work with the ajax tabs need to fix this
 
      # Make sure page request is an int. If not, deliver first page.
     try:
@@ -59,6 +55,7 @@ def recipeUser(request, shared, user):
 
 @login_required
 def recipeRate(request, object_id, score):
+    ''' Used for users to rate recipes '''
     params = {
         'content_type_id': 16,  #this is the content type id of the recipe models per django.contrib.contentetype
         'object_id': object_id,
@@ -77,7 +74,9 @@ def recipeRate(request, object_id, score):
 
 @login_required
 def recipeStore(request, object_id):
-    '''Take the recipe id and the user id passed via the url check that the recipe is not already stored for that user then store it if it is'''
+    '''Take the recipe id and the user id passed via the url check that the recipe is not
+       already stored for that user then store it if it is
+    '''
     stored = StoredRecipe.objects.filter(recipe=object_id, user=request.user.id)
     if stored:
         return HttpResponse("Recipe already in your favorites!")
@@ -90,7 +89,9 @@ def recipeStore(request, object_id):
 
 @login_required
 def recipeUnStore(request):
-    '''Take the recipe id via the url check that the recipe is not already stored for that user then remove it if it is'''
+    '''Take the recipe id via the url check that the recipe is not already
+       stored for that user then remove it if it is
+    '''
     if request.method == 'POST':
         if request.POST['recipe_id']:
             try:

@@ -1,6 +1,5 @@
 from django.conf.urls.defaults import *
 from django.views.generic import list_detail
-#from djangoratings.views import AddRatingFromModel
 from models import Recipe
 
 recipe_info={

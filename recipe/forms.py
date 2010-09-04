@@ -18,9 +18,10 @@ class SelectWithPop(forms.Select):
         return html + popupplus
 
 class RecipeForm(ModelForm):
-    '''used to create new recipes the course and cuisine field are created with a 
+    ''' Used to create new recipes the course and cuisine field are created with a
         speical widget that appends a link and graphic to the end of select field to allow
-        users to add new items via a popup form'''
+        users to add new items via a popup form
+    '''
     course = forms.ModelChoiceField(Course.objects, widget=SelectWithPop)
     cuisine = forms.ModelChoiceField(Cuisine.objects, widget=SelectWithPop)
     class Meta:
@@ -28,6 +29,9 @@ class RecipeForm(ModelForm):
         exclude=('slug','ingredient')
 
 class BaseIngFormSet(BaseModelFormSet):
+    ''' Used to add an ingredient formset to the recipe form turns the ingredient from a select field to an input field
+        that then uses auto complete
+    '''
     def add_fields(self, form, index):
         super(BaseIngFormSet, self).add_fields(form,index)
         form.fields["ingredient"] =  forms.CharField()
