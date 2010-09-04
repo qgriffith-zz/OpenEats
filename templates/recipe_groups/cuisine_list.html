@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block content %}
-    <h2>Cuisine List</h2>
+    <h2>{% trans 'Cuisine List' %}</h2>
     <ul>
         {% for cuisine in cuisine_list %}
             <li> {{ cuisine.title }}(<a href="{% url cuisine_recipes slug=cuisine.slug %}">{{ cuisine.recipe_set.all.count }}</a>) </li>

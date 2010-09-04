@@ -10,7 +10,7 @@
         <h2>edit contact info for {{ user }} </h2>
         <div id="profile-pic">
             {% gravatar profile.user 120 %}
-            <p><em>To change your profile picture you will need to create/login to <a href="http://en.gravatar.com/" >Gravatar</a> using the same email address you used for this site</em></p>
+            <p><em>{%trans 'To change your profile picture you will need to create/login to' %} <a href="http://en.gravatar.com/" >{%trans 'Gravata' %}r</a>{%trans  'using the same email address you used for this site' %}</em></p>
         </div>
 
         {{ form.about.errors }}
