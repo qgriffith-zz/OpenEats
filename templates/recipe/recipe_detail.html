@@ -3,6 +3,7 @@
 {% comment %}This template is the recipe detail view{% endcomment %}
 {% load sanitize %}
 {% load ratings %}
+{% load recipe_favs %}
 {%block title %}{% blocktrans %} OpenEats - {{ recipe }} {% endblocktrans %}{% endblock %}
 {% block jscript %}
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
@@ -105,7 +106,7 @@
     <span id="toolbar-buttons"
          <a href="/recipe/print/{{ recipe }}/">{%trans 'print' %}</a>
          <a id="cook-view" href="/recipe/cook/{{ recipe }}/">{%trans 'cook' %}</a>
-         <button id="recipe-store">{%trans 'favorite' %}</button> {#comment todo: change this to a template tag that will show if the recipe is already stored #}
+        {% fav_link request.user recipe.id %}
     </span>
 </div>
 <div id="photo">
