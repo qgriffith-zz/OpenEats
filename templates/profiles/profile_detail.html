@@ -1,7 +1,6 @@
-{% comment %}This template displays the users profile{% endcomment %}
-
 {% extends 'base.html' %}
 {% load i18n %}
+{% comment %}This template displays the users profile{% endcomment %}
 {% load recipe_count %}
 {% block title %}{{ profile.user.username }} {%trans 'profile' %} {% endblock %}
 
@@ -38,8 +37,7 @@
         {% endif %}
         {% if profile.url %}
           <p><span class="profile-info">{%trans 'website:' %}</span> <a href="{{ profile.url }}"> {{ profile.url }}</a></p>
-        {% endif %}
-        <p><span class="profile-info">{% trans 'member for:' %}</span>{%trans 'days' %}</p> {# todo: use the creation date to determine how many days #}
+        {% endif %}    
     </div>
     <h3>{% trans 'all about me' %}</h3>
     <div id="profile-about">   

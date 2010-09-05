@@ -1,7 +1,6 @@
-{% comment %}This template calls the default form to create a users profile{% endcomment %}
-
 {% extends 'base.html' %}
 {% load i18n %}
+{% comment %}This template calls the default form to create a users profile{% endcomment %}
 {% block title %}{%trans 'edit' %} {{ profile.user.username }} {%trans 'profile' %} {% endblock %}
 {% block content %}
 <h1>Edit contact info for {{ user }} </h1>

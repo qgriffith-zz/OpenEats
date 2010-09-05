@@ -1,6 +1,6 @@
-{% comment %}This template is used to add new courses{% endcomment %}
 {% extends 'base.html' %}
 {% load i18n %}
+{% comment %}This template is used to add new courses{% endcomment %}
 {% block content %}
 <form acion="" method="post">{% csrf_token %}
     {{ form.title.errors }}
