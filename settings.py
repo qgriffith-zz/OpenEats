@@ -130,6 +130,7 @@ INSTALLED_APPS = (
     'profiles',
     'imagekit',
     'djangoratings',
+    'haystack',
     'openeats',
     'openeats.recipe',
     'openeats.recipe_groups',
@@ -158,6 +159,11 @@ DEBUG_TOOLBAR_PANELS = (
 #registration
 LOGIN_REDIRECT_URL = "/recipe/"
 ACCOUNT_ACTIVATION_DAYS = 7
+
+#Haystack config
+HAYSTACK_SITECONF = 'openeats.search_sites'
+HAYSTACK_SEARCH_ENGINE = 'whoosh'
+HAYSTACK_WHOOSH_PATH =  os.path.join(BASE_PATH, 'search_index')
 
 try:
     from local_settings import *

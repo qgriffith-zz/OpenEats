@@ -1,0 +1,3 @@
+{{ recipe.title }}
+{{ recipe.author.get_full_name }}
+{{ recipe.directions }}
