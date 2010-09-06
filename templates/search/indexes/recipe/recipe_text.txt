@@ -1,3 +1,11 @@
-{{ recipe.title }}
-{{ recipe.author.get_full_name }}
-{{ recipe.directions }}
+{{ object.title }}
+{{ object.info }}
+
+{% for ing in object.ingredient_set.all %}
+    {{ ing.title }}
+    {{ ing.preparation }}
+{% endfor %}
+
+{% for tag in object.get_tags %}
+    {{ tag }}
+{% endfor %}
