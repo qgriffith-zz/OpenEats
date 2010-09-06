@@ -1,160 +1,0 @@
-10
-
-dir
-1087
-http://django-grappelli.googlecode.com/svn/trunk/grappelli/media/tinymce/jscripts/tiny_mce/plugins
-http://django-grappelli.googlecode.com/svn
-
-
-
-2010-05-27T14:20:58.953064Z
-1046
-sehmaschine
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-35d8ae9e-4555-0410-bd5f-97af217b58d9
-
-media
-dir
-
-insertdatetime
-dir
-
-pagebreak
-dir
-
-searchreplace_orig
-dir
-
-noneditable
-dir
-
-inlinepopups
-dir
-
-autoresize
-dir
-
-template_orig
-dir
-
-example
-dir
-
-iespell
-dir
-
-emotions
-dir
-
-save
-dir
-
-media_orig
-dir
-
-visualchars_orig
-dir
-
-advhr
-dir
-
-advlist
-dir
-
-tabfocus
-dir
-
-grappelli_contextmenu
-dir
-
-advlink_orig
-dir
-
-layer
-dir
-
-advimage
-dir
-
-grappelli
-dir
-
-preview
-dir
-
-directionality
-dir
-
-visualchars
-dir
-
-wordcount
-dir
-
-legacyoutput
-dir
-
-autosave
-dir
-
-table
-dir
-
-advlink
-dir
-
-print
-dir
-
-paste_orig
-dir
-
-advimage_orig
-dir
-
-nonbreaking
-dir
-
-fullpage
-dir
-
-style
-dir
-
-searchreplace
-dir
-
-fullscreen
-dir
-
-spellchecker
-dir
-
-contextmenu
-dir
-
-template
-dir
-
-paste
-dir
-
-bbcode
-dir
-
-xhtmlxtras
-dir
-

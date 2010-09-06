@@ -150,7 +150,7 @@ label {
 
 input, textarea, select, button {
     margin: 0;
-    vertical-align: middle;
+    vertical-align: top;
     font-family: Arial, sans-serif;
     font-size: 12px;
     font-weight: bold;
@@ -184,6 +184,7 @@ input#searchbar {
     position: relative;
     float: left;
     padding-left: 8px;
+    padding-right: 30px;
     width: 218px;
     height: 26px;
     font-size: 11px;
@@ -218,6 +219,7 @@ input[type=file] {
     margin-left: 0;
 }
 p.datetime {
+    margin-bottom: 0 !important;
     padding: 0;
 }
 p.datetime input.vTimeField {
@@ -290,23 +292,25 @@ input[type=checkbox], input[type=radio] {
     }
 }
 .row input[type=radio], 
-.row input[type=checkbox], 
 .th ul.radiolist input[type=radio], 
+.td ul.radiolist input[type=radio] {
+    top: 0;
+}
+.row input[type=checkbox], 
 .th ul.checkboxlist input[type=checkbox], 
-.td ul.radiolist input[type=radio], 
 .td ul.checkboxlist input[type=checkbox] {
-    top: -1px;
+    top: 2px;
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     .row input[type=radio], 
     .th ul.radiolist input[type=radio], 
     .td ul.radiolist input[type=radio] {
-        top: -2px;
+        top: 1px;
     }
     .row input[type=checkbox], 
     .th ul.radiolist input[type=checkbox], 
     .td ul.radiolist input[type=checkbox] {
-        top: 0;
+        top: 3px;
     }
 }
 .th input[type=radio], 
@@ -422,7 +426,13 @@ ul.radiolist label, ul.checkboxlist label {
 #changelist table input[type=radio], 
 #changelist table input[type=checkbox] {
     position: relative;
-    top: -1px;
+    top: 0;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #changelist table input[type=radio], 
+    #changelist table input[type=checkbox] {
+        top: 1px;
+    }
 }
 #changelist table thead input[type=radio], 
 #changelist table thead input[type=checkbox] {

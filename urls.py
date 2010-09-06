@@ -18,6 +18,7 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
+    (r'^admin_tools/', include('admin_tools.urls')),
     (r'^grappelli/', include('grappelli.urls')),
     (r'^accounts/', include('registration.backends.default.urls')),
     ('^profiles/edit', 'profiles.views.edit_profile', {'form_class': ProfileForm,}),

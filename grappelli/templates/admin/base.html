@@ -25,7 +25,7 @@
         <script type="text/javascript" src="{% admin_media_prefix %}js/grappelli.RelatedObjectLookups.js"></script>
         <script type="text/javascript" src="{% admin_media_prefix %}js/grappelli.min.js"></script>
         <script type="text/javascript">
-            var ADMIN_URL = "{% get_admin_url %}",
+            var ADMIN_URL = "{% url admin:index as admin_index %}{{ admin_index }}",{# ugly hack to prevent tests from failing #}
                 MODEL_URL_ARRAY = {% get_content_types %},
                 DATE_FORMAT = "{% get_date_format %}",
                 TIME_FORMAT = "{% get_time_format %}",
@@ -48,7 +48,11 @@
         
         <!-- MESSAGES -->
         {% if messages %}
-            <ul class="messagelist">{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>
+            <ul class="messagelist">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
         {% endif %}
         
         <!-- CONTENT -->

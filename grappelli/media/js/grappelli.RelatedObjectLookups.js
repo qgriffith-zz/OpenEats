@@ -122,10 +122,11 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
         obj.data('old_val', obj.val());
         
         var link = obj.next();
+        var spliturl = link.attr('href').split('/');
+        var app_label = spliturl[spliturl.length-3];
+        var model_name= spliturl[spliturl.length-2];
+
         var text = obj.next().next();
-        var app_label = link.attr('href').split('/')[2];
-        var model_name= link.attr('href').split('/')[3];
-        
         if (obj.val() == "") {
             text.text('');
             return;
@@ -158,10 +159,11 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
         obj.data('old_val', obj.val());
         
         var link = obj.next();
+        var spliturl = link.attr('href').split('/');
+        var app_label = spliturl[spliturl.length-3];
+        var model_name= spliturl[spliturl.length-2];
+
         var text = obj.next().next();
-        var app_label = link.attr('href').split('/')[2];
-        var model_name= link.attr('href').split('/')[3];
-        
         if (obj.val() == "") {
             text.text('');
             return;
@@ -187,16 +189,17 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
         });
     }
     
-    function GenericLookup(obj) {
+    function GenericLookup(obj, force_update) {
         // check if val isn't empty string or the same value as before
-        if (obj.val() == obj.data('old_val')) return;
+        if (!force_update && obj.val() == obj.data('old_val')) return;
         obj.data('old_val', obj.val());
         
         var link = obj.next();
-        var text = obj.next().next();
-        var app_label = link.attr('href').split('/')[2];
-        var model_name= link.attr('href').split('/')[3];
+        var spliturl = link.attr('href').split('/');
+        var app_label = spliturl[spliturl.length-3];
+        var model_name= spliturl[spliturl.length-2];
         
+        var text = obj.next().next();
         text.text('loading ...');
         
         // get object
@@ -231,9 +234,9 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
         obj.each(function() {
             var ct = $(this).closest('div[class*="object_id"]').prev().find(':input[name*="content_type"]').val();
             if (ct) {
-                var lookupLink = $('<a class="related-lookup">&nbsp;&nbsp;</a>');
+                var lookupLink = $('<a class="related-lookup"></a>');
                 lookupLink.attr('id', 'lookup_'+this.id);
-                lookupLink.attr('href', ADMIN_URL + MODEL_URL_ARRAY[ct] + '/?t=id');
+                lookupLink.attr('href', ADMIN_URL + MODEL_URL_ARRAY[ct].app + "/" + MODEL_URL_ARRAY[ct].model + '/?t=id');
                 lookupLink.attr('onClick', 'return showRelatedObjectLookupPopup(this);');
                 var lookupText = '<strong>&nbsp;</strong>';
                 $(this).after(lookupText).after(lookupLink);
@@ -248,20 +251,21 @@ function dismissAddAnotherPopup(win, newId, newRepr) {
         obj.bind("change", function() {
             var node = $(this).closest('div[class*="content_type"]').next(),
                 lookupLink = node.find('a.related-lookup'),
-                obj_id = next.find('input[name*="object_id"]'),
-                href = ADMIN_URL + MODEL_URL_ARRAY[$(this).val()] + "/?t=id";
-                
+                obj_id = node.find('input[name*="object_id"]'),
+                href = ADMIN_URL + MODEL_URL_ARRAY[$(this).val()].app + "/" + MODEL_URL_ARRAY[$(this).val()].model + '/?t=id'
+            
             if ($(this).val()) {
                 if (lookupLink.attr('href')) {
                     lookupLink.attr('href', href);
                 } else {
-                    lookupLink = $('<a class="related-lookup">&nbsp;&nbsp;</a>');
-                    lookupLink.attr('id', 'lookup_'+obj_id.attr('id'));
-                    lookupLink.attr('href', ADMIN_URL + MODEL_URL_ARRAY[$(this).val()] + '/?t=id');
+                    lookupLink = $('<a class="related-lookup"></a>');
+                    lookupLink.attr('id', 'lookup_' + obj_id.attr('id'));
+                    lookupLink.attr('href', ADMIN_URL + MODEL_URL_ARRAY[$(this).val()].app + "/" + MODEL_URL_ARRAY[$(this).val()].model + '/?t=id');
                     lookupLink.attr('onClick', 'return showRelatedObjectLookupPopup(this);');
                     var lookupText = '<strong>&nbsp;</strong>';
                     obj_id.after(lookupText).after(lookupLink);
                 }
+                GenericLookup(obj_id, true);
             } else {
                 obj_id.val('');
                 lookupLink.remove();
