@@ -113,6 +113,7 @@ TEMPLATE_DIRS = (
 
 INSTALLED_APPS = (
     'admin_tools.dashboard',
+    'admin_tools.menu',
     'grappelli',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -165,6 +166,9 @@ ACCOUNT_ACTIVATION_DAYS = 7
 HAYSTACK_SITECONF = 'openeats.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH =  os.path.join(BASE_PATH, 'search_index')
+
+ADMIN_TOOLS_INDEX_DASHBOARD = 'openeats.dashboard.CustomIndexDashboard'
+ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'openeats.dashboard.CustomAppIndexDashboard'
 
 try:
     from local_settings import *
