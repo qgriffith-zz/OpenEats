@@ -18,7 +18,7 @@ class CustomIndexDashboard(Dashboard):
         self.children.append(modules.LinkList(
             title=_('Quick links'),
             layout='inline',
-            css_classes=['collapse', 'close'],
+            css_classes=['collapse', 'closed'],
             children=[
                 {
                     'title': _('Return to site'),
@@ -38,17 +38,25 @@ class CustomIndexDashboard(Dashboard):
         # append an app list module for "Administration"
         self.children.append(modules.AppList(
             title=_('Administration'),
-            include_list=('django.contrib',),
+            include_list=('django.contrib','registration','openeats.accounts'),
+            css_classes=['collapse', 'open'],
+        ))
+
+         # append an openeats list module for "Applications"
+        self.children.append(modules.AppList(
+            title=_('OpenEats'),
+            exclude_list=('django.contrib', 'registration', 'openeats.accounts',),
+            include_list=('openeats', 'recipe'),
             css_classes=['collapse', 'open'],
         ))
         
         # append an app list module for "Applications"
         self.children.append(modules.AppList(
             title=_('Applications'),
-            exclude_list=('django.contrib',),
+            exclude_list=('django.contrib','openeats', 'recipe'),
             css_classes=['collapse', 'open'],
         ))
-
+          
         # append a recent actions module
         self.children.append(modules.RecentActions(
             column=2,
