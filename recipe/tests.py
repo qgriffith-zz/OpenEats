@@ -1,7 +1,7 @@
 from django.test import TestCase
 from models import Recipe
 
-class RecipeTestCast(TestCase):
+class RecipeTestCase(TestCase):
     fixtures = ['recipe_data.json', 'recipe']  #load up a recipe so we can do stuff with it
 
     def setUp(self):
@@ -13,6 +13,12 @@ class RecipeTestCast(TestCase):
         self.recipe.servings = 10
         self.recipe.save()
         self.assertNotEqual(self.recipe.servings, 20)
+        response = self.client.get("/recipe/chili/") #this should be good because a recipe does exist
+        self.failUnlessEqual(response.status_code, 200)
+
+
 
     def tearDown(self):
         self.recipe.delete()
+        response = self.client.get("/recipe/chili/") #this should be good because we deleted the recipe
+        self.failUnlessEqual(response.status_code, 404)
