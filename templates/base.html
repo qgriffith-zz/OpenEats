@@ -13,7 +13,14 @@
         <div id="page-wrap">
             <div id="main">
                 <div id="header">
-                    <div id="logo"><img src="{{ MEDIA_URL }}images/logo.png" alt="logo" /></div>
+                    <div id="logo"><img src="{{ MEDIA_URL }}images/logo.png" alt="logo" />
+                        <div id="search">
+                            <form method="get" action="/search/" >
+                                <input type="text" id="id_q" name="q">
+                                <input type="submit" value="{%trans 'Search' %}">
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <div id="nav-bar">
                     {% load navbar %}

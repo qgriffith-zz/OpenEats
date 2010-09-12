@@ -17,6 +17,10 @@ div#nav-bar li a:hover { text-decoration:underline;}
 /*Content*/
 #content { padding:8px 0 85px 0; margin-bottom:1400px;}
 
+/*Search*/
+div#search {float:right; padding-right:10px;}
+h2#search-header {margin-bottom:20px; color:#484846;}
+div#search input#id_q { height:20px; width:150px; }
 
 /*footer*/
 #footer {color:#5f562a; height:85px; border-top:4px solid #c3bfa5; font-size:.75em; padding-left:10px;}
