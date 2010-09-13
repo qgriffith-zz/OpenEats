@@ -16,8 +16,6 @@ class RecipeTestCase(TestCase):
         response = self.client.get("/recipe/chili/") #this should be good because a recipe does exist
         self.failUnlessEqual(response.status_code, 200)
 
-
-
     def tearDown(self):
         self.recipe.delete()
         response = self.client.get("/recipe/chili/") #this should be good because we deleted the recipe

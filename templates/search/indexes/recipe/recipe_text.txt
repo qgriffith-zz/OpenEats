@@ -1,5 +1,6 @@
 {{ object.title }}
 {{ object.info }}
+{{ object.author }}
 
 {% for ing in object.ingredient_set.all %}
     {{ ing.title }}
