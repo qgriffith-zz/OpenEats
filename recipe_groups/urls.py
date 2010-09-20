@@ -12,7 +12,7 @@ cuisine_info={
              }
 urlpatterns = patterns('',
     (r'^popadd/course/$', 'openeats.recipe_groups.views.course_pop'),
-    (r'^course/$', list_detail.object_list, course_info ),
+    url(r'^course/$', list_detail.object_list, course_info , name="course_list"),
     (r'^course/new/$', create_update.create_object, dict({'model':Course,}, login_required=True, post_save_redirect='/recipe/')),
     url(r'^course/(?P<slug>[-\w]+)/$', 'openeats.recipe_groups.views.course_recipes', name="course_recipes"),
     (r'^popadd/cuisine/$', 'openeats.recipe_groups.views.cuisine_pop'),
