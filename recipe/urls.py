@@ -15,7 +15,7 @@ recipe_list={
 
 
 urlpatterns = patterns('',
-    (r'^new/$', 'recipe.views.recipe'),
+    url(r'^new/$', 'recipe.views.recipe', name="new_recipe"),
     (r'^print/(?P<slug>[-\w]+)/$', list_detail.object_detail, {'queryset': Recipe.objects.all(), "template_object_name": 'recipe',"template_name": 'recipe/recipe_print.html',}),
     (r'^cook/(?P<slug>[-\w]+)/$', list_detail.object_detail, {'queryset': Recipe.objects.all(), "template_object_name": 'recipe',"template_name": 'recipe/recipe_cook.html',}),
     (r'^store/(?P<object_id>\d+)/$', 'recipe.views.recipeStore'),
