@@ -9,6 +9,9 @@
     </head>
     <body>
         <a id="notvisable" href="javascript:window.print()">Print</a>
+        {% if recipe.shared == 1 and recipe.author != request.user %}
+            <h2>{%trans 'Recipe is marked Private and you are not the author of it!' %}</h2>
+         {% else %}
         <h3> {{ recipe }} - <span class="print-site"> OpenEats</span></h3>
         <p id="print-user"><b>{% trans 'Chef:' %}</b> {{ recipe.author }}</p>
         <div class="print-desc">
@@ -32,4 +35,5 @@
             <h4>{% trans 'Steps' %}</h4>
            {{ recipe.directions|sanitize_html|safe }}
         </div>
+    {% endif %}
     </body>

@@ -6,6 +6,9 @@
         <title>{% trans 'Cook View' %} - {{ recipe }} </title>
     </head>
     <body>
+        {% if recipe.shared == 1 and recipe.author != request.user %}
+            <h2>{%trans 'Recipe is marked Private and you are not the author of it!' %}</h2>
+         {% else %}
     <div id="tenfoot"
         <h1> {{ recipe }} </h1>
         <hr />
@@ -20,5 +23,6 @@
             {{ recipe.directions|sanitize_html|safe }}
         </div>
     </div>
+    {% endif %}
     </body>
 </html>
