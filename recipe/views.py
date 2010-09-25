@@ -10,6 +10,15 @@ from forms import RecipeForm, BaseIngFormSet
 from djangoratings.views import AddRatingView
 from django.utils import simplejson
 
+def recipeShow(request, slug):
+    recipe = get_object_or_404(Recipe, slug=slug)
+    if recipe.shared == Recipe.PRIVATE_SHARED and recipe.author != request.user: #check if the recipe is a private recipe if so through a 404 error
+        raise Http404("Recipe %s is marked Private"  % recipe.slug)
+    else:
+        return render_to_response('recipe/recipe_detail.html', {'recipe': recipe}, context_instance=RequestContext(request))
+    
+
+
 @login_required
 def recipe(request):        
     IngFormSet = inlineformset_factory(Recipe, Ingredient, extra=5) #creat the ingredient form with 5 empty fields
