@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from models import Course, Cuisine
+from recipe.models import Recipe
 from django.contrib.auth.decorators import login_required
 from forms import CoursePopForm, CuisinePopForm
 from helpers.form_helper import handlePopAdd
@@ -10,7 +11,7 @@ from helpers.form_helper import handlePopAdd
 def course_recipes(request, slug):
     '''Rectrives the recipe objects in a list that belong to the course passed to the method'''
     course_object = get_object_or_404(Course, slug=slug)
-    recipe_list = course_object.recipe_set.all()
+    recipe_list = course_object.recipe_set.filter(shared=Recipe.SHARE_SHARED)
     paginator = Paginator(recipe_list, 10)
 
     # Make sure page request is an int. If not, deliver first page.
@@ -29,7 +30,7 @@ def course_recipes(request, slug):
 def cuisine_recipes(request, slug):
     '''Retrives the recipe objects in a list that belong to the cuisnie passed to the method'''
     cuisine_object = get_object_or_404(Cuisine, slug=slug)
-    recipe_list = cuisine_object.recipe_set.all();
+    recipe_list = cuisine_object.recipe_set.filter(shared=Recipe.SHARE_SHARED)
     paginator = Paginator(recipe_list, 10)
 
     # Make sure page request is an int. If not, deliver first page.
