@@ -54,7 +54,7 @@ class RecipeTestCase(TestCase):
         twill.commands.find('Chef') #this should be found on the page if the recipe was saved and we got sent to the recipe show view
 
     def testPrivateRecipe(self):
-        '''Test a recipe marked private can't be visted by another user note this test will fail since i have not blocked off private recipes yet'''
+        '''Test a recipe marked private can't be visted by another user'''
         privateUser = User.objects.create(username='privateUser') #create a new user to create a private recipe
         privateUser.set_password('password')
         privateUser.save()
@@ -88,8 +88,7 @@ class RecipeTestCase(TestCase):
         '''Head over to the new recipe page'''
 
         self.browser.go(recipe.get_absolute_url())
-        twill.commands.code(200) #make sure we got there
-        twill.commands.notfind('Chef:') #we should not see this on the page since this is a private recipe
+        twill.commands.code(404) #should be sent to a 404 now since the recipe is private
         self.browser.go(reverse_for_twill('django.contrib.auth.views.logout'))
 
 
