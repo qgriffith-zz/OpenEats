@@ -4,10 +4,33 @@
     <head>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
         <title>{% block title %}{% trans "OpenEats2" %}{% endblock %}</title>
-        {% block jscript %}{% endblock %}
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+         <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/south-street/jquery-ui.css" rel="stylesheet" />
+         <script type="text/javascript" src="{{ MEDIA_URL }}js/fg-menu/fg.menu.js"></script>
+         <link type="text/css" href="{{ MEDIA_URL }}js/fg-menu/fg.menu.css" media="screen" rel="stylesheet" />
+         <script type="text/javascript">
+             $(function(){
+                 // BUTTONS
+                 $('.fg-button').hover(
+                 function(){ $(this).removeClass('ui-state-default').addClass('ui-state-focus'); },
+                 function(){ $(this).removeClass('ui-state-focus').addClass('ui-state-default'); }
+             );
+
+                 // MENUS
+                 $('#flat').fgmenu({
+                     content: $('#flat').next().html(), // grab content from this page
+                     showSpeed: 300
+                 });
+             })
+        </script>
+        {% block jscript %}
+
+        {% endblock %}
         <link rel="stylesheet" href="{{ MEDIA_URL }}css/oe.css" />
         <meta name="keywords" content="" />
         <meta name="description" content="" />
+  
     </head>
     <body>
         <div id="page-wrap">
@@ -22,10 +45,23 @@
                         </div>
                     </div>
                 </div>
+             
                 <div id="nav-bar">
+                    {% if request.user.is_authenticated %}
+                    <div id="login-menu">
+                        <a tabindex="0" href="#" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="flat"><span class="ui-icon ui-icon-triangle-1-s"></span>{{ request.user }}</a>
+                        <div id="login-nav" class="hidden">
+                            <ul>
+                                <li><a href="/profiles/{{request.user }}">profile</a></li>
+                                <li><a href="/accounts/logout/">logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                   {% endif %}
                     {% load navbar %}
                     {% navbars %}
-                </div><!--- end navbar div --->
+               </div><!--- end navbar div --->
+
                 <div id="content">
                     {% if messages %}
                     <ul class="messages">

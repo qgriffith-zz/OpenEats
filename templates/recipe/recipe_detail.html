@@ -6,9 +6,6 @@
 {% load recipe_favs %}
 {%block title %}{% blocktrans %} OpenEats - {{ recipe }} {% endblocktrans %}{% endblock %}
 {% block jscript %}
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/humanity/jquery-ui.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox.css" />
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
@@ -105,7 +102,7 @@
     <span id="title">{{ recipe }}</span>
     <span id="toolbar-buttons"
          <a href="/recipe/print/{{ recipe }}/">{%trans 'print' %}</a>
-         <a id="cook-view" href="/recipe/cook/{{ recipe }}/">{%trans 'cook' %}</a>
+         <a id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a>
         {% fav_link request.user recipe.id %}
     </span>
 </div>
