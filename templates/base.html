@@ -52,7 +52,7 @@
                         <a tabindex="0" href="#" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="flat"><span class="ui-icon ui-icon-triangle-1-s"></span>{{ request.user }}</a>
                         <div id="login-nav" class="hidden">
                             <ul>
-                                <li><a href="/profiles/{{request.user }}">profile</a></li>
+                                <li><a href="{{request.user.get_profile.get_absolute_url}}">profile</a></li>
                                 <li><a href="/accounts/logout/">logout</a></li>
                             </ul>
                         </div>
