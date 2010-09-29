@@ -21,7 +21,7 @@ def recipeShow(request, slug):
 
 @login_required
 def recipe(request):        
-    IngFormSet = inlineformset_factory(Recipe, Ingredient, extra=5) #creat the ingredient form with 5 empty fields
+    IngFormSet = inlineformset_factory(Recipe, Ingredient, extra=15) #creat the ingredient form with 5 empty fields
      
     if request.method=='POST':
         form = RecipeForm(request.POST, request.FILES)

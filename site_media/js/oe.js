@@ -2,7 +2,7 @@
 
 /* this function is for the django-dynamic-formset which allows a new ingredient row to be added on the recipe form*/
 $(function() {
-    $('#ing-5').formset({
+    $('#ing-15').formset({
         prefix: '{{ formset.prefix }}',
         added: function(row){
             var txt = row.find('#ing-field input');

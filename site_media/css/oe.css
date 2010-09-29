@@ -44,7 +44,7 @@ div#search input#id_q { height:20px; width:150px; }
 
 
 /*Recipe Detail */
-div#toolbar{height:45px; background:url("../images/title-bg.gif") repeat-x top #FF9F00; border:1px black solid; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+div#toolbar{height:45px; background:url("../images/ui-bg_gloss-wave.png") repeat-x scroll 50% 50% #ECE8DA; border:1px black solid; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 div#toolbar span#title { font-size:1.8em; line-height:1.50em; padding-left:20px; padding-right:30px; color:#484846; border-right:white 1px dotted;}
 div#toolbar span#toolbar-buttons{padding-left:15px;}
 div#toolbar span#toolbar-buttons a {margin-left:5px;}
