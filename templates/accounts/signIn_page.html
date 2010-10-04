@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block jscript %}
+<script type="text/javascript">
+    $(function() {
+        $("#login-tabs").tabs({
+            ajaxOptions: {
+                error: function(xhr, status, index, anchor) {
+                    $(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible.");
+                }
+            }
+        });
+    });
+</script>
+{% endblock %}
+{% block content %}
+<div id="login-tabs">
+	<ul>
+		<li><a href="/accounts/ajax-signIn/">{%trans 'sign in' %}</a></li>
+		<li><a href="/accounts/ajax-create/">{%trans 'sign up' %}</a></li>
+
+	</ul>
+</div>
+
+{% endblock %}

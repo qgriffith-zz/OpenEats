@@ -1,0 +1,21 @@
+<div id="account-form">
+    {{ form.non_field_errors }} {# this is a special error field for erros not associated with a field in the form this is used if the passwords don't match #}
+    <form method="post" action="/accounts/register/">{% csrf_token %}
+        {{ form.username.errors }}
+        <p>{{ form.username.label_tag }}</p>
+        <p>{{ form.username }}</p>
+
+        {{ form.email.errors }}
+        <p>{{ form.email.label_tag }}</p>
+        <p>{{ form.email}}</p>
+
+        {{ form.password1.errors }}
+        <p>{{ form.password1.label_tag }}</p>
+        <p>{{ form.password1 }}</p>
+
+        {{ form.password2.errors }}
+        <p>{{ form.password2.label_tag }}</p>
+        <p>{{ form.password2 }}</p>
+        <input type="submit" value="create account" />
+    </form>
+</div>

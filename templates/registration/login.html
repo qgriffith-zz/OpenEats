@@ -2,17 +2,5 @@
 {% load i18n %}
 {%block title %}{%trans "OpenEats - Login" %}{% endblock %}
 {% block content %}
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
-<div id="login-form">
-    <form method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
-        <p>{{ form.username.label_tag }}</p>
-        <p>{{ form.username }}</p>
-        <p>{{ form.password.label_tag }}</p>
-        <p>{{ form.password }} </p>
-        <input type="hidden" name="next" value="{{ next }}" />
-        <input type="submit" value="login" />
-    </form>
-</div>
+ {% include 'registration/_login_form.html' %}
 {% endblock %}
