@@ -27,6 +27,11 @@ button.fg-button { width:auto; overflow:visible; } /* removes extra button width
 .fg-button-icon-right .ui-icon { left: auto; right: .2em; margin-left: 0; }
 .fg-button-icon-solo { display:block; width:8px; text-indent: -9999px; }	 /* solo icon buttons must have block properties for the text-indent to work */
 
+/* Login Form */
+div#login-form, div#account-form { margin-top: 20px; }
+div#login-form input, div#account-form input { height:20px; margin-bottom:20px;}
+div#login-form label, div#account-form label {color:#484846; font-size:120%; float: left; text-align: right;	margin-right: 15px; width: 90px;}
+
 /*Content*/
 #content { padding:8px 0 85px 0; margin-bottom:1400px;}
 
