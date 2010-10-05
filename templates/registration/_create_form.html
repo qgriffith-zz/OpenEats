@@ -1,3 +1,4 @@
+{# create account form called via an include statement #}
 <div id="account-form">
     {{ form.non_field_errors }} {# this is a special error field for erros not associated with a field in the form this is used if the passwords don't match #}
     <form method="post" action="/accounts/register/">{% csrf_token %}
