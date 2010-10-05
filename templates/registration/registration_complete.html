@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block content %}
-{% trans "Thank you for signing up for OpenEats you have been emailed an activation link" %}
+<div id="registration-complete">
+    <h2>{% trans 'Activation Link Sent' %}</h2>
+    {% trans "Thank you for signing up for OpenEats you have been emailed an activation link" %}
+</div>
 {% endblock %}

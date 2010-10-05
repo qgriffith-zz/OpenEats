@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-
-<p>{% block trans %} Your account is now active! Feel free to <a href="/accounts/login" > login </a> to the site. {% endblock %}</p>
+<div id="registration-complete">
+    <h2>{%trans 'Account now Active!' %}</h2>
+    <p>{% block trans %} Your account is now active! Feel free to <a href="/accounts/login" > login </a> to the site. {% endblock %}</p>
+</div>
 {% endblock %}

@@ -33,6 +33,8 @@ div#login-form input, div#account-form input { height:20px; margin-bottom:20px;}
 div#login-form label, div#account-form label {color:#484846; font-size:120%; float: left; text-align: right;	margin-right: 15px; width: 90px;}
 div#login-tabs { width: 450px; height: 350px; position: absolute; left: 50%; top: 50%; margin-left: -225px; margin-top: -150px;}
 
+/* Registration Pages */
+div#registration-complete h2 {color: #5f562a; margin-bottom:20px; width:220px;}
 
 /*Content*/
 #content { padding:8px 0 85px 0; margin-bottom:1400px;}
