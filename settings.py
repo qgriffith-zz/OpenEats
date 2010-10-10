@@ -135,11 +135,13 @@ INSTALLED_APPS = (
     'imagekit',
     'djangoratings',
     'haystack',
+    'django_generic_flatblocks',
     'openeats',
     'openeats.recipe',
     'openeats.recipe_groups',
     'openeats.ingredient',
     'openeats.accounts',
+    'openeats.news',
 )
 
 
