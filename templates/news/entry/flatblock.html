@@ -1,0 +1,7 @@
+<h2>{{ object.title }}</h2>
+
+{% if object.image  %}
+    <p><img src="{{ MEDIA_URL }}{{ object.image }}" alt=""/></p>
+{% endif %}
+
+{{ object.content|safe }}

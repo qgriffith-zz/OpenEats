@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
+{% load i18n %}
+{% load generic_flatblocks %}
 {% block content %}
-{% for recipe in recipe_list %}
-    {{ recipe }}
-{% endfor %}
+    {% gblock 'test-news-entry' for "news.Entry" %}
 {% endblock %}

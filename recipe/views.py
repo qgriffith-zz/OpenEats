@@ -10,6 +10,10 @@ from forms import RecipeForm, BaseIngFormSet
 from djangoratings.views import AddRatingView
 from django.utils import simplejson
 
+def index(request):
+    new_recipe_list = Recipe.objects.filter(shared=Recipe.SHARE_SHARED).exclude(photo=None).order_by('-pub_date')[0:8]
+    return render_to_response('recipe/index.html', context_instance=RequestContext(request))
+
 def recipeShow(request, slug):
     recipe = get_object_or_404(Recipe, slug=slug)
     if recipe.shared == Recipe.PRIVATE_SHARED and recipe.author != request.user: #check if the recipe is a private recipe if so through a 404 error
@@ -17,7 +21,6 @@ def recipeShow(request, slug):
     else:
         return render_to_response('recipe/recipe_detail.html', {'recipe': recipe}, context_instance=RequestContext(request))
     
-
 
 @login_required
 def recipe(request):        

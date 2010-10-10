@@ -24,6 +24,6 @@ urlpatterns = patterns('',
     (r'^ajax-raterecipe/(?P<object_id>\d+)/(?P<score>\d+)', 'recipe.views.recipeRate'),
     (r'^ajax-favrecipe/$', 'recipe.views.recipeUserFavs'),
     (r'^(?P<slug>[-\w]+)/$', 'recipe.views.recipeShow'),
-    url(r'^$', list_detail.object_list, recipe_list, name='recipe_index'),
+    url(r'^$', 'recipe.views.index', name='recipe_index'),
 
    )
