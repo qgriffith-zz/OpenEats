@@ -5,8 +5,9 @@
     {% gblock 'test-news-entry' for "news.Entry" %}
 
     <div id="recent-recipes">
+        <h1>{%trans 'Fresh from the Oven!' %}</h1>
         {% for recipe in new_recipes %}
-            <img src="{{recipe.index_thumbnail.url}}" />
+            <img class="recent-photo"src="{{recipe.index_thumbnail.url}}" />
         {% endfor %}
     </div>
 

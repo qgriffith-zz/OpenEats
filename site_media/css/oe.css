@@ -143,3 +143,6 @@ div#news { width:95%; border:1px solid #5f562a; background-color:#F5F3E5;}
 div#news-content { float:left; width: 60%; margin-left: 20px; margin-top:15px; padding:10px; color:#7A787D; font-size:120%; font-family:Georgia, serif;}
 div#news-content h2 { padding-bottom:10px; color:#9F954A;}
 div#news-photo-wrap { float:right; margin-left:10px;}
+div#recent-recipes { margin-top: 30px; }
+div#recent-recipes h1 { margin-bottom:10px; color:#EF8106;}
+img.recent-photo { border: 1px solid #e0d3ab; padding:5px; margin: 3px;  -moz-border-radius: .4em; -webkit-border-radius: .4em;}
