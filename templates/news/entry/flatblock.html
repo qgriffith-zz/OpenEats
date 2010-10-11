@@ -1,7 +1,12 @@
-<h2>{{ object.title }}</h2>
-
-{% if object.image  %}
-    <p><img src="{{ MEDIA_URL }}{{ object.image }}" alt=""/></p>
-{% endif %}
-
-{{ object.content|safe }}
+<div id="news">
+    <div id="news-content">
+        <h2> {{ object.title }}</h2>
+        {{ object.content|safe }}
+    </div>
+    <div id="news-photo-wrap">
+        {% if object.image %}
+            <img id="news-photo" src="{{ MEDIA_URL }}{{ object.image }}" alt=""/>
+        {% endif %}
+    </div>
+    <br style="clear:both;" />
+</div>

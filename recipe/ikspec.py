@@ -9,6 +9,12 @@ class ResizeThumb(processors.Resize):
     width = 200
     crop = False
 
+class ResizeIndexThumb(processors.Resize):
+    ''' Thumbnail resize proccessor'''
+    height = 230
+    width = 230
+    crop = True
+
 class ResizeAdminThumb(processors.Resize):
     '''Admin Thumbnail resize proccessor'''
     height = 75
@@ -40,6 +46,12 @@ class AdminThumbnail(ImageSpec):
     access_as ='admin_thumbnail'
     pre_cache = True
     processors = [ResizeAdminThumb]
+
+class IndexThumbnail(ImageSpec):
+    '''List Thumbnail spec'''
+    access_as = 'index_thumbnail'
+    pre_cache = True
+    processors = [ResizeIndexThumb]
 
 class ListThumbnail(ImageSpec):
     '''List Thumbnail spec'''

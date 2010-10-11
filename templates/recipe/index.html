@@ -3,4 +3,11 @@
 {% load generic_flatblocks %}
 {% block content %}
     {% gblock 'test-news-entry' for "news.Entry" %}
+
+    <div id="recent-recipes">
+        {% for recipe in new_recipes %}
+            <img src="{{recipe.index_thumbnail.url}}" />
+        {% endfor %}
+    </div>
+
 {% endblock %}
