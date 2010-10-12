@@ -1,14 +1,22 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load generic_flatblocks %}
+
 {% block content %}
     {% gblock 'test-news-entry' for "news.Entry" %}
 
     <div id="recent-recipes">
         <h1>{%trans 'Fresh from the Oven!' %}</h1>
         {% for recipe in new_recipes %}
-            <img class="recent-photo"src="{{recipe.index_thumbnail.url}}" />
+        <dl class="captioned-image">
+            
+            <dt><a href="{{ recipe.get_absolute_url }}"><img src="{{recipe.index_thumbnail.url}}" alt="{{ recipe.title }}"/></a></dt>
+            <dd><span>{{ recipe.title }} <br /><cite>{%trans 'chef: ' %}{{ recipe.author }}</cite></span></dd>
+  
+        </dl>
         {% endfor %}
     </div>
 
 {% endblock %}
+
+

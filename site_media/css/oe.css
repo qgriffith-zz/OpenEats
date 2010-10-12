@@ -145,4 +145,12 @@ div#news-content h2 { padding-bottom:10px; color:#9F954A;}
 div#news-photo-wrap { float:right; margin-left:10px;}
 div#recent-recipes { margin-top: 30px; }
 div#recent-recipes h1 { margin-bottom:10px; color:#EF8106;}
-img.recent-photo { border: 1px solid #e0d3ab; padding:5px; margin: 3px;  -moz-border-radius: .4em; -webkit-border-radius: .4em;}
+
+dl.captioned-image         { border: 1px solid #e0d3ab;  -moz-border-radius: .4em; -webkit-border-radius: .4em; position: relative; padding: .6em; margin: .4em; float:left;}
+dl.captioned-image dt img  { display: block; }
+dl.captioned-image dd      { position: absolute; left: 0; bottom: .40em; font: bold 1.5em Helvetica, sans-serif; }
+dl.captioned-image.top dd  { top: 1.25em; }
+dl.captioned-image dd span { width:225px; display: block; float: left; clear: both;
+                             background: #000; background: rgba(0, 0, 0, 0.7);
+                             padding: 0.25em 0.5em; color: #fff; }
+dl.captioned-image cite   { color: #9F954A; font-size: 60%;}
