@@ -32,6 +32,7 @@ urlpatterns = patterns('',
     (r'^recipe/', include('recipe.urls')),
     (r'^ingredient/', include('ingredient.urls')),
     (r'^search/', include('haystack.urls')),
+    (r'^$', 'recipe.views.index'),
 
 )
 
@@ -39,6 +40,6 @@ urlpatterns = patterns('',
 
 if settings.SERVE_MEDIA:
     urlpatterns += patterns('',
-        (r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
+        (r'^site-media/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': settings.MEDIA_ROOT}),
         )

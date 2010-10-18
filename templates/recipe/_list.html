@@ -10,13 +10,13 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".{{ recipe }}-rate").stars({
+            $(".{{ recipe.slug }}-rate").stars({
                 inputType: "select",
                 disabled: true
             });
             var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
             var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
-            $(".{{ recipe }}-rate").stars("selectID", selectid); //set the select value to the avg rate
+            $(".{{ recipe.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
         });
     </script>
 
@@ -46,7 +46,7 @@
     <p class="chef">{%trans 'Chef:' %} <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a> </p>
     <p>{{ recipe.info|sanitize_html|safe }}</p>
     <form>
-        <div class="{{ recipe }}-rate recipe-rate">
+        <div class="{{ recipe.slug }}-rate recipe-rate">
             <p class="rating-title""><strong>{%trans 'Average Rating:' %}</strong> <span class="rating-cap"></span></p>
             <select name="selrate">
                 <option value="1">{% trans 'Poor' %}</option>

@@ -31,7 +31,7 @@ button.fg-button { width:auto; overflow:visible; } /* removes extra button width
 div#login-form, div#account-form { margin-top: 20px; }
 div#login-form input, div#account-form input { height:20px; margin-bottom:20px;}
 div#login-form label, div#account-form label {color:#484846; font-size:120%; float: left; text-align: right;	margin-right: 15px; width: 90px;}
-div#login-tabs { width: 450px; height: 350px; position: absolute; left: 50%; top: 50%; margin-left: -225px; margin-top: -150px;}
+div#login-tabs { width: 450px; height: 350px; position: absolute; left: 50%;  margin-left: -225px; top:250px;}
 
 /* Registration Pages */
 div#registration-complete h2 {color: #5f562a; margin-bottom:20px; width:220px;}
@@ -74,8 +74,9 @@ div#recipe-comments{float:left; width:550px; margin-top:20px;}
 div#recipe-rate{float:right; padding:5px 40px 5px 5px; width:200px; border:1px burlywood dashed; border-right: none;}
 div#caption{margin-right:60px;}
 #messages {color: #fd1c24;}
-#ajax-messages{ margin-bottom:10px; padding:10px; border:1px green dashed; background-color: lightgreen; font-size: 140%; color:white; font-weight:bold; width:80%}
+#ajax-messages, li.success{ margin-bottom:10px; padding:10px; border:1px green dashed; background-color: lightgreen; font-size: 140%; color:white; font-weight:bold; width:80%}
 .remove-fav { float:right;}
+li.success { list-style: none;}
 
 /*Recipe List */
 div.recipe {padding-bottom:25px; border-bottom:dotted 1px gray; color:#484846; margin-bottom:15px;}

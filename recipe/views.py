@@ -11,7 +11,7 @@ from djangoratings.views import AddRatingView
 from django.utils import simplejson
 
 def index(request):
-    recipe_list = Recipe.objects.filter(shared=Recipe.SHARE_SHARED).exclude(photo=None).order_by('-pub_date')[0:6]
+    recipe_list = Recipe.objects.filter(shared=Recipe.SHARE_SHARED).exclude(photo='').order_by('-pub_date')[0:6]
     return render_to_response('recipe/index.html', {'new_recipes' : recipe_list}, context_instance=RequestContext(request))
 
 def recipeShow(request, slug):

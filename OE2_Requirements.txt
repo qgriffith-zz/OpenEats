@@ -18,5 +18,5 @@ html5lib==0.90
 twill==0.9
 whoosh==0.3.18
 grappelli-admin-tools
-
+django-generic-flatblocks
 -e git+http://github.com/toastdriven/django-haystack.git@0e6a62e79b0e92441cc3b1c1c489029d048fabba#egg=Haystack

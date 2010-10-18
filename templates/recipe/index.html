@@ -3,7 +3,7 @@
 {% load generic_flatblocks %}
 
 {% block content %}
-    {% gblock 'test-news-entry' for "news.Entry" %}
+    {% gblock 1 for "news.Entry" %}
 
     <div id="recent-recipes">
         <h1>{%trans 'Fresh from the Oven!' %}</h1>

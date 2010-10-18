@@ -101,7 +101,7 @@
 <div id="toolbar">
     <span id="title">{{ recipe }}</span>
     <span id="toolbar-buttons"
-         <a href="/recipe/print/{{ recipe }}/">{%trans 'print' %}</a>
+         <a href="/recipe/print/{{ recipe.slug }}/">{%trans 'print' %}</a>
          <a id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a>
         {% fav_link request.user recipe.id %}
     </span>
