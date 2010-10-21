@@ -18,6 +18,10 @@ fieldset {
     margin: 3px 0 2px 0;
     padding: 0;
 }
+.row.cells p.help {
+    max-width: 278px;
+    white-space: normal !important;
+}
 
 .row ul.radio-list + p.help, 
 .row ul.checkbox-list + p.help {
@@ -134,6 +138,7 @@ label {
 .module label {
     display: block;
     padding: 0 0 6px;
+    white-space: normal;
 }
 .module .vCheckboxLabel {
     display: inline;
@@ -208,7 +213,7 @@ input[type=file] {
 }
 .th input[type=file], 
 .td input[type=file] {
-    top: 2px;
+    top: 3px;
     margin-bottom: -2px;
 }
 
@@ -276,18 +281,18 @@ input[type=checkbox], input[type=radio] {
 .th>input[type=checkbox], 
 .td>input[type=radio], 
 .td>input[type=checkbox] {
-    top: 2px;
+    top: 5px;
     margin-bottom: -3px;
 }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     .th>input[type=radio], 
     .td>input[type=radio] {
-        top: 2px;
+        top: 6px;
         margin-bottom: -2px;
     }
     .th>input[type=checkbox], 
     .td>input[type=checkbox] {
-        top: 3px;
+        top: 7px;
         margin-bottom: -2px;
     }
 }
@@ -308,8 +313,8 @@ input[type=checkbox], input[type=radio] {
         top: 1px;
     }
     .row input[type=checkbox], 
-    .th ul.radiolist input[type=checkbox], 
-    .td ul.radiolist input[type=checkbox] {
+    .th ul.checkboxlist input[type=checkbox], 
+    .td ul.checkboxlist input[type=checkbox] {
         top: 3px;
     }
 }
@@ -337,7 +342,13 @@ ul.checkboxlist input[type=checkbox] {
 }
 .row ul.checkboxlist label input[type=checkbox] {
     top: -2px;
-    vertical-align: bottom;
+    vertical-align: middle;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .row ul.checkboxlist label input[type=checkbox] {
+        top: -1px;
+        vertical-align: middle;
+    }
 }
 
 .row label + input + p.help input[type=checkbox] {
@@ -363,6 +374,10 @@ ul.radiolist, ul.checkboxlist {
     font-size: 11px;
     line-height: 15px;
     font-weight: normal;
+}
+
+.row>ul.radiolist, .row>ul.checkboxlist {
+    margin: 0;
 }
 
 ul.radiolist li + li, ul.checkboxlist li + li {
@@ -395,6 +410,9 @@ ul.radiolist.inline li, ul.checkboxlist.inline li {
     position: relative;
     float: left;
     display: inline;
+}
+.row.cells ul.radiolist.inline li, .row.cells ul.checkboxlist.inline li {
+    float: none;
 }
 
 ul.radiolist label, ul.checkboxlist label {
@@ -776,5 +794,16 @@ input.vM2MAutocompleteSearchField {
 .changelist-results table select, 
 .module.table select {
     max-width: 278px;
+}
+
+
+
+/*  Form Elements Cells
+------------------------------------------------------------------------------------------------------ */
+
+.cell input[type=text], 
+.cell input[type=password], 
+.cell select {
+    max-width: 280px;
 }
 

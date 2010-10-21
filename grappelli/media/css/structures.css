@@ -80,149 +80,196 @@ body.filebrowser.popup #header {
 }
 
 
-/*  Bookmarks ................................................... */
+/*  Navigation Menu (UL Navigation-Menu of Admin-Tools) ................................................... */
 
-/*ul#bookmarks {
-    position: relative; float: left;
-    border-left: 1px solid #404040;
-    border-right: 1px solid #404040;
-}
-ul#bookmarks li {
-    padding: 8px 10px;
-}
-ul#bookmarks li.action.bookmark-manage {
-    border-right: 1px solid #303030;
-}
-ul#bookmarks li#toggle-bookmarks-listing {
-    width: 175px;
-    cursor: pointer;
-}
-ul#bookmarks li#toggle-bookmarks-listing:hover>a {
-    color: #eee;
-}
-ul#bookmarks li.action {
-    padding: 3px 0 2px;
-}
-ul#bookmarks li.action:last-child {
-    padding-right: 5px;
-}*/
-
-
-/*  Bookmarks Actions ................................................... */
-
-/*ul#bookmarks li.action a {
-    position: relative; display: block;
-    margin: 0;
-    width: 18px; height: 22px;
-    border: 1px solid transparent;
-    border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-}
-ul#bookmarks li.action {
-    width: 20px; height: 24px;
-    background-position: 50% 9px;
-    background-repeat: no-repeat;
-}
-ul#bookmarks li.action.bookmark-add {
-    background-image: url('../img/icons/icon-bookmark_add-inactive.png');
-}
-ul#bookmarks li.action.bookmark-remove {
-    background-image: url('../img/icons/icon-bookmark_remove-inactive.png');
-}
-ul#bookmarks li.action.active {
-    background-image: none;
-}
-.bookmark-add.active a, .bookmark-add.active a:visited {
-    background-image: url('../img/icons/icon-bookmark_add.png');
-}
-.bookmark-add.active a:hover, .bookmark-add.active a:active {
-    background-image: url('../img/icons/icon-bookmark_add-hover.png');
-}
-.bookmark-remove.active a, .bookmark-remove.active a:visited {
-     background-image: url('../img/icons/icon-bookmark_remove.png');
-}
-.bookmark-remove.active a:hover, .bookmark-remove.active a:active {
-    background-image: url('../img/icons/icon-bookmark_remove-hover.png');
-}
-a.bookmark-manage, a.bookmark-manage:visited {
-    background-image: url('../img/icons/icon-bookmark_manage.png');
-}
-a.bookmark-manage:hover, a.bookmark-manage:active {
-    background-image: url('../img/icons/icon-bookmark_manage-hover.png');
-}
-*/
-
-/*  Bookmarks Listing ................................................... */
-
-/*ul#bookmarks-listing {
-    display: none;
-    position: absolute; z-index: 1000; top: 30px; left: -1px; float: none;
-    margin: 0;
-    width: 260px;
-    border: 1px solid #404040;
-    border-bottom-left-radius: 5px; -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px;
-    background: #333;
-    -moz-box-shadow: 0 0 10px #333; -webkit-box-shadow: 0 0 10px #333;
-}
-ul#bookmarks-listing li {
-    float: none;
-    padding: 0;
-    border-bottom: 1px solid #404040;
-}
-ul#bookmarks-listing li:last-child {
-    border: none;
-}
-ul#bookmarks li p {
-    padding: 5px 10px;
-}
-ul#bookmarks-listing a, ul#bookmarks-listing a:visited {
-    display: block;
-    padding: 5px 30px 5px 10px;
-    background: #333;
-}
-ul#bookmarks-listing a:hover, ul#bookmarks-listing a:active {
-    color: #eee;
-    background: #309bbf;
-}
-ul#bookmarks-listing li:last-child a {
-    border-bottom-left-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px;
-}
-*/
-
-/*  Add Bookmark ................................................... */
-
-/*#bookmark-add {
-    display: none;
-    position: absolute; z-index: 1000; top: 30px; left: -196px;
-    margin: 0; padding: 10px;
-    width: 240px;
-    border: 1px solid #404040;
-    border-bottom-left-radius: 5px; -moz-border-radius-bottomleft: 5px; -webkit-border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px; -moz-border-radius-bottomright: 5px; -webkit-border-bottom-right-radius: 5px;
-    background: #333;
-    box-shadow: 0 0 10px #333; -moz-box-shadow: 0 0 10px #333; -webkit-box-shadow: 0 0 10px #333;
-}
-#bookmark-add input[type=text] {
-    margin-bottom: 10px;
-    width: 240px;
-    border: none;
-}
-#bookmark-add input[type=submit], 
-#bookmark-add-cancel {
+ul.navigation-menu {
     position: relative;
-    width: auto;
-    height: 24px;
+    float: left;
+}
+ul.navigation-menu li {
+    float: none !important;
+}
+ul.navigation-menu>li {
+    position: relative;
+    float: none !important;
+    display: block;
+    margin: 0;
+}
+ul.navigation-menu>li>a {
+    display: block;
+    padding: 8px 10px;
+    font-size: 11px !important;
+}
+ul.navigation-menu li.bookmark, 
+ul.navigation-menu li.actions {
+    float: left !important;
+}
+ul.navigation-menu li ul {
+    position: absolute;
+    z-index: 1 !important;
+    float: none !important;
+    margin-top: -1px;
+    padding: 0;
+    min-width: 220px;
+    white-space: nowrap;
+    
+/*    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;*/
+}
+ul.navigation-menu>li>a+ul {
+    overflow: hidden;
+    overflow-x: hidden;
+/*    padding-right: 20px;*/
+/*    width: 500px;*/
+/*    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;*/
+    box-shadow: 0 0 20px #333; -moz-box-shadow: 0 0 20px #333; -webkit-box-shadow: 0 0 20px #333;
+}
+ul.navigation-menu>li>ul>li.parent {
+/*    padding-bottom: 4px;*/
+}
+
+ul.navigation-menu li ul ul {
+    position: relative;
+    float: none;
+    margin-top: 0;
+    width: 100%;
+}
+
+ul.navigation-menu li li.item-collapse.item-open {
+    background: #3a3a3a;
+}
+ul.navigation-menu li li li.item-collapse.item-open {
+/*    border: 1px solid #383838;*/
+    -moz-border-radius: 4px;
+    background: #424242;
+}
+ul.navigation-menu li li li.item-collapse.item-open + li {
+/*    border: 0 !important;*/
+}
+ul.navigation-menu li li li li.item-collapse.item-open {
+/*    border: 1px solid #404040;*/
+    background: #4a4a4a;
+}
+ul.navigation-menu li li li li.item-collapse.oitem-pen + li {
+/*    border: 0 !important;*/
+}
+ul.navigation-menu li li li li li.item-collapse.item-open {
+/*    border: 1px solid #484848;*/
+    background: #525252;
+}
+ul.navigation-menu li li li li li.item-collapse.item-open + li {
+/*    border: 0 !important;*/
+}
+
+ul.navigation-menu li li {
+    padding: 0 10px;
+}
+ul.navigation-menu li li li {
+    margin: 0 -20px 0 -10px;
+    padding: 0 10px 0 20px;
+    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;
+}
+ul.navigation-menu li li li li {
+    margin: 0 -10px 0 -20px;
+    padding: 0 10px 0 30px;
+/*    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;*/
+}
+ul.navigation-menu li li li li li {
+    margin: 0 -10px 0 -30px;
+    padding: 0 10px 0 40px;
+/*    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;*/
+}
+ul.navigation-menu li li li li li li {
+    margin: 0 -10px 0 -40px;
+    padding: 0 10px 0 50px;
+/*    box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;*/
+}
+
+
+ul.navigation-menu li li.last {
+    border-bottom: 0 !important;
+}
+
+ul.navigation-menu li ul ul>li:first-child a {
+    margin-left: -10px;
+    padding-left: 10px;
+}
+ul.navigation-menu li li a {
+    display: block;
+    padding: 8px 0;
     font-size: 11px;
 }
-#bookmark-add input[type=submit] {
-    float: right;
+ul.navigation-menu li li li a {
+    padding: 4px 10px 4px 0;
+    font-size: 11px;
+    white-space: normal;
 }
-#bookmark-add-cancel {
+ul.navigation-menu li.parent>a {
+    font-size: 11px;
+}
+ul.navigation-menu li li.parent>a {
+    font-size: 11px;
+}
+
+ul.navigation-menu li.item-collapse.item-closed>* {
+    display: none !important;
+}
+ul.navigation-menu li.item-collapse.item-open>* {
+    display: block !important;
+}
+
+ul.navigation-menu li.item-collapse a.item-collapse-handler-container {
+    display: block !important;
+/*    padding: 10px 0 !important;*/
+}
+
+form#bookmark-form {
+    position: relative;
     float: left;
-}*/
+    padding: 2px 10px 2px 0;
+    height: 26px;
+}
+form#bookmark-form button {
+    position: relative; display: block;
+    margin: 3px 0 0;
+    width: 20px;
+    height: 20px;
+}
+
+ul.navigation-menu li.item-collapse a.item-collapse-handler {
+    position: relative;
+    float: right;
+    display: inline-block !important;
+    right: 0;
+    margin: -30px -10px -30px 0;
+    padding: 0;
+    width: 28px;
+    height: 30px;
+    cursor: pointer;
+}
+ul.navigation-menu li li li.item-collapse a.item-collapse-handler {
+    margin: -22px 0;
+    width: 28px;
+    height: 22px;
+}
+a.item-collapse-handler-container {
+    padding-right: 28px !important;
+}
+ul.navigation-menu li li.item-collapse.item-closed>a+a.item-collapse-handler:link, 
+ul.navigation-menu li li.item-collapse.item-closed>a+a.item-collapse-handler:visited {
+    background: transparent url("../img/icons/icon-admin_tools-dropdown.png") no-repeat scroll 50% 50%;
+}
+ul.navigation-menu li li.item-collapse.item-closed>a+a.item-collapse-handler:hover, 
+ul.navigation-menu li li.item-collapse.item-closed>a+a.item-collapse-handler:active {
+    background: transparent url("../img/icons/icon-admin_tools-dropdown-hover.png") no-repeat scroll 50% 50%;
+}
+ul.navigation-menu li li.item-collapse.item-open>a+a.item-collapse-handler:link, 
+ul.navigation-menu li li.item-collapse.item-open>a+a.item-collapse-handler:visited {
+    background: transparent url("../img/icons/icon-admin_tools-dropdown-active.png") no-repeat scroll 50% 50%;
+}
+ul.navigation-menu li li.item-collapse.item-open>a+a.item-collapse-handler:hover, 
+ul.navigation-menu li li.item-collapse.item-open>a+a.item-collapse-handler:active {
+    background: transparent url("../img/icons/icon-admin_tools-dropdown-active-hover.png") no-repeat scroll 50% 50%;
+}
 
 
 /*  User Tools ................................................... */

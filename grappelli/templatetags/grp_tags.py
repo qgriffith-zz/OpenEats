@@ -9,6 +9,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.utils.formats import get_format
 from django.db import models
 from django.contrib import admin
+from django.conf import settings
 
 # grappelli imports
 from grappelli.settings import *
@@ -118,5 +119,3 @@ def do_get_search_fields_verbose(parser, token):
     return GetSearchFields(opts, var_name)
 
 register.tag('get_search_fields_verbose', do_get_search_fields_verbose)
-
-

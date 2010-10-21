@@ -178,6 +178,9 @@ fieldset.module .row {
     line-height: 18px;
     font-weight: normal;
 }
+fieldset.module .row.cells {
+    white-space: nowrap;
+}
 
 
 
@@ -185,34 +188,15 @@ fieldset.module .row {
 ------------------------------------------------------------------------------------------------------ */
 
 fieldset.module .cell {
-    float: left;
-    margin-top: -8px;
-    margin-bottom: -8px;
-    padding: 8px 18px 8px 0;
+    margin: -8px 0 -1000px 0;
+    padding: 8px 18px 1000px 0;
+    vertical-align: top;
     white-space: nowrap;
+    height: 100%;
 }
-fieldset.module .cell + fieldset.module .cell {
-    padding-left: 18px;
+fieldset.module .cell:last-child, fieldset.module .cell.last {
+    margin-right: -20px;
 }
-fieldset.module .cell[class*="span"] {
-    margin-right: 0;
-}
-fieldset.module .cell[class*="span"]:first-child {
-    padding-left: 0;
-}
-fieldset.module .cell input[class*="span"] {
-    margin-right: 0;
-}
-fieldset.module .cell.last + fieldset.module .cell {
-    clear: left;
-    padding-left: 0;
-}
-fieldset.module .cell.last + fieldset.module .cell, 
-fieldset.module .cell.last + fieldset.module .cell + fieldset.module .cell, 
-fieldset.module .cell.last + fieldset.module .cell + * + fieldset.module .cell {
-    margin-top: 0;
-}
-
 
 
 /*  Tabular Modules
@@ -470,6 +454,10 @@ a.external {
 .dashboard a.external {
     background-position: 10px 8px;
 }
+.documentation a.external {
+    padding-left: 12px;
+    background-position: 1px 3px;
+}
 a.internal:link, a.internal:visited {
     background-image: url('../img/icons/icon-navigation-internal.png');
 }
@@ -567,6 +555,29 @@ ul.actions li a {
 .module.filter .pulldown-container {
     position: absolute;
     width: inherit;
+}
+
+.module.search .tooltip {
+    position: absolute;
+}
+.module.search .tooltip.search-fields {
+    top: 25px;
+}
+.module.search .tooltip .tooltip-pointer {
+    position: relative;
+    z-index: 1000;
+    display: block;
+    width: 30px;
+    height: 8px;
+    background: transparent url('../img/backgrounds/tooltip-pointer.png') 10px 100% no-repeat scroll;
+}
+.module.search .tooltip .tooltip-content {
+    position: relative;
+    z-index: 990;
+    top: -1px;
+    padding: 8px 10px;
+    font-size: 11px;
+    line-height: 15px;
 }
 
 a.button.toggle-filters {
