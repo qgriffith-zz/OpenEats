@@ -18,7 +18,7 @@ class CustomIndexDashboard(Dashboard):
         self.children.append(modules.LinkList(
             title=_('Quick links'),
             layout='inline',
-            css_classes=['collapse', 'closed'],
+            css_classes=['collapse', 'closed','column_1'],
             children=[
                 {
                     'title': _('Return to site'),
@@ -39,7 +39,7 @@ class CustomIndexDashboard(Dashboard):
         self.children.append(modules.AppList(
             title=_('Administration'),
             include_list=('django.contrib','registration','openeats.accounts'),
-            css_classes=['collapse', 'open'],
+            css_classes=['collapse', 'open','column_1'],
         ))
 
          # append an openeats list module for "Applications"
@@ -47,20 +47,21 @@ class CustomIndexDashboard(Dashboard):
             title=_('OpenEats'),
             exclude_list=('django.contrib', 'registration', 'openeats.accounts',),
             include_list=('openeats', 'recipe'),
-            css_classes=['collapse', 'open'],
+            css_classes=['collapse', 'open','column_1'],
         ))
         
         # append an app list module for "Applications"
         self.children.append(modules.AppList(
-            title=_('Applications'),
+            title=_('Third-Party Apps'),
             exclude_list=('django.contrib','openeats', 'recipe'),
-            css_classes=['collapse', 'open'],
+            css_classes=['collapse', 'open','column_1'],
         ))
           
         # append a recent actions module
         self.children.append(modules.RecentActions(
             column=2,
             title=_('Recent Actions'),
+            css_classes=['collapse', 'open','column_2'],
             limit=5
         ))
 
@@ -70,14 +71,20 @@ class CustomIndexDashboard(Dashboard):
             title=_('Latest OpenEats News'),
             feed_url='http://oe2.openeats.org/blog/feeds/latest/',
             limit=5,
-            css_classes=['collapse', 'open', ]
+            css_classes=['collapse', 'open','column_2' ]
         ))
 
         # append another link list module for "support".
         self.children.append(modules.LinkList(
             column=2,
             title=_('Support'),
+            css_classes=['collapse', 'open','column_2'],
             children=[
+                    {
+                    'title': _('OpenEats Forum'),
+                    'url': 'http://oe2.openeats.org/forum/',
+                    'external': True,
+                },
                 {
                     'title': _('Django documentation'),
                     'url': 'http://docs.djangoproject.com/',
@@ -88,11 +95,7 @@ class CustomIndexDashboard(Dashboard):
                     'url': 'http://groups.google.com/group/django-users',
                     'external': True,
                 },
-                {
-                    'title': _('Django irc channel'),
-                    'url': 'irc://irc.freenode.net/django',
-                    'external': True,
-                },
+              
             ]
         ))
 
@@ -120,6 +123,7 @@ class CustomAppIndexDashboard(AppIndexDashboard):
         # append a model list module
         self.children.append(modules.ModelList(
             title=self.app_title,
+            css_classes=['column_1'],
             models=self.models,
         ))
 
@@ -127,6 +131,7 @@ class CustomAppIndexDashboard(AppIndexDashboard):
         self.children.append(modules.RecentActions(
             column=2,
             title=_('Recent Actions'),
+            css_classes=['column_2'],
             include_list=self.get_app_content_types(),
         ))
 
