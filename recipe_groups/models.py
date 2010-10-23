@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from django.utils.translation import ugettext_lazy as _
 
 class Course(models.Model):
-    title = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(unique=True, blank=True)
-    author = models.ForeignKey(User)
+    title = models.CharField(_('title'), max_length=100, unique=True)
+    slug = models.SlugField(_('slug'), unique=True, blank=True)
+    author = models.ForeignKey(User, verbose_name=_('author'))
 
     class Meta:
         ordering = ['title']
@@ -25,9 +26,9 @@ class Course(models.Model):
         return self.recipe_set.filter(shared=0).count()
 
 class Cuisine(models.Model):
-    title = models.CharField(max_length=100, unique=True)
-    slug = models.SlugField(unique=True, blank=True)
-    author = models.ForeignKey(User)
+    title = models.CharField(_('title'), max_length=100, unique=True)
+    slug = models.SlugField(_('slug'),unique=True, blank=True)
+    author = models.ForeignKey(User, verbose_name=_('author'))
 
     class Meta:
         ordering = ['title']

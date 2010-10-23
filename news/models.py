@@ -1,10 +1,11 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 
 class Entry(models.Model):
-    title = models.CharField(max_length=255, blank=True)
-    slug = models.SlugField(unique=True, blank=True)
-    content = models.TextField(blank=True)
-    image = models.ImageField( upload_to='uploads/news/', blank=True)
+    title = models.CharField(_('title') ,max_length=255, blank=True)
+    slug = models.SlugField(_('slug'), unique=True, blank=True)
+    content = models.TextField(_('content'), blank=True)
+    image = models.ImageField(_('image'), upload_to='uploads/news/', blank=True)
     pub_date =  models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
