@@ -7,14 +7,19 @@
     <body>        
         {% if recipe_list.count > 0 %}
           {% if shared = 'share'  %}
+           {% autopaginate recipe_list  %}
             {% for recipe in recipe_list %}
               {% include '/recipe/_list.html' %}
             {% endfor %}
+           {% paginate %}
           {% endif %}
+
           {% if user == request.user.username and shared == 'private' %}
+            {% autopaginate recipe_list %}
             {% for recipe in recipe_list %}
               {% include '/recipe/_list.html' %}
             {% endfor %}
+            {% paginate %}
          {% endif %}
          {% else %}
             <p>{{ user }} {% trans 'has not added any recipes yet!' %}</p>

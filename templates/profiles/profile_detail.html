@@ -6,18 +6,29 @@
 
 {% block jscript %}
  
-    <script type="text/javascript">
-        $(function() {
-            $("#tabs").tabs({
-                ajaxOptions: {
-                    error: function(xhr, status, index, anchor) {
-                        $(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible.");
-                    }
-                }
+ <script type="text/javascript">
+    $(function() {
+        var hijax = function(panel) {
+            $('div.pagination a', panel).click(function(){
+                $(panel).load(this.href, {}, function() {
+                    hijax(this);
+                });
+                return false;
             });
-        });
-    </script>
+        };
+        $("#tabs").tabs({
+            ajaxOptions: {
+                error: function(xhr, status, index, anchor) {
+                    $(anchor.hash).html("Couldn't load this tab.");
+                },
+            },
+            load: function(event, ui) {
+                hijax(ui.panel);
 
+            }
+        });
+    });
+</script>
 
 {% endblock %}
 {% block content %}
