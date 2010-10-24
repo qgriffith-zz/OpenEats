@@ -12,39 +12,15 @@ def course_recipes(request, slug):
     '''Rectrives the recipe objects in a list that belong to the course passed to the method'''
     course_object = get_object_or_404(Course, slug=slug)
     recipe_list = course_object.recipe_set.filter(shared=Recipe.SHARE_SHARED)
-    paginator = Paginator(recipe_list, 10)
-
-    # Make sure page request is an int. If not, deliver first page.
-    try:
-        page = int(request.GET.get('page', '1'))
-    except ValueError:
-        page = 1
-
-    # If page request (9999) is out of range, deliver last page of results.
-    try:
-        recipes = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        recipes = paginator.page(paginator.num_pages)
-    return render_to_response('recipe_groups/recipe_list.html', {'recipe_list':recipes},context_instance=RequestContext(request) )
+    
+    return render_to_response('recipe_groups/recipe_list.html', {'recipe_list':recipe_list},context_instance=RequestContext(request) )
 
 def cuisine_recipes(request, slug):
     '''Retrives the recipe objects in a list that belong to the cuisnie passed to the method'''
     cuisine_object = get_object_or_404(Cuisine, slug=slug)
     recipe_list = cuisine_object.recipe_set.filter(shared=Recipe.SHARE_SHARED)
-    paginator = Paginator(recipe_list, 10)
-
-    # Make sure page request is an int. If not, deliver first page.
-    try:
-        page = int(request.GET.get('page', '1'))
-    except ValueError:
-        page = 1
-
-    # If page request (9999) is out of range, deliver last page of results.
-    try:
-        recipes = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        recipes = paginator.page(paginator.num_pages)
-    return render_to_response('recipe_groups/recipe_list.html', {'recipe_list':recipes},context_instance=RequestContext(request))
+       
+    return render_to_response('recipe_groups/recipe_list.html', {'recipe_list':recipe_list},context_instance=RequestContext(request))
 
 @login_required
 def course_pop(request):

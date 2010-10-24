@@ -32,6 +32,7 @@ urlpatterns = patterns('',
     (r'^recipe/', include('recipe.urls')),
     (r'^ingredient/', include('ingredient.urls')),
     (r'^search/', include('haystack.urls')),
+    (r'^sentry/', include('sentry.urls')),
     (r'^$', 'recipe.views.index'),
 
 )

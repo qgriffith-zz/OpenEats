@@ -49,20 +49,7 @@ def recipeUser(request, shared, user):
         recipe_list = Recipe.objects.filter(author__username=user, shared = Recipe.SHARE_SHARED)
     else:
         recipe_list = Recipe.objects.filter(author__username=user, shared = Recipe.PRIVATE_SHARED)
-    '''paginator = Paginator(recipe_list, 10) #this is commented out because the pageinator does not seem to work with the ajax tabs need to fix this
-
-     # Make sure page request is an int. If not, deliver first page.
-    try:
-        page = int(request.GET.get('page', '1'))
-    except ValueError:
-        page = 1
-
-    # If page request (9999) is out of range, deliver last page of results.
-    try:
-        recipes = paginator.page(page)
-    except (EmptyPage, InvalidPage):
-        recipes = paginator.page(paginator.num_pages)'''
-    
+       
     return render_to_response('recipe/recipe_userlist.html', {'recipe_list': recipe_list, 'user': user, 'shared': shared}, context_instance=RequestContext(request))
 
 @login_required

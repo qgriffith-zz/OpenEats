@@ -105,6 +105,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'openeats.urls'
@@ -138,6 +139,11 @@ INSTALLED_APPS = (
     'djangoratings',
     'haystack',
     'django_generic_flatblocks',
+    'indexer',
+    'paging',
+    'sentry',
+    'sentry.client',
+    'pagination',
     'openeats',
     'openeats.recipe',
     'openeats.recipe_groups',
@@ -176,6 +182,8 @@ HAYSTACK_WHOOSH_PATH =  os.path.join(BASE_PATH, 'search_index')
 GRAPPELLI_ADMIN_TITLE = 'OpenEats2'
 ADMIN_TOOLS_INDEX_DASHBOARD = 'openeats.dashboard.CustomIndexDashboard'
 ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'openeats.dashboard.CustomAppIndexDashboard'
+
+PAGINATION_DEFAULT_PAGINATION = 10
 
 try:
     from local_settings import *

@@ -2,7 +2,7 @@
 {% load i18n %}
 {% comment %}This template list all recipes found in a course or a cuisine it is called from the course_list or the cuisine_list {% endcomment %}
 {% load sanitize %}
-
+{% load pagination_tags %}
 {% block jscript %}
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
@@ -11,13 +11,13 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".{{ recipe }}-rate").stars({
+            $(".{{ recipe.slug }}-rate").stars({
                 inputType: "select",
                 disabled: true
             });
             var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
             var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
-            $(".{{ recipe }}-rate").stars("selectID", selectid); //set the select value to the avg rate
+            $(".{{ recipe.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
         });
     </script>
 
@@ -26,23 +26,12 @@
 
 {% block content %}
     <div id="title"> <h3>{% trans "Recipes" %}</h3></div>
-    {% for recipe in recipe_list.object_list %}
+    {% autopaginate recipe_list  %}
+
+    {% for recipe in recipe_list %}
       {% include '/recipe/_list.html' %}
     {% endfor %}
-    <div class="pagination">
-    <span class="step-links">
-        {% if recipe_list.has_previous %}
-            <a href="?page={{ recipe_list.previous_page_number }}">{%trans 'previous' %}</a>
-        {% endif %}
-
-        <span class="current">
-            {%trans 'Page' %} {{ recipe_list.number }} {%trans 'of' %} {{ recipe_list.paginator.num_pages }}.
-        </span>
-
-        {% if recipe_list.has_next %}
-            <a href="?page={{ recipe_list.next_page_number }}">{%trans 'next' %}</a>
-        {% endif %}
-    </span>
-</div>
+    
+    {% paginate %}
 
 {% endblock %}
