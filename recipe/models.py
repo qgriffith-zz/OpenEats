@@ -61,3 +61,14 @@ class StoredRecipe(models.Model):
 
     def __unicode__(self):
         return self.recipe.title
+
+class NoteRecipe(models.Model):
+    recipe = models.ForeignKey(Recipe, verbose_name=_('recipe'))
+    author = models.ForeignKey(User, verbose_name=_('author'))
+    text = models.TextField(_('note'))
+
+    class meta:
+        verbose_name_plural = "Recipe Notes"
+
+    def __unicode__(self):
+        return "%s note for %s"  %(self.author, self.recipe)

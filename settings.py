@@ -106,6 +106,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     'pagination.middleware.PaginationMiddleware',
+    
 )
 
 ROOT_URLCONF = 'openeats.urls'

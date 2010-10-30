@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Recipe, StoredRecipe
+from models import Recipe, StoredRecipe, NoteRecipe
 from ingredient.models import Ingredient
 from reversion.admin import VersionAdmin
 
@@ -21,5 +21,11 @@ class StoredRecipeAdmin(admin.ModelAdmin):
     search_fields = ['user__username', 'recipe__title']
     list_filter = ['user',]
 
+class NoteRecipeAdmin(admin.ModelAdmin):
+    list_filter = ('recipe', 'author')
+    list_display = ('recipe', 'author')
+    search_fields = ['author__username', 'recipe']
+
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(StoredRecipe, StoredRecipeAdmin)
+admin.site.register(NoteRecipe, NoteRecipeAdmin)
