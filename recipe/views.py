@@ -16,11 +16,24 @@ def index(request):
 
 def recipeShow(request, slug):
     recipe = get_object_or_404(Recipe, slug=slug)
+    
     if recipe.shared == Recipe.PRIVATE_SHARED and recipe.author != request.user: #check if the recipe is a private recipe if so through a 404 error
         raise Http404("Recipe %s is marked Private"  % recipe.slug)
     else:
         return render_to_response('recipe/recipe_detail.html', {'recipe': recipe}, context_instance=RequestContext(request))
     
+def recipePrint(request, slug):
+     recipe = get_object_or_404(Recipe, slug=slug)
+
+     if request.user.is_authenticated():
+        note = request.user.noterecipe_set.filter(recipe=recipe, author=request.user)
+     else:
+         note = None
+     
+     if recipe.shared == Recipe.PRIVATE_SHARED and recipe.author != request.user: #check if the recipe is a private recipe if so through a 404 error
+        raise Http404("Recipe %s is marked Private"  % recipe.slug)
+     else:
+        return render_to_response('recipe/recipe_print.html', {'recipe': recipe, 'note': note})
 
 @login_required
 def recipe(request):        

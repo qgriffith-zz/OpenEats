@@ -35,5 +35,11 @@
             <h4>{% trans 'Steps' %}</h4>
            {{ recipe.directions|sanitize_html|safe }}
         </div>
+        <div>
+            <h4>{%trans 'Your Notes:' %}</h4>
+            {% for n in note %}
+                {{ n }}
+            {% endfor %}
+        </div>
     {% endif %}
     </body>
