@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory, inlineformset_factory
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.http import HttpResponse, Http404
-from models import Recipe, StoredRecipe
+from models import Recipe, StoredRecipe, NoteRecipe
 from ingredient.models import Ingredient
 from forms import RecipeForm, BaseIngFormSet
 from djangoratings.views import AddRatingView
@@ -16,11 +16,15 @@ def index(request):
 
 def recipeShow(request, slug):
     recipe = get_object_or_404(Recipe, slug=slug)
+    if request.user.is_authenticated():
+        note = request.user.noterecipe_set.filter(recipe=recipe, author=request.user)
+    else:
+        note = None
     
     if recipe.shared == Recipe.PRIVATE_SHARED and recipe.author != request.user: #check if the recipe is a private recipe if so through a 404 error
         raise Http404("Recipe %s is marked Private"  % recipe.slug)
     else:
-        return render_to_response('recipe/recipe_detail.html', {'recipe': recipe}, context_instance=RequestContext(request))
+        return render_to_response('recipe/recipe_detail.html', {'recipe': recipe, 'note': note}, context_instance=RequestContext(request))
     
 def recipePrint(request, slug):
      recipe = get_object_or_404(Recipe, slug=slug)
@@ -123,6 +127,24 @@ def recipeUserFavs(request):
         recipe_list.append(stored.recipe)
     return render_to_response('recipe/recipe_userfav.html', {'recipe_list': recipe_list}, context_instance=RequestContext(request))
 
+@login_required
+def recipeNote(request):
+    '''This is called by the jquery inline edit on the recipe detail template to allow users to add notes to recipes'''
+    user = request.user
+    recipe = Recipe.objects.get(pk=request.REQUEST['recipe'])
+    note = request.REQUEST['note']
+    cur_note = NoteRecipe.objects.filter(author=user, recipe=recipe)
 
+    if cur_note: #check to see if the user already has a note if so re-save it with the new text
+        if len(note) == 0: #they must want to delete the note so they sent nothing in the text field
+            cur_note[0].delete()
+        else:
+            cur_note[0].text = note
+            cur_note[0].save()
+    else:
+        if len(note) > 0:
+            new_note = NoteRecipe(recipe=recipe, author=user, text=note)
+            new_note.save()
+    return HttpResponse(note)
 
     

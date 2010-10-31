@@ -38,7 +38,7 @@
         <div>
             <h4>{%trans 'Your Notes:' %}</h4>
             {% for n in note %}
-                {{ n }}
+                {{ n.text }}
             {% endfor %}
         </div>
     {% endif %}

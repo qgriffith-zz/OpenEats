@@ -10,6 +10,7 @@
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
     <link href="{{ MEDIA_URL }}js/jquery.ui.stars/crystal-stars.css" rel="stylesheet" />
+    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery.jeditable.js"> </script>
     <script type="text/javascript">
         $(document).ready(function() {
             $("a#recipe-photo").fancybox();
@@ -93,6 +94,20 @@
 	$caption.appendTo("#recipe-rate");
      });
  </script>
+ <script type="text/javascript">
+      $(document).ready(function() {
+     $('.note').editable('/recipe/ajaxnote/', {
+         indicator : 'Saving...',
+         tooltip   : 'Click to edit...',
+         type      : 'textarea',
+         cancel    : 'Cancel',
+         submit    : 'OK',
+         submitdata : {recipe: "{{ recipe.id }}"},
+         name       :  'note'
+         
+     })
+ });
+ </script>
  {% endif %}
 {% endblock %}
 
@@ -154,6 +169,20 @@
         <h2>{% trans "Directions" %}</h2>
         {{ recipe.directions|sanitize_html|safe }}
     </div>
+    
+    {% if request.user.is_authenticated %}
+        <div id="recipe-note">
+             <h4>{%trans 'Your Notes:' %}</h4>
+                {% if note %}
+                {% for n in note %}
+                    <p class="note"> {{ n.text }} </p>
+                {% endfor %}
+                {% else %}
+                 <p class="note">{% trans 'click to add a note...' %} </p>
+               {% endif %}
+        </div>
+    {% endif %}
+
     <div id="recipe-comments">
         {% load disqus_tags %}
         {% disqus_dev %}
