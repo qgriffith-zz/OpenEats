@@ -136,7 +136,7 @@ def recipeNote(request):
     cur_note = NoteRecipe.objects.filter(author=user, recipe=recipe)
 
     if cur_note: #check to see if the user already has a note if so re-save it with the new text
-        if len(note) == 0: #they must want to delete the note so they sent nothing in the text field
+        if (len(note) == 0) or (note == ''): #they must want to delete the note so they sent nothing in the text field
             cur_note[0].delete()
         else:
             cur_note[0].text = note
