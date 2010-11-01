@@ -94,20 +94,7 @@
 	$caption.appendTo("#recipe-rate");
      });
  </script>
- <script type="text/javascript">
-      $(document).ready(function() {
-     $('.note').editable('/recipe/ajaxnote/', {
-         indicator : 'Saving...',
-         tooltip   : 'Click to edit...',
-         type      : 'textarea',
-         cancel    : 'Cancel',
-         submit    : 'OK',
-         submitdata : {recipe: "{{ recipe.id }}"},
-         name       :  'note'
-         
-     })
- });
- </script>
+
  {% endif %}
 {% endblock %}
 
@@ -175,17 +162,36 @@
         {{ recipe.directions|sanitize_html|safe }}
 
     </div>
-    <div id="recipe-note">
-        <h4>{%trans 'Your Notes:' %}</h4>
-        {% if note %}
-            {% for n in note %}
-                <p class="note"> {{ n.text }} </p>
-            {% endfor %}
-            {% else %}
-                <p class="note">{% trans 'click to add a note...' %} </p>
-            {% endif %}
-    </div>
-    
+    {% if request.user.is_authenticated %}
+        <div id="recipe-note">
+            <h4>{%trans 'Your Notes:' %}</h4>
+            {% if note %}
+                {% for n in note %}
+                    <p class="note">{{ n.text }}</p>
+                {% endfor %}
+                {% else %}
+                    <p class="note">click to add a note...</p>
+                {% endif %}
+
+                <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#recipe-note p').editable('/recipe/ajaxnote/', {
+                            indicator : 'Saving...',
+                            tooltip   : 'Click to edit...',
+                            type      : 'textarea',
+                            cancel    : 'Cancel',
+                            submit    : 'OK',
+                            submitdata : {recipe: "{{ recipe.id }}"},
+                            name       :  'note',
+                            cssclass : 'editable',
+                            event    : 'dblclick'
+
+
+                        })
+                    });
+                </script>
+        </div>
+    {% endif %}
     <div id="recipe-comments">
         {% load disqus_tags %}
         {% disqus_dev %}

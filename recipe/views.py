@@ -130,19 +130,26 @@ def recipeUserFavs(request):
 @login_required
 def recipeNote(request):
     '''This is called by the jquery inline edit on the recipe detail template to allow users to add notes to recipes'''
+
     user = request.user
-    recipe = Recipe.objects.get(pk=request.REQUEST['recipe'])
-    note = request.REQUEST['note']
+    
+    if request.POST['recipe']:
+        try:
+            recipe = Recipe.objects.get(pk=request.POST['recipe'])
+        except Recipe.DoesNotExist:
+            raise Http404
+        note = request.POST['note']
+
     cur_note = NoteRecipe.objects.filter(author=user, recipe=recipe)
 
     if cur_note: #check to see if the user already has a note if so re-save it with the new text
-        if (len(note) == 0) or (note == ''): #they must want to delete the note so they sent nothing in the text field
+        if len(note) == 0 or note.isspace(): #they must want to delete the note so they sent nothing in the text field
             cur_note[0].delete()
         else:
             cur_note[0].text = note
             cur_note[0].save()
     else:
-        if len(note) > 0:
+        if len(note) > 0 and note.isspace() == False:
             new_note = NoteRecipe(recipe=recipe, author=user, text=note)
             new_note.save()
     return HttpResponse(note)

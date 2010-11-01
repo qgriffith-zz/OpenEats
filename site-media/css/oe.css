@@ -77,8 +77,8 @@ div#caption{margin-right:60px;}
 #ajax-messages, li.success{ margin-bottom:10px; padding:10px; border:1px green dashed; background-color: lightgreen; font-size: 140%; color:white; font-weight:bold; width:80%}
 .remove-fav { float:right;}
 li.success { list-style: none;}
-div#recipe-note { float:left; clear:left; padding:10px; width:400px; height: 200px;}
-
+div#recipe-note {  float:left; clear:left; padding:10px; width:40%; height: 200px;}
+.editable textarea { background-color: #FEFDF2; }
 
 
 /*Recipe List */
