@@ -35,10 +35,8 @@
     <body>
             <div id="sidebar">
                 {% block sidebar %}
-                <h3>{% trans 'browse' %}</h3>
-                <ul>
-                    
-                </ul>
+                {% load sidebar %}
+                 {% browse_tag %}
               {% endblock %}
             </div>
         <div id="page-wrap">

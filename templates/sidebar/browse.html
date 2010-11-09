@@ -1,0 +1,7 @@
+{% load i18n %}
+<h3>{% trans 'browse' %}</h3>
+<ul>
+    {% for browse in browse_list %}
+        <li> {{ browse }} </li>
+    {% endfor %}
+</ul>
