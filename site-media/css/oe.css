@@ -14,6 +14,14 @@ div#nav-bar li a { color:#fff; text-decoration:none; font-size:1.1em; text-trans
 div#nav-bar li a.first { background:none;}
 div#nav-bar li a:hover { text-decoration:underline;}
 
+/*Sidebar*/
+div#sidebar{float:right; background:url("../images/sidebar-back.png") repeat-x; margin-top:58px; margin-right:20px; width:200px; height: 420px;}
+div#sidebar { padding-left: 40px; font-family:Georgia, serif; line-height: 1.5em; letter-spacing: .3em; color:#484846}
+div#sidebar h3 { padding-top: 55px;}
+div#sidebar ul {  padding-top:5px; }
+div#sidebar li {list-style:none;}
+
+
 /*Login Menu */
 div#login-menu { float:right; padding-top:2px;}
 .hidden { position:absolute; top:0; left:-9999px; width:1px; height:1px; overflow:hidden; }
