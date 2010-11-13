@@ -151,6 +151,7 @@ INSTALLED_APPS = (
     'openeats.ingredient',
     'openeats.accounts',
     'openeats.news',
+    'openeats.list',
 )
 
 
