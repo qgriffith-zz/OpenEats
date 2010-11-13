@@ -5,10 +5,7 @@ register = template.Library()
 
 @register.inclusion_tag('sidebar/browse.html')
 def browse_tag():
-    browse_list = ()
     course_list = Course.objects.all()
     cuisine_list = Cuisine.objects.all()
-    browse_list = list(chain(course_list, cuisine_list))
-    sorted(browse_list)
-    return {'browse_list':browse_list}
+    return {'course_list':course_list, 'cuisine_list':cuisine_list}
 

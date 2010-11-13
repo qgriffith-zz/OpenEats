@@ -15,8 +15,10 @@ div#nav-bar li a.first { background:none;}
 div#nav-bar li a:hover { text-decoration:underline;}
 
 /*Sidebar*/
-div#sidebar{float:right; background:url("../images/sidebar-back.png") repeat-x; margin-top:58px; margin-right:20px; width:200px; height: 420px;}
-div#sidebar { padding-left: 40px; font-family:Georgia, serif; line-height: 1.5em; letter-spacing: .3em; color:#484846; font-size:80%;}
+div#sidebar{float:right; background:url("../images/sidebar-back.png") no-repeat; margin-top:58px; margin-right:20px; width:200px; height: 420px;}
+div#sidebar { padding-left: 40px; font-family:Georgia, serif; line-height: 1.5em; letter-spacing: .3em; color:#484846; font-size:85%;}
+div#sidebar a {color:#484846; text-decoration:none;}
+div#sidebar a:hover{color:#459E00;}
 div#sidebar h3 { padding-top: 55px;}
 div#sidebar ul {  padding-top:5px; }
 div#sidebar li {list-style:none;}

@@ -1,7 +1,10 @@
 {% load i18n %}
 <h3>{% trans 'browse' %}</h3>
 <ul>
-    {% for browse in browse_list %}
-        <li> {{ browse }} </li>
+    {% for course in course_list %}
+    <li><a href="{% url course_recipes slug=course.slug %}">{{ course }}</a>  </li>
+    {% endfor %}
+    {% for cuisine in cuisine_list %}
+    <li> <a href="{% url cuisine_recipes slug=cuisine.slug %}">{{ cuisine }}</a> </li>
     {% endfor %}
 </ul>
