@@ -168,3 +168,10 @@ dl.captioned-image dd span { width:225px; display: block; float: left; clear: bo
                              background: #000; background: rgba(0, 0, 0, 0.7);
                              padding: 0.25em 0.5em; color: #fff; }
 dl.captioned-image cite   { color: #9F954A; font-size: 60%;}
+
+/* Grocery List Index */
+div#grocery-list { font-family:Georgia, serif; width:75%; }
+div#grocery-list h1 { color: #459E00; letter-spacing: .2em; margin-bottom: 15px; }
+div#grocery-list h3 { color: #F57F04;}
+div.grocery-detail {margin-bottom:15px;}
+div.grow1 {background-color:#F5F3E5;}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %} {% trans 'OpenEats Grocery List' %}{% endblock %}
+{% block content %}
+<div id="grocery-list" >
+    <h1>{{ request.user }} {%trans 'grocery list'%}</h1>
+        {% for glist in glists %}
+        <div class="{% cycle 'grow1' 'grow2' %} grocery-detail"">
+            <h3>{{ glist }}</h3>
+            <hr />
+            {% trans 'created on ' %} {{ glist.pub_date }}
+            <ul>
+           {%for item in  glist.groceryitem_set.all|slice:":5" %}
+              <li>{{ item }}</li>
+           {% endfor %}
+            </ul>
+        </div>
+        {% empty %}
+            <h3>{%trans 'You do not have any grocery list created' %}</h3>
+        {% endfor %}
+     
+</div>
+{% endblock %}

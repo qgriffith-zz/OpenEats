@@ -5,6 +5,7 @@ class GroceryListInline(admin.TabularInline):
     model = GroceryItem
 
 class GroceryListAdmin(admin.ModelAdmin):
+    prepopulated_fields = { 'slug' : ['title']}
     inlines = [GroceryListInline,]
     list_display = ['title', 'author']
     list_filter = ['author']
