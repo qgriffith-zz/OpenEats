@@ -172,6 +172,11 @@ dl.captioned-image cite   { color: #9F954A; font-size: 60%;}
 /* Grocery List Index */
 div#grocery-list { font-family:Georgia, serif; width:75%; }
 div#grocery-list h1 { color: #459E00; letter-spacing: .2em; margin-bottom: 15px; }
-div#grocery-list h3 { color: #F57F04;}
-div.grocery-detail {margin-bottom:15px;}
+div#grocery-list h3 { color: #F57F04; letter-spacing: .1em;}
+div.grocery-detail hr{ border:none; border-top:1px #459E00 dotted; height: 1px;}
+div.grocery-detail {margin-bottom:15px; border: 1px solid #484846; padding:5px;}
+div.grocery-detail span {font-style: italic; font-size:90%; color:#BD2200;}
+div.grocery-detail ul {margin:10px; padding-bottom:10px;}
+div.grocery-detail ul li { letter-spacing: .1em; line-height:1.5em; list-style: disc; list-style-position: inside; color:#484846;}
 div.grow1 {background-color:#F5F3E5;}
+

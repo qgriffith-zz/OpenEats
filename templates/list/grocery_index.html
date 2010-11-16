@@ -8,7 +8,7 @@
         <div class="{% cycle 'grow1' 'grow2' %} grocery-detail"">
             <h3>{{ glist }}</h3>
             <hr />
-            {% trans 'created on ' %} {{ glist.pub_date }}
+            <span class="create-date">{% trans 'created on ' %} {{ glist.pub_date }}</span>
             <ul>
            {%for item in  glist.groceryitem_set.all|slice:":5" %}
               <li>{{ item }}</li>
