@@ -6,7 +6,9 @@
     <h1>{{ request.user }} {%trans 'grocery list'%}</h1>
         {% for glist in glists %}
         <div class="{% cycle 'grow1' 'grow2' %} grocery-detail"">
-             <h3>{{ glist }}</h3> <a href="{% url grocery_delete id=glist.id %}">delete</a>
+             
+             <h3>{{ glist }}</h3> <a href="{% url grocery_delete id=glist.id %}"></h3>
+             <img class="grocery-delete" src="{{MEDIA_URL}}/images/remove.gif" alt="remove"/></a>
             <hr />
             <span class="create-date">{% trans 'created on ' %} {{ glist.pub_date }}</span>
             <ul>
