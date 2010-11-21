@@ -130,7 +130,7 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'tagging',
     'reversion',
-  #  'south',
+    'south',
     'navbar',
     'disqus',
     'registration',

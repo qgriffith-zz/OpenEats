@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<form action="" method="post">{% csrf_token %}
+    <div id="grocerylist-form">
+        {{ form.title.errors }}
+        <p>{{ form.title.label_tag|lower }} {{ form.title }}</p>
+        <input type="hidden" name="author" id="id_author" value="{{ request.user.id }}" />
+
+            <div id="ingredients">
+            <table id="ing-grid">
+                <thead>
+                    <tr>
+                        <th>{% trans "items" %}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ formset.management_form }}
+                    {% for field in formset.forms %}
+                    <tr class="{% cycle 'row1' 'row2' %}" id="ing-{{ forloop.counter }}">
+                        <td>{{ field.item.label_tag|lower }}</td>
+                        <td id="item">{{ field.item }}</td>
+                        <td>{{ field.aisle.label_tag|lower }}</td>
+                        <td id="aisle">{{ field.aisle }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+
+     </div>
+    <p><input type="submit" value="{% trans "create" %}" /></p>
+</form>
+{% endblock %}

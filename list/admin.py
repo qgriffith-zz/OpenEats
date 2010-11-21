@@ -11,7 +11,7 @@ class GroceryListAdmin(admin.ModelAdmin):
     list_filter = ['author']
 
 class GroceryItemAdmin(admin.ModelAdmin):
-    list_display = ['title', 'list']
+    list_display = ['item', 'list']
     list_filter = ['list']
 
 admin.site.register(GroceryList, GroceryListAdmin)

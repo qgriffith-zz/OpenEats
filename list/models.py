@@ -24,14 +24,13 @@ class GroceryList(models.Model):
         return "/grocery/%s/%s/" % (self.author, self.slug)
 
 class GroceryItem(models.Model):
-    title = models.CharField(_("item"), max_length=250)
     list = models.ForeignKey(GroceryList, verbose_name=_('grocery list'))
-    qty =  models.CharField(_("quantity"), max_length=100)
-    aisle = models.CharField(_('aisle'), max_length=100)
+    item = models.CharField(_("item"), max_length=550)
+    aisle = models.CharField(_('aisle'), max_length=100, default="other")
 
     class Meta:
-        ordering = ['aisle', 'title']
+        ordering = ['aisle', 'item']
 
     def __unicode__(self):
-        return self.title
+        return self.item
     
