@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.forms.models import inlineformset_factory
 from models import GroceryList, GroceryItem
-from forms import GroceryListForm
+from forms import GroceryListForm, GroceryItemFormSet
 
 @login_required
 def index(request):
@@ -24,7 +24,7 @@ def groceryDelete(request, id):
 
 @login_required
 def groceryCreate(request):
-    ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, extra=15)
+    ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, extra=15, formset=GroceryItemFormSet)
     if request.method=='POST':
         form = GroceryListForm(request.POST)
         formset = ItemFormSet(request.POST)
