@@ -1,0 +1,8 @@
+{% for aisle in aisle_list %}
+<h3>{{ aisle }}</h3>
+    {% for item in items %}
+        {% if item.aisle == aisle %}
+            {{ item }}
+        {% endif %}
+   {% endfor %}
+{% endfor %}

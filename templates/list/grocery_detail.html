@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<h1>{{ list.title }} {{ list.author}}</h1>
+    {% load grocery_item %}
+    {% item_tag list.groceryitem_set.all %}
+{% endblock %}
