@@ -23,7 +23,6 @@ div#sidebar h3 { padding-top: 55px;}
 div#sidebar ul {  padding-top:5px; }
 div#sidebar li {list-style:none;}
 
-
 /*Login Menu */
 div#login-menu { float:right; padding-top:2px;}
 .hidden { position:absolute; top:0; left:-9999px; width:1px; height:1px; overflow:hidden; }
@@ -181,3 +180,9 @@ div.grocery-detail ul li { letter-spacing: .1em; line-height:1.5em; list-style: 
 div.grow1 {background-color:#F5F3E5;}
 img.grocery-delete{ float:right; width:20px; height:20px;}
 
+/* Grocery List View */
+ul.grocery-item-list { margin:5px;}
+ul.grocery-item-list li{list-style:none; margin-bottom:5px; color:#459E00;}
+ul.grocery-item-list input{margin:3px;}
+h3.aisle-header{color:#F57F04; padding-bottom:5px; padding-top:5px;}
+h1.grocery-list-heading{color:#459E00;}

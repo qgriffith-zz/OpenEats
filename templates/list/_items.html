@@ -1,8 +1,10 @@
 {% for aisle in aisle_list %}
-<h3>{{ aisle }}</h3>
+<h3 class="aisle-header">{{ aisle }}</h3>
+    <ul class="grocery-item-list">
     {% for item in items %}
         {% if item.aisle == aisle %}
-            {{ item }}
+        <li><input type="checkbox"/>{{ item }}</li>
         {% endif %}
    {% endfor %}
+    </ul>
 {% endfor %}
