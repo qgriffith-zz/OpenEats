@@ -171,7 +171,8 @@ dl.captioned-image cite   { color: #9F954A; font-size: 60%;}
 /* Grocery List Index */
 div#grocery-list { font-family:Georgia, serif; width:75%; }
 div#grocery-list h1 { color: #459E00; letter-spacing: .1em; margin-bottom: 15px; }
-div#grocery-list h3 { color: #F57F04; letter-spacing: .1em; display:inline;}
+div#grocery-list h3 a { color: #F57F04; letter-spacing: .1em; display:inline; text-decoration: none;}
+div#grocery-list h3 a:hover { color:#459E00;}
 div.grocery-detail hr{ border:none; border-top:1px #459E00 dotted; height: 1px; margin-top:5px; margin-bottom:5px;}
 div.grocery-detail {margin-bottom:15px; border: 1px solid #484846; padding:5px;}
 div.grocery-detail span {font-style: italic; font-size:90%; color:#BD2200;}
@@ -185,4 +186,4 @@ ul.grocery-item-list { margin:5px;}
 ul.grocery-item-list li{list-style:none; margin-bottom:5px; color:#459E00;}
 ul.grocery-item-list input{margin:3px;}
 h3.aisle-header{color:#F57F04; padding-bottom:5px; padding-top:5px;}
-h1.grocery-list-heading{color:#459E00;}
+h1.grocery-list-heading{color:#459E00; border-bottom:dotted 1px #9F954A ; margin-bottom:5px; padding-bottom: 5px;}
