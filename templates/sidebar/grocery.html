@@ -1,0 +1,7 @@
+{% load i18n %}
+<h3>{% trans 'grocery list' %}</h3>
+<ul>
+    <li><a href="{% url grocery_create %}"> {% trans 'create' %}</a></li>
+    <li><a href="{% url grocery_list %}" > {% trans 'list' %}</a></li>
+    <li><h4><a href="/recipe/" >{% trans 'browse recipes' %}</a></h4></li>
+</ul>
