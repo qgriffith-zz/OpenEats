@@ -2,7 +2,8 @@
 {% load i18n %}
 {% block title %}OpenEats | {{ list.author }} | {% trans 'grocery list' %} {% endblock %}
 {% block content %}
-<h1 class="grocery-list-heading">{{ list.author}} {% trans 'grocery list -' %} {{ list.title }}</h1>
+<h1 class="grocery-list-heading">{{ list.author}} {% trans 'grocery list -' %} {{ list.title }}</h1><a href="{% url grocery_delete id=list.id %}">
+             <img class="grocery-delete" src="{{MEDIA_URL}}/images/remove.gif" alt="remove"/></a>
     {% load grocery_item %}
     {% item_tag list.groceryitem_set.all %}
 {% endblock %}

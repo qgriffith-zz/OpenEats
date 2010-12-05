@@ -1,0 +1,4 @@
+div#grocery-print{ width:600px; border:1px solid #EBE8D6; padding-top: 15px;padding-left: 10px;margin-top:15px;background-color:#FCFCF4;}
+div#grocery-print h2 { color:#79B933;}
+div#grocery-print h3 { color:#F48005; }
+div#grocery-print li { list-style: none; padding-bottom: 8px;}

@@ -42,8 +42,9 @@ def groceryCreate(request):
     return render_to_response('list/grocerylist_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
 
 @login_required
-def groceryShow(request, slug, user):
+def groceryShow(request, slug, user, template_name='list/grocery_detail.html'):
     '''get the users grocery list and show it to them'''
     list = get_object_or_404(GroceryList, slug=slug, author=request.user) #this will make sure that the user owns the grocery list being requested
    
-    return render_to_response('list/grocery_detail.html', {'list': list}, context_instance=RequestContext(request))
+    return render_to_response(template_name, {'list': list}, context_instance=RequestContext(request))
+
