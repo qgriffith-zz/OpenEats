@@ -16,19 +16,22 @@
                 </thead>
                 <tbody>
                     {{ formset.management_form }}
+
                     {% for field in formset.forms %}
                     <tr class="{% cycle 'row1' 'row2' %}" id="ing-{{ forloop.counter }}">
-                        <td>{{ field.item.label_tag|lower }}</td>
+                        <td>{{ field.item.label_tag|lower }}</td>                        
                         <td id="item">{{ field.item }}</td>
                         <td>{{ field.aisle.label_tag|lower }}</td>
                         <td id="aisle">{{ field.aisle }}</td>
+                        <td id="delete">{{ field.DELETE }}</td>
                     </tr>
+                        {% for hid in field.hidden_fields %} {{hid}}{% endfor %} {% comment %} this is needed to edit a formset that exist already {% endcomment%}
                     {% endfor %}
                 </tbody>
             </table>
 
         </div>
-
+   
      </div>
     <p><input type="submit" value="{% trans "create" %}" /></p>
 </form>

@@ -23,11 +23,19 @@ def groceryDelete(request, id):
     return HttpResponseRedirect(reverse('list.views.index'))
 
 @login_required
-def groceryCreate(request):
+def groceryCreate(request, user=None, slug=None):
+    '''used to create and edit grocery list'''
     ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, extra=15, formset=GroceryItemFormSet)
+    if user and slug:
+        cur_list = get_object_or_404(GroceryList, author=request.user, slug=slug)
+        
+    else:
+        cur_list = GroceryList()
+
     if request.method=='POST':
-        form = GroceryListForm(request.POST)
-        formset = ItemFormSet(request.POST)
+      
+        form = GroceryListForm(request.POST, instance=cur_list)
+        formset = ItemFormSet(request.POST, instance=cur_list)
         if form.is_valid() and formset.is_valid():
             new_list = form.save()
             instances = formset.save(commit=False)#save the items seperatly
@@ -36,8 +44,8 @@ def groceryCreate(request):
                 instance.save()
             return redirect('/list/grocery/')
     else:
-        form = GroceryListForm()
-        formset = ItemFormSet(queryset=GroceryItem.objects.none())
+        form = GroceryListForm(instance=cur_list)
+        formset = ItemFormSet(instance=cur_list)
 
     return render_to_response('list/grocerylist_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
 
