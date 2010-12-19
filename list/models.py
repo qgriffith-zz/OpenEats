@@ -2,10 +2,12 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
+from django_extensions.db.fields import AutoSlugField
+
 
 class GroceryList(models.Model):
     title = models.CharField(_("grocery list"), max_length=250)
-    slug = models.SlugField(_('slug'), unique=True, blank=True)
+    slug = AutoSlugField(_('slug'), populate_from='title')
     author = models.ForeignKey(User, verbose_name=_('user'))
     pub_date = models.DateTimeField(auto_now_add=True)
 
@@ -14,11 +16,6 @@ class GroceryList(models.Model):
 
     def __unicode__(self):
         return self.title
-
-    def save(self, *args, **kwargs):
-        if (not self.id) and (not self.slug):
-            self.slug=slugify(self.title)
-        super(GroceryList, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return "/grocery/%s/%s/" % (self.author, self.slug)

@@ -1,5 +1,23 @@
 {% extends 'list/grocery_base.html' %}
 {% load i18n %}
+{% block jscript %}
+     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery.formset.js"></script>
+     <script type="text/javascript">
+         $(function() {
+             $('tbody tr').formset({
+                 prefix: '{{ formset.prefix }}',
+                 added: function(row){
+                     var aisle = row.find('td.aisle input');
+                     aisle.val('other');
+                     
+                 },
+                 extraClasses: ['row1', 'row2']
+             });
+         })
+
+         
+     </script>
+{% endblock %}
 {% block content %}
 <form action="" method="post">{% csrf_token %}
     <div id="grocerylist-form">
@@ -18,12 +36,12 @@
                     {{ formset.management_form }}
 
                     {% for field in formset.forms %}
-                    <tr class="{% cycle 'row1' 'row2' %}" id="ing-{{ forloop.counter }}">
+                    <tr class="{% cycle 'row1' 'row2' %}" >
                         <td>{{ field.item.label_tag|lower }}</td>                        
-                        <td id="item">{{ field.item }}</td>
+                        <td class="item">{{ field.item }}</td>
                         <td>{{ field.aisle.label_tag|lower }}</td>
-                        <td id="aisle">{{ field.aisle }}</td>
-                        <td id="delete">{{ field.DELETE }}</td>
+                        <td class="aisle">{{ field.aisle }}</td>
+                        
                     </tr>
                         {% for hid in field.hidden_fields %} {{hid}}{% endfor %} {% comment %} this is needed to edit a formset that exist already {% endcomment%}
                     {% endfor %}

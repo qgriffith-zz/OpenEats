@@ -25,7 +25,7 @@ def groceryDelete(request, id):
 @login_required
 def groceryCreate(request, user=None, slug=None):
     '''used to create and edit grocery list'''
-    ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, extra=15, formset=GroceryItemFormSet)
+    ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, extra=1, formset=GroceryItemFormSet)
     if user and slug:
         cur_list = get_object_or_404(GroceryList, author=request.user, slug=slug)
         

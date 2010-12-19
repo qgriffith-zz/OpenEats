@@ -145,6 +145,7 @@ INSTALLED_APPS = (
     'sentry',
     'sentry.client',
     'pagination',
+    'django_extensions',
     'openeats',
     'openeats.recipe',
     'openeats.recipe_groups',
