@@ -3,26 +3,41 @@
 {% load pagination_tags %}
 
 <html>
-    <head></head>
+    <head>     
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
+        <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
+        <script type="text/javascript">
+            $(function () {
+                $(".remove-fav").click( function () {
+                    var id = $(this).attr("id");
+                    $.post('/recipe/unstore/', {'recipe_id': id},
+                    function (data) {
+                        $("#user-fav").hide().html(data).fadeIn('slow');
+                        
+                    });
+                });
+            });
+        </script>
+    </head>
     <body>        
         {% if recipe_list.count > 0 %}
-          {% if shared = 'share'  %}
-           {% autopaginate recipe_list  %}
-            {% for recipe in recipe_list %}
-              {% include '/recipe/_list.html' %}
-            {% endfor %}
-           {% paginate %}
-          {% endif %}
+           {% if shared = 'share'  %}
+              {% autopaginate recipe_list  %}
+              {% for recipe in recipe_list %}
+                 {% include '/recipe/_list.html' %}
+              {% endfor %}
+              {% paginate %}
+           {% endif %}
 
-          {% if user == request.user.username and shared == 'private' %}
-            {% autopaginate recipe_list %}
-            {% for recipe in recipe_list %}
-              {% include '/recipe/_list.html' %}
-            {% endfor %}
-            {% paginate %}
-         {% endif %}
-         {% else %}
-            <p>{{ user }} {% trans 'has not added any recipes yet!' %}</p>
-        {% endif %}
+           {% if user == request.user.username and shared == 'private' %}
+              {% autopaginate recipe_list %}
+              {% for recipe in recipe_list %}
+                {% include '/recipe/_list.html' %}
+              {% endfor %}
+              {% paginate %}
+           {% endif %}
+      {% else %}
+         <p>{{ user }} {% trans 'has not added any recipes yet!' %}</p>
+     {% endif %}
     </body>
 </html>

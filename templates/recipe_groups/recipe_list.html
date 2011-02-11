@@ -3,35 +3,32 @@
 {% comment %}This template list all recipes found in a course or a cuisine it is called from the course_list or the cuisine_list {% endcomment %}
 {% load sanitize %}
 {% load pagination_tags %}
-{% block jscript %}
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
-    <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".{{ recipe.slug }}-rate").stars({
-                inputType: "select",
-                disabled: true
-            });
-            var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
-            var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
-            $(".{{ recipe.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
-        });
-    </script>
-
-{% endblock %}
-
 
 {% block content %}
-    <div id="title"> <h3>{% trans "Recipes in " %}{{catagory}}</h3></div>
+
+  <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
+  <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
+
+  <div id="title">
+      <h3>{% trans "Recipes in " %}{{catagory}}</h3>
+  </div>
     {% autopaginate recipe_list  %}
 
     {% for recipe in recipe_list %}
       {% include '/recipe/_list.html' %}
-    {% endfor %}
-    
-    {% paginate %}
 
+      <script type="text/javascript">
+          $(document).ready(function () {
+              $(".{{ recipe.slug }}-rate").stars({
+                  inputType: "select",
+                  disabled: true
+              });
+              var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
+              var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
+              $(".{{ recipe.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
+          });
+      </script>
+  {% endfor %}
+    
+ {% paginate %}
 {% endblock %}

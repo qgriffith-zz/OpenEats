@@ -84,7 +84,7 @@ div#recipe-rate{float:right; padding:5px 40px 5px 5px; width:200px; border:1px b
 div#caption{margin-right:60px;}
 #messages {color: #fd1c24;}
 #ajax-messages, li.success{ margin-bottom:10px; padding:10px; border:1px green dashed; background-color: lightgreen; font-size: 140%; color:white; font-weight:bold; width:80%}
-.remove-fav { float:right;}
+.remove-fav, .remove-grocery { float:right;}
 li.success { list-style: none;}
 div#recipe-note {  float:left; clear:left; padding:10px; width:40%; height: 200px;}
 .editable textarea { background-color: #FEFDF2; }

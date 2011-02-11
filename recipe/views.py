@@ -115,7 +115,7 @@ def recipeUnStore(request):
             except StoredRecipe.DoesNotExist:
                 raise Http404
             stored_recipe.delete()
-            return redirect("/recipe/ajax-favrecipe/")
+            return redirect('/recipe/ajax-favrecipe/')
     
 
 @login_required

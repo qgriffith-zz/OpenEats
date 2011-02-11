@@ -23,6 +23,21 @@ def groceryDelete(request, id):
     return HttpResponseRedirect(reverse('list.views.index'))
 
 @login_required
+def groceryAjaxDelete(request):
+
+    if request.method == 'POST':
+        if request.POST['id']:
+            try:
+                list = get_object_or_404(GroceryList, author=request.user, id=request.POST['id'])
+            except GroceryList.DoesNotExist:
+                raise Http404
+            list.delete()
+            return redirect("/list/grocery/grocery-ajax/")
+
+
+
+
+@login_required
 def groceryCreate(request, user=None, slug=None):
     '''used to create and edit grocery list'''
     ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, extra=1, formset=GroceryItemFormSet, can_delete=True)
@@ -43,8 +58,8 @@ def groceryCreate(request, user=None, slug=None):
                 if instance.item:
                     instance.list_id = new_list.id #set the grocery id foregin key to the this grocery id
                     instance.save()
-                
-            return redirect('grocery_show', user=user, slug=slug)
+           
+            return redirect('grocery_show', user=new_list.author, slug=new_list.slug)
     else:
         form = GroceryListForm(instance=cur_list)
         formset = ItemFormSet(instance=cur_list)
@@ -57,4 +72,11 @@ def groceryShow(request, slug, user, template_name='list/grocery_detail.html'):
     list = get_object_or_404(GroceryList, slug=slug, author=request.user) #this will make sure that the user owns the grocery list being requested
    
     return render_to_response(template_name, {'list': list}, context_instance=RequestContext(request))
+
+@login_required
+def groceryProfile(request):
+    '''Returns a list of a users grocery list to be displayed on the users profile'''
+    list = GroceryList.objects.filter(author=request.user)
+    return render_to_response('list/grocery_ajax.html', {'lists' : list}, context_instance=RequestContext(request))
+
 

@@ -3,35 +3,17 @@
 {% load i18n %}
 {% load sanitize %}
 {% block jscript %}
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
-    <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".{{ recipe.slug }}-rate").stars({
-                inputType: "select",
-                disabled: true
-            });
-            var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
-            var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
-            $(".{{ recipe.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".{{ recipe.slug }}-rate").stars({
+            inputType: "select",
+            disabled: true
         });
-    </script>
-
-    <script type="text/javascript">
-        $(function () {
-            $(".remove-fav").click( function () {
-                var id = $(this).attr("id");
-                $.post('/recipe/unstore/', {'recipe_id': id},
-                function (data) {
-                    $("#user-fav").hide().html(data).fadeIn('slow');
-
-                });
-            });
-        });
-    </script>
+        var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
+        var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
+        $(".{{ recipe.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
+    });
+</script>
 
 {% endblock %}
 

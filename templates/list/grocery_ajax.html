@@ -1,0 +1,34 @@
+{% comment %}This template is used via an ajax call from the users profile page to display all the grocery list for a giving user {% endcomment %}
+{% load i18n %}
+{% load pagination_tags %}
+<html>
+    <head>
+   
+    <script type="text/javascript">
+        $(function () {
+            $(".remove-grocery").click( function () {
+                var id = $(this).attr("id");
+                $.post('/list/grocery/ajaxdelete/', {'id': id},
+                function (data) {
+                    $("#glist").hide().html(data).fadeIn('slow');
+
+                });
+            });
+        });
+    </script>
+    </head>
+    <body>
+        <div id="glist">
+
+            {% if lists|length > 0 %}
+              {% autopaginate lists 3 %}
+              {% for list in lists %}
+                    <a href ="#" id="{{ list.id}}" class="remove-grocery"><img title="remove" alt="remove" src="{{ MEDIA_URL }}/images/remove.gif" /></a>{% include '/list/_list.html' %}
+              {% endfor %}
+             {% paginate %}
+            {% else %}
+              <p>{% trans 'You have not added any grocery list yet!' %}</p>
+            {% endif %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,17 @@
+{% comment %}This template is called by other templates to display a list of grocery list, the template is passed a grocery list object from a list of grocery objects{% endcomment %}
+
+{% load i18n %}
+{% load sanitize %}
+
+<div id="grocery-list" >
+    <div class="grocery-detail"">
+         <h3><a href="{% url grocery_show user=list.author, slug=list.slug %}">{{ list }}</a></h3>
+         <hr />
+        <span class="create-date">{% trans 'created on ' %} {{ list.pub_date }}</span>
+        <ul>
+            {%for item in  list.groceryitem_set.all|slice:":5" %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

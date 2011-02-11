@@ -60,8 +60,8 @@
                         <div id="login-nav" class="hidden">
                             <ul>
                                 <li><a href="{{request.user.get_profile.get_absolute_url}}">{% trans 'profile' %}</a></li>
-                                <li><a href="{% url grocery_list %}"> {% trans 'Grocery Lists' %}</a></li>
-                                <li><a href="/accounts/logout/">{% trans 'logout' %}</a></li>
+                                <li><a href="{% url grocery_list %}"> {% trans 'grocery lists' %}</a></li>
+                                <li><a href="{% url accounts.views.logout_page %}">{% trans 'logout' %}</a></li>
                             </ul>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                     {% if messages %}
                     <ul class="messages">
                         {% for message in messages %}
-                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
                         {% endfor %}
                     </ul>
                     {% endif %}

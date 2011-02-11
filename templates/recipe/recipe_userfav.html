@@ -2,19 +2,33 @@
 {% load i18n %}
 {% load pagination_tags %}
 <html>
-    <head></head>
+    <head> 
+        <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
+        <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
+        <script type="text/javascript">
+            $(function () {
+                $(".remove-fav").click( function () {
+                    var id = $(this).attr("id");
+                    $.post('/recipe/unstore/', {'recipe_id': id},
+                    function (data) {
+                        $("#user-fav").hide().html(data).fadeIn('slow');
+
+                    });
+                });
+            });
+        </script>
+    </head>
     <body>
         <div id="user-fav">
-            
             {% if recipe_list|length > 0 %}
-              {% autopaginate recipe_list  %}
-              {% for recipe in recipe_list %}
-                <a href ="#" id="{{ recipe.id}}" class="remove-fav"><img title="remove" alt="remove" src="{{ MEDIA_URL }}/images/remove.gif" /></a>{% include '/recipe/_list.html' %}
-              {% endfor %}
-             {% paginate %}
-            {% else %}
+               {% autopaginate recipe_list  %}
+               {% for recipe in recipe_list %}
+                  <a href ="#" id="{{ recipe.id}}" class="remove-fav"><img title="remove" alt="remove" src="{{ MEDIA_URL }}/images/remove.gif" /></a>{% include '/recipe/_list.html' %}
+               {% endfor %}
+               {% paginate %}
+          {% else %}
               <p>{% trans 'You have not added any favorite recipes yet!' %}</p>
-            {% endif %}
+         {% endif %}
         </div>
     </body>
 </html>
