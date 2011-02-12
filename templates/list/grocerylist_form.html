@@ -6,11 +6,6 @@
          $(function() {
              $('tbody tr').formset({
                  prefix: '{{ formset.prefix }}',
-                 added: function(row){
-                     var aisle = row.find('td.aisle input');
-                     aisle.val('other');
-                     
-                 },
                  extraClasses: ['row1', 'row2']
              });
          })
