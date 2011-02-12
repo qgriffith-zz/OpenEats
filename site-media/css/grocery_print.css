@@ -1,5 +1,6 @@
 #notvisable{display:none;}
-div#grocery-print{ width:600px; border:1px solid #EBE8D6; padding-top: 15px;padding-left: 10px;margin-top:15px;background-color:#FCFCF4;}
+div#grocery-print{ width:600px; padding-top: 15px;padding-left: 10px;margin-top:15px; font-size:90%;}
 div#grocery-print h2 { color:#79B933;}
-div#grocery-print h3 { color:#F48005; }
-div#grocery-print li { list-style: none; padding-bottom: 8px;}
+div#grocery-print h3 { color:#F48005; display:inline;}
+div#grocery-print ul { padding-top:0px; margin-top:6px;}
+div#grocery-print li { list-style: none; padding-bottom: 4px;}
