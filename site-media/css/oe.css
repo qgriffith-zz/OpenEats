@@ -114,7 +114,7 @@ div#recipe-form em { padding-left: 8px; color:#5f562a;}
 div#recipe-form p { margin-bottom: 10px;}
 table#ing-grid {border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 table#ing-grid thead { color:#5f562a; font-size:120%; font-weight:bold;}
-table#ing-grid thead th { padding:5px;}
+table#ing-grid thead th { padding:5px}
 table#ing-grid td{ font-size: 90%; padding-bottom:15px;}
 table#ing-grid td#quantity input { width:40px;}
 table#ing-grid td#measurement input { width:50px;}

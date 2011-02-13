@@ -2,13 +2,13 @@ from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.forms.models import modelformset_factory, inlineformset_factory
-from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.http import HttpResponse, Http404
 from models import Recipe, StoredRecipe, NoteRecipe
 from ingredient.models import Ingredient
-from forms import RecipeForm, BaseIngFormSet
+from forms import RecipeForm,IngItemFormSet
 from djangoratings.views import AddRatingView
 from django.utils import simplejson
+
 
 def index(request):
     recipe_list = Recipe.objects.filter(shared=Recipe.SHARE_SHARED).exclude(photo='').order_by('-pub_date')[0:6]
@@ -41,7 +41,7 @@ def recipePrint(request, slug):
 
 @login_required
 def recipe(request):        
-    IngFormSet = inlineformset_factory(Recipe, Ingredient, extra=15) #creat the ingredient form with 15 empty fields
+    IngFormSet = inlineformset_factory(Recipe, Ingredient, extra=15, formset=IngItemFormSet) #creat the ingredient form with 15 empty fields
      
     if request.method=='POST':
         form = RecipeForm(request.POST, request.FILES)

@@ -66,6 +66,7 @@
         <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
         <!-- ugh going to do a form here since it is tabular data but still don't like it -->
         <div id="ingredients">
+            <p>{{ formset.non_form_errors }}</p>
             <table id="ing-grid">
                 <thead>
                     <tr>

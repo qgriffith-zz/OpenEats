@@ -2,9 +2,8 @@ from django.forms import ModelForm
 from django.template.loader import render_to_string
 from models import Recipe
 from recipe_groups.models import Course, Cuisine
-from ingredient.models import Ingredient
 import django.forms as forms
-from django.forms.models import BaseModelFormSet
+from django.forms.models import BaseInlineFormSet
 
 class SelectWithPop(forms.Select):
     '''
@@ -28,10 +27,17 @@ class RecipeForm(ModelForm):
         model = Recipe
         exclude=('slug','ingredient')
 
-class BaseIngFormSet(BaseModelFormSet):
-    ''' Used to add an ingredient formset to the recipe form turns the ingredient from a select field to an input field
-        that then uses auto complete
-    '''
-    def add_fields(self, form, index):
-        super(BaseIngFormSet, self).add_fields(form,index)
-        form.fields["ingredient"] =  forms.CharField()
+class IngItemFormSet(BaseInlineFormSet):
+     """Require at least two ingredient in the formset to be completed."""
+     def clean(self):
+         super(IngItemFormSet, self).clean()
+         for error in self.errors:
+             if error:
+                 return
+         completed = 0
+         for cleaned_data in self.cleaned_data:
+             if cleaned_data and not cleaned_data.get('DELETE', False):
+                 completed += 1
+         if completed < 2:
+             raise forms.ValidationError("At least two %s are required." %
+                self.model._meta.object_name.lower())

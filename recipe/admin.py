@@ -2,9 +2,11 @@ from django.contrib import admin
 from models import Recipe, StoredRecipe, NoteRecipe
 from ingredient.models import Ingredient
 from reversion.admin import VersionAdmin
+from forms import IngItemFormSet
 
 class RecipeInline(admin.TabularInline):
     model = Ingredient
+    formset=IngItemFormSet
 
 class RecipeAdmin(VersionAdmin):
     prepopulated_fields = { 'slug' : ['title']}
