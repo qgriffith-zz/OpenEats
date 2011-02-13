@@ -22,7 +22,7 @@ class GroceryList(models.Model):
 
 class GroceryItem(models.Model):
     list = models.ForeignKey(GroceryList, verbose_name=_('grocery list'))
-    item = models.CharField(_("item"), max_length=550, null=True, blank=True)
+    item = models.CharField(_("item"), max_length=550)
     aisle = models.CharField(_('aisle'), max_length=100, blank=True)
 
     class Meta:

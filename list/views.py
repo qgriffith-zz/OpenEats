@@ -40,7 +40,7 @@ def groceryAjaxDelete(request):
 @login_required
 def groceryCreate(request, user=None, slug=None):
     '''used to create and edit grocery list'''
-    ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, extra=1, formset=GroceryItemFormSet, can_delete=True)
+    ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, extra=15, formset=GroceryItemFormSet, can_delete=True)
     if user and slug:
         cur_list = get_object_or_404(GroceryList, author=request.user, slug=slug)
         
@@ -55,9 +55,8 @@ def groceryCreate(request, user=None, slug=None):
             new_list = form.save()
             instances = formset.save(commit=False)#save the items seperatly
             for instance in instances:
-                if instance.item:
-                    instance.list_id = new_list.id #set the grocery id foregin key to the this grocery id
-                    instance.save()
+               instance.list_id = new_list.id #set the grocery id foregin key to the this grocery id
+               instance.save()
            
             return redirect('grocery_show', user=new_list.author, slug=new_list.slug)
     else:

@@ -21,31 +21,35 @@
         <input type="hidden" name="author" id="id_author" value="{{ request.user.id }}" />
 
             <div id="ingredients">
-            <table id="ing-grid">
-                <thead>
+                <p>{{  formset.non_form_errors }}</p>
+                <table id="ing-grid">
+                    <thead>
                     <tr>
-                        <th>{% trans "items" %} {{ formset.non_form_errors }}</th>
+                        <th>{% trans 'items' %}</th>
                     </tr>
-                </thead>
-                <tbody>
-                    {{ formset.management_form }}
+                    </thead>
+                    <tbody>
+                        {% for form in formset.forms %}
+                            <tr id="{{ form.prefix }}-row" class="{% cycle 'row1' 'row2' %}">
+                              <td>
+                                {% for hid in form.hidden_fields %}{{ hid }}{% endfor %}
+                                {% if form.instance.pk %} {{  form.DELETE }}{% endif %}
+                                {{ form.item.label_tag|lower }}
+                              </td>
+                              <td class="item">{{ form.item }}</td>
+                              <td>{{ form.aisle.label_tag|lower }}</td>
+                              <td class="aisle">{{ form.aisle }}</td>
+                            </tr>
 
-                    {% for field in formset.forms %}
-                    <tr class="{% cycle 'row1' 'row2' %}" >
-                        <td>{{ field.item.label_tag|lower }}</td>                        
-                        <td class="item">{{ field.item }}</td>
-                        <td>{{ field.aisle.label_tag|lower }}</td>
-                        <td class="aisle">{{ field.aisle }}</td>
-                        
-                    </tr>
-                        {% for hid in field.hidden_fields %} {{hid}}{% endfor %} {% comment %} this is needed to edit a formset that exist already {% endcomment%}
-                    {% endfor %}
-                </tbody>
-            </table>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
 
         </div>
    
      </div>
-    <p><input type="submit" value="{% trans "create" %}" /></p>
+    <p>{{ formset.management_form }}<input type="submit" value="{% trans "create" %}" /></p>
 </form>
 {% endblock %}
