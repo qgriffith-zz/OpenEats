@@ -113,12 +113,12 @@ div#recipe-form label { font-size: 110%}
 div#recipe-form em { padding-left: 8px; color:#5f562a;}
 div#recipe-form p { margin-bottom: 10px;}
 table#ing-grid {border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em;}
-table#ing-grid thead { color:#5f562a; font-size:120%; font-weight:bold;}
-table#ing-grid thead th { padding:5px}
+table#ing-grid thead, table#list-grid thead  { color:#5f562a; font-size:120%; font-weight:bold;}
+table#ing-grid thead th, table#list-grid thead th { padding:5px}
 table#ing-grid td{ font-size: 90%; padding-bottom:15px;}
 table#ing-grid td#quantity input { width:40px;}
 table#ing-grid td#measurement input { width:50px;}
-table#ing-grid tr.row2 { background-color: #f6f4e2;}
+table#ing-grid tr.row2, table#list-grid tr.row2  { background-color: #f6f4e2;}
 
 
 /*form errors */
@@ -187,3 +187,14 @@ ul.grocery-item-list li{list-style:none; margin-bottom:5px; color:#459E00;}
 ul.grocery-item-list input{margin:3px;}
 h3.aisle-header{color:#F57F04; padding-bottom:5px; padding-top:5px;}
 h1.grocery-list-heading{color:#459E00; border-bottom:dotted 1px #9F954A ; margin-bottom:5px; padding-bottom: 5px;}
+
+/*Grocery List Form */
+p#list-title{padding-bottom:10px;}
+P#list-title input {margin:8px;}
+P#list-title label, table#list-grid label {color:#484846; font-size:120%;}
+table#list-grid{margin-bottom: 8px;}
+table#list-grid {width: 650px; border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+table#list-grid td{ font-size: 90%; padding-bottom:15px; padding-left:4px;}
+table#list-grid td input { width:180px;}
+table#list-grid td a.delete-row {padding-left:18px; margin-left:10px; background:url(../images/delete.png) no-repeat left;}
+table#list-grid a.add-row {padding-left:18px; background:url(../images/add.png) no-repeat left center; }

@@ -17,12 +17,12 @@
 <form action="" method="post">{% csrf_token %}
     <div id="grocerylist-form">
         {{ form.title.errors }}
-        <p>{{ form.title.label_tag|lower }} {{ form.title }}</p>
+        <p id="list-title">{{ form.title.label_tag|lower }} {{ form.title }}</p>
         <input type="hidden" name="author" id="id_author" value="{{ request.user.id }}" />
 
             <div id="ingredients">
                 <p>{{  formset.non_form_errors }}</p>
-                <table id="ing-grid">
+                <table id="list-grid">
                     <thead>
                     <tr>
                         <th>{% trans 'items' %}</th>
