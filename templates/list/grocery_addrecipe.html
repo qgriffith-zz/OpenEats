@@ -1,0 +1,10 @@
+{% extends 'list/grocery_base.html' %}
+{% load i18n %}
+{% block title %}OpenEats | {{ recipe }}|{% trans 'grocery list' %} {% endblock %}
+{% block sidebar %}
+    <h3>{% trans 'actions' %}</h3>
+     {{ block.super }}
+{% endblock %}
+{% block content %}
+
+{% endblock %}

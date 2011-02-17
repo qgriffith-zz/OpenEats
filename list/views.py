@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.forms.models import inlineformset_factory
+from recipe.models import Recipe
 from models import GroceryList, GroceryItem
 from forms import GroceryListForm, GroceryItemFormSet
 
@@ -33,8 +34,6 @@ def groceryAjaxDelete(request):
                 raise Http404
             list.delete()
             return redirect("/list/grocery/grocery-ajax/")
-
-
 
 
 @login_required
@@ -77,5 +76,16 @@ def groceryProfile(request):
     '''Returns a list of a users grocery list to be displayed on the users profile'''
     list = GroceryList.objects.filter(author=request.user)
     return render_to_response('list/grocery_ajax.html', {'lists' : list}, context_instance=RequestContext(request))
+
+@login_required
+def groceryAddRecipe(request, recipe_slug):
+    '''Takes a recipe and adds all the ingredients from that recipe to a grocery list'''
+
+    if request.method != 'POST':
+        recipe = Recipe.objects.get(slug=recipe_slug)
+        lists = GroceryList.objects.filter(author=request.user)
+        return render_to_response('list/grocery_addrecipe.html', {'lists': lists, 'recipe': recipe}, context_instance=RequestContext(request))
+
+
 
 
