@@ -95,7 +95,7 @@ def groceryAddRecipe(request, recipe_slug):
         for ing in recipe.ingredient_set.all():
             new_item = GroceryItem()
             new_item.list_id = list.id
-            new_item.item = ing.title
+            new_item.item =  str(ing.quantity) + ' '  + str(ing.measurement) + ' ' + ing.title
             new_item.save()
 
         return redirect('grocery_edit', user=list.author, slug=list.slug)
