@@ -98,7 +98,7 @@ def groceryAddRecipe(request, recipe_slug):
             new_item.item = ing.title
             new_item.save()
 
-        return redirect('grocery_show', user=list.author, slug=list.slug)
+        return redirect('grocery_edit', user=list.author, slug=list.slug)
     else:
         recipe = get_object_or_404(Recipe, slug=recipe_slug)
         form = GroceryUserList(user=request.user )
