@@ -6,5 +6,11 @@
      {{ block.super }}
 {% endblock %}
 {% block content %}
+    <form action="" method="post">{% csrf_token %}
+        {{  form.errors }} {{  form.non_field_errors }}
+        {{ form.as_p }}
+        <input type='hidden' name='recipe_id' value="{{ recipe.id }}" />
+    <p><input type="submit" value="{% trans "create" %}" /></p>
+    </form>
 
 {% endblock %}

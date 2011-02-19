@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404, redirect
@@ -7,7 +8,7 @@ from django.core.urlresolvers import reverse
 from django.forms.models import inlineformset_factory
 from recipe.models import Recipe
 from models import GroceryList, GroceryItem
-from forms import GroceryListForm, GroceryItemFormSet
+from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList
 
 @login_required
 def index(request):
@@ -81,10 +82,25 @@ def groceryProfile(request):
 def groceryAddRecipe(request, recipe_slug):
     '''Takes a recipe and adds all the ingredients from that recipe to a grocery list'''
 
-    if request.method != 'POST':
+    if request.method == 'POST':
+        #not validating the form since the form is only a prepoulated drop box and can't really be validated
+
+        list = GroceryList.objects.get(pk=request.POST['lists'], author=request.user)
+        recipe = Recipe.objects.get(pk=request.POST['recipe_id'])
+        
+        for ing in recipe.ingredient_set.all():
+            new_item = GroceryItem()
+            new_item.list_id = list.id
+            new_item.item = ing.title
+            new_item.save()
+
+        return redirect('grocery_show', user=list.author, slug=list.slug)
+
+   
+    else:
         recipe = Recipe.objects.get(slug=recipe_slug)
-        lists = GroceryList.objects.filter(author=request.user)
-        return render_to_response('list/grocery_addrecipe.html', {'lists': lists, 'recipe': recipe}, context_instance=RequestContext(request))
+        form = GroceryUserList(user=request.user )
+        return render_to_response('list/grocery_addrecipe.html', {'form': form, 'recipe' : recipe}, context_instance=RequestContext(request))
 
 
 
