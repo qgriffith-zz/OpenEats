@@ -33,4 +33,7 @@ class GroceryUserList(forms.Form):
         user = kwargs.pop('user', None) #get the user passed to the form off of the keyword argument
         super(GroceryUserList, self).__init__(*args, **kwargs)
         lists = GroceryList.objects.filter(author=user)
-        self.fields['lists'] = forms.ChoiceField(choices=[ (o.id, str(o)) for o in lists])
+        choices=[ (o.id, str(o)) for o in lists]
+        choices.append((0,'new'))
+        choices.sort()
+        self.fields['lists'] = forms.ChoiceField( widget = forms.Select(), choices=choices, initial=0)

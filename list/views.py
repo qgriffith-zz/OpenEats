@@ -8,7 +8,7 @@ from django.forms.models import inlineformset_factory
 from recipe.models import Recipe
 from models import GroceryList, GroceryItem
 from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList
-
+from datetime import date
 @login_required
 def index(request):
     '''returns a list of grocery list for a user'''
@@ -83,7 +83,13 @@ def groceryAddRecipe(request, recipe_slug):
 
     if request.method == 'POST':
         #not validating the form since the form is only a prepoulated drop box and can't really be validated
-        list = get_object_or_404(GroceryList, pk=request.POST['lists'], author=request.user)
+        if request.POST['lists'] == '0':  #must of selected to create a new list because no id can be set to zero otherwise
+            list = GroceryList()
+            list.title=date.today()
+            list.author=request.user
+            list.save()
+        else:
+            list = get_object_or_404(GroceryList, pk=request.POST['lists'], author=request.user)
         recipe = get_object_or_404(Recipe, pk=request.POST['recipe_id'])
         
         for ing in recipe.ingredient_set.all():
@@ -96,6 +102,7 @@ def groceryAddRecipe(request, recipe_slug):
     else:
         recipe = get_object_or_404(Recipe, slug=recipe_slug)
         form = GroceryUserList(user=request.user )
+       # form.fields['lists'].initial=[0]
         return render_to_response('list/grocery_addrecipe.html', {'form': form, 'recipe' : recipe}, context_instance=RequestContext(request))
 
 
