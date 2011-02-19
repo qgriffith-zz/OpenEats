@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404, redirect
@@ -84,9 +83,8 @@ def groceryAddRecipe(request, recipe_slug):
 
     if request.method == 'POST':
         #not validating the form since the form is only a prepoulated drop box and can't really be validated
-
-        list = GroceryList.objects.get(pk=request.POST['lists'], author=request.user)
-        recipe = Recipe.objects.get(pk=request.POST['recipe_id'])
+        list = get_object_or_404(GroceryList, pk=request.POST['lists'], author=request.user)
+        recipe = get_object_or_404(Recipe, pk=request.POST['recipe_id'])
         
         for ing in recipe.ingredient_set.all():
             new_item = GroceryItem()
@@ -95,10 +93,8 @@ def groceryAddRecipe(request, recipe_slug):
             new_item.save()
 
         return redirect('grocery_show', user=list.author, slug=list.slug)
-
-   
     else:
-        recipe = Recipe.objects.get(slug=recipe_slug)
+        recipe = get_object_or_404(Recipe, slug=recipe_slug)
         form = GroceryUserList(user=request.user )
         return render_to_response('list/grocery_addrecipe.html', {'form': form, 'recipe' : recipe}, context_instance=RequestContext(request))
 
