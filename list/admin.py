@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import GroceryList, GroceryItem
+from models import GroceryList, GroceryItem, GroceryAisle
 from forms import GroceryItemFormSet
 
 class GroceryListInline(admin.TabularInline):
@@ -17,5 +17,9 @@ class GroceryItemAdmin(admin.ModelAdmin):
     list_display = ['item', 'list']
     list_filter = ['list']
 
+class GroceryAisleAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(GroceryList, GroceryListAdmin)
 admin.site.register(GroceryItem, GroceryItemAdmin)
+admin.site.register(GroceryAisle, GroceryAisleAdmin)

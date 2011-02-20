@@ -20,10 +20,20 @@ class GroceryList(models.Model):
     def get_absolute_url(self):
         return "/grocery/%s/%s/" % (self.author, self.slug)
 
+class GroceryAisle(models.Model):
+    '''simple table to hold aisle names for the grocery list'''
+    aisle = models.CharField(_('aisle'), max_length=100)
+
+    class Meta:
+        ordering = ['aisle']
+
+    def __unicode__(self):
+        return self.aisle
+
 class GroceryItem(models.Model):
     list = models.ForeignKey(GroceryList, verbose_name=_('grocery list'))
     item = models.CharField(_("item"), max_length=550)
-    aisle = models.CharField(_('aisle'), max_length=100, blank=True)
+    aisle = models.ForeignKey(GroceryAisle, blank = True, null = True, default=None)
 
     class Meta:
         ordering = ['aisle', 'item']
