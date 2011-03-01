@@ -16,18 +16,6 @@
 
     {% for recipe in recipe_list %}
       {% include '/recipe/_list.html' %}
-
-      <script type="text/javascript">
-          $(document).ready(function () {
-              $(".{{ recipe.slug }}-rate").stars({
-                  inputType: "select",
-                  disabled: true
-              });
-              var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
-              var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
-              $(".{{ recipe.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
-          });
-      </script>
   {% endfor %}
     
  {% paginate %}
