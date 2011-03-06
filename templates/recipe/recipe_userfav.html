@@ -23,7 +23,7 @@
             {% if recipe_list|length > 0 %}
                {% autopaginate recipe_list  %}
                {% for recipe in recipe_list %}
-                  <a href ="#" id="{{ recipe.id}}" class="remove-fav"><img title="remove" alt="remove" src="{{ MEDIA_URL }}/images/remove.gif" /></a>{% include '/recipe/_list.html' %}
+                  <a href ="#" onclick="return confirm('Are you sure you want to delete?')" id="{{ recipe.id}}" class="remove-fav"><img title="remove" alt="remove" src="{{ MEDIA_URL }}/images/remove.gif" /></a>{% include '/recipe/_list.html' %}
                {% endfor %}
                {% paginate %}
           {% else %}
