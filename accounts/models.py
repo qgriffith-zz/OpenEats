@@ -10,7 +10,7 @@ class UserProfiles(models.Model):
     )
     user = models.ForeignKey(User, verbose_name=_('user'), unique=True)
     about = models.TextField(_('about'),blank=True,default="Tell everyone something about yourself")
-    gender = models.CharField(_('gender'), max_length=1, choices=GENDER_CHOICES, help_text="What are ya?", null=True, default='None')
+    gender = models.CharField(_('gender'), max_length=5, choices=GENDER_CHOICES, help_text="What are ya?", null=True, default='None')
     url = models.URLField(_('url'), blank=True)
     location = models.CharField(_('location'), max_length=150, blank=True, default='')
     pub_date = models.DateTimeField(auto_now_add=True)
