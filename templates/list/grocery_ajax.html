@@ -28,6 +28,7 @@
              {% paginate %}
             {% else %}
               <p>{% trans 'You have not added any grocery list yet!' %}</p>
+              <p><a href="{% url grocery_create %}"> {% trans 'create a grocery list' %}</a></p>
             {% endif %}
         </div>
     </body>

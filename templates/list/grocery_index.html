@@ -19,6 +19,7 @@
         </div>
         {% empty %}
             <h3>{%trans 'You do not have any grocery list created' %}</h3>
+             <p><a href="{% url grocery_create %}"> {% trans 'create a grocery list' %}</a></p>
         {% endfor %}
      
 </div>
