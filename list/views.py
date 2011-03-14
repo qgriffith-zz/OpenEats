@@ -1,5 +1,5 @@
 from django.template import RequestContext
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -7,8 +7,9 @@ from django.core.urlresolvers import reverse
 from django.forms.models import inlineformset_factory
 from recipe.models import Recipe
 from models import GroceryList, GroceryItem
-from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList
+from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList,GrocerySendMail
 from datetime import date
+
 @login_required
 def index(request):
     '''returns a list of grocery list for a user'''
@@ -104,6 +105,17 @@ def groceryAddRecipe(request, recipe_slug):
         form = GroceryUserList(user=request.user )
        # form.fields['lists'].initial=[0]
         return render_to_response('list/grocery_addrecipe.html', {'form': form, 'recipe' : recipe}, context_instance=RequestContext(request))
+
+def groceryMail(request):
+    '''this is a test view to test the sending of mail'''
+    if request.method == 'POST':
+        form = GrocerySendMail(data=request.POST, request=request)
+        if form.is_valid():
+            form.save(fail_silently=False)
+            return HttpResponse('mail sent')
+    else:
+        form = GrocerySendMail(request=request)
+    return render_to_response('list/grocery_email.html', {'form': form}, context_instance=RequestContext(request))
 
 
 

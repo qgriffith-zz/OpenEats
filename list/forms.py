@@ -4,7 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from models import GroceryList
 from django.forms.models import BaseInlineFormSet
 from django.utils.translation import ugettext_lazy as _
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import EmailMessage, BadHeaderError
 from django.conf import settings
 from django.template import loader, RequestContext
 from django.contrib.sites.models import Site
@@ -52,22 +52,36 @@ class GrocerySendMail(forms.Form):
         self.request = request
         #set up the return email address and sender name to the user logged in
         if request.user.is_authenticated():
-            self.fields['email'].initial= request.usser.email
+            self.fields['to_email'].initial= request.user.email
+            
 
     to_email = forms.EmailField(widget=forms.TextInput(),label=_('Your email address'))
+    gid = forms.HiddenInput()
 
     from_email = settings.DEFAULT_FROM_EMAIL
     from_site = Site.objects.get_current()
-    subject = _('Grocery list from ' + from_site)
-    template_name = 'list/email_body.html' #template that contains the email body
-    list = GroceryList.objects.get(pk = request.POST[gid])
-    message = loader.render_to_string(template_name, {list: list})
+    subject = _('Grocery list from ' + str(from_site))
+
+
+    def get_body(self):
+        '''get the grocery list and return the message body for the email'''
+        list = GroceryList.objects.get(pk = self.request.POST['gid'])
+        template_name = 'list/grocery_print.html' #template that contains the email body and also shared by the grocery print view
+        message = loader.render_to_string(template_name, {'list': list})
+        return message
+
+    def get_toMail(self):
+        '''gets the email to send the list to from the form'''
+        if self.is_valid():
+            return self.request.POST['to_email']
 
     def save(self, fail_silently=False):
         ''' sends the email message'''
-        if self.subject and self.message and self.from_email:
+        if self.subject and self.get_body() and self.from_email:
             try:
-                send_mail(self.subject, self.message, self.from_email, [self.to_email])
+                msg = EmailMessage(self.subject, self.get_body(), self.from_email, [self.get_toMail()])
+                msg.content_subtype = 'html'
+                msg.send()
             except BadHeaderError:
                 return HttpResponse(_('Invalid header found.'))
             return HttpResponse(_('Email Sent'))
