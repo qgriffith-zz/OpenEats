@@ -56,7 +56,7 @@ class GrocerySendMail(forms.Form):
             
 
     to_email = forms.EmailField(widget=forms.TextInput(),label=_('Your email address'))
-    gid = forms.HiddenInput()
+    gid = forms.CharField(widget=forms.HiddenInput())
 
     from_email = settings.DEFAULT_FROM_EMAIL
     from_site = Site.objects.get_current()
@@ -65,15 +65,20 @@ class GrocerySendMail(forms.Form):
 
     def get_body(self):
         '''get the grocery list and return the message body for the email'''
-        list = GroceryList.objects.get(pk = self.request.POST['gid'])
-        template_name = 'list/grocery_print.html' #template that contains the email body and also shared by the grocery print view
-        message = loader.render_to_string(template_name, {'list': list})
-        return message
+        if self.is_valid():
+            list = GroceryList.objects.get(pk = self.cleaned_data['gid'])
+            template_name = 'list/grocery_print.html' #template that contains the email body and also shared by the grocery print view
+            message = loader.render_to_string(template_name, {'list': list})
+            return message
+        else:
+            raise ValueError(_('Can not get grocery list id from invalid form data'))
 
     def get_toMail(self):
         '''gets the email to send the list to from the form'''
         if self.is_valid():
-            return self.request.POST['to_email']
+            return self.cleaned_data['to_email']
+        else:
+            raise ValueError(_('Can not get to_email from invalid form data'))
 
     def save(self, fail_silently=False):
         ''' sends the email message'''
