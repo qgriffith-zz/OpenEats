@@ -107,9 +107,9 @@ def groceryAddRecipe(request, recipe_slug):
         return render_to_response('list/grocery_addrecipe.html', {'form': form, 'recipe' : recipe}, context_instance=RequestContext(request))
 
 def groceryMail(request):
-    '''this is a test view to test the sending of mail'''
+    '''this view creates a form used to send a grocery list to someone via email'''
     if request.method == 'POST':
-        form = GrocerySendMail(data=request.POST, request=request)
+        form = GrocerySendMail(data=request.POST, request=request) #passing the request object so that in the form I can get the request post dict to save the form
         if form.is_valid():
             form.save(fail_silently=False)
             return HttpResponse('mail sent')

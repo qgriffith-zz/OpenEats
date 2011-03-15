@@ -1,4 +1,13 @@
 {% load i18n %}
+
+{% if list.id %}
+    <h3>{% trans 'actions' %}</h3>
+    <ul>
+        <li><a href="{% url grocery_print user=list.author slug=list.slug %}">{% trans 'print ' %}{{ list }}</a></li>
+        <li><a href="{% url grocery_edit user=list.author slug=list.slug %}">{%trans 'edit ' %} {{ list }}</a></li>
+        <li><a href="{% url grocery_delete id=list.id %}">{%trans 'delete ' %} {{ list }}</a></li>
+    </ul>
+{% endif %}
 <h3>{% trans 'grocery list' %}</h3>
 <ul>
     <li><a href="{% url grocery_create %}"> {% trans 'create' %}</a></li>
