@@ -1,11 +1,8 @@
-{% extends 'list/grocery_base.html' %}
-{% load i18n %}
-
-{%  block content %}
-<form action="" method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="hidden" name="gid" value="1" />
-    <input type="submit" value="{% trans "create" %}" /></p>
-</form>
-
-{% endblock %}
+{%  load i18n %}
+<div>
+    <form action="{% url grocery_mail gid=gid %}" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="gid" value="{{ gid }}" />
+        
+    </form>
+</div>

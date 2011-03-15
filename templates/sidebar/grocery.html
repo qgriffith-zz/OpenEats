@@ -1,11 +1,64 @@
 {% load i18n %}
 
+
+<script type="text/javascript">
+ $(document).ready(dialogForms);
+
+function dialogForms() {
+  $('#email-list').click(function() {
+    var a = $(this);
+    $.get(a.attr('href'),function(resp){
+      var dialog = $('<div>').attr('id','formDialog').html(resp);
+      $('body').append(dialog);
+      dialog.find(':submit').hide();
+      dialog.dialog({
+        title: a.attr('title') ? a.attr('title') : '',
+        modal: true,
+        hide: 'explode',
+        buttons: {
+          'send': function() {submitFormWithAjax($(this).find('form'));},
+          'cancel': function() {$(this).dialog('close');}
+        },
+        close: function() {$(this).remove();},
+        width: 'auto'
+      });
+    }, 'html');
+    return false;
+  });
+}
+
+function submitFormWithAjax(form) {
+  form = $(form);
+  $.ajax({
+    url: form.attr('action'),
+    data: form.serialize(),
+    type: (form.attr('method')),
+    dataType: 'html',
+    success: function(html) {
+        $('#formDialog').html(html);
+        var validationCheck = $('#formDialog').has("form") //check to see if the form was valid and saved if the html contains a form then we know something went wrong
+        if (validationCheck.length == 0) //form must of passed so change the buttons and close after 10 seconds
+        {
+           // $('#formDialog').delay(50000).dialog('close');
+            setTimeout(function() { $('#formDialog').dialog('close'); }, 1800);
+
+        }
+    }
+  });
+  //return false;
+}
+
+
+</script>
+
+
 {% if list.id %}
     <h3>{% trans 'actions' %}</h3>
     <ul>
         <li><a href="{% url grocery_print user=list.author slug=list.slug %}">{% trans 'print ' %}{{ list }}</a></li>
         <li><a href="{% url grocery_edit user=list.author slug=list.slug %}">{%trans 'edit ' %} {{ list }}</a></li>
-        <li><a href="{% url grocery_delete id=list.id %}">{%trans 'delete ' %} {{ list }}</a></li>
+        <li><a title="{% trans 'send list ' %} {{ list }}" id='email-list' href="{% url grocery_mail gid=list.id %}">{% trans 'email ' %} {{  list }}</a></li>
+        <li><a href="{% url grocery_delete id=list.id %}" onclick="return confirm('are you sure')">{%trans 'delete ' %} {{ list }}</a></li>
     </ul>
 {% endif %}
 <h3>{% trans 'grocery list' %}</h3>
@@ -14,3 +67,4 @@
     <li><a href="{% url grocery_list %}" > {% trans 'list' %}</a></li>
     <li><h4><a href="/recipe/" >{% trans 'browse recipes' %}</a></h4></li>
 </ul>
+

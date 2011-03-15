@@ -55,7 +55,7 @@ class GrocerySendMail(forms.Form):
             self.fields['to_email'].initial= request.user.email
             
 
-    to_email = forms.EmailField(widget=forms.TextInput(),label=_('Your email address'))
+    to_email = forms.EmailField(widget=forms.TextInput(),label=_('email address'))
     gid = forms.CharField(widget=forms.HiddenInput())
 
     from_email = settings.DEFAULT_FROM_EMAIL
