@@ -1,6 +1,6 @@
 from django.forms import ModelForm, forms
 import django.forms as forms
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from models import GroceryList
 from django.forms.models import BaseInlineFormSet
 from django.utils.translation import ugettext_lazy as _
@@ -67,8 +67,8 @@ class GrocerySendMail(forms.Form):
         '''get the grocery list and return the message body for the email'''
         if self.is_valid():
             list = GroceryList.objects.get(pk = self.cleaned_data['gid'])
-            template_name = 'list/grocery_print.html' #template that contains the email body and also shared by the grocery print view
-            message = loader.render_to_string(template_name, {'list': list})
+            template_name = 'list/grocery_mail_body.html' #template that contains the email body and also shared by the grocery print view
+            message = loader.render_to_string(template_name, {'list': list}, context_instance=RequestContext(self.request))
             return message
         else:
             raise ValueError(_('Can not get grocery list id from invalid form data'))
