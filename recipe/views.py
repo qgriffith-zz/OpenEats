@@ -16,6 +16,18 @@ def index(request):
 
 def recipeShow(request, slug):
     recipe = get_object_or_404(Recipe, slug=slug)
+
+    #setting the four previously viewed recipes in the user session so they can be easily accessed on the sidebar
+    if 'recipe_history' in request.session:
+       sessionlist = request.session['recipe_history']
+       if [recipe.title, recipe.get_absolute_url()] not in sessionlist:
+            sessionlist.append(([recipe.title, recipe.get_absolute_url()]))
+            if len(sessionlist) > 4:
+                sessionlist.pop(0)
+            request.session['recipe_history'] = sessionlist
+    else:
+        request.session['recipe_history'] = [[recipe.title, recipe.get_absolute_url()]]
+
     if request.user.is_authenticated():
         note = request.user.noterecipe_set.filter(recipe=recipe, author=request.user)
     else:

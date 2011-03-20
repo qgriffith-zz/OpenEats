@@ -1,4 +1,14 @@
 {% load i18n %}
+
+{% if 'recipe_history' in request.session %}
+    <h3>{% trans 'last viewed' %}</h3>
+    <ul>
+        {% for t,l in request.session.recipe_history %}
+            <li><a href="{{ l }}" alt={{ t }}>{{ t }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
 <h3>{% trans 'browse' %}</h3>
 <ul>
     {% for course in course_list %}
