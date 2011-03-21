@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
-from tagging.fields import TagField, Tag
+from taggit.managers import TaggableManager
 from recipe_groups.models import Course, Cuisine
 from imagekit.models import ImageModel
 from djangoratings.fields import RatingField
@@ -26,7 +26,7 @@ class Recipe(ImageModel):
     servings = models.IntegerField(_('servings'), help_text="enter total number of servings")
     directions = models.TextField(_('directions'))
     shared = models.IntegerField(_('shared'), choices=SHARED_CHOCIES, default=SHARE_SHARED, help_text="share the recipe with the community or mark it private")
-    tags = TagField(_('tags'), help_text="separate with commas")
+    tags = TaggableManager(_('tags'), help_text="separate with commas")
     rating = RatingField(range=5)
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
