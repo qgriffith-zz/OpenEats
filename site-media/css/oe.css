@@ -88,7 +88,7 @@ div#caption{margin-right:60px;}
 li.success { list-style: none;}
 div#recipe-note {  float:left; clear:left; padding:10px; width:40%; height: 200px;}
 .editable textarea { background-color: #FEFDF2; }
-
+div#tags {float:right; margin-right:20px; padding:8px; width:250px; border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em; }
 
 /*Recipe List */
 div.recipe {padding-bottom:25px; border-bottom:dotted 1px gray; color:#484846; margin-bottom:15px;}

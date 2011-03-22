@@ -108,6 +108,13 @@
         {% fav_link request.user recipe.id %}
     </span>
 </div>
+<div id="tags">
+    <p>{% trans 'tags:' %}</p>
+    {% for tag in recipe.tags.all|slice:":10" %}
+        {{ tag }}
+    {% endfor %}
+
+</div>
 <div id="photo">
     {% if recipe.photo %}
        <a id="recipe-photo" href="{{recipe.display.url }}"> <img src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe }} photo" /></a>
