@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load pagination_tags %}
+
+{% block content %}
+    {% autopaginate recipe_list  %}
+        {% for recipe in recipe_list %}
+            {%  include 'recipe/_list.html' %}
+        {% endfor %}
+   {% paginate %}
+{% endblock %}
