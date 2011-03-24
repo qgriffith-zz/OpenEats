@@ -198,3 +198,16 @@ table#list-grid td{ font-size: 90%; padding-bottom:15px; padding-left:4px;}
 table#list-grid td input { width:180px;}
 table#list-grid td a.delete-row {padding-left:18px; margin-left:10px; background:url(../images/delete.png) no-repeat left;}
 table#list-grid a.add-row {padding-left:18px; background:url(../images/add.png) no-repeat left center; }
+
+/*Tag Cloud*/
+div#tag-cloud {float:left; margin-top:20px; margin-left:150px; width:550px; border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em; }
+div#tag-cloud ul { margin: 1em 0; padding: 0.5em 10px;  text-align: center;}
+div#tag-cloud li { display: inline; list-style: none outside none;  margin: 0; padding: 0;}
+div#tag-cloud li a { padding: 0 2px; text-decoration: none;}
+div#tag-cloud li a:hover { color: #CFF400; }
+.tag1 { font-size: 100%; }
+.tag2 { font-size: 120%; }
+.tag3 { font-size: 140%; }
+.tag4 { font-size: 160%; }
+.tag5 { font-size: 180%; }
+.tag6 { font-size: 200%; }

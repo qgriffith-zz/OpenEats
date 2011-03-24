@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% load generic_flatblocks %}
+{% load taggit_extras %}
 
 {% block content %}
     {% gblock 1 for "news.Entry" %}
@@ -15,6 +16,15 @@
   
         </dl>
         {% endfor %}
+    </div>
+    <div id="tag-cloud">
+    <h2>{% trans 'Recipe Tags' %}</h2>
+        {% get_tagcloud as tags for 'recipe' %}
+        <ul>
+        {% for tag in tags %}
+            <li><a href="{% url recipe_tags tag=tag %}" class="tag{{ tag.weight|floatformat:0 }}">{{tag}}</a></li>
+        {% endfor %}
+        </ul>
     </div>
 
 {% endblock %}
