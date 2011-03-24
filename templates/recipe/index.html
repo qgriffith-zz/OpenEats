@@ -17,12 +17,12 @@
         </dl>
         {% endfor %}
     </div>
+    <h2 id="tag-title">{% trans 'Recipe Tags' %}</h2>
     <div id="tag-cloud">
-    <h2>{% trans 'Recipe Tags' %}</h2>
-        {% get_tagcloud as tags for 'recipe' %}
+       {% get_tagcloud as tags for 'recipe' %}
         <ul>
         {% for tag in tags %}
-            <li><a href="{% url recipe_tags tag=tag %}" class="tag{{ tag.weight|floatformat:0 }}">{{tag}}</a></li>
+            <li><a href="{% url recipe_tags tag=tag.slug %}" class="tag{{ tag.weight|floatformat:0 }}">{{tag}}</a></li>
         {% endfor %}
         </ul>
     </div>

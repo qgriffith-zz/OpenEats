@@ -4,7 +4,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 
 def recipeTags(request,tag):
     '''displays a list of recipes with a giving tag'''
-    recipe_tag = get_object_or_404(Tag, name=tag)
+    recipe_tag = get_object_or_404(Tag, slug=tag)
     recipes_tagged = TaggedItem.objects.filter(tag=recipe_tag)
     recipe_list = []
     for recipe in recipes_tagged:

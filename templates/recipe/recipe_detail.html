@@ -111,7 +111,7 @@
 <div id="tags">
     <p>{% trans 'tags:' %}</p>
     {% for tag in recipe.tags.all|slice:":10" %}
-       <a href="{% url recipe_tags tag=tag.name %}" rel="tag" alt="{tag}">{{ tag }}</a>
+       <a href="{% url recipe_tags tag=tag.slug %}" rel="tag" alt="{tag}">{{ tag }}</a>
     {% endfor %}
 
 </div>
