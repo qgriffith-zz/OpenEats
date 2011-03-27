@@ -33,7 +33,7 @@
 {% endblock %}
 {% block content %}
 <div id="user-profile" >
-    <h2>{{ profile.user.username }} {%trans 'profile' %} <a href="/friends/add/{{ profile.user.username }}/following/"><img src="{{ MEDIA_URL }}images/follow-me.png" /></a></h2>
+    <h2>{{ profile.user.username }} {%trans 'profile' %} <a href="/follow/add/{{ profile.user.username }}/following/"><img src="{{ MEDIA_URL }}images/follow-me.png" /></a></h2>
     <div id="profile-pic" >
         {% load gravatar_profile %}
         {% gravatar profile.user 120%}
