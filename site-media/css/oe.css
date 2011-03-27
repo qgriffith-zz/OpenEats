@@ -154,7 +154,7 @@ div#tenfoot h2 { margin-bottom: 10px;}
 div#tenfoot ul { margin-bottom: 15px;}
 
 /* News View */
-div#news { width:95%; border:1px solid #5f562a; background-color:#F5F3E5;}
+div#news { width:95%; border:1px solid #5f562a; background-color:#F5F3E5; height:300px;}
 div#news-content { float:left; width: 60%; margin-left: 20px; margin-top:15px; padding:10px; color:#7A787D; font-size:120%; font-family:Georgia, serif;}
 div#news-content h2 { padding-bottom:10px; color:#9F954A;}
 div#news-photo-wrap { float:right; margin-left:10px;}
