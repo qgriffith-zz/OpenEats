@@ -1,0 +1,32 @@
+{% load i18n %}
+{%  comment %} This page displays a list of followers friends and people a user is following.  This will be displayed on the users profile using a jquery ui tab{% endcomment %}
+
+<h3>{% trans 'who I am following' %}</h3>
+<ul>
+{% for following in following_list %}
+    <li>{{ following }}</li>
+{% endfor %}
+</ul>
+
+
+<h3>{% trans 'who is following me' %}</h3>
+<ul>
+{% for followers in followers_list %}
+    <li>{{ followers }}
+{% endfor %}
+</ul>
+
+<h3>{% trans 'friends' %}</h3>
+<ul>
+{% for friend in friend_list %}
+    <li>{{  friend }}</li>
+{% endfor %}
+</ul>
+{% if request.user.username == user %}
+    <h3>{% trans 'blocking' %}</h3>
+    <ul>
+    {% for blocking in blocking_list %}
+        <li>{{ blocking }}</li>
+    {% endfor %}
+    </ul>
+{% endif %} 
