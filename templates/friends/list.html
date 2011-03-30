@@ -2,26 +2,38 @@
 {% load gravatar_profile %}
 {%  comment %} This page displays a list of followers friends and people a user is following.  This will be displayed on the users profile using a jquery ui tab{% endcomment %}
 
-<h3>{% trans 'who I am following' %}</h3>
-<ul>
-{% for user in following_list %}
-    <li><a href="{{ user.get_profile.get_absolute_url }}">{% gravatar user 140 %}</a></li>
-{% endfor %}
-</ul>
-
-
-<h3>{% trans 'who is following me' %}</h3>
-<ul>
-{% for user in followers_list %}
-    <li><a href="{{ user.get_profile.get_absolute_url }}">{% gravatar user 140 %}</a></li>
-{% endfor %}
-</ul>
-
-{% if request.user.username == user %}
-    <h3>{% trans 'blocking' %}</h3>
-    <ul>
-    {% for user in blocking_list %}
-        <li>{{ user }}</li>
+<div class="following">
+    <h3>{% trans "chefs I'm following-" %}</h3>
+    {% for user in following_list %}
+        <dl class="follow-caption">
+            <dt><a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a></dt>
+            <dd><span>{{ user.username }}<cite>un-follow</cite></span></dd>
+        </dl>
     {% endfor %}
-    </ul>
-{% endif %} 
+</div>
+<br style="clear:both"/>
+<div class="following">
+    <h3>{% trans "chefs following me-" %}</h3>
+        {% for user in followers_list %}
+        <dl class="follow-caption">
+            <dt><a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a></dt>
+            <dd><span>{{ user.username }}<cite>un-follow</cite></span></dd>
+        </dl>
+    {% endfor %}
+
+</div>
+
+{% if username == request.user.username %}
+    <br style="clear:both"/>
+    <div class="following">
+        <h3>{% trans "chefs I'm blocking --" %}</h3>
+            {% for user in blocking_list %}
+            <dl class="follow-caption">
+                <dt><a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a></dt>
+                <dd><span>{{ user.username }}<cite>un-block</cite></span></dd>
+            </dl>
+        {% endfor %}
+
+    </div>
+{% endif %}
+<br style="clear:both"/>

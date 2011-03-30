@@ -146,6 +146,13 @@ div#user-profile { color: #484846 }
 div#user-profile h2 { width:75%; color: #5f562a; margin-bottom:20px; padding-bottom: 25px; padding-top:15px; border-bottom: 1px solid #5f562a; }
 span.profile-info { color:#c53c0c }
 div#user-profile div#profile-about { width: 35%;  padding: 5px 10px 40px 10px; margin-bottom: 20px; margin-top: 20px;border: 1px solid #5f562a;}
+div.following { margin:20px; }
+dl.follow-caption        { position: relative; padding: .6em; margin: .4em; float:left;}
+dl.follow-caption dt img  { display: block; }
+dl.follow-caption dd      { position: absolute; left: 0.55em; bottom: .10em; font: bold 1.0em Helvetica, sans-serif; }
+dl.follow-caption.top dd  { top: 1.25em; }
+dl.follow-caption dd span { width:124px; display: block; float: left; clear: both; background: #000; background: rgba(0, 0, 0, 0.7); padding: 0.25em 0.55em; color: #fff; }
+dl.follow-caption cite   { color: #9F954A; font-size: 60%; padding-left:4px;}
 
 /* Cook View */
 div#tenfoot{font-size:xx-large; width:800px;}

@@ -27,9 +27,8 @@ def follow_list(request, username):
 
     following_list = user.relationships.get_relationships(status=following_status)
     followers_list = user.relationships.get_related_to(status=follower_status)
-    friend_list = user.relationships.get_symmetrical(status=friend_status)
     blocking_list = user.relationships.blocking()
 
-    return render_to_response('friends/list.html', {'following_list': following_list, 'followers_list': followers_list, 'blocking_list': blocking_list, 'friend_list': friend_list, 'user':  user.username}, context_instance=RequestContext(request))
+    return render_to_response('friends/list.html', {'following_list': following_list, 'followers_list': followers_list, 'blocking_list': blocking_list,'username':  user.username}, context_instance=RequestContext(request))
 
 
