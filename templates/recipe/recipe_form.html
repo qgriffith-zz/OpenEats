@@ -59,8 +59,9 @@
 
         {{ form.shared.errors }}
         <p>{{ form.shared.label_tag|lower }} {{ form.shared }} <em>{{ form.shared.help_text }}</em></p>
-        
-
+        {{ form.related.errors }}
+        <p>{{ form.related.label_tag|lower }} {{ form.related }} <em>{{ form.related.help_text }}</em></p>
+       <br />
         <p>{{ form.tags.label_tag|lower }} {{ form.tags }}<em>{{ form.tags.help_text }}</em></p>
 
         <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />

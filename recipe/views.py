@@ -56,7 +56,7 @@ def recipe(request):
     IngFormSet = inlineformset_factory(Recipe, Ingredient, extra=15, formset=IngItemFormSet) #creat the ingredient form with 15 empty fields
      
     if request.method=='POST':
-        form = RecipeForm(request.POST, request.FILES)
+        form = RecipeForm(data = request.POST, files = request.FILES)
         formset = IngFormSet(request.POST)
         if form.is_valid() and formset.is_valid():
             new_recipe = form.save()
@@ -67,6 +67,7 @@ def recipe(request):
             return redirect(new_recipe.get_absolute_url())
     else:
         form = RecipeForm()
+        form.fields['related'].queryset =  Recipe.objects.filter(author__username=request.user.username).order_by('-pub_date')[:5]
         formset = IngFormSet(queryset=Ingredient.objects.none())
     return render_to_response('recipe/recipe_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
 
