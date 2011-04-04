@@ -30,10 +30,22 @@
                 <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.title }} {{ ing.preparation }}</li>
                 {% endfor %}
             </ul>
+            {% if recipe.related %}
+                <h4>{{ recipe.related }}</h4>
+                 <ul>
+                {% for ing in recipe.related.ingredient_set.all %}
+                <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.title }} {{ ing.preparation }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         </div>
         <div>
             <h4>{% trans 'Steps' %}</h4>
            {{ recipe.directions|sanitize_html|safe }}
+            {% if recipe.related %}
+                <h4>{{ recipe.related }}</h4>
+                {{ recipe.related.directions|sanitize_html|safe }}
+            {% endif %}
         </div>
         <div>
             <h4>{%trans 'Your Notes:' %}</h4>

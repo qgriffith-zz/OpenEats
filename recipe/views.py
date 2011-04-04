@@ -8,7 +8,7 @@ from ingredient.models import Ingredient
 from forms import RecipeForm,IngItemFormSet
 from djangoratings.views import AddRatingView
 from django.utils import simplejson
-
+from django.db.models import F
 
 def index(request):
     recipe_list = Recipe.objects.filter(shared=Recipe.SHARE_SHARED).exclude(photo='').order_by('-pub_date')[0:6]
@@ -49,7 +49,7 @@ def recipePrint(request, slug):
      if recipe.shared == Recipe.PRIVATE_SHARED and recipe.author != request.user: #check if the recipe is a private recipe if so through a 404 error
         raise Http404("Recipe %s is marked Private"  % recipe.slug)
      else:
-        return render_to_response('recipe/recipe_print.html', {'recipe': recipe, 'note': note})
+        return render_to_response('recipe/recipe_print.html', {'recipe': recipe, 'note': note},context_instance=RequestContext(request))
 
 @login_required
 def recipe(request):        

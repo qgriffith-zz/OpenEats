@@ -18,9 +18,21 @@
             <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.title }} {{ ing.preparation }}</li>
             {% endfor %}
         </ul>
+            {% if recipe.related %}
+                <h4>{{ recipe.related }}</h4>
+                 <ul>
+                {% for ing in recipe.related.ingredient_set.all %}
+                <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.title }} {{ ing.preparation }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
         <div cook-dir>
             <h2>{%trans 'Directions' %}</h2>
             {{ recipe.directions|sanitize_html|safe }}
+            {% if recipe.related %}
+                <h4>{{ recipe.related }}</h4>
+                {{ recipe.related.directions|sanitize_html|safe }}
+            {% endif %}
         </div>
     </div>
     {% endif %}
