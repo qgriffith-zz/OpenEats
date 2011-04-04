@@ -28,6 +28,7 @@ class Recipe(ImageModel):
     shared = models.IntegerField(_('shared'), choices=SHARED_CHOCIES, default=SHARE_SHARED, help_text="share the recipe with the community or mark it private")
     tags = TaggableManager(_('tags'), help_text="separate with commas")
     rating = RatingField(range=5)
+    related = models.OneToOneField('Recipe', verbose_name=_('related recipe'),related_name='RecipeRelated', blank=True, null=True)
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 
@@ -43,9 +44,6 @@ class Recipe(ImageModel):
 
     def __unicode__(self):
         return self.title
-
-    def get_tags(self):
-        return Tag.objects.get_for_object(self)
 
     def save(self, *args, **kwargs):
         if (not self.id) and (not self.slug):
@@ -72,3 +70,4 @@ class NoteRecipe(models.Model):
 
     def __unicode__(self):
         return "%s note for %s"  %(self.author, self.recipe)
+
