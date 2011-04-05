@@ -78,13 +78,13 @@
                     {{ formset.management_form }}
                     {% for field in formset.forms %}
                     <tr class="{% cycle 'row1' 'row2' %}" id="ing-{{ forloop.counter }}">
-                        <td>{{ field.quantity.label_tag|lower }}</td>
+                        <td>{{ field.quantity.errors }} {{ field.quantity.label_tag|lower }}</td>
                         <td id="quantity">{{ field.quantity }}</td>
-                        <td>{{ field.measurement.label_tag|lower }}</td>
+                        <td>{{ field.measurement.errors }} {{ field.measurement.label_tag|lower }}</td>
                         <td id="measurement"">{{ field.measurement }}</td>
-                        <td>{{ field.title.label_tag|lower }}</td>
+                        <td>{{ field.title.errors }} {{ field.title.label_tag|lower }}</td>
                         <td id="ing-field">{{ field.title }}</td>
-                        <td>{{ field.preparation.label_tag|lower }}</td>
+                        <td>{{ field.preparation.errors }} {{ field.preparation.label_tag|lower }}</td>
                         <td id="preparation">{{ field.preparation }}</td>
                     </tr>
                     {% endfor %}
