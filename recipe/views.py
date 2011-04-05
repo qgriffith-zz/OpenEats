@@ -67,7 +67,7 @@ def recipe(request):
             return redirect(new_recipe.get_absolute_url())
     else:
         form = RecipeForm()
-        form.fields['related'].queryset =  Recipe.objects.filter(author__username=request.user.username).filter(related__isnull=True).order_by('-pub_date')[:5]
+        form.fields['related'].queryset =  Recipe.objects.filter(author__username=request.user.username).exclude(related = F('id')).filter(related__isnull=True).order_by('-pub_date')[:5]
         formset = IngFormSet(queryset=Ingredient.objects.none())
     return render_to_response('recipe/recipe_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
 
