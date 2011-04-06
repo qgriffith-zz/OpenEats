@@ -106,6 +106,9 @@
          <a href="/recipe/print/{{ recipe.slug }}/">{%trans 'print' %}</a>
          <a id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a>
         {% fav_link request.user recipe.id %}
+        {% if request.user.is_authenticated %}
+            <a href="{% url grocery_addrecipe recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a>
+        {% endif %}
     </span>
 </div>
 <div id="tags">
