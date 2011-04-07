@@ -1,4 +1,3 @@
-from registration.signals import user_registered
 from accounts.models import UserProfiles
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save

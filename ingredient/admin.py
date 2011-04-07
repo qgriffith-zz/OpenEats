@@ -2,7 +2,7 @@ from django.contrib import admin
 from ingredient.models import Ingredient
 
 class IngredientAdmin(admin.ModelAdmin):
-    ordering = ['title']
+    ordering = ['title', 'recipe']
     list_display = ['title', 'recipe',]
     search_fields = ['title', 'recipe__title',]
 

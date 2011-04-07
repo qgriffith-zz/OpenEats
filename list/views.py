@@ -110,7 +110,7 @@ def groceryAddRecipe(request, recipe_slug):
     else:
         recipe = get_object_or_404(Recipe, slug=recipe_slug)
         form = GroceryUserList(user=request.user )
-       # form.fields['lists'].initial=[0]
+  
         return render_to_response('list/grocery_addrecipe.html', {'form': form, 'recipe' : recipe}, context_instance=RequestContext(request))
 
 def groceryMail(request, gid):

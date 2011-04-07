@@ -8,17 +8,20 @@ class GroceryListInline(admin.TabularInline):
     
 
 class GroceryListAdmin(admin.ModelAdmin):
-    #prepopulated_fields = { 'slug' : ['title']}
     inlines = [GroceryListInline,]
     list_display = ['title', 'author']
     list_filter = ['author']
+    search_fields = ['author__username', 'title']
+    ordering = ['author__username', 'title']
 
 class GroceryItemAdmin(admin.ModelAdmin):
-    list_display = ['item', 'list']
+    list_display = ['list', 'item']
     list_filter = ['list']
+    ordering = ['list', 'item']
+    search_fields = ['list']
 
 class GroceryAisleAdmin(admin.ModelAdmin):
-    pass
+    ordering = ['aisle']
 
 admin.site.register(GroceryList, GroceryListAdmin)
 admin.site.register(GroceryItem, GroceryItemAdmin)
