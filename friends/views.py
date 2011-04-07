@@ -4,14 +4,13 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response, get_object_or_404
 from relationships.decorators import require_user
 from django.contrib.auth.models import User
-from relationships.models import Relationship, RelationshipStatus
+from relationships.models import RelationshipStatus
 
 @require_user
 @login_required
 def follow_list(request, username):
     '''takes a user name and gets all the followers, friends and people the user is following'''
     user = get_object_or_404(User, username=username)
-
 
     def get_status(status_slug):
         '''get the relationship status object we're talking about'''
@@ -23,8 +22,6 @@ def follow_list(request, username):
 
     following_status = get_status('following')
     follower_status = get_status('followers')
-    friend_status = get_status('friends')
-
     following_list = user.relationships.get_relationships(status=following_status)
     followers_list = user.relationships.get_related_to(status=follower_status)
     blocking_list = user.relationships.blocking()
