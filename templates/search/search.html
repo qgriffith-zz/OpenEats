@@ -21,13 +21,13 @@
 {% for result in page.object_list %}
     <script type="text/javascript">
         $(document).ready(function () {
-            $(".{{ result.object.title }}-rate").stars({
+            $(".{{ result.object.slug }}-rate").stars({
                 inputType: "select",
                 disabled: true
             });
             var avg = '{{result.object.rating.score}}' / '{{result.object.rating.votes}}';
             var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
-            $(".{{ result.object.title }}-rate").stars("selectID", selectid); //set the select value to the avg rate
+            $(".{{ result.object.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
         });
     </script>
     <div class="recipe" id="recipe-{{result.object.id}}">
@@ -40,7 +40,7 @@
         <p class="chef">{%trans 'Chef:' %} <a href="{{ result.object.author.get_profile.get_absolute_url }}">{{ result.object.author }}</a> </p>
         <p>{{ recipe.info|sanitize_html|safe }}</p>
         <form>
-            <div class="{{ result.object.title }}-rate recipe-rate">
+            <div class="{{ result.object.slug }}-rate recipe-rate">
                 <p class="rating-title""><strong>{%trans 'Average Rating:' %}</strong> <span class="rating-cap"></span></p>
                 <select name="selrate">
                     <option value="1">{% trans 'Poor' %}</option>
