@@ -49,7 +49,7 @@
             {
                 // Display message to the user at the begining of request
 		$("#messages").text("Saving...").fadeIn(30);
-                $.post('/recipe/ajax-raterecipe/{{ recipe.id }}/' + value, function(json)
+                $.post('/recipe/ajax-raterecipe/{{ recipe.id }}/' + value + '/', function(json)
                 {
                   // Change widget's title
 		  $("#rating-title").text("Average rating");
