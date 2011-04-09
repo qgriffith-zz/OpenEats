@@ -1,6 +1,5 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
-from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from models import Course, Cuisine
 from recipe.models import Recipe
 from django.contrib.auth.decorators import login_required

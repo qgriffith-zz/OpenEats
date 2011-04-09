@@ -1,7 +1,7 @@
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-from django.forms.models import modelformset_factory, inlineformset_factory
+from django.forms.models import inlineformset_factory
 from django.http import HttpResponse, Http404
 from models import Recipe, StoredRecipe, NoteRecipe
 from ingredient.models import Ingredient
