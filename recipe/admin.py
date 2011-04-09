@@ -16,7 +16,7 @@ class RecipeAdmin(VersionAdmin):
     search_fields = ['author__username', 'title',]
     radio_fields = {"shared": admin.HORIZONTAL}
     class Media:
-        js = ['/site_media/admin/tinymce/jscripts/tiny_mce/tiny_mce.js', '/site_media/js/tinymce_setup.js',]
+        js = ['/site-media/admin/tinymce/jscripts/tiny_mce/tiny_mce.js', '/site-media/js/tinymce_setup.js',]
 
 class StoredRecipeAdmin(admin.ModelAdmin):
     list_display = ['user', 'recipe']
