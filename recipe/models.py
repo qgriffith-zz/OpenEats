@@ -1,10 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.template.defaultfilters import slugify
 from taggit.managers import TaggableManager
 from recipe_groups.models import Course, Cuisine
 from imagekit.models import ImageModel
 from djangoratings.fields import RatingField
+from django_extensions.db.fields import AutoSlugField
 from django.utils.translation import ugettext_lazy as _
 
 class Recipe(ImageModel):
@@ -16,7 +16,7 @@ class Recipe(ImageModel):
     )
 
     title = models.CharField(_("Recipe Title"), max_length=250)
-    slug = models.SlugField(_('slug'), unique=True, blank=True)
+    slug = AutoSlugField(_('slug'), populate_from='title', unique=True)
     author = models.ForeignKey(User, verbose_name=_('user'))
     photo = models.ImageField(_('photo'), blank=True, upload_to="upload/recipe_photos")
     course = models.ForeignKey(Course, verbose_name=_('course'))
@@ -44,11 +44,6 @@ class Recipe(ImageModel):
 
     def __unicode__(self):
         return self.title
-
-    def save(self, *args, **kwargs):
-        if (not self.id) and (not self.slug):
-            self.slug=slugify(self.title)
-        super(Recipe, self).save(*args, **kwargs)
 
     def get_absolute_url(self):
         return "/recipe/%s/" %self.slug
