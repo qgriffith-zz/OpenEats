@@ -145,7 +145,7 @@
     </div>
     <div id="recipe-cook">
         <ul>
-            <li><span>{%trans "servers" %}</span> {{ recipe.servings }}</li>
+            <li><span>{%trans "serves" %}</span> {{ recipe.servings }}</li>
             <li><span>{%trans "cook time" %}</span> {{ recipe.cook_time }} minute{{ recipe.cook_time|pluralize }}</li>
         </ul>
     </div>
@@ -211,6 +211,7 @@
         </div>
     {% endif %}
     <div id="recipe-comments">
+        <h2>{% trans 'comments' %}</h2>
         {% load disqus_tags %}
         {% disqus_dev %}
         {% disqus_show_comments %}

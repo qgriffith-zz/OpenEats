@@ -10,7 +10,7 @@ div#title{background:url("../images/title-bg.gif") repeat-x top; margin-right:20
 div#nav-bar{ background:url(../images/nav-bg.gif) left top repeat-x; margin-right:20px; margin-bottom:10px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 div#nav-bar ul {padding:8px 0 8px 0;}
 div#nav-bar li { display:inline;}
-div#nav-bar li a { color:#fff; text-decoration:none; font-size:1.1em; text-transform:lowercase; background:url(../images/divider.gif) no-repeat left top; padding:0 24px 0 27px; letter-spacing:.1em; font-size:1.4em;}
+div#nav-bar li a { color:#fff; text-decoration:none; font-size:1.1em; text-transform:lowercase; background:url(../images/divider.gif) no-repeat left top; padding:0 14px 0 27px; letter-spacing:.1em; font-size:1.4em;}
 div#nav-bar li a.first { background:none;}
 div#nav-bar li a:hover { text-decoration:underline;}
 
@@ -79,7 +79,7 @@ div#recipe-ing ul {background-color: #FEFDF2; border:1px solid #E6E5CB;  -moz-bo
 div#recipe-ing li {list-style: none; border-bottom: dotted 1px #C8C199; margin-bottom:15px; padding-bottom:14px;  color:#484846;}
 div#recipe-directions { padding:10px; margin-right:55px; margin-top:5px; float:right; color:#484846; width:45%;}
 div#recipe-directions h2{color:#434242; font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px;}
-div#recipe-comments{float:left; width:550px; margin-top:10px; clear:both;}
+div#recipe-comments{float:left; width:550px; margin-top:5px; clear:both;}
 div#recipe-rate{float:right; padding:5px 40px 5px 5px; width:200px; border:1px burlywood dashed; border-right: none; color:#847840;}
 div#caption{margin-right:60px;}
 #messages {color: #fd1c24;}
@@ -110,6 +110,7 @@ div.recipe-rate{float:right;}
 div#recipe-form { margin-top:20px; padding-bottom:10px;}
 div#recipe-form input { height:20px;}
 div#recipe-form label {	color:#484846; float: left; text-align: right;	margin-right: 15px; width: 90px;}
+div#recipe-form textarea { width: 450px;}
 div#recipe-form textarea:focus, input:focus { border: 2px solid #900;}
 div#recipe-form label { font-size: 110%}
 div#recipe-form em { padding-left: 8px; color:#5f562a;}
@@ -118,8 +119,9 @@ table#ing-grid {border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-bor
 table#ing-grid thead, table#list-grid thead  { color:#5f562a; font-size:120%; font-weight:bold;}
 table#ing-grid thead th, table#list-grid thead th { padding:5px}
 table#ing-grid td{ font-size: 90%; padding-bottom:15px;}
+table#ing-grid td label {width:auto; margin-left:10px;}
 table#ing-grid td#quantity input { width:40px;}
-table#ing-grid td#measurement input { width:50px;}
+table#ing-grid td#measurement input { width:75px;}
 table#ing-grid tr.row2, table#list-grid tr.row2  { background-color: #f6f4e2;}
 
 
