@@ -8,14 +8,82 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-05-30 17:43-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2011-04-14 07:48-0400\n"
+"PO-Revision-Date: 2011-04-14 06:30\n"
+"Last-Translator:   <qgriffith@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"X-Translated-Using: django-rosetta 0.6.0\n"
+
+#: dashboard.py:19
+msgid "Quick links"
+msgstr ""
+
+#: dashboard.py:24
+msgid "Return to site"
+msgstr ""
+
+#: dashboard.py:28
+#: grappelli/templates/admin/_grappelli_admin_tools/base.html:63
+#: grappelli/templates/admin/auth/user/change_password.html:11
+#: grappelli/templates/admin/auth/user/change_password.html:23
+#: grappelli/templates/admin/auth/user/change_password.html:62
+#: grappelli/templates/admin/includes_grappelli/header.html:20
+#: grappelli/templates/registration/password_change_done.html:11
+#: grappelli/templates/registration/password_change_form.html:10
+msgid "Change password"
+msgstr ""
+
+#: dashboard.py:32
+#: grappelli/templates/admin/_grappelli_admin_tools/base.html:71
+#: grappelli/templates/admin/auth/user/change_password.html:14
+#: grappelli/templates/admin/includes_grappelli/header.html:28
+#: grappelli/templates/registration/password_change_done.html:14
+#: grappelli/templates/registration/password_change_form.html:13
+msgid "Log out"
+msgstr ""
+
+#: dashboard.py:40
+msgid "Administration"
+msgstr ""
+
+#: dashboard.py:47
+msgid "OpenEats"
+msgstr ""
+
+#: dashboard.py:55
+msgid "Third-Party Apps"
+msgstr ""
+
+#: dashboard.py:63 dashboard.py:133
+#: grappelli/templates/admin/_grappelli/index.html:43
+#: grappelli/templates/admin_tools/dashboard/modules/recent_actions.html:6
+#: grappelli/templates/admin_tools/dashboard/modules/recent_actions.html:11
+msgid "Recent Actions"
+msgstr ""
+
+#: dashboard.py:71
+msgid "Latest OpenEats News"
+msgstr ""
+
+#: dashboard.py:80
+msgid "Support"
+msgstr ""
+
+#: dashboard.py:84
+msgid "OpenEats Forum"
+msgstr ""
+
+#: dashboard.py:89
+msgid "Django documentation"
+msgstr ""
+
+#: dashboard.py:94
+msgid "Django \"django-users\" mailing list"
+msgstr ""
 
 #: settings.py:42
 msgid "English"
@@ -23,6 +91,47 @@ msgstr ""
 
 #: settings.py:43
 msgid "German"
+msgstr ""
+
+#: settings.py:44
+msgid "Spanish"
+msgstr ""
+
+#: accounts/models.py:8
+msgid "Male"
+msgstr ""
+
+#: accounts/models.py:9
+msgid "Female"
+msgstr ""
+
+#: accounts/models.py:11 list/models.py:10 recipe/models.py:20
+#: recipe/models.py:53
+msgid "user"
+msgstr ""
+
+#: accounts/models.py:12
+msgid "about"
+msgstr ""
+
+#: accounts/models.py:13
+msgid "gender"
+msgstr ""
+
+#: accounts/models.py:14
+msgid "url"
+msgstr ""
+
+#: accounts/models.py:15
+msgid "location"
+msgstr ""
+
+#: accounts/models.py:20
+msgid "User profiles"
+msgstr ""
+
+#: grappelli/actions.py:133
+msgid "Export as CSV"
 msgstr ""
 
 #: grappelli/templates/admin/404.html:7 grappelli/templates/admin/404.html:11
@@ -34,15 +143,19 @@ msgid "We're sorry, but the requested page could not be found."
 msgstr ""
 
 #: grappelli/templates/admin/500.html:7
-#: grappelli/templates/admin/app_index.html:10
-#: grappelli/templates/admin/base.html:44
-#: grappelli/templates/admin/base_index.html:16
 #: grappelli/templates/admin/change_form.html:22
-#: grappelli/templates/admin/change_list.html:48
+#: grappelli/templates/admin/change_list.html:58
+#: grappelli/templates/admin/csv_export_selected_confirmation.html:9
 #: grappelli/templates/admin/delete_confirmation.html:9
 #: grappelli/templates/admin/delete_selected_confirmation.html:9
 #: grappelli/templates/admin/invalid_setup.html:7
 #: grappelli/templates/admin/object_history.html:9
+#: grappelli/templates/admin/_grappelli/app_index.html:10
+#: grappelli/templates/admin/_grappelli/base.html:47
+#: grappelli/templates/admin/_grappelli/index.html:16
+#: grappelli/templates/admin/_grappelli_admin_tools/app_index.html:8
+#: grappelli/templates/admin/_grappelli_admin_tools/base.html:94
+#: grappelli/templates/admin/_grappelli_admin_tools/index.html:13
 #: grappelli/templates/admin/auth/user/change_password.html:20
 #: grappelli/templates/admin_doc/bookmarklets.html:6
 #: grappelli/templates/registration/logged_out.html:5
@@ -94,36 +207,13 @@ msgstr ""
 msgid "Go"
 msgstr ""
 
-#: grappelli/templates/admin/app_index.html:12
-#, python-format
-msgid "%(name)s"
-msgstr ""
-
-#: grappelli/templates/admin/app_index.html:30
-#: grappelli/templates/admin/base_index.html:30
 #: grappelli/templates/admin/change_form.html:25
+#: grappelli/templates/admin/_grappelli/app_index.html:30
+#: grappelli/templates/admin/_grappelli/index.html:30
+#: grappelli/templates/admin_tools/dashboard/modules/app_list.html:38
+#: grappelli/templates/admin_tools/dashboard/modules/model_list.html:19
+#: templates/form/popadd.html:7
 msgid "Add"
-msgstr ""
-
-#: grappelli/templates/admin/app_index.html:31
-#: grappelli/templates/admin/base_index.html:31
-msgid "Change"
-msgstr ""
-
-#: grappelli/templates/admin/base_index.html:38
-msgid "You don´t have permission to edit anything."
-msgstr ""
-
-#: grappelli/templates/admin/base_index.html:43
-msgid "Recent Actions"
-msgstr ""
-
-#: grappelli/templates/admin/base_index.html:45
-msgid "My Actions"
-msgstr ""
-
-#: grappelli/templates/admin/base_index.html:49
-msgid "None available"
 msgstr ""
 
 #: grappelli/templates/admin/change_form.html:35
@@ -136,20 +226,46 @@ msgid "View on site"
 msgstr ""
 
 #: grappelli/templates/admin/change_form.html:56
-#: grappelli/templates/admin/change_list.html:114
+#: grappelli/templates/admin/change_list.html:124
 #: grappelli/templates/admin/auth/user/change_password.html:38
 msgid "Please correct the error below."
 msgid_plural "Please correct the errors below."
 msgstr[0] ""
 msgstr[1] ""
 
-#: grappelli/templates/admin/change_list.html:68
+#: grappelli/templates/admin/change_list.html:41
+#: grappelli/templates/admin/search_form.html:6
+#: grappelli/templates/admin/search_form.html:14 templates/base.html:50
+msgid "Search"
+msgstr ""
+
+#: grappelli/templates/admin/change_list.html:78
 #, python-format
 msgid "Add %(name)s"
 msgstr ""
 
-#: grappelli/templates/admin/change_list.html:86
+#: grappelli/templates/admin/change_list.html:96
 msgid "Filter"
+msgstr ""
+
+#: grappelli/templates/admin/csv_export_selected_confirmation.html:12
+msgid "Export selection as CSV"
+msgstr ""
+
+#: grappelli/templates/admin/csv_export_selected_confirmation.html:31
+msgid "Export following fields:"
+msgstr ""
+
+#: grappelli/templates/admin/csv_export_selected_confirmation.html:34
+msgid "Select all"
+msgstr ""
+
+#: grappelli/templates/admin/csv_export_selected_confirmation.html:54
+msgid "Back"
+msgstr ""
+
+#: grappelli/templates/admin/csv_export_selected_confirmation.html:55
+msgid "Export"
 msgstr ""
 
 #: grappelli/templates/admin/delete_confirmation.html:13
@@ -173,6 +289,7 @@ msgstr ""
 
 #: grappelli/templates/admin/delete_confirmation.html:41
 #: grappelli/templates/admin/delete_selected_confirmation.html:47
+#: templates/form/popadd.html:17
 msgid "Cancel"
 msgstr ""
 
@@ -222,6 +339,7 @@ msgstr ""
 
 #: grappelli/templates/admin/login.html:41
 #: grappelli/templates/registration/password_reset_complete.html:11
+#: templates/registration/password_reset_complete.html:6
 msgid "Log in"
 msgstr ""
 
@@ -251,20 +369,20 @@ msgid ""
 "admin site."
 msgstr ""
 
-#: grappelli/templates/admin/pagination.html:7
-msgid "result"
-msgstr ""
+#: grappelli/templates/admin/pagination.html:8
+#, python-format
+msgid "1 result"
+msgid_plural "%(counter)s results"
+msgstr[0] ""
+msgstr[1] ""
 
-#: grappelli/templates/admin/pagination.html:7
-msgid "results"
-msgstr ""
-
-#: grappelli/templates/admin/pagination.html:11
 #: grappelli/templates/admin/pagination.html:13
-msgid "total"
+#: grappelli/templates/admin/pagination.html:15
+#, python-format
+msgid "%(full_result_count)s total"
 msgstr ""
 
-#: grappelli/templates/admin/pagination.html:25
+#: grappelli/templates/admin/pagination.html:27
 msgid "Show all"
 msgstr ""
 
@@ -282,6 +400,54 @@ msgstr ""
 
 #: grappelli/templates/admin/submit_line.html:9
 msgid "Save and continue editing"
+msgstr ""
+
+#: grappelli/templates/admin/_grappelli/app_index.html:12
+#, python-format
+msgid "%(name)s"
+msgstr ""
+
+#: grappelli/templates/admin/_grappelli/app_index.html:31
+#: grappelli/templates/admin/_grappelli/index.html:31
+#: grappelli/templates/admin_tools/dashboard/modules/app_list.html:43
+#: grappelli/templates/admin_tools/dashboard/modules/model_list.html:20
+msgid "Change"
+msgstr ""
+
+#: grappelli/templates/admin/_grappelli/index.html:38
+msgid "You don´t have permission to edit anything."
+msgstr ""
+
+#: grappelli/templates/admin/_grappelli/index.html:45
+#: grappelli/templates/admin_tools/dashboard/modules/recent_actions.html:8
+#: grappelli/templates/admin_tools/dashboard/modules/recent_actions.html:13
+msgid "My Actions"
+msgstr ""
+
+#: grappelli/templates/admin/_grappelli/index.html:49
+msgid "None available"
+msgstr ""
+
+#: grappelli/templates/admin/_grappelli_admin_tools/base.html:79
+#: grappelli/templates/admin/includes_grappelli/header.html:36
+msgid "Tests"
+msgstr ""
+
+#: grappelli/templates/admin/_grappelli_admin_tools/base.html:84
+#: grappelli/templates/admin/auth/user/change_password.html:7
+#: grappelli/templates/admin/includes_grappelli/header.html:41
+#: grappelli/templates/admin_doc/bookmarklets.html:6
+#: grappelli/templates/registration/password_change_done.html:7
+#: grappelli/templates/registration/password_change_form.html:6
+msgid "Documentation"
+msgstr ""
+
+#: grappelli/templates/admin/_grappelli_admin_tools/base_site.html:4
+msgid "Django site admin"
+msgstr ""
+
+#: grappelli/templates/admin/_grappelli_admin_tools/base_site.html:16
+msgid "Django administration"
 msgstr ""
 
 #: grappelli/templates/admin/auth/user/add_form.html:6
@@ -308,30 +474,6 @@ msgstr ""
 msgid "Enter the same password as above, for verification."
 msgstr ""
 
-#: grappelli/templates/admin/auth/user/change_password.html:7
-#: grappelli/templates/admin/includes_grappelli/header.html:41
-#: grappelli/templates/admin_doc/bookmarklets.html:6
-#: grappelli/templates/registration/password_change_done.html:7
-#: grappelli/templates/registration/password_change_form.html:6
-msgid "Documentation"
-msgstr ""
-
-#: grappelli/templates/admin/auth/user/change_password.html:11
-#: grappelli/templates/admin/auth/user/change_password.html:23
-#: grappelli/templates/admin/auth/user/change_password.html:62
-#: grappelli/templates/admin/includes_grappelli/header.html:20
-#: grappelli/templates/registration/password_change_done.html:11
-#: grappelli/templates/registration/password_change_form.html:10
-msgid "Change password"
-msgstr ""
-
-#: grappelli/templates/admin/auth/user/change_password.html:14
-#: grappelli/templates/admin/includes_grappelli/header.html:28
-#: grappelli/templates/registration/password_change_done.html:14
-#: grappelli/templates/registration/password_change_form.html:13
-msgid "Log out"
-msgstr ""
-
 #: grappelli/templates/admin/auth/user/change_password.html:27
 #: grappelli/templates/registration/password_change_done.html:18
 #: grappelli/templates/registration/password_change_form.html:16
@@ -348,6 +490,7 @@ msgstr ""
 #: grappelli/templates/admin/auth/user/change_password.html:45
 #: grappelli/templates/registration/password_change_form.html:37
 #: grappelli/templates/registration/password_reset_confirm.html:14
+#: templates/registration/password_reset_confirm.html:10
 msgid "New password:"
 msgstr ""
 
@@ -360,8 +503,8 @@ msgid "Close All Items"
 msgstr ""
 
 #: grappelli/templates/admin/edit_inline/stacked.html:10
-#: grappelli/templates/admin/edit_inline/stacked.html:45
-#: grappelli/templates/admin/edit_inline/tabular.html:74
+#: grappelli/templates/admin/edit_inline/stacked.html:51
+#: grappelli/templates/admin/edit_inline/tabular.html:76
 msgid "Add Item"
 msgstr ""
 
@@ -370,18 +513,18 @@ msgstr ""
 msgid "View on Site"
 msgstr ""
 
-#: grappelli/templates/admin/edit_inline/stacked.html:23
-#: grappelli/templates/admin/edit_inline/tabular.html:60
+#: grappelli/templates/admin/edit_inline/stacked.html:24
+#: grappelli/templates/admin/edit_inline/tabular.html:61
 msgid "Move Item"
 msgstr ""
 
-#: grappelli/templates/admin/edit_inline/stacked.html:26
 #: grappelli/templates/admin/edit_inline/stacked.html:28
+#: grappelli/templates/admin/edit_inline/stacked.html:30
 msgid "Delete Item"
 msgstr ""
 
-#: grappelli/templates/admin/edit_inline/stacked.html:43
-#: grappelli/templates/admin/edit_inline/tabular.html:72
+#: grappelli/templates/admin/edit_inline/stacked.html:49
+#: grappelli/templates/admin/edit_inline/tabular.html:74
 #, python-format
 msgid "Add another %(verbose_name)s"
 msgstr ""
@@ -390,12 +533,8 @@ msgstr ""
 msgid "Add Another"
 msgstr ""
 
-#: grappelli/templates/admin/edit_inline/tabular.html:61
+#: grappelli/templates/admin/edit_inline/tabular.html:63
 msgid "Remove"
-msgstr ""
-
-#: grappelli/templates/admin/includes_grappelli/header.html:36
-msgid "Tests"
 msgstr ""
 
 #: grappelli/templates/admin_doc/bookmarklets.html:6
@@ -459,6 +598,14 @@ msgstr ""
 msgid "As above, but opens the admin page in a new window."
 msgstr ""
 
+#: grappelli/templates/admin_tools/dashboard/modules/recent_actions.html:22
+msgid "None Available"
+msgstr ""
+
+#: grappelli/templates/admin_tools/menu/menu.html:30
+msgid "Please enter a name for the bookmark"
+msgstr ""
+
 #: grappelli/templates/registration/logged_out.html:11
 #: grappelli/templates/registration/logged_out.html:14
 msgid "Log in again"
@@ -470,6 +617,7 @@ msgid "Password change successful"
 msgstr ""
 
 #: grappelli/templates/registration/password_change_done.html:23
+#: templates/registration/password_change_done.html:5
 msgid "Your password was changed."
 msgstr ""
 
@@ -485,11 +633,14 @@ msgstr ""
 
 #: grappelli/templates/registration/password_change_form.html:44
 #: grappelli/templates/registration/password_reset_confirm.html:16
+#: templates/registration/password_reset_confirm.html:12
 msgid "Confirm password:"
 msgstr ""
 
 #: grappelli/templates/registration/password_change_form.html:53
 #: grappelli/templates/registration/password_reset_confirm.html:17
+#: templates/registration/password_change_form.html:14
+#: templates/registration/password_reset_confirm.html:13
 msgid "Change my password"
 msgstr ""
 
@@ -499,15 +650,18 @@ msgstr ""
 #: grappelli/templates/registration/password_reset_form.html:4
 #: grappelli/templates/registration/password_reset_form.html:6
 #: grappelli/templates/registration/password_reset_form.html:9
+#: templates/registration/password_reset_form.html:4
 msgid "Password reset"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_complete.html:6
 #: grappelli/templates/registration/password_reset_complete.html:9
+#: templates/registration/password_reset_complete.html:4
 msgid "Password reset complete"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_complete.html:10
+#: templates/registration/password_reset_complete.html:5
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr ""
 
@@ -516,20 +670,24 @@ msgid "Password reset confirmation"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_confirm.html:10
+#: templates/registration/password_reset_confirm.html:6
 msgid "Enter new password"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_confirm.html:11
+#: templates/registration/password_reset_confirm.html:7
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_confirm.html:20
+#: templates/registration/password_reset_confirm.html:16
 msgid "Password reset unsuccessful"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_confirm.html:21
+#: templates/registration/password_reset_confirm.html:17
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset."
@@ -537,10 +695,12 @@ msgstr ""
 
 #: grappelli/templates/registration/password_reset_done.html:6
 #: grappelli/templates/registration/password_reset_done.html:9
+#: templates/registration/password_reset_done.html:4
 msgid "Password reset successful"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_done.html:10
+#: templates/registration/password_reset_done.html:5
 msgid ""
 "We've e-mailed a new password to the e-mail address you submitted. You "
 "should be receiving it shortly."
@@ -573,43 +733,612 @@ msgid "The %(site_name)s team"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_form.html:10
+#: templates/registration/password_reset_form.html:5
 msgid ""
 "Forgotten your password? Enter your e-mail address below, and we'll reset "
 "your password and e-mail the new one to you."
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_form.html:13
+#: templates/registration/password_reset_form.html:8
 msgid "E-mail address:"
 msgstr ""
 
 #: grappelli/templates/registration/password_reset_form.html:13
+#: templates/registration/password_reset_form.html:8
 msgid "Reset my password"
+msgstr "Mein Passwort zurücksetzen"
+
+#: ingredient/models.py:6 news/models.py:6 recipe_groups/models.py:7
+#: recipe_groups/models.py:24
+msgid "title"
 msgstr ""
 
-#: templates/recipe/recipe_detail.html:9
-msgid "Course:"
-msgstr "Nephie:"
-
-#: templates/recipe/recipe_detail.html:10
-msgid "Cuisine:"
+#: ingredient/models.py:7
+msgid "quantity"
 msgstr ""
 
-#: templates/recipe/recipe_detail.html:11
-msgid "Chef:"
+#: ingredient/models.py:8
+msgid "measurement"
 msgstr ""
 
-#: templates/recipe/recipe_detail.html:15
-msgid "servers"
+#: ingredient/models.py:9
+msgid "preparation"
 msgstr ""
 
-#: templates/recipe/recipe_detail.html:16
+#: ingredient/models.py:10 recipe/models.py:52 recipe/models.py:59
+msgid "recipe"
+msgstr ""
+
+#: list/forms.py:58
+msgid "email address"
+msgstr ""
+
+#: list/forms.py:63
+msgid "Grocery list from "
+msgstr ""
+
+#: list/forms.py:74
+msgid "Can not get grocery list id from invalid form data"
+msgstr ""
+
+#: list/forms.py:81
+msgid "Can not get to_email from invalid form data"
+msgstr ""
+
+#: list/forms.py:91
+msgid "Invalid header found."
+msgstr ""
+
+#: list/forms.py:92
+msgid "Email Sent"
+msgstr ""
+
+#: list/models.py:8 list/models.py:33 templates/list/grocery_addrecipe.html:3
+#: templates/list/grocery_detail.html:3 templates/list/grocery_index.html:6
+#: templates/profiles/profile_detail.html:61 templates/sidebar/grocery.html:63
+msgid "grocery list"
+msgstr ""
+
+#: list/models.py:9 news/models.py:7 recipe/models.py:19
+#: recipe_groups/models.py:8 recipe_groups/models.py:25
+msgid "slug"
+msgstr ""
+
+#: list/models.py:24
+msgid "aisle"
+msgstr ""
+
+#: list/models.py:34
+msgid "item"
+msgstr ""
+
+#: news/models.py:8
+msgid "content"
+msgstr ""
+
+#: news/models.py:9
+msgid "image"
+msgstr ""
+
+#: pagination/templates/pagination/pagination.html:6
+#: pagination/templates/pagination/pagination.html:8
+msgid "previous"
+msgstr ""
+
+#: pagination/templates/pagination/pagination.html:22
+#: pagination/templates/pagination/pagination.html:24
+msgid "next"
+msgstr ""
+
+#: recipe/models.py:14
+msgid "Share"
+msgstr ""
+
+#: recipe/models.py:15
+msgid "Private"
+msgstr ""
+
+#: recipe/models.py:18
+msgid "Recipe Title"
+msgstr ""
+
+#: recipe/models.py:21
+msgid "photo"
+msgstr ""
+
+#: recipe/models.py:22
+#, fuzzy
+msgid "course"
+msgstr "Kurs:"
+
+#: recipe/models.py:23
+#, fuzzy
+msgid "cuisine"
+msgstr "Küche:"
+
+#: recipe/models.py:24
+msgid "info"
+msgstr ""
+
+#: recipe/models.py:25 templates/recipe/recipe_detail.html:149
+#: templates/recipe/recipe_print.html:23
 msgid "cook time"
+msgstr "Garzeit"
+
+#: recipe/models.py:26
+#, fuzzy
+msgid "servings"
+msgstr "Server"
+
+#: recipe/models.py:27
+#, fuzzy
+msgid "directions"
+msgstr "Anfahrt"
+
+#: recipe/models.py:28
+msgid "shared"
 msgstr ""
 
-#: templates/recipe/recipe_detail.html:25
+#: recipe/models.py:29
+msgid "tags"
+msgstr ""
+
+#: recipe/models.py:31
+msgid "related"
+msgstr ""
+
+#: recipe/models.py:60 recipe_groups/models.py:9 recipe_groups/models.py:26
+msgid "author"
+msgstr ""
+
+#: recipe/models.py:61
+msgid "note"
+msgstr ""
+
+#: templates/base.html:6
+msgid "OpenEats2"
+msgstr ""
+
+#: templates/base.html:62 templates/profiles/create_profile.html:4
+#: templates/profiles/edit_profile.html:5
+#: templates/profiles/profile_detail.html:5
+#: templates/profiles/profile_detail.html:36
+msgid "profile"
+msgstr ""
+
+#: templates/base.html:63
+msgid "grocery lists"
+msgstr ""
+
+#: templates/base.html:64 templates/profiles/profile_detail.html:71
+msgid "logout"
+msgstr ""
+
+#: templates/accounts/signIn_page.html:19
+msgid "sign in"
+msgstr ""
+
+#: templates/accounts/signIn_page.html:20
+msgid "sign up"
+msgstr ""
+
+#: templates/form/popadd.html:11
+#, python-format
+msgid "Add %(field)s"
+msgstr ""
+
+#: templates/form/popadd.html:17
+msgid "submit"
+msgstr ""
+
+#: templates/friends/list.html:6
+msgid "chefs I'm following-"
+msgstr ""
+
+#: templates/friends/list.html:16
+msgid "chefs following me-"
+msgstr ""
+
+#: templates/friends/list.html:29
+msgid "chefs I'm blocking --"
+msgstr ""
+
+#: templates/list/_list.html:10 templates/list/grocery_index.html:13
+msgid "created on "
+msgstr ""
+
+#: templates/list/grocery_addrecipe.html:5 templates/sidebar/grocery.html:55
+#, fuzzy
+msgid "actions"
+msgstr "Anfahrt"
+
+#: templates/list/grocery_addrecipe.html:13
+#: templates/list/grocerylist_form.html:53 templates/sidebar/grocery.html:65
+msgid "create"
+msgstr ""
+
+#: templates/list/grocery_ajax.html:30
+msgid "You have not added any grocery list yet!"
+msgstr ""
+
+#: templates/list/grocery_ajax.html:31 templates/list/grocery_index.html:22
+msgid "create a grocery list"
+msgstr ""
+
+#: templates/list/grocery_detail.html:6
+msgid "grocery list -"
+msgstr ""
+
+#: templates/list/grocery_index.html:3
+msgid "OpenEats Grocery List"
+msgstr ""
+
+#: templates/list/grocery_index.html:21
+msgid "You do not have any grocery list created"
+msgstr ""
+
+#: templates/list/grocery_mail_body.html:7
+msgid "OpenEats Email"
+msgstr ""
+
+#: templates/list/grocery_mail_body.html:12
+#: templates/list/grocery_print.html:13
+msgid "grocery list "
+msgstr ""
+
+#: templates/list/grocery_print.html:7 templates/recipe/recipe_print.html:8
+msgid "OpenEats Print"
+msgstr ""
+
+#: templates/list/grocerylist_form.html:28
+msgid "items"
+msgstr ""
+
+#: templates/profiles/create_profile.html:4
+#: templates/profiles/edit_profile.html:5
+msgid "edit"
+msgstr ""
+
+#: templates/profiles/edit_profile.html:14
+msgid "To change your profile picture you will need to create/login to"
+msgstr ""
+
+#: templates/profiles/edit_profile.html:14
+msgid "Gravata"
+msgstr ""
+
+#: templates/profiles/edit_profile.html:14
+msgid "using the same email address you used for this site"
+msgstr ""
+
+#: templates/profiles/edit_profile.html:27
+msgid "Change Password"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:41
+msgid "location:"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:44
+msgid "gender:"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:47
+msgid "website:"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:50
+msgid "all about me"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:57
+msgid "recipes"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:59
+msgid "private recipes"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:60
+msgid "favorites"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:62
+msgid "followers"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:63
+msgid "settings"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:69
+msgid "edit Profile"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:70
+#, fuzzy
+msgid "change password"
+msgstr "Mein Passwort zurücksetzen"
+
+#: templates/recipe/_list.html:28 templates/recipe/recipe_detail.html:144
+#: templates/recipe/recipe_print.html:16 templates/search/search.html:40
+msgid "Chef:"
+msgstr "Chefkoch:"
+
+#: templates/recipe/_list.html:32 templates/search/search.html:44
+msgid "Average Rating:"
+msgstr ""
+
+#: templates/recipe/_list.html:34 templates/recipe/recipe_detail.html:132
+#: templates/search/search.html:46
+msgid "Poor"
+msgstr ""
+
+#: templates/recipe/_list.html:35 templates/recipe/recipe_detail.html:133
+#: templates/search/search.html:47
+msgid "Fair"
+msgstr ""
+
+#: templates/recipe/_list.html:36 templates/recipe/recipe_detail.html:134
+#: templates/search/search.html:48
+msgid "OK"
+msgstr ""
+
+#: templates/recipe/_list.html:37 templates/recipe/recipe_detail.html:135
+#: templates/search/search.html:49
+msgid "Good"
+msgstr ""
+
+#: templates/recipe/_list.html:38 templates/recipe/recipe_detail.html:136
+#: templates/search/search.html:50
+msgid "Wow"
+msgstr ""
+
+#: templates/recipe/_list.html:43 templates/search/search.html:55
+msgid "Read More"
+msgstr ""
+
+#: templates/recipe/index.html:10
+msgid "Fresh from the Oven!"
+msgstr ""
+
+#: templates/recipe/index.html:15
+#, fuzzy
+msgid "chef: "
+msgstr "Chefkoch:"
+
+#: templates/recipe/index.html:20
+msgid "Recipe Tags"
+msgstr ""
+
+#: templates/recipe/recipe_cook.html:6
+#, fuzzy
+msgid "Cook View"
+msgstr "Garzeit"
+
+#: templates/recipe/recipe_cook.html:10 templates/recipe/recipe_print.html:13
+msgid "Recipe is marked Private and you are not the author of it!"
+msgstr ""
+
+#: templates/recipe/recipe_cook.html:15
+#: templates/recipe/recipe_detail.html:158
+#: templates/recipe/recipe_print.html:27
 msgid "Ingredients"
+msgstr "Zutaten"
+
+#: templates/recipe/recipe_cook.html:30
+#: templates/recipe/recipe_detail.html:175
+msgid "Directions"
+msgstr "Anfahrt"
+
+#: templates/recipe/recipe_detail.html:7
+#, python-format
+msgid " OpenEats - %(recipe)s "
 msgstr ""
 
-#: templates/recipe/recipe_detail.html:33
-msgid "Directions"
+#: templates/recipe/recipe_detail.html:106
+msgid "print"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:107
+#, fuzzy
+msgid "cook"
+msgstr "Garzeit"
+
+#: templates/recipe/recipe_detail.html:110
+msgid "add to list"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:115
+msgid "tags:"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:130
+msgid "rate this:"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:142
+msgid "Course:"
+msgstr "Kurs:"
+
+#: templates/recipe/recipe_detail.html:143
+msgid "Cuisine:"
+msgstr "Küche:"
+
+#: templates/recipe/recipe_detail.html:148
+#, fuzzy
+msgid "serves"
+msgstr "Server"
+
+#: templates/recipe/recipe_detail.html:185
+#: templates/recipe/recipe_print.html:51
+msgid "Your Notes:"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:214
+msgid "comments"
+msgstr ""
+
+#: templates/recipe/recipe_form.html:4
+msgid "OpenEats | Add Recipe"
+msgstr ""
+
+#: templates/recipe/recipe_form.html:74
+#, fuzzy
+msgid "ingredients"
+msgstr "Zutaten"
+
+#: templates/recipe/recipe_form.html:97
+msgid "New Recipe"
+msgstr ""
+
+#: templates/recipe/recipe_print.html:22
+msgid "servers"
+msgstr "Server"
+
+#: templates/recipe/recipe_print.html:23
+msgid "mintues"
+msgstr ""
+
+#: templates/recipe/recipe_print.html:43
+msgid "Steps"
+msgstr ""
+
+#: templates/recipe/recipe_userfav.html:30
+msgid "You have not added any favorite recipes yet!"
+msgstr ""
+
+#: templates/recipe/recipe_userlist.html:40
+msgid "has not added any recipes yet!"
+msgstr ""
+
+#: templates/recipe_groups/course_form.html:8
+msgid "add course"
+msgstr ""
+
+#: templates/recipe_groups/course_list.html:5
+#, fuzzy
+msgid "Course List"
+msgstr "Kurs:"
+
+#: templates/recipe_groups/cuisine_list.html:5
+#, fuzzy
+msgid "Cuisine List"
+msgstr "Küche:"
+
+#: templates/recipe_groups/recipe_list.html:13
+msgid "Recipes in "
+msgstr ""
+
+#: templates/registration/activation_complete.html:5
+msgid "Account now Active!"
+msgstr ""
+
+#: templates/registration/login.html:3
+msgid "OpenEats - Login"
+msgstr ""
+
+#: templates/registration/login.html:6
+msgid "create an account"
+msgstr ""
+
+#: templates/registration/logout.html:4
+msgid "You have been succesfully logged out!"
+msgstr ""
+
+#: templates/registration/password_change_done.html:4
+msgid "Password changed Succesful"
+msgstr ""
+
+#: templates/registration/registration_complete.html:5
+msgid "Activation Link Sent"
+msgstr ""
+
+#: templates/registration/registration_complete.html:6
+msgid ""
+"Thank you for signing up for OpenEats you have been emailed an activation "
+"link"
+msgstr ""
+
+#: templates/relationships/confirm.html:4
+#: templates/relationships/confirm.html:7
+msgid "No longer"
+msgstr ""
+
+#: templates/relationships/confirm.html:12
+msgid "Confirm"
+msgstr ""
+
+#: templates/relationships/success.html:5
+msgid "Success"
+msgstr ""
+
+#: templates/relationships/success.html:6
+msgid "You are "
+msgstr ""
+
+#: templates/relationships/success.html:6
+msgid "now"
+msgstr ""
+
+#: templates/relationships/success.html:6
+msgid "no longer"
+msgstr ""
+
+#: templates/relationships/success.html:7
+#, python-format
+msgid "%(to_user_username)s's profile"
+msgstr ""
+
+#: templates/search/search.html:20
+msgid "Search Results"
+msgstr ""
+
+#: templates/search/search.html:59
+msgid "No Results found for search query"
+msgstr ""
+
+#: templates/sidebar/browse.html:4
+msgid "last viewed"
+msgstr ""
+
+#: templates/sidebar/browse.html:12
+msgid "browse"
+msgstr ""
+
+#: templates/sidebar/grocery.html:57
+msgid "print "
+msgstr ""
+
+#: templates/sidebar/grocery.html:58
+msgid "edit "
+msgstr ""
+
+#: templates/sidebar/grocery.html:59
+msgid "send list "
+msgstr ""
+
+#: templates/sidebar/grocery.html:59
+msgid "email "
+msgstr ""
+
+#: templates/sidebar/grocery.html:60
+msgid "delete "
+msgstr ""
+
+#: templates/sidebar/grocery.html:66
+msgid "list"
+msgstr ""
+
+#: templates/sidebar/grocery.html:67
+msgid "browse recipes"
+msgstr ""
+
+#: templatetags/recipe_favs.py:13
+msgid "bookmakred"
+msgstr ""
+
+#: templatetags/recipe_favs.py:15 templatetags/recipe_favs.py:19
+msgid "favorite"
 msgstr ""

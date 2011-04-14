@@ -41,6 +41,7 @@ ugettext = lambda s: s
 LANGUAGES = (
      ('en', ugettext('English')),
      ('de', ugettext('German')),
+     ('es', ugettext('Spanish')),
    )
 
 
@@ -135,7 +136,7 @@ INSTALLED_APPS = (
     'navbar',
     'disqus',
     'registration',
-    #'rosetta',
+    'rosetta',
     'profiles',
     'imagekit',
     'djangoratings',
@@ -158,7 +159,7 @@ INSTALLED_APPS = (
 )
 
 
-INTERNAL_IPS = ('127.0.0.1',)
+INTERNAL_IPS = ('127.0.0.1','192.168.1.2')
 ### DEBUG-TOOLBAR SETTINGS
 DEBUG_TOOLBAR_CONFIG = {
 'INTERCEPT_REDIRECTS': False,
