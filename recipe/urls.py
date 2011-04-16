@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     (r'^ajax-raterecipe/(?P<object_id>\d+)/(?P<score>\d+)/$', 'recipe.views.recipeRate'),
     (r'^ajax-favrecipe/$', 'recipe.views.recipeUserFavs'),
     (r'^(?P<slug>[-\w]+)/$', 'recipe.views.recipeShow'),
+    url(r'^export/(?P<slug>[-\w]+)/$', 'recipe.views.exportPDF', name='recipe_export'),
     url(r'^$', 'recipe.views.index', name='recipe_index'),
 
    )
