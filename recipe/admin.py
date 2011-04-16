@@ -3,7 +3,6 @@ from models import Recipe, StoredRecipe, NoteRecipe
 from ingredient.models import Ingredient
 from reversion.admin import VersionAdmin
 from forms import IngItemFormSet
-from django.http import HttpResponse
 from django.shortcuts import render_to_response
 
 class RecipeInline(admin.TabularInline):

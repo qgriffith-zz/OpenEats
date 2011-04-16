@@ -1,3 +1,14 @@
+{% load meal_master_convert %}
+
 {% for obj in queryset %}
-    {{ obj.title }}
+MMMMM----- OpenEats Recipe via Meal-Master (tm)
+    Title: {{ obj.title }}
+    Categories: {{obj.course}}, {{obj.cuisine}}
+    Yield: {{obj.servings}}
+    {% for ing in obj.ingredient_set.all %}
+    {{ ing.quantity }} {{ ing.measurement|convertUnit}} {{ ing.title }} {{ ing.preparation }}
+    {% endfor %}
+    
+    {{ obj.directions|striptags}}
+MMMMM
 {% endfor %}
