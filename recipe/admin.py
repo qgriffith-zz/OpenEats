@@ -3,13 +3,25 @@ from models import Recipe, StoredRecipe, NoteRecipe
 from ingredient.models import Ingredient
 from reversion.admin import VersionAdmin
 from forms import IngItemFormSet
+from django.http import HttpResponse
+from django.shortcuts import render_to_response
 
 class RecipeInline(admin.TabularInline):
     model = Ingredient
     formset=IngItemFormSet
 
 class RecipeAdmin(VersionAdmin):
-    prepopulated_fields = { 'slug' : ['title']}
+
+    def export_MealMaster(self, request, queryset):
+        response = render_to_response('recipe/mealmaster_export.txt', {'queryset': queryset}, mimetype='text/plain')
+        response['Content-Disposition'] = 'attachment; filename=recipe.txt'
+        return response
+            
+
+    export_MealMaster.short_description = "Export Meal Master"
+
+    actions=[export_MealMaster]
+    #prepopulated_fields = { 'slug' : ['title']}
     inlines = [RecipeInline,]
     list_display = ['title','admin_thumbnail_view', 'author', 'pub_date', 'shared']
     list_filter = ['shared', 'author', 'course', 'cuisine']
