@@ -8,6 +8,7 @@ from ingredient.models import Ingredient
 from forms import RecipeForm,IngItemFormSet
 from djangoratings.views import AddRatingView
 from django.utils import simplejson
+from django.conf import settings
 from django.db.models import F
 from reportlab.lib import colors
 from reportlab.lib.units import cm
@@ -180,29 +181,36 @@ def exportPDF(request, slug):
     response = HttpResponse(mimetype='application/pdf')
     response['Content-Disposition'] = 'attachment; filename=' + recipe.slug + '.pdf'
 
-    #Create the PDF object
-    styles = getSampleStyleSheet()
     # Our container for 'Flowable' objects
     elements = []
 
+    #set up our styles
+    styles = getSampleStyleSheet()
     styleT = styles['Title']
     styleT.textColor = colors.green
     styleH1 = styles['Heading1']
     styleH1.textColor= colors.green
     styleH2 = styles['Heading2']
     styleH2.textColor=colors.goldenrod
+
+    #create the pdf doc
     doc = SimpleDocTemplate(response)
-    logo = "./site-media/images/logo.png"
+
+    #set the openeats logo
+    logo = "." + settings.MEDIA_URL + "images/logo.png"
     I = Image(logo)
     I.hAlign='LEFT'
     elements.append(I)
     elements.append(Spacer(0, 1 * cm))
+
+    #add the recipe photo if the recipe has one
     if recipe.photo:
         I = Image('./' + recipe.thumbnail_image.url)
         I.height="CENTER"
         elements.append(I)
         elements.append(Spacer(0, 0.5 * cm))
-    
+
+    # add the meat of the pdf
     elements.append(Paragraph(recipe.title, styleH1))
     elements.append(Paragraph('info', styleH2))
     elements.append(Paragraph(recipe.info, styles["Normal"]))
@@ -212,16 +220,10 @@ def exportPDF(request, slug):
         ing = "%s %s %s %s" %(ing.quantity, ing.measurement, ing.title, ing.preparation)
         elements.append(Paragraph(ing, styles['Bullet']))
 
-
     elements.append(Paragraph('directions', styleH2))
     elements.append(Paragraph(recipe.directions, styles["Normal"]))
 
-    #p.setFillColorRGB(0.9,0.5,0.05)
-
-
-    #close the pdf object
-    #p.showPage()
-    #p.save()
+    #build the pdf and return it
     doc.build(elements)
     return response
 

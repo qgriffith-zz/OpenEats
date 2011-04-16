@@ -109,6 +109,7 @@
         {% if request.user.is_authenticated %}
             <a href="{% url grocery_addrecipe recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a>
         {% endif %}
+        <a href="{% url recipe_export slug=recipe.slug %}">PDF</a>
     </span>
 </div>
 <div id="tags">
