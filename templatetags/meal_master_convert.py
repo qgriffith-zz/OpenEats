@@ -40,6 +40,3 @@ def convert_unit(value):
         return convert[value]
     else:
         return ''
-
-    
-

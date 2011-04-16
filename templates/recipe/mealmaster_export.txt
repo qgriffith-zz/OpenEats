@@ -6,9 +6,10 @@ MMMMM----- OpenEats Recipe via Meal-Master (tm)
     Categories: {{obj.course}}, {{obj.cuisine}}
     Yield: {{obj.servings}}
     {% for ing in obj.ingredient_set.all %}
-    {{ ing.quantity }} {{ ing.measurement|convertUnit}} {{ ing.title }} {{ ing.preparation }}
+    {{ ing.quantity }} {{ ing.measurement|convertUnit}} {% if ing.preparation  %} {{ ing.title }}; {{ ing.preparation }} {% else %} {{ ing.title }} {% endif %}
     {% endfor %}
     
-    {{ obj.directions|striptags}}
+
+{{ obj.directions|striptags}}
 MMMMM
 {% endfor %}
