@@ -10,6 +10,6 @@ MMMMM----- OpenEats Recipe via Meal-Master (tm)
     {% endfor %}
     
 
-{{ obj.directions|striptags}}
+{{ obj.directions|striptags|safe}}
 MMMMM
 {% endfor %}
