@@ -151,11 +151,11 @@ div#user-profile div#profile-about { width: 35%;  padding: 5px 10px 40px 10px; m
 div.following { margin:20px; }
 dl.follow-caption        { position: relative; padding: .6em; margin: .4em; float:left;}
 dl.follow-caption dt img  { display: block; }
-dl.follow-caption dd      { position: absolute; left: 0.55em; bottom: .10em; font: bold 1.0em Helvetica, sans-serif; }
+dl.follow-caption dd      { position: absolute; left: 0.55em; bottom: .10em; font: bold 0.8em Helvetica, sans-serif; }
 dl.follow-caption.top dd  { top: 1.25em; }
-dl.follow-caption dd span { width:124px; display: block; float: left; clear: both; background: #000; background: rgba(0, 0, 0, 0.7); padding: 0.25em 0.55em; color: #fff; }
-dl.follow-caption cite   { color: #9F954A; font-size: 60%; padding-left:4px;}
-
+dl.follow-caption dd span { width:130px; display: block; float: left; clear: both; background: #000; background: rgba(0, 0, 0, 0.7); padding: 0.25em 0.55em; color: #fff; }
+dl.follow-caption cite a  { color: #f5f5f5; font-size: 85%; padding-left:4px; font-weight:normal; text-decoration:none;}
+dl.follow-caption cite a:hover { color:#EF8106;}
 /* Cook View */
 div#tenfoot{font-size:xx-large; width:800px;}
 div#tenfoot hr { margin-bottom: 15px;}

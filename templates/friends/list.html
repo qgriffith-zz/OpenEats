@@ -7,7 +7,7 @@
     {% for user in following_list %}
         <dl class="follow-caption">
             <dt><a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a></dt>
-            <dd><span>{{ user.username }}<cite>un-follow</cite></span></dd>
+            <dd><span>{{ user.username }}<cite><a href="/follow/remove/{{ user.username}}/following/">{% trans 'un-follow' %}</a></cite></span></dd>
         </dl>
     {% endfor %}
 </div>
@@ -17,7 +17,7 @@
         {% for user in followers_list %}
         <dl class="follow-caption">
             <dt><a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a></dt>
-            <dd><span>{{ user.username }}<cite>un-follow</cite></span></dd>
+            <dd><span>{{ user.username }}<cite><a href="/follow/add/{{ user.username }}/following/">{% trans 'follow' %}</a> <a href="/follow/add/{{ user.username }}/blocking/">{% trans 'block' %}</a></cite></span></dd>
         </dl>
     {% endfor %}
 
@@ -30,7 +30,7 @@
             {% for user in blocking_list %}
             <dl class="follow-caption">
                 <dt><a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a></dt>
-                <dd><span>{{ user.username }}<cite>un-block</cite></span></dd>
+                <dd><span>{{ user.username }}<cite><a href="/follow/remove/{{ user.username }}/blocking/">{% trans 'unblock' %}</a></cite></span></dd>
             </dl>
         {% endfor %}
 
