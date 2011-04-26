@@ -66,3 +66,10 @@ class NoteRecipe(models.Model):
     def __unicode__(self):
         return "%s note for %s"  %(self.author, self.recipe)
 
+class ReportedRecipe(models.Model):
+    recipe = models.ForeignKey(Recipe, verbose_name=_('recipe'))
+    reported_by = models.ForeignKey(User, verbose_name=_('author'))
+    pub_date = models.DateTimeField(auto_now_add=True)
+
+    def __unicode__(self):
+        return self.recipe
