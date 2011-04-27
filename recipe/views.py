@@ -3,7 +3,7 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.forms.models import inlineformset_factory
 from django.http import HttpResponse, Http404
-from models import Recipe, StoredRecipe, NoteRecipe
+from models import Recipe, StoredRecipe, NoteRecipe,ReportedRecipe
 from ingredient.models import Ingredient
 from forms import RecipeForm,IngItemFormSet
 from djangoratings.views import AddRatingView
@@ -226,6 +226,20 @@ def exportPDF(request, slug):
     #build the pdf and return it
     doc.build(elements)
     return response
+
+@login_required
+def recipeReport(request, slug):
+    '''Take the recipe id and the user id passed via the url check that the recipe is not
+       already reported if it isn't it will be reported
+    '''
+    recipe = get_object_or_404(Recipe, slug=slug)
+    reported = ReportedRecipe.objects.filter(recipe=recipe.pk)
+    if reported:
+        return HttpResponse("Recipe has already been reported!")
+    else: #report the recipe
+        new_reported = ReportedRecipe(recipe=recipe, reported_by=request.user)
+        new_reported.save()
+        return HttpResponse("Recipe reported to the moderators!")
 
 
     

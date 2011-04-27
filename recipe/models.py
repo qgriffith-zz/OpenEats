@@ -48,6 +48,11 @@ class Recipe(ImageModel):
     def get_absolute_url(self):
         return "/recipe/%s/" %self.slug
 
+    def get_reported(self):
+        if ReportedRecipe.objects.filter(recipe=self):
+            return True        
+
+
 class StoredRecipe(models.Model):
     recipe = models.ForeignKey(Recipe, verbose_name=_('recipe'))
     user = models.ForeignKey(User, verbose_name=_('user'))
@@ -73,6 +78,6 @@ class ReportedRecipe(models.Model):
 
     class Meta:
         ordering = ['pub_date', 'recipe']
-
+    
     def __unicode__(self):
         return self.recipe.title

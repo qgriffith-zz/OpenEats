@@ -52,7 +52,7 @@ class ReportedRecipeAdmin(admin.ModelAdmin):
         self.message_user(request, message)
         return None
 
-    remove_recipe.short_description = "Remove Recipe"
+    remove_recipe.short_description = "Remove selected Recipes"
     actions = ['remove_recipe']
     list_display = ['recipe','reported_by']
     search_fields = ['reported_by__username', 'recipe__title']
