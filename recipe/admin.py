@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import Recipe, StoredRecipe, NoteRecipe
+from models import Recipe, StoredRecipe, NoteRecipe, ReportedRecipe
 from ingredient.models import Ingredient
 from reversion.admin import VersionAdmin
 from forms import IngItemFormSet
@@ -39,6 +39,26 @@ class NoteRecipeAdmin(admin.ModelAdmin):
     list_display = ('recipe', 'author')
     search_fields = ['author__username', 'recipe']
 
+class ReportedRecipeAdmin(admin.ModelAdmin):
+
+    def remove_recipe(self, request, queryset):
+        '''removes a recipe that has been reported'''
+        for obj in queryset:
+           obj.recipe.delete()
+        if queryset.count() == 1:
+            message = "1 recipe was deleted"
+        else:
+            message = "%s recipes were deleted" % queryset.count()
+        self.message_user(request, message)
+        return None
+
+    remove_recipe.short_description = "Remove Recipe"
+    actions = ['remove_recipe']
+    list_display = ['recipe','reported_by']
+    search_fields = ['reported_by__username', 'recipe__title']
+    list_filter = ['reported_by',]
+
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(StoredRecipe, StoredRecipeAdmin)
 admin.site.register(NoteRecipe, NoteRecipeAdmin)
+admin.site.register(ReportedRecipe, ReportedRecipeAdmin)

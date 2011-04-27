@@ -67,9 +67,12 @@ class NoteRecipe(models.Model):
         return "%s note for %s"  %(self.author, self.recipe)
 
 class ReportedRecipe(models.Model):
-    recipe = models.ForeignKey(Recipe, verbose_name=_('recipe'))
+    recipe = models.ForeignKey(Recipe, verbose_name=_('recipe'), unique=True)
     reported_by = models.ForeignKey(User, verbose_name=_('author'))
     pub_date = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        ordering = ['pub_date', 'recipe']
+
     def __unicode__(self):
-        return self.recipe
+        return self.recipe.title
