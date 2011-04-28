@@ -62,11 +62,12 @@ div#search input#id_q { height:20px; width:150px; }
 
 
 /*Recipe Detail */
-div#toolbar{height:45px; background:url("../images/ui-bg_gloss-wave.png") repeat-x scroll 50% 50% #ECE8DA; border:1px black solid; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
-div#toolbar span#title { font-size:1.8em; line-height:1.50em; padding-left:20px; padding-right:30px; color:#484846; border-right:white 1px dotted;}
+div#toolbar{padding-top:10px; height:45px; background:url("../images/ui-bg_gloss-wave.png") repeat-x scroll 50% 50% #ECE8DA; border:1px black solid; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+div#recipe-title { font-size:1.8em; line-height:1.50em; padding-left:5px; color:#484846;}
 div#toolbar span#toolbar-buttons{padding-left:15px;}
 div#toolbar span#toolbar-buttons a {margin-left:5px;}
 div#recipe-info { width: 500px; margin-bottom:10px;}
+#recipe-report { color: #ff4500 !important; float:right;}
 div#recipe-info span { color: #c53c0c; }
 div#recipe-cook{ width: 600px; padding:5px; margin-bottom:5px; border:dotted 1px black; background-color: #FEFDF2; }
 div#recipe-cook ul {text-align: center; color:#484846; font-size: 1.1em;}
