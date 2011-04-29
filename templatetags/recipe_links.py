@@ -25,9 +25,9 @@ def report_link(user, recipe_id):
     if  user.is_authenticated(): #make sure the user is signed in
         check = ReportedRecipe.objects.filter(recipe = recipe_id) #check to see if the recipe is stored
         if check:
-            return "<a href=\"#\">%s</a>" % translation.ugettext('reported')
-        else: #must not be stored yet
-            return "<button id=\"recipe-report\">%s</button>" % translation.ugettext('report')
+            return "<a id=\"recipe-report\" href=\"#\" title=\"recipe has been reported as spam\">%s</a>" % translation.ugettext('reported!')
+        else: #must not been reported yet yet
+            return "<button id=\"recipe-report\" title=\"report inappropriate recipe to the admins\">%s</button>" % translation.ugettext('report')
 
     else:
         recipe = Recipe.objects.get(pk=recipe_id)
