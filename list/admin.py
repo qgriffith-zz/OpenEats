@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import GroceryList, GroceryItem, GroceryAisle
+from models import GroceryList, GroceryItem, GroceryAisle, GroceryShared
 from forms import GroceryItemFormSet
 
 class GroceryListInline(admin.TabularInline):
@@ -23,6 +23,14 @@ class GroceryItemAdmin(admin.ModelAdmin):
 class GroceryAisleAdmin(admin.ModelAdmin):
     ordering = ['aisle']
 
+class GrocerySharedAdmin(admin.ModelAdmin):
+    list_display = ['list', 'shared_by']
+    list_filter = ['shared_by', 'shared_to']
+    search_fields = ['shared_by__username', 'shared_to__username']
+    exclude = ['shared_by']
+    ordering = ['list']
+
 admin.site.register(GroceryList, GroceryListAdmin)
+admin.site.register(GroceryShared, GrocerySharedAdmin)
 admin.site.register(GroceryItem, GroceryItemAdmin)
 admin.site.register(GroceryAisle, GroceryAisleAdmin)

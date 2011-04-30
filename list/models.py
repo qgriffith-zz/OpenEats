@@ -33,10 +33,27 @@ class GroceryItem(models.Model):
     list = models.ForeignKey(GroceryList, verbose_name=_('grocery list'))
     item = models.CharField(_("item"), max_length=550)
     aisle = models.ForeignKey(GroceryAisle, blank = True, null = True, default=None)
-
+    
     class Meta:
         ordering = ['aisle', 'item']
 
     def __unicode__(self):
         return self.item
-    
+
+class GroceryShared(models.Model):
+    list = models.ForeignKey(GroceryList, verbose_name=_('grocery list'))
+    shared_by = models.ForeignKey(User, verbose_name=_('shared by'), related_name="shared_by")
+    shared_to = models.ForeignKey(User, verbose_name=_('shared to'), related_name="shared_to")
+
+    class Meta:
+        verbose_name_plural = "shared lists"
+
+    def save(self, *args, **kwargs):
+        '''make sure the shared_by field is always set the to the owner of the list'''
+        if not self.id:
+            self.shared_by = self.list.author
+        super(GroceryShared, self).save(*args, **kwargs)
+
+    def __unicode__(self):
+        return self.list.title
+
