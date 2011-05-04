@@ -44,25 +44,12 @@ class GroceryUserList(forms.Form):
         self.fields['lists'] = forms.ChoiceField( widget = forms.Select(), choices=choices, initial=0)
 
 
-class GroceryShareTo(forms.Form):
+class GroceryShareTo(ModelForm):
     '''grocery form to allow you to select a user from your friends to share a list with'''
-    def __init__(self, data=None, files=None, request=None, *args, **kwargs):
-        if request is None:
-            raise TypeError("Keyword argument 'request must be supplies'")
-        super(GroceryShareTo, self).__init__(data=data, files=files, *args, **kwargs)
-        self.request = request
-        friends = self.request.relationships.friends()
-        choices=[ (o.id, str(o)) for o in friends]
-        choices.sort()
-        self.fields['share_to'] = forms.ChoiceField( widget= forms.Select(), choices=choices, required=True)
+    class Meta:
+        model = GroceryShared
+        fields = ('shared_to',)
 
-    def save(self):
-        list = self.request['list']
-        new_share = GroceryShared()
-        new_share.list = list
-        new_share.shared_to = self.request['shared_to']
-        new_share.shared_by = request.user
-        new_share.save()
 
     
 class GrocerySendMail(forms.Form):

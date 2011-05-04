@@ -2,11 +2,12 @@ from django.template import RequestContext
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.forms.models import inlineformset_factory
 from recipe.models import Recipe
-from models import GroceryList, GroceryItem
+from models import GroceryList, GroceryItem, GroceryShared
 from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList,GrocerySendMail, GroceryShareTo
 from datetime import date
 
@@ -117,13 +118,17 @@ def groceryAddRecipe(request, recipe_slug):
 def groceryShareList(request, user, slug):
     list = get_object_or_404(GroceryList, slug=slug, author=request.user)
     if request.method == 'POST':
-        form = GroceryShareTo(data=request.POST, request=request)
+        form = GroceryShareTo(request.POST)
         if form.is_valid():
-            form.save()
+            new_shared = GroceryShared()
+            new_shared.list = list
+            new_shared.shared_to = form.cleaned_data['shared_to']
+            new_shared.save()
             messages.success(request, 'Your grocery list has been shared.')
             return redirect('grocery_show', user=request.user, slug=slug)
     else:
-        form = GroceryShareTo(request=request)
+        form = GroceryShareTo()
+        form.fields['shared_to'].queryset = request.user.relationships.followers() #only allow people who are following a user to be allowed to have list shared to them
     return render_to_response('list/grocery_share.html', {'form': form, 'list':list}, context_instance=RequestContext(request))
 
 
