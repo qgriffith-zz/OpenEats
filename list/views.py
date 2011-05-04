@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse
 from django.forms.models import inlineformset_factory
 from recipe.models import Recipe
 from models import GroceryList, GroceryItem
-from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList,GrocerySendMail
+from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList,GrocerySendMail, GroceryShareTo
 from datetime import date
 
 @login_required
@@ -113,6 +113,21 @@ def groceryAddRecipe(request, recipe_slug):
   
         return render_to_response('list/grocery_addrecipe.html', {'form': form, 'recipe' : recipe}, context_instance=RequestContext(request))
 
+@login_required
+def groceryShareList(request, user, slug):
+    list = get_object_or_404(GroceryList, slug=slug, author=request.user)
+    if request.method == 'POST':
+        form = GroceryShareTo(data=request.POST, request=request)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your grocery list has been shared.')
+            return redirect('grocery_show', user=request.user, slug=slug)
+    else:
+        form = GroceryShareTo(request=request)
+    return render_to_response('list/grocery_share.html', {'form': form, 'list':list}, context_instance=RequestContext(request))
+
+
+
 def groceryMail(request, gid):
     '''this view creates a form used to send a grocery list to someone via email'''
     if request.method == 'POST':
@@ -123,6 +138,10 @@ def groceryMail(request, gid):
     else:
         form = GrocerySendMail(request=request)
     return render_to_response('list/grocery_email.html', {'form': form, 'gid': gid}, context_instance=RequestContext(request))
+
+
+
+
 
 
 

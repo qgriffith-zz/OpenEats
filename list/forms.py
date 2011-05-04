@@ -1,7 +1,7 @@
 from django.forms import ModelForm, forms
 import django.forms as forms
 from django.http import HttpResponse
-from models import GroceryList
+from models import GroceryList,GroceryShared
 from django.forms.models import BaseInlineFormSet
 from django.utils.translation import ugettext_lazy as _
 from django.core.mail import EmailMessage, BadHeaderError
@@ -43,6 +43,28 @@ class GroceryUserList(forms.Form):
         choices.sort()
         self.fields['lists'] = forms.ChoiceField( widget = forms.Select(), choices=choices, initial=0)
 
+
+class GroceryShareTo(forms.Form):
+    '''grocery form to allow you to select a user from your friends to share a list with'''
+    def __init__(self, data=None, files=None, request=None, *args, **kwargs):
+        if request is None:
+            raise TypeError("Keyword argument 'request must be supplies'")
+        super(GroceryShareTo, self).__init__(data=data, files=files, *args, **kwargs)
+        self.request = request
+        friends = self.request.relationships.friends()
+        choices=[ (o.id, str(o)) for o in friends]
+        choices.sort()
+        self.fields['share_to'] = forms.ChoiceField( widget= forms.Select(), choices=choices, required=True)
+
+    def save(self):
+        list = self.request['list']
+        new_share = GroceryShared()
+        new_share.list = list
+        new_share.shared_to = self.request['shared_to']
+        new_share.shared_by = request.user
+        new_share.save()
+
+    
 class GrocerySendMail(forms.Form):
     '''Grocery form to send a grocery list to someone in email'''
     def __init__(self, data=None, files=None, request=None, *args, **kwargs):
