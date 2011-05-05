@@ -7,6 +7,6 @@
     {{ ing.preparation }}
 {% endfor %}
 
-{% for tag in object.get_tags %}
+{% for tag in object.tags.all %}
     {{ tag }}
 {% endfor %}
