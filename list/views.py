@@ -41,9 +41,14 @@ def groceryAjaxDelete(request):
 @login_required
 def groceryCreate(request, user=None, slug=None):
     '''used to create and edit grocery list'''
+    if user:
+        owner = User.objects.get(username=user) #setting the owner of the list instead of using request.user because if a list is shared request.user won't be the owner
+    else:
+        owner = request.user  #must be coming in to create a new list and not edit another one this is the only way user wouldn't be passed
+        
     ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, extra=15, formset=GroceryItemFormSet, can_delete=True)
     if user and slug:
-        cur_list = get_object_or_404(GroceryList, author=request.user, slug=slug)
+        cur_list = get_object_or_404(GroceryList, author=owner, slug=slug)
         
     else:
         cur_list = GroceryList()
@@ -64,7 +69,7 @@ def groceryCreate(request, user=None, slug=None):
         form = GroceryListForm(instance=cur_list)
         formset = ItemFormSet(instance=cur_list)
 
-    return render_to_response('list/grocerylist_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
+    return render_to_response('list/grocerylist_form.html', {'form': form, 'formset' : formset,'user':owner}, context_instance=RequestContext(request))
 
 @login_required
 def groceryShow(request, slug, user, template_name='list/grocery_detail.html'):

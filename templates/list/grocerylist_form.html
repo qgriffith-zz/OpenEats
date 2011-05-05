@@ -18,7 +18,7 @@
     <div id="grocerylist-form">
         {{ form.title.errors }}
         <p id="list-title">{{ form.title.label_tag|lower }} {{ form.title }}</p>
-        <input type="hidden" name="author" id="id_author" value="{{ request.user.id }}" />
+        <input type="hidden" name="author" id="id_author" value="{{ user.id }}" />
 
             <div id="ingredients">
                 <p>{{  formset.non_form_errors }}</p>
