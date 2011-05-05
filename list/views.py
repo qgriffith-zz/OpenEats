@@ -118,12 +118,10 @@ def groceryAddRecipe(request, recipe_slug):
 def groceryShareList(request, user, slug):
     list = get_object_or_404(GroceryList, slug=slug, author=request.user)
     if request.method == 'POST':
-        form = GroceryShareTo(request.POST)
+        shared_list = GroceryShared(list=list)
+        form = GroceryShareTo(request.POST,instance=shared_list)
         if form.is_valid():
-            new_shared = GroceryShared()
-            new_shared.list = list
-            new_shared.shared_to = form.cleaned_data['shared_to']
-            new_shared.save()
+            form.save()
             messages.success(request, 'Your grocery list has been shared.')
             return redirect('grocery_show', user=request.user, slug=slug)
     else:
