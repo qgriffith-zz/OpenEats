@@ -1,5 +1,5 @@
 from django.template import RequestContext
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse,Http404
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
@@ -47,9 +47,19 @@ def groceryCreate(request, user=None, slug=None):
         owner = request.user  #must be coming in to create a new list and not edit another one this is the only way user wouldn't be passed
         
     ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, extra=15, formset=GroceryItemFormSet, can_delete=True)
-    if user and slug:
+    if user and slug: #must be editing a list that is already created
         cur_list = get_object_or_404(GroceryList, author=owner, slug=slug)
-        
+
+        if owner.id != request.user.id: #if the person is the the owner check if the list is shared to the user
+            shared = GroceryShared.objects.filter(list=cur_list) #check to see if this list is shared
+            if shared:
+                if shared[0].shared_to_id != request.user.id:
+                    messages.error(request,'You do not have permissions to edit this list ')
+                    return  redirect('grocery_list')
+            else:
+                messages.error(request, 'You do not have permissions to edit this list ')
+                return  redirect('grocery_list')
+
     else:
         cur_list = GroceryList()
 
@@ -74,8 +84,18 @@ def groceryCreate(request, user=None, slug=None):
 @login_required
 def groceryShow(request, slug, user, template_name='list/grocery_detail.html'):
     '''get the users grocery list and show it to them'''
-    list = get_object_or_404(GroceryList, slug=slug, author=request.user) #this will make sure that the user owns the grocery list being requested
-   
+    owner = User.objects.get(username=user)
+    list = get_object_or_404(GroceryList, slug=slug, author=owner)
+    if owner.id != request.user.id: #if the person is the the owner check if the list is shared to the user
+        shared = GroceryShared.objects.filter(list=list) #check to see if this list is shared
+        if shared:
+            if shared[0].shared_to_id != request.user.id:
+                messages.error(request, 'You do not have permissions to view this list ')
+                return  redirect('grocery_list')
+        else:
+             messages.error(request, 'You do not have permissions to view this list ')
+             return  redirect('grocery_list')
+        
     return render_to_response(template_name, {'list': list}, context_instance=RequestContext(request))
 
 @login_required
