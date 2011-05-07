@@ -84,7 +84,7 @@ div#recipe-comments{float:left; width:550px; margin-top:5px; clear:both;}
 div#recipe-rate{float:right; padding:5px 40px 5px 5px; width:200px; border:1px burlywood dashed; border-right: none; color:#847840;}
 div#caption{margin-right:60px;}
 #messages {color: #fd1c24;}
-#ajax-messages, li.success{ margin-bottom:10px; padding:10px; border:1px green dashed; background-color: lightgreen; font-size: 140%; color:white; font-weight:bold; width:80%}
+#ajax-messages, li.success, h3.shared-list-heading{ margin-bottom:10px; padding:10px; border:1px green dashed; background-color: lightgreen; font-size: 140%; color:white; font-weight:bold; width:80%}
 .remove-fav, .remove-grocery { float:right;}
 li.error{ margin-bottom:10px; padding:10px; border:1px red dashed; background-color: #f08080; font-size: 140%; color:white; font-weight:bold; width:80%}
 li.success, li.error { list-style: none;}
@@ -158,6 +158,7 @@ dl.follow-caption.top dd  { top: 1.25em; }
 dl.follow-caption dd span { width:130px; display: block; float: left; clear: both; background: #000; background: rgba(0, 0, 0, 0.7); padding: 0.25em 0.55em; color: #fff; }
 dl.follow-caption cite a  { color: #f5f5f5; font-size: 85%; padding-left:4px; font-weight:normal; text-decoration:none;}
 dl.follow-caption cite a:hover { color:#EF8106;}
+
 /* Cook View */
 div#tenfoot{font-size:xx-large; width:800px;}
 div#tenfoot hr { margin-bottom: 15px;}

@@ -21,6 +21,12 @@ class GroceryList(models.Model):
         if GroceryShared.objects.filter(list=self):
             return True
 
+    def get_shared_to(self):
+        '''if the list is shared get who it is shared to'''
+        if self.get_shared:
+            shared = GroceryShared.objects.get(list=self)
+            return shared.shared_to
+
 
     def get_absolute_url(self):
         return "/grocery/%s/%s/" % (self.author, self.slug)
