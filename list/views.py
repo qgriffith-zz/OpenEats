@@ -154,6 +154,13 @@ def groceryShareList(request, user, slug):
         form.fields['shared_to'].queryset = request.user.relationships.followers() #only allow people who are following a user to be allowed to have list shared to them
     return render_to_response('list/grocery_share.html', {'form': form, 'list':list}, context_instance=RequestContext(request))
 
+@login_required
+def groceryUnShareList(request, user, slug):
+    list = GroceryList.objects.get(slug=slug)
+    shared_list = get_object_or_404(GroceryShared, list=list, shared_to=request.user)
+    shared_list.delete()
+    messages.success("Grocery List has been un-shared")
+    return redirect('grocery_list')
 
 
 def groceryMail(request, gid):
