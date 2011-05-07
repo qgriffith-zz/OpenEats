@@ -16,6 +16,12 @@ class GroceryList(models.Model):
     def __unicode__(self):
         return self.title
 
+    def get_shared(self):
+        '''check if the list is shared'''
+        if GroceryShared.objects.filter(list=self):
+            return True
+
+
     def get_absolute_url(self):
         return "/grocery/%s/%s/" % (self.author, self.slug)
 

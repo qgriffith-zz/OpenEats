@@ -58,6 +58,11 @@
         <li><a href="{% url grocery_edit user=list.author slug=list.slug %}">{%trans 'edit ' %} {{ list }}</a></li>
         <li><a title="{% trans 'send list ' %} {{ list }}" id='email-list' href="{% url grocery_mail gid=list.id %}">{% trans 'email ' %} {{  list }}</a></li>
         <li><a href="{% url grocery_delete id=list.id %}" onclick="return confirm('are you sure')">{%trans 'delete ' %} {{ list }}</a></li>
+        {% if not list.get_shared %}
+            <li><a href="{% url grocery_share user=list.author slug=list.slug %}">{% trans 'share' %} {{ list }}</a></li>
+        {% else %}
+            <li><a href="{% url grocery_unshare user=list.author slug=list.slug %}">{% trans 'un-share' %} {{ list }}</a></li>
+        {% endif %}
     </ul>
 {% endif %}
 <h3>{% trans 'grocery list' %}</h3>

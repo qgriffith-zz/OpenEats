@@ -157,9 +157,10 @@ def groceryShareList(request, user, slug):
 @login_required
 def groceryUnShareList(request, user, slug):
     list = GroceryList.objects.get(slug=slug)
-    shared_list = get_object_or_404(GroceryShared, list=list, shared_to=request.user)
-    shared_list.delete()
-    messages.success("Grocery List has been un-shared")
+    shared_list = get_object_or_404(GroceryShared, list=list)
+    if shared_list.shared_to == request.user or shared_list.shared_by == request.user:
+        shared_list.delete()
+        messages.success(request, "Grocery List has been un-shared")
     return redirect('grocery_list')
 
 
