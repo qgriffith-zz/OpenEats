@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load friends_feed %}
 {% for following in following_list %}
+    <h3>{% trans 'feed for ' %} {{ following }}</h3>
      {% recipe_feed following %}
      {% rate_feed following %}
      {% list_feed following request.user %}
