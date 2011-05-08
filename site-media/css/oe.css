@@ -6,6 +6,8 @@ div#main{ background:#fff; width:100%; padding-left:10px;}
 div#logo{margin-bottom:20px; padding-top:10px;}
 div#title{background:url("../images/title-bg.gif") repeat-x top; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 
+.ui-widget-header{font-size:90%;}
+
 /*Navigation*/
 div#nav-bar{ background:url(../images/nav-bg.gif) left top repeat-x; margin-right:20px; margin-bottom:10px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 div#nav-bar ul {padding:8px 0 8px 0;}
@@ -226,3 +228,6 @@ div#tag-cloud li a:hover { color: #c53c0c; }
 .tag4 { font-size: 160%; }
 .tag5 { font-size: 180%; }
 .tag6 { font-size: 200%; }
+
+/* Friend Feed*/
+.friend-feed h3 { margin-bottom:8px; margin-top:8px;}

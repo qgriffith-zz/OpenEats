@@ -60,6 +60,7 @@
              <li><a href="/recipe/ajax-favrecipe/">{%trans 'favorites' %}({{profile.user.storedrecipe_set.count}})</a></li>
              <li><a href="/list/grocery/grocery-ajax/"> {%trans 'grocery list' %}({{profile.user.grocerylist_set.count}})</a></li>
              <li><a href="{%  url friends_following username=profile.user.username %}">{% trans 'followers' %}</a></li>
+             <li><a href="{%  url friends_feed username=profile.user.username %}">{% trans 'feed' %}</a></li>
              <li><a href="#settings">{%trans 'settings' %}</a></li>
             {% endif %}
 

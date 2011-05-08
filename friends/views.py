@@ -29,3 +29,11 @@ def follow_list(request, username):
     return render_to_response('friends/list.html', {'following_list': following_list, 'followers_list': followers_list, 'blocking_list': blocking_list,'username':  user.username}, context_instance=RequestContext(request))
 
 
+@login_required
+def feed(request, username):
+    '''finds the followers of a user' and passes it to a template that uses template tags to pull the feeds'''
+    user = get_object_or_404(User, username=username)
+    following = user.relationships.following()
+
+    return render_to_response('friends/feed.html', {'following_list': following}, context_instance=RequestContext(request))
+    
