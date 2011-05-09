@@ -197,7 +197,7 @@ def exportPDF(request, slug):
     doc = SimpleDocTemplate(response)
 
     #set the openeats logo
-    logo = "." + settings.MEDIA_URL + "images/logo.png"
+    logo = settings.MEDIA_ROOT + "/images/logo.png"
     I = Image(logo)
     I.hAlign='LEFT'
     elements.append(I)
@@ -205,7 +205,8 @@ def exportPDF(request, slug):
 
     #add the recipe photo if the recipe has one
     if recipe.photo:
-        I = Image('./' + recipe.thumbnail_image.url)
+        photo = settings.BASE_PATH + recipe.thumbnail_image.url
+        I = Image(photo)
         I.height="CENTER"
         elements.append(I)
         elements.append(Spacer(0, 0.5 * cm))
