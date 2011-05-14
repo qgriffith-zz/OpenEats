@@ -1,0 +1,28 @@
+[
+    {
+        "pk": 1, 
+        "model": "accounts.userprofiles", 
+        "fields": {
+            "update_date": "2010-08-28 13:26:40", 
+            "about": "Tell everyone something about yourself", 
+            "url": "http://www.qgriffith.com", 
+            "gender": "M", 
+            "user": 1, 
+            "pub_date": "2010-07-24 13:54:23", 
+            "location": "Durham NC"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "accounts.userprofiles", 
+        "fields": {
+            "update_date": "2010-08-12 19:44:57", 
+            "about": "Tell everyone something about yourself", 
+            "url": "", 
+            "gender": "None", 
+            "user": 2, 
+            "pub_date": "2010-08-12 19:44:57", 
+            "location": ""
+        }
+    }
+]

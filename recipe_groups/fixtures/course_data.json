@@ -27,6 +27,15 @@
         }
     }, 
     {
+        "pk": 6, 
+        "model": "recipe_groups.course", 
+        "fields": {
+            "author": 1, 
+            "slug": "dessert", 
+            "title": "dessert"
+        }
+    }, 
+    {
         "pk": 4, 
         "model": "recipe_groups.course", 
         "fields": {
