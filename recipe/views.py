@@ -58,12 +58,18 @@ def recipePrint(request, slug):
         return render_to_response('recipe/recipe_print.html', {'recipe': recipe, 'note': note},context_instance=RequestContext(request))
 
 @login_required
-def recipe(request):        
-    IngFormSet = inlineformset_factory(Recipe, Ingredient, extra=15, formset=IngItemFormSet) #creat the ingredient form with 15 empty fields
-     
+def recipe(request,user=None, slug=None):
+    '''used to create or edit a recipe'''
+    IngFormSet = inlineformset_factory(Recipe, Ingredient, extra=15, formset=IngItemFormSet) #create the ingredient form with 15 empty fields
+
+    if user and slug: #must be editing a recipe
+        recipe_inst = get_object_or_404(Recipe, author__username=user, slug=slug)
+    else:
+        recipe_inst = Recipe()
+
     if request.method=='POST':
-        form = RecipeForm(data = request.POST, files = request.FILES)
-        formset = IngFormSet(request.POST)
+        form = RecipeForm(data = request.POST, files = request.FILES,instance=recipe_inst)
+        formset = IngFormSet(request.POST, instance=recipe_inst)
         if form.is_valid() and formset.is_valid():
             new_recipe = form.save()
             instances = formset.save(commit=False)#save the ingredients seperatly
@@ -72,9 +78,9 @@ def recipe(request):
                 instance.save()
             return redirect(new_recipe.get_absolute_url())
     else:
-        form = RecipeForm()
+        form = RecipeForm(instance=recipe_inst)
         form.fields['related'].queryset =  Recipe.objects.filter(author__username=request.user.username).exclude(related = F('id')).filter(related__isnull=True).order_by('-pub_date')[:5]
-        formset = IngFormSet(queryset=Ingredient.objects.none())
+        formset = IngFormSet(instance=recipe_inst)
     return render_to_response('recipe/recipe_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
 
 def recipeUser(request, shared, user):

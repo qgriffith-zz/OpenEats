@@ -127,7 +127,8 @@ table#ing-grid td label {width:auto; margin-left:10px;}
 table#ing-grid td#quantity input { width:40px;}
 table#ing-grid td#measurement input { width:75px;}
 table#ing-grid tr.row2, table#list-grid tr.row2  { background-color: #f6f4e2;}
-
+table#ing-grid td a.delete-row {padding-left:18px; margin-left:5px; background:url(../images/delete.png) no-repeat left;}
+table#ing-grid a.add-row {padding-left:18px; background:url(../images/add.png) no-repeat left center; }
 
 /*form errors */
 

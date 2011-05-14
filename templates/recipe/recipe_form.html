@@ -14,7 +14,32 @@
 
      });
  </script>
- <script type="text/javascript" src="{{ MEDIA_URL }}js/oe.js"></script>
+<script type="text/javascript">
+$(function() {
+    $('tbody tr').formset({
+        prefix: '{{ formset.prefix }}',
+        added: function(row){
+            var txt = row.find('#ing-field input');
+            txt.unbind();
+            makeAutoComplete(); /* call the makeAutoComplete function to assign the jquery ui autocomplete to the new row added*/
+        },
+        extraClasses: ['row1', 'row2'],
+        deleteText: ''
+
+    });
+})
+
+
+function makeAutoComplete() {
+    $(function() {
+        $("#ing-field input").autocomplete({
+            source: '/ingredient/auto/',
+            minLength: 2
+        });
+    })
+    };
+makeAutoComplete()
+</script>
  <script type="text/javascript">
 
      function stopRKey(evt) {
@@ -75,17 +100,19 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {{ formset.management_form }}
-                    {% for field in formset.forms %}
-                    <tr class="{% cycle 'row1' 'row2' %}" id="ing-{{ forloop.counter }}">
-                        <td>{{ field.quantity.errors }} {{ field.quantity.label_tag|lower }}</td>
-                        <td id="quantity">{{ field.quantity }}</td>
-                        <td>{{ field.measurement.errors }} {{ field.measurement.label_tag|lower }}</td>
-                        <td id="measurement"">{{ field.measurement }}</td>
-                        <td>{{ field.title.errors }} {{ field.title.label_tag|lower }}</td>
-                        <td id="ing-field">{{ field.title }}</td>
-                        <td>{{ field.preparation.errors }} {{ field.preparation.label_tag|lower }}</td>
-                        <td id="preparation">{{ field.preparation }}</td>
+                   {% for form in formset.forms %}
+                     <tr id="{{ form.prefix }}-row" class="{% cycle 'row1' 'row2' %}">
+                        <td>{% for hid in form.hidden_fields %}{{ hid }}{% endfor %}
+                            {% if form.instance.pk %} {{  form.DELETE }}{% endif %}
+                            {{ form.quantity.errors }} {{ form.quantity.label_tag|lower }}
+                        </td>
+                        <td id="quantity">{{ form.quantity }}</td>
+                        <td>{{ form.measurement.errors }} {{ form.measurement.label_tag|lower }}</td>
+                        <td id="measurement"">{{ form.measurement }}</td>
+                        <td>{{ form.title.errors }} {{ form.title.label_tag|lower }}</td>
+                        <td id="ing-field">{{ form.title }}</td>
+                        <td>{{ form.preparation.errors }} {{ form.preparation.label_tag|lower }}</td>
+                        <td id="preparation">{{ form.preparation }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -94,7 +121,7 @@
         </div>
     </div>
 
-    <p><input type="submit" value="{% trans "New Recipe" %}" /></p>
+    <p>{{ formset.management_form }}<input type="submit" value="{% trans "New Recipe" %}" /></p>
 </form>
 
 {% endblock %}

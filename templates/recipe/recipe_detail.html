@@ -109,6 +109,9 @@
     <span id="toolbar-buttons">
          <a href="/recipe/print/{{ recipe.slug }}/">{%trans 'print' %}</a>
          <a id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a>
+        {% if recipe.author == request.user %}
+            <a href="{% url recipe_edit user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a>
+        {% endif %}
         {% fav_link request.user recipe.id %}
          <a href="{% url recipe_export slug=recipe.slug %}">pdf</a>
         {% if request.user.is_authenticated %}
