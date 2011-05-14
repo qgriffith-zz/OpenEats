@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.forms.models import inlineformset_factory
 from django.http import HttpResponse, Http404
+from django.contrib.contenttypes.models import ContentType
 from models import Recipe, StoredRecipe, NoteRecipe,ReportedRecipe
 from ingredient.models import Ingredient
 from forms import RecipeForm,IngItemFormSet
@@ -90,8 +91,9 @@ def recipeUser(request, shared, user):
 @login_required
 def recipeRate(request, object_id, score):
     ''' Used for users to rate recipes '''
+    recipe_type = ContentType.objects.get(app_label="recipe", model="recipe")
     params = {
-        'content_type_id': 16,  #this is the content type id of the recipe models per django.contrib.contentetype
+        'content_type_id': recipe_type.id,  #this is the content type id of the recipe models per django.contrib.contentetype
         'object_id': object_id,
         'field_name': 'rating', # this should match the field name defined in your model
         'score': score,
