@@ -1,0 +1,50 @@
+[
+    {
+        "pk": 2, 
+        "model": "relationships.relationshipstatus", 
+        "fields": {
+            "name": "Blocking", 
+            "to_slug": "blockers", 
+            "login_required": true, 
+            "symmetrical_slug": "!", 
+            "private": true, 
+            "verb": "block", 
+            "from_slug": "blocking"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "relationships.relationshipstatus", 
+        "fields": {
+            "name": "Following", 
+            "to_slug": "followers", 
+            "login_required": false, 
+            "symmetrical_slug": "friends", 
+            "private": false, 
+            "verb": "follow", 
+            "from_slug": "following"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "relationships.relationship", 
+        "fields": {
+            "to_user": 2,
+            "status": 1, 
+            "created": "2011-03-28 18:20:04", 
+            "site": 1, 
+            "from_user": 3
+        }
+    }, 
+    {
+        "pk": 2,
+        "model": "relationships.relationship", 
+        "fields": {
+            "to_user": 3,
+            "status": 1, 
+            "created": "2011-03-30 15:44:40", 
+            "site": 1, 
+            "from_user": 2
+        }
+    }
+]

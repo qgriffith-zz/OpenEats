@@ -12,10 +12,10 @@ import twill
 
 class RecipeTestCase(TestCase):
     '''Test the Recipe Create Form'''
-    fixtures = ['data_user.json','course_data.json', 'cuisine_data.json'] #load a user up and course and cuisine data
+    fixtures = ['test_user_data.json','course_data.json', 'cuisine_data.json'] #load a user up and course and cuisine data
     
     def setUp(self):
-        self.user = User.objects.get(pk=1)
+        self.user = User.objects.get(pk=2)
         self.assertEquals(self.user.username, 'testUser') #make sure the user works
         twill.set_output(StringIO())
         self.old_propagate = settings.DEBUG_PROPAGATE_EXCEPTIONS
