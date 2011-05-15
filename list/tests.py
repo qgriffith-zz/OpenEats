@@ -45,6 +45,30 @@ class listViewsTestCase(TestCase):
         self.assertEqual(resp.status_code, 302)
         self.assertRedirects(resp, reverse('grocery_list'))
 
+    def test_post(self):
+        '''do a simple test to test the list edit form'''
+        list = GroceryList.objects.get(pk=1)
+        data = {
+            'title':'test',
+            'author':2,
+            'groceryitem_set-TOTAL_FORMS': 1,
+            'groceryitem_set-INITIAL_FORMS':0,
+            'groceryitem_set-0-id': str(list.id),
+            'groceryitem_set-0-item': '1 gallon milk',
+            'groceryitem_set-0-aisle': 1,
+            'groceryitem_set-1-item': '1 loaf bread',
+            'groceryitem_set-1-aisle': 3,
+            'groceryitem_set-2-item': '1 carton eggs',
+            'groceryitem_set-2-aisle': 1,
+        }
+
+        self.assertEqual(list.groceryitem_set.count(), 2)
+        resp = self.client.post(reverse('grocery_edit',kwargs={'user':'testUser', 'slug':'test'}), data)
+        self.assertEqual(resp.status_code, 302)
+        self.assertRedirects(resp, reverse('grocery_show',kwargs={'user':'testUser', 'slug':'test'}))
+        self.assertEqual(list.groceryitem_set.count(), 3)
+
+
     def test_shared(self):
         '''test sharing a list allows only the shared user to access the list'''
         user1 = User.objects.get(pk=2)
@@ -76,6 +100,10 @@ class listViewsTestCase(TestCase):
         resp = self.client.get(reverse('grocery_edit', kwargs={'user':'testUser', 'slug':'test'}))
         self.assertEqual(resp.status_code, 200)
 
+        #shared user should not be able to delete the list
+        resp = self.client.get(reverse('grocery_delete', kwargs={'id':list.id}))
+        self.assertEqual(resp.status_code, 404)
+
         #make sure someone else who the list is not shared to can't access the list
         self.client.logout()
         self.client.login(username='testUser3', password='password')
@@ -83,6 +111,15 @@ class listViewsTestCase(TestCase):
         self.assertEqual(resp.status_code, 302)
         resp = self.client.get(reverse('grocery_edit', kwargs={'user':'testUser', 'slug':'test'}))
         self.assertEqual(resp.status_code, 302)
+
+        #test the shared user can unshare the list
+        self.client.logout()
+        self.client.login(username='testUser2', password='password')
+        resp = self.client.post(reverse('grocery_unshare',kwargs={'user':'testUser', 'slug':'test'}))
+        self.assertEqual(resp.status_code, 302)
+        self.assertRedirects(resp, reverse('grocery_list'))
+        self.assertFalse(list.get_shared())
+
 
 
 
