@@ -68,6 +68,35 @@ class listViewsTestCase(TestCase):
         self.assertRedirects(resp, reverse('grocery_show',kwargs={'user':'testUser', 'slug':'test'}))
         self.assertEqual(list.groceryitem_set.count(), 3)
 
+    def test_bad_post(self):
+        '''test that the grocery list form fails when it should'''
+
+        #make sure a non-existent list can't be edited
+        resp = self.client.post(reverse('grocery_edit',kwargs={'user':'testUser', 'slug':'test333'}))
+        self.assertEqual(resp.status_code, 404)
+
+        #send no data
+        list = GroceryList.objects.get(pk=1)
+        no_title = {
+            'groceryitem_set-TOTAL_FORMS': 1,
+            'groceryitem_set-INITIAL_FORMS':0,
+            'groceryitem_set-0-id': str(list.id),
+        }
+        no_item = {
+            'title':'test',
+            'author':2,
+            'groceryitem_set-TOTAL_FORMS': 1,
+            'groceryitem_set-INITIAL_FORMS':0,
+            'groceryitem_set-0-id': str(list.id),
+        }
+
+        resp = self.client.post(reverse('grocery_edit',kwargs={'user':'testUser', 'slug':'test'}),no_title)
+        self.assertEqual(resp.status_code, 200)
+        self.assertContains(resp, "This field is required")
+
+        resp = self.client.post(reverse('grocery_edit',kwargs={'user':'testUser', 'slug':'test'}),no_item)
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.context['formset'].errors, [{'item': [u'This field is required.']}])
 
     def test_shared(self):
         '''test sharing a list allows only the shared user to access the list'''
@@ -104,6 +133,9 @@ class listViewsTestCase(TestCase):
         resp = self.client.get(reverse('grocery_delete', kwargs={'id':list.id}))
         self.assertEqual(resp.status_code, 404)
 
+        #shared user should be able to add something to the list
+        self.test_post()
+
         #make sure someone else who the list is not shared to can't access the list
         self.client.logout()
         self.client.login(username='testUser3', password='password')
@@ -119,6 +151,33 @@ class listViewsTestCase(TestCase):
         self.assertEqual(resp.status_code, 302)
         self.assertRedirects(resp, reverse('grocery_list'))
         self.assertFalse(list.get_shared())
+
+    def test_delete(self):
+        '''test that only the owner of a list can delete it'''
+
+        #santity check make sure the list is owned by testUser
+        list = GroceryList.objects.get(pk=1)
+        self.assertEqual(list.author.username, 'testUser')
+
+        # try deleting an list that doesn't exist should give you a 404
+        resp = self.client.post(reverse('grocery_delete', kwargs={'id':10000}))
+        self.assertEqual(resp.status_code, 404)
+
+        #try deleting a grocery list that does not belong to the user should give a 404
+        self.client.logout()
+        self.client.login(username='testUser2', password='password')
+        resp = self.client.post(reverse('grocery_delete', kwargs={'id':list.id}))
+        self.assertEqual(resp.status_code, 404)
+
+        #removing the list
+        self.client.logout()
+        self.client.login(username='testUser', password='password')
+        resp = self.client.post(reverse('grocery_delete', kwargs={'id':list.id}))
+        self.assertEqual(resp.status_code, 302)
+        self.assertRedirects(resp, reverse('grocery_list'))
+        self.assertFalse(GroceryList.objects.filter(pk=1))
+
+
 
 
 
