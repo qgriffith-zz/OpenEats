@@ -1,1 +1,24 @@
-[{"pk": 1, "model": "recipe.recipe", "fields": {"info": "<p><span style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', verdana, geneva, sans-serif; font-size: 13px; color: #444444; line-height: 20px; word-spacing: 2px;\">I am asked all the time to make this chili. This is something I have eaten all through the years growing up and still make up a batch of it every winter.</span></p>", "cuisine": 1, "author": 2, "photo": "upload/recipe_photos/chili_qgriffith.jpg", "title": "Chili", "rating_votes": 0, "rating_score": 0, "course": 4, "servings": 8, "directions": "<ol>\r\n<li><span style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', verdana, geneva, sans-serif; font-size: 13px; color: #444444; line-height: 20px; word-spacing: 2px;\">Brown the ground pork and ground sirlion in a medium pan. Add a teaspoon of sereano pepper while browning the meat</span>&nbsp;<span style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', verdana, geneva, sans-serif; font-size: 13px; color: #444444; line-height: 20px; word-spacing: 2px;\">Season with kosher salt and pepper.</span></li>\r\n<li><span style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', verdana, geneva, sans-serif; font-size: 13px; color: #444444; line-height: 20px; word-spacing: 2px;\">Chop the onion, bell pepper and one Serrano pepper and place them in a large pot.<br /></span></li>\r\n<li><span style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', verdana, geneva, sans-serif; font-size: 13px; color: #444444; line-height: 20px; word-spacing: 2px;\">Open up and drain both cans of kidney beans and add them to the large pot.<br /></span></li>\r\n<li><span style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', verdana, geneva, sans-serif; font-size: 13px; color: #444444; line-height: 20px; word-spacing: 2px;\">Open up both cans of stewed chili style tomatoes and add them to the pot.<br /></span></li>\r\n<li><span style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', verdana, geneva, sans-serif; font-size: 13px; color: #444444; line-height: 20px; word-spacing: 2px;\">Drain the grease away from the browned meat and add the meat to the pot.<br /></span></li>\r\n<li><span style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', verdana, geneva, sans-serif; font-size: 13px; color: #444444; line-height: 20px; word-spacing: 2px;\">Pour in the tomato juice over the meat mixture.<br /></span></li>\r\n<li><span style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', verdana, geneva, sans-serif; font-size: 13px; color: #444444; line-height: 20px; word-spacing: 2px;\">Add kosher salt, black pepper, two table spoons of chili powder, and two teaspoons of ground cumin. Stir well.<br /></span></li>\r\n<li><span style=\"font-family: 'Lucida Grande', 'Lucida Sans Unicode', verdana, geneva, sans-serif; font-size: 13px; color: #444444; line-height: 20px; word-spacing: 2px;\">Cook slowly over medium low heat for an hour. If it starts to bubble turn down the heat. Taste during the cooking process to check the seasoning add more to taste.<br /></span></li>\r\n</ol>", "shared": 0, "update_date": "2010-09-12 15:07:51", "pub_date": "2010-09-12 15:07:51", "slug": "chili", "tags": "", "cook_time": 60}}]
+[
+    {
+        "pk": 1,
+        "model": "recipe.recipe", 
+        "fields": {
+            "info": "<p>This chili is requested every winter by friends and family. &nbsp;I have been  making this chili every since I was a small child and learned from my  grandm</p>", 
+            "cuisine": 10, 
+            "author": 1, 
+            "photo": "", 
+            "title": "Tasty Chili", 
+            "related": null, 
+            "rating_votes": 0, 
+            "rating_score": 0, 
+            "course": 4, 
+            "servings": 8, 
+            "directions": "<ol>\r\n<li>Brown the ground pork and ground sirlion in a medium pan. Add a   teaspoon of sereano pepper while browning the meat&nbsp;Season with kosher   salt and pepper.</li>\r\n<li>Chop the onion, bell pepper and one Serrano pepper and place them in a large pot.</li>\r\n<li>Open up and drain both cans of kidney beans and add them to the large pot.</li>\r\n<li>Open up both cans of stewed chili style tomatoes and add them to the pot.</li>\r\n<li>Drain the grease away from the browned meat and add the meat to the pot.</li>\r\n<li>Pour in the tomato juice over the meat mixture.</li>\r\n<li>Add kosher salt, black pepper, two table spoons of chili powder, and two teaspoons of ground cumin. Stir well.</li>\r\n<li>Cook slowly over medium low heat for an hour. If it starts to bubble   turn down the heat. Taste during the cooking process to check the   seasoning add more to taste.</li>\r\n</ol>", 
+            "shared": 0, 
+            "update_date": "2011-05-21 07:35:32", 
+            "pub_date": "2011-05-21 07:35:32", 
+            "slug": "tasty-chili", 
+            "cook_time": 60
+        }
+    }
+]

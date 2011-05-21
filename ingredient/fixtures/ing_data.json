@@ -1,1 +1,145 @@
-[{"pk": 7, "model": "ingredient.ingredient", "fields": {"author": 1, "slug": "black-pepper", "title": "Black pepper"}}, {"pk": 2, "model": "ingredient.ingredient", "fields": {"author": 1, "slug": "bread-crumbs", "title": "Bread crumbs"}}, {"pk": 3, "model": "ingredient.ingredient", "fields": {"author": 1, "slug": "buttermilk", "title": "Buttermilk"}}, {"pk": 5, "model": "ingredient.ingredient", "fields": {"author": 1, "slug": "dijon-mustard", "title": "Dijon mustard"}}, {"pk": 4, "model": "ingredient.ingredient", "fields": {"author": 1, "slug": "green-onion", "title": "Green onion"}}, {"pk": 1, "model": "ingredient.ingredient", "fields": {"author": 1, "slug": "ground-turkey", "title": "Ground turkey"}}, {"pk": 8, "model": "ingredient.ingredient", "fields": {"author": 1, "slug": "hamburger-buns", "title": "Hamburger buns"}}, {"pk": 6, "model": "ingredient.ingredient", "fields": {"author": 1, "slug": "worcestershire-sauce", "title": "Worcestershire sauce"}}]
+[
+    {
+        "pk": 1,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "to taste", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "dash", 
+            "title": "black pepper"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "", 
+            "recipe": 1,
+            "quantity": 4, 
+            "measurement": "tablespoons", 
+            "title": "chili powder"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "tablespoon", 
+            "title": "cumin"
+        }
+    }, 
+    {
+        "pk": 4,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "can", 
+            "title": "dark kidney beans"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "chili style", 
+            "recipe": 1,
+            "quantity": 2, 
+            "measurement": "cans", 
+            "title": "diced tomatos"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "whole", 
+            "title": "green bell pepper"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "pound", 
+            "title": "ground pork"
+        }
+    }, 
+    {
+        "pk": 8,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "pound", 
+            "title": "ground sirloin"
+        }
+    }, 
+    {
+        "pk": 9,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "to taste", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "dash", 
+            "title": "kosher salt"
+        }
+    }, 
+    {
+        "pk": 10,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "can", 
+            "title": "light kidney beans"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "whole", 
+            "title": "serrano pepper "
+        }
+    },
+    {
+        "pk": 12,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "quart", 
+            "title": "tomato juice"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "ingredient.ingredient", 
+        "fields": {
+            "preparation": "", 
+            "recipe": 1,
+            "quantity": 1, 
+            "measurement": "whole", 
+            "title": "white onion"
+        }
+    }
+]
