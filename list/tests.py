@@ -2,9 +2,10 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from list.models import GroceryList,GroceryShared
 from django.contrib.auth.models import User
+from recipe.models import Recipe
 
 class listViewsTestCase(TestCase):
-    fixtures=['test_user_data.json', 'list_test_data.json', 'aisle_data.json','test_friend_data.json']
+    fixtures=['test_user_data.json', 'list_test_data.json', 'aisle_data.json','test_friend_data.json','course_data.json', 'cuisine_data.json', 'recipe_data.json', 'ing_data.json']
     def setUp(self):
         self.client.login(username="testUser", password='password')
 
@@ -177,7 +178,35 @@ class listViewsTestCase(TestCase):
         self.assertRedirects(resp, reverse('grocery_list'))
         self.assertFalse(GroceryList.objects.filter(pk=1))
 
+    def test_addRecipe(self):
+        '''test adding recipe ingredients to a list'''
+        recipe = Recipe.objects.get(pk=1)
+        list = GroceryList.objects.get(pk=1)
 
+        #sanity check
+        self.assertEqual(recipe.slug, 'tasty-chili')
+        self.assertEqual(list.title, "test")
+        self.assertEqual(list.groceryitem_set.count(), 2)
+        self.assertFalse(GroceryList.objects.filter(pk=2))
+
+        resp = self.client.post(reverse('grocery_addrecipe',kwargs={'recipe_slug':recipe.slug}),{'recipe_slug':recipe.slug, 'lists':1, 'recipe_id':recipe.id})
+        self.assertEqual(resp.status_code, 302)
+        self.assertEqual(resp['location'], "http://testserver" + reverse('grocery_edit', kwargs={'user':'testUser', 'slug':'test'}))
+
+        #test we now have more items
+        self.assertEqual(list.groceryitem_set.count(), 14)
+
+        #test trying to do a recipe that does not exist
+        resp = self.client.post(reverse('grocery_addrecipe',kwargs={'recipe_slug':'bad-recipe'}),{'recipe_slug':'bad-recipe', 'lists':1, 'recipe_id':30000})
+        self.assertEqual(resp.status_code, 404)
+
+        #test creating a new list instead of adding to an existing list
+        resp = self.client.post(reverse('grocery_addrecipe',kwargs={'recipe_slug':recipe.slug}),{'recipe_slug':recipe.slug, 'lists':0, 'recipe_id':recipe.id}, follow=True)
+        self.assertEqual(resp.status_code, 200)
+
+        self.assertTrue(GroceryList.objects.get(pk=2))
+        list = GroceryList.objects.get(pk=2)
+        self.assertEqual(list.groceryitem_set.count(), 12)
 
 
 
