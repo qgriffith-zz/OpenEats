@@ -1,0 +1,101 @@
+[
+    {
+        "pk": 3, 
+        "model": "navbar.navbarentry", 
+        "fields": {
+            "name": "home", 
+            "parent": null, 
+            "title": "home", 
+            "url": "/recipe/", 
+            "user_type": "E", 
+            "groups": [], 
+            "path_type": "P", 
+            "order": 0
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "navbar.navbarentry", 
+        "fields": {
+            "name": "create", 
+            "parent": null, 
+            "title": "new recipe", 
+            "url": "/recipe/new/", 
+            "user_type": "L", 
+            "groups": [], 
+            "path_type": "P", 
+            "order": 1
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "navbar.navbarentry", 
+        "fields": {
+            "name": "sign in", 
+            "parent": null, 
+            "title": "sign in", 
+            "url": "/accounts/signIn/", 
+            "user_type": "A", 
+            "groups": [], 
+            "path_type": "P", 
+            "order": 3
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "navbar.navbarentry", 
+        "fields": {
+            "name": "about", 
+            "parent": null, 
+            "title": "about", 
+            "url": "/about/", 
+            "user_type": "E", 
+            "groups": [], 
+            "path_type": "P", 
+            "order": 5
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "navbar.navbarentry", 
+        "fields": {
+            "name": "admin", 
+            "parent": null, 
+            "title": "admin", 
+            "url": "/admin/", 
+            "user_type": "X", 
+            "groups": [], 
+            "path_type": "P", 
+            "order": 6
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "navbar.navbarentry", 
+        "fields": {
+            "name": "blog", 
+            "parent": null, 
+            "title": "development blog", 
+            "url": "http://oe2.openeats.org", 
+            "user_type": "E", 
+            "groups": [], 
+            "path_type": "P", 
+            "order": 6
+        }
+    },
+    {
+         "pk": 1,
+         "model": "flatpages.flatpage",
+         "fields": {
+             "registration_required": false,
+             "title": "about",
+             "url": "/about/",
+             "template_name": "flatpages/about_page.html",
+             "sites": [
+                 1
+             ],
+             "content": "OpenEats2 is a work in progress.",
+             "enable_comments": false
+         }
+     }
+]
