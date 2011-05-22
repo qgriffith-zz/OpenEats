@@ -7,6 +7,7 @@ class recipeViewsTestCase(WebTest):
     fixtures = ['test_user_data.json','course_data.json', 'cuisine_data.json', 'recipe_data.json', 'ing_data.json']
     extra_environ = {'REMOTE_ADDR': '127.0.0.1'}
     csrf_checks = False
+
     def test_redirect(self):
         '''test that if a user is not logged in and they try to create a recipe they are sent to the login page'''
         resp = self.client.get(reverse('new_recipe'))
@@ -118,6 +119,46 @@ class recipeViewsTestCase(WebTest):
 
         #try to store a non-existent recipe should raise 404
         resp = self.app.post(reverse('recipe_unstore'),{'recipe_id':10000}, user='testUser', status=404)
+        self.assertEqual(resp.status, '404 NOT FOUND')
+
+    def test_print(self):
+        '''test the print view comes up'''
+        recipe = Recipe.objects.get(pk=1)
+        resp  = self.client.get(reverse('print_recipe', kwargs={'slug': recipe.slug}))
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(resp.context['recipe'].slug, recipe.slug)
+        self.assertEqual(resp.template.name, 'recipe/recipe_print.html')
+
+    def test_edit(self):
+        recipe = Recipe.objects.get(pk=1)
+
+        #sanitty check
+        self.assertEqual(recipe.author.username, 'admin')
+        self.assertEqual(recipe.servings, 8)
+        self.assertEqual(recipe.ingredient_set.count(), 12)
+        resp = self.app.get(reverse('recipe_edit', kwargs={'user':'admin', 'slug':recipe.slug}), user='admin')
+        self.assertEqual(resp.status, '200 OK')
+        self.assertTrue(resp.forms[1])
+        form = resp.forms[1]
+        form['servings'] = 10
+        form['ingredient_set-13-quantity'] = 1
+        form['ingredient_set-13-measurement'] = 'cup'
+        form['ingredient_set-13-title'] = 'cheddar cheese'
+        resp = form.submit().follow()
+        self.assertEqual(resp.context['recipe'].slug, 'tasty-chili')
+        self.assertEqual(resp.request.url, 'http://localhost' + reverse('recipe_show',kwargs={'slug': recipe.slug}))
+
+        #make sure the form saved our changes
+        recipe = Recipe.objects.get(pk=1) #got to get the recipe again so that it gets our new numbers after the save
+        self.assertEqual(recipe.servings, 10)
+        self.assertEqual(recipe.ingredient_set.count(), 13)
+
+        #test editing a non-existant recipe
+        resp = self.app.get(reverse('recipe_edit', kwargs={'user':'admin', 'slug':'bad-recipe'}), user='admin', status=404)
+        self.assertEqual(resp.status, '404 NOT FOUND')
+
+        #try having another user edit someone elses recipe
+        resp = self.app.get(reverse('recipe_edit', kwargs={'user':'admin', 'slug':recipe.slug}), user='testUser', status=404)
         self.assertEqual(resp.status, '404 NOT FOUND')
 
 
