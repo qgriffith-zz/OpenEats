@@ -121,6 +121,28 @@ class recipeViewsTestCase(WebTest):
         resp = self.app.post(reverse('recipe_unstore'),{'recipe_id':10000}, user='testUser', status=404)
         self.assertEqual(resp.status, '404 NOT FOUND')
 
+    def test_report(self):
+        '''test that a recipe is reported bad when a user reports it'''
+        recipe = Recipe.objects.get(pk=1)
+        self.assertFalse(recipe.get_reported())
+        resp = self.app.post(reverse('recipe_report', kwargs={'slug':recipe.slug}),user='testUser2')
+        self.assertEqual(resp.status, '200 OK')
+        self.assertTrue('Recipe reported to the moderators!' in resp)
+
+        #check it updated the DB
+        recipe = Recipe.objects.get(pk=1)
+        self.assertTrue(recipe.get_reported())
+
+        #try to report a recipe that does not exist
+        resp = self.app.post(reverse('recipe_report', kwargs={'slug':'bad-recipe'}),user='testUser2', status=404)
+        self.assertEqual(resp.status, '404 NOT FOUND')
+
+        #try to report a recipe that is already reported
+        resp = self.app.post(reverse('recipe_report', kwargs={'slug':recipe.slug}),user='testUser2')
+        self.assertEqual(resp.status, '200 OK')
+        self.assertTrue('Recipe has already been reported!' in resp)
+
+
     def test_print(self):
         '''test the print view comes up'''
         recipe = Recipe.objects.get(pk=1)
