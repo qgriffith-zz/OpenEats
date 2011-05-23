@@ -3,7 +3,7 @@ from haystack.indexes import *
 from haystack import site
 from models import Recipe
 
-class RecipeIndex(SearchIndex):
+class RecipeIndex(RealTimeSearchIndex):
     text = CharField(document=True, use_template=True)
     author = CharField(model_attr='author')
     course = CharField(model_attr='course')
