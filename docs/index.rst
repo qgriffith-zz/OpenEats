@@ -15,6 +15,7 @@ Getting Started
 .. toctree::
     :maxdepth: 2
     :numbered:
+
     intro
     install
 

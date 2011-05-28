@@ -15,3 +15,5 @@ and several django plugins.  Some of the features of OpenEats are;
 * Comment on recipes
 * 100% OpenSource and free
 * A complete administration backend to maintain your site
+* Export recipes to PDF or MealMaster format
+* Internationalization Support
