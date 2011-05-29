@@ -6,15 +6,15 @@ TEMPLATE_DEBUG = DEBUG
 SERVE_MEDIA = True
 
 ADMINS = (
-     ('Quenten Griffith', 'qgriffith@openeats.org'),
+    # ('Your Name', 'youremail@email.com'),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': './db/oe.db',                      # Or path to database file if using sqlite3.
+        'ENGINE': '', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -159,13 +159,13 @@ INSTALLED_APPS = (
 )
 
 
-INTERNAL_IPS = ('127.0.0.1','192.168.1.2')
+INTERNAL_IPS = ('127.0.0.1')
+
 ### DEBUG-TOOLBAR SETTINGS
 DEBUG_TOOLBAR_CONFIG = {
 'INTERCEPT_REDIRECTS': False,
 }
 
-#django-degug-toolbar
 DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.version.VersionDebugPanel',
     'debug_toolbar.panels.timer.TimerDebugPanel',
@@ -176,6 +176,7 @@ DEBUG_TOOLBAR_PANELS = (
     'debug_toolbar.panels.sql.SQLDebugPanel',
     'debug_toolbar.panels.logger.LoggingPanel',
 )
+
 #registration
 LOGIN_REDIRECT_URL = "/recipe/"
 ACCOUNT_ACTIVATION_DAYS = 7
