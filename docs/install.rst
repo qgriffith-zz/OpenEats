@@ -94,14 +94,11 @@ To install `virtualenvwrapper`_  from the command line type
 .. code-block:: bash
     pip install virtualenvwrapper
 
-..virtualenvwrapper: http://www.doughellmann.com/docs/virtualenvwrapper/
-
 Creating the virtualenv
 ========================
 
-To create the skeleton virtualenv run the following commands
+To create the skeleton virtualenv run the following commands::
 
-.. code-block:: bash
     export WORKON_HOME=~/Envs
     mkdir -p $WORKON_HOME
     source /usr/local/bin/virtualenvwrapper.sh
@@ -123,7 +120,7 @@ Installing
 * Unzip the files into a directory that your web server can access
 * Install the `requirements`_
 
-.._github: https://github.com/qgriffith/OpenEats
+.. _github: https://github.com/qgriffith/OpenEats
 
 
 .. _requirements:
@@ -133,9 +130,8 @@ To install all the packages that OpenEats2 requires perform the following steps.
 
 * Activate your virtualenv
 * Change to the directory that you unzipped the OpenEats2 files into
-* Run the following command
+* Run the following command::
 
-.. code-block:: bash
     pip install -r OE2_Requirements.txt
 
 Database
@@ -150,9 +146,8 @@ MySQL
 To install the 'MySQL-Python'_ module perform the following steps
 
 * Activate your OpenEats2 virtualenv
-* Run the following command
+* Run the following command::
 
-.. code-block:: bash
     pip install mysql-python
 
 
@@ -168,9 +163,8 @@ OpenEats2 has default data that needs to be loaded into the database.
 Required Data
 --------------
 
-Running the following command from the OpenEats2 directory, should load the required data
+Running the following command from the OpenEats2 directory, should load the required data::
 
-.. code-block:: bash
     ./manage.py syncdb
     ./manage.py migrate
 
@@ -179,9 +173,8 @@ Running the following command from the OpenEats2 directory, should load the requ
 Optional Data
 --------------
 
-You can pre-load courses and cuisines by running the following commands from the OpenEats2 directory
+You can pre-load courses and cuisines by running the following commands from the OpenEats2 directory::
 
-.. code-block:: bash
     ./manage.py loadata recipe_groups/fixtures/course_data.json
     ./manage.py loaddata recipe_groups/fixtures/cuisine_data.json
     
