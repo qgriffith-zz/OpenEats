@@ -87,17 +87,14 @@ To install `virtualenv`_ from the command line type
 .. code-block:: bash
     pip install virtualenv
 
-.. _virtualenv: http://pypi.python.org/pypi/virtualenv
-
-You will also want to install the `virtualenvwrapper`_ package to make management of hte virtual environment simpler
-
-.._virtualenvwrapper: http://www.doughellmann.com/docs/virtualenvwrapper/
+You will also want to install the `virtualenvwrapper`_ package to make management of the virtual environment simpler
 
 To install `virtualenvwrapper`_  from the command line type
 
 .. code-block:: bash
     pip install virtualenvwrapper
 
+..virtualenvwrapper: http://www.doughellmann.com/docs/virtualenvwrapper/
 
 Creating the virtualenv
 ========================
@@ -112,7 +109,11 @@ To create the skeleton virtualenv run the following commands
     workon openeats
 
 .. note:: You can set your workon home directory anywhere you want it doesn't have to be in the Envs directory
-          The virtualenvwrapper.sh may not be located in /usr/local/bin it varies by operating system
+          The virtualenvwrapper.sh may not be located in /usr/local/bin it varies by operating system.  For help
+           with `virtualenvwrapper`_ vist their site.
+
+.. _virtualenv: http://pypi.python.org/pypi/virtualenv
+.. _virtualenvwrapper: http://www.doughellmann.com/docs/virtualenvwrapper/
 
 ***************************
 Installing
@@ -137,8 +138,53 @@ To install all the packages that OpenEats2 requires perform the following steps.
 .. code-block:: bash
     pip install -r OE2_Requirements.txt
 
+Database
+=========
+OpenEats2 has been tested with `MySQL`_ and `SQLite`_  technically it should be able to work under
+any 'django supported'_ database.  SQLite is built into python and does not require any additional software.
 
 
+MySQL
+------
+
+To install the 'MySQL-Python'_ module perform the following steps
+
+* Activate your OpenEats2 virtualenv
+* Run the following command
+
+.. code-block:: bash
+    pip install mysql-python
+
+
+.. _MySQL: http://www.mysql.com
+.. _SQLite: http://www.sqlite.org/
+.. _django supported: https://docs.djangoproject.com/en/1.2/ref/databases/
+
+Load Initial Data
+==================
+
+OpenEats2 has default data that needs to be loaded into the database.
+
+Required Data
+--------------
+
+Running the following command from the OpenEats2 directory, should load the required data
+
+.. code-block:: bash
+    ./manage.py syncdb
+    ./manage.py migrate
+
+.. note:: Before you run this make sure you have setup your database in the settings.py file
+
+Optional Data
+--------------
+
+You can pre-load courses and cuisines by running the following commands from the OpenEats2 directory
+
+.. code-block:: bash
+    ./manage.py loadata recipe_groups/fixtures/course_data.json
+    ./manage.py loaddata recipe_groups/fixtures/cuisine_data.json
+    
 
 
 
