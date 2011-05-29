@@ -12,12 +12,12 @@ Requirements
 * `django-disqus`_ 0.4.1
 * `django-imagekit`_ 0.3.3
 * `django-reversion`_ 1.3.1
-* `django-taggit`_0.9.3
+* `django-taggit`_ 0.9.3
 * `akismet`_ 0.2.0
 * `PIL`_ 1.1.7
 * `django_navbar`_ 0.3.0
 * `django-profiles`_ 0.2
-* `feedparser` _ 4.1
+* `feedparser`_ 4.1
 * `html5lib`_ 0.90
 * `whoosh`_ 1.8.3
 * `django-generic-flatblocks`_
@@ -32,14 +32,14 @@ Requirements
 ************
 Optional
 ************
-* 'webtest'_ 1.2.3 used for testing
-* 'django-webtest'_ 1.2.1 used for testing
-* 'django-sentry'_ 1.3.13 used for debugging and troubleshooting errors
-* 'django-indxer'_ 0.2 used by django-sentry
-* 'django-paging'_ 0.2.2 used by django-sentry
-* 'django-extensions'_ 0.6 extra management commands
-* 'django-rosetta'_ 0.6.0 used to ease translations
-* 'django-debug-toolbar'_ 0.8.4 used to help troubleshooting
+* `webtest`_ 1.2.3 used for testing
+* `django-webtest`_ 1.2.1 used for testing
+* `django-sentry`_ 1.3.13 used for debugging and troubleshooting errors
+* `django-indxer`_ 0.2 used by django-sentry
+* `django-paging`_ 0.2.2 used by django-sentry
+* `django-extensions`_ 0.6 extra management commands
+* `django-rosetta`_ 0.6.0 used to ease translations
+* `django-debug-toolbar`_ 0.8.4 used to help troubleshooting
 
 .. _Python: http://www.python.org
 .. _Django: http://www.djangoproject.com
