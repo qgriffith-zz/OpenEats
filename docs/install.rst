@@ -72,6 +72,72 @@ Optional
 .. _django-rosetta: http://code.google.com/p/django-rosetta/
 .. _django-debug-toolbar: http://pypi.python.org/pypi/django-debug-toolbar/0.8.4
 
+***************************
+Python Virtual Environment
+***************************
+The easiest way to install OpenEats2, is to create a python virtual environment.  This allows for
+keeping all the packages for OpenEats2 in a separate place.  Saving the hassel of dealing with application dependencies.
+
+
+Installing virtualenv
+=======================
+
+To install `virtualenv`_ from the command line type
+
+.. code-block:: bash
+    pip install virtualenv
+
+.. _virtualenv: http://pypi.python.org/pypi/virtualenv
+
+You will also want to install the `virtualenvwrapper`_ package to make management of hte virtual environment simpler
+
+.._virtualenvwrapper: http://www.doughellmann.com/docs/virtualenvwrapper/
+
+To install `virtualenvwrapper`_  from the command line type
+
+.. code-block:: bash
+    pip install virtualenvwrapper
+
+
+Creating the virtualenv
+========================
+
+To create the skeleton virtualenv run the following commands
+
+.. code-block:: bash
+    export WORKON_HOME=~/Envs
+    mkdir -p $WORKON_HOME
+    source /usr/local/bin/virtualenvwrapper.sh
+    mkvirtualenv openeats
+    workon openeats
+
+.. note:: You can set your workon home directory anywhere you want it doesn't have to be in the Envs directory
+          The virtualenvwrapper.sh may not be located in /usr/local/bin it varies by operating system
+
+***************************
+Installing
+***************************
+
+* Download the latest package from `github`_
+* Unzip the files into a directory that your web server can access
+* Install the `requirements`_
+
+.._github: https://github.com/qgriffith/OpenEats
+
+
+.. _requirements:
+Installing Requirements packages
+================================
+To install all the packages that OpenEats2 requires perform the following steps.
+
+* Activate your virtualenv
+* Change to the directory that you unzipped the OpenEats2 files into
+* Run the following command
+
+.. code-block:: bash
+    pip install -r OE2_Requirements.txt
+
+
 
 
 
