@@ -158,7 +158,7 @@ To install the 'MySQL-Python'_ module perform the following steps
 Load Initial Data
 ==================
 
-OpenEats2 has default data that needs to be loaded into the database.
+OpenEats2 comes with default data that needs to be loaded into the database.
 
 Required Data
 --------------
