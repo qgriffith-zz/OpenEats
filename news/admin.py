@@ -3,7 +3,6 @@ from models import Entry
 from reversion.admin import VersionAdmin
 
 class EntryAdmin(VersionAdmin):
-     prepopulated_fields = { 'slug' : ['title']}
      search_fields = ['title',]
      class Media:
         js = ['/site-media/admin/tinymce/jscripts/tiny_mce/tiny_mce.js', '/site-media/js/tinymce_setup.js',]
