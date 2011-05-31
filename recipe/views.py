@@ -218,7 +218,7 @@ def exportPDF(request, slug):
     doc = SimpleDocTemplate(response)
 
     #set the openeats logo
-    logo = settings.MEDIA_ROOT + "/images/logo.png"
+    logo = settings.MEDIA_ROOT + "/" + settings.OELOGO
     I = Image(logo)
     I.hAlign='LEFT'
     elements.append(I)

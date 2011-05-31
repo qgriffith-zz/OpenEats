@@ -1,7 +1,7 @@
 # Django settings for openeats project.
 import os
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 SERVE_MEDIA = True
 
@@ -158,6 +158,9 @@ INSTALLED_APPS = (
     'openeats.list',
 )
 
+
+#OpenEats2 Settings
+OELOGO = 'images/oelogo.png'
 
 INTERNAL_IPS = ('127.0.0.1')
 
