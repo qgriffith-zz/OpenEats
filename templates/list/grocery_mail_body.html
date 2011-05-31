@@ -8,7 +8,7 @@
     </head>
     <body>
         <div id="grocery-print">
-            <img src="http://{{ request.get_host }}{{ MEDIA_URL }}/images/logo.png" alt="OpenEats logo" />
+            <img src="http://{{ request.get_host }}{{ OELOGO }}" alt="OpenEats logo" />
             <h2>{% trans 'grocery list ' %}{{ list }}</h2>
                 {% load grocery_item %}
                 {% item_tag list.groceryitem_set.all %}

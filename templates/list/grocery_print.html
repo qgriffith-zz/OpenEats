@@ -9,7 +9,7 @@
     <body>
         <a id="notvisable" href="javascript:window.print()">Print</a>
         <div id="grocery-print">
-            <img src="{{ MEDIA_URL }}/images/logo.png" alt="OpenEats logo" />
+            <img src="{{ OELOGO }}" alt="OpenEats logo" />
             <h2>{% trans 'grocery list ' %}{{ list }}</h2>
                 {% load grocery_item %}
                 {% item_tag list.groceryitem_set.all %}
