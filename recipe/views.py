@@ -15,6 +15,9 @@ from reportlab.lib import colors
 from reportlab.lib.units import cm
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.platypus import *
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfbase.pdfmetrics import registerFontFamily
 
 def index(request):
     recipe_list = Recipe.objects.filter(shared=Recipe.SHARE_SHARED).exclude(photo='').order_by('-pub_date')[0:6]
@@ -183,6 +186,12 @@ def recipeNote(request):
 def exportPDF(request, slug):
     '''Exports recipes to a pdf'''
 
+    pdfmetrics.registerFont(TTFont('Vera', 'Vera.ttf'))
+    pdfmetrics.registerFont(TTFont('VeraBd', 'VeraBd.ttf'))
+    pdfmetrics.registerFont(TTFont('VeraIt', 'VeraIt.ttf'))
+    pdfmetrics.registerFont(TTFont('VeraBI', 'VeraBI.ttf'))
+    registerFontFamily('Vera',normal='Vera',bold='VeraBd',italic='VeraIt',boldItalic='VeraBI')
+
     recipe = get_object_or_404(Recipe, slug=slug)
 
     # Create the HttpResponse object with the appropriate PDF headers.
@@ -194,12 +203,14 @@ def exportPDF(request, slug):
 
     #set up our styles
     styles = getSampleStyleSheet()
-    styleT = styles['Title']
-    styleT.textColor = colors.green
     styleH1 = styles['Heading1']
     styleH1.textColor= colors.green
+    styleH1.fontName='VeraBd'
     styleH2 = styles['Heading2']
     styleH2.textColor=colors.goldenrod
+    styleH2.fontName='Vera'
+    styleNormal = styles['Normal']
+    styleNormal.fontName='Vera'
 
     #create the pdf doc
     doc = SimpleDocTemplate(response)
@@ -222,7 +233,7 @@ def exportPDF(request, slug):
     # add the meat of the pdf
     elements.append(Paragraph(recipe.title, styleH1))
     elements.append(Paragraph('info', styleH2))
-    elements.append(Paragraph(recipe.info, styles["Normal"]))
+    elements.append(Paragraph(recipe.info, styleNormal))
     elements.append(Paragraph('ingredients', styleH2))
 
     for ing in recipe.ingredient_set.all():
@@ -230,7 +241,7 @@ def exportPDF(request, slug):
         elements.append(Paragraph(ing, styles['Bullet']))
 
     elements.append(Paragraph('directions', styleH2))
-    elements.append(Paragraph(recipe.directions, styles["Normal"]))
+    elements.append(Paragraph(recipe.directions, styleNormal))
 
     #build the pdf and return it
     doc.build(elements)
