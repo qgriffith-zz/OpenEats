@@ -211,6 +211,8 @@ def exportPDF(request, slug):
     styleH2.fontName='Vera'
     styleNormal = styles['Normal']
     styleNormal.fontName='Vera'
+    styleBullet = styles['Bullet']
+    styleBullet.fontName='VeraIt'
 
     #create the pdf doc
     doc = SimpleDocTemplate(response)
@@ -238,7 +240,7 @@ def exportPDF(request, slug):
 
     for ing in recipe.ingredient_set.all():
         ing = "%s %s %s %s" %(ing.quantity, ing.measurement, ing.title, ing.preparation)
-        elements.append(Paragraph(ing, styles['Bullet']))
+        elements.append(Paragraph(ing, styleBullet))
 
     elements.append(Paragraph('directions', styleH2))
     elements.append(Paragraph(recipe.directions, styleNormal))
