@@ -1,7 +1,7 @@
 # Django settings for openeats project.
 import os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 SERVE_MEDIA = True
 
