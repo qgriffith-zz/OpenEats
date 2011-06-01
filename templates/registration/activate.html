@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div id="registration-complete">
+    <h2>{%trans 'Account activation key is invalid!' %}</h2>
+    <p>{% block trans %}The activation key,  {{ activation_key }} is invalid. Please try to register again {% endblock %}</p>
+</div>
+{% endblock %}
