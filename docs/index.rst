@@ -18,7 +18,8 @@ Getting Started
 
     intro
     install
-
+    config
+    admin
 
 
 
