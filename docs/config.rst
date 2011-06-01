@@ -23,7 +23,7 @@ settings with your own email server settings::
     EMAIL_PORT =
     #EMAIL_USE_TLS = True
 
-.. note:: If you do not have your own email server you can use Gmail if you have a gmail account. Follow this 'gmail guide'_
+.. note:: If you do not have your own email server you can use Gmail if you have a gmail account. Follow this `gmail guide`_
           to learn how.
 .. _gmail guide: http://komunitasweb.com/2010/06/sending-email-using-gmail-account-in-django/
 
@@ -40,7 +40,7 @@ Change the oelogo.png to what ever your logo image name is and place your new lo
 Comments
 #########
 
-OpenEats2 uses 'Disqus'_ for its comment system.  In order to use Disqus on your OpenEats2 site you will need to apply
+OpenEats2 uses `Disqus`_ for its comment system.  In order to use Disqus on your OpenEats2 site you will need to apply
 for an API key and register your site.
 
 Disqus API Key
