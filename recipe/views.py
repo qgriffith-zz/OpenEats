@@ -83,6 +83,10 @@ def recipe(request,user=None, slug=None):
     else:
         form = RecipeForm(instance=recipe_inst)
         form.fields['related'].queryset =  Recipe.objects.filter(author__username=request.user.username).exclude(related = F('id')).filter(related__isnull=True).order_by('-pub_date')[:5]
+
+        if recipe_inst.id:  #if we are editing an existing recipe disable the title field so it can't be changed
+            form.fields['title'].widget.attrs['readonly'] = True
+        
         formset = IngFormSet(instance=recipe_inst)
     return render_to_response('recipe/recipe_form.html', {'form': form, 'formset' : formset,}, context_instance=RequestContext(request))
 
