@@ -36,6 +36,19 @@ If you want to change the logo to your own logo you can modify the OELOGO settin
 
 Change the oelogo.png to what ever your logo image name is and place your new logo in *site-media/images* directory
 
+Debug
+======
+
+By default OpenEats2 is in debug mode to allow users to find issues with their site during initial setup.  Once
+conferable with your site you should turn debug mode off by changing the following line in your settings.py file and
+restarting your webserver::
+
+    DEBUG = True
+
+    change to
+
+    DEBUG = False
+    
 #########
 Comments
 #########
