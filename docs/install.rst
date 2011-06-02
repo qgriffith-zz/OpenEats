@@ -94,6 +94,7 @@ To install `virtualenvwrapper`_  from the command line type
 .. code-block:: bash
     pip install virtualenvwrapper
 
+.. _virtualenv-label:
 Creating the virtualenv
 ========================
 
@@ -118,7 +119,7 @@ Installing
 
 * Download the latest package from `github`_
 * Unzip the files into a directory that your web server can access
-* Install the `requirements`_
+* Install the required packages
 
 .. _github: https://github.com/qgriffith/OpenEats
 
@@ -143,7 +144,7 @@ any 'django supported'_ database.  SQLite is built into python and does not requ
 MySQL
 ------
 
-To install the 'MySQL-Python'_ module perform the following steps
+To install the `MySQL-Python`_ module perform the following steps
 
 * Activate your OpenEats2 virtualenv
 * Run the following command::
@@ -168,7 +169,8 @@ Running the following command from the OpenEats2 directory, should load the requ
     ./manage.py syncdb
     ./manage.py migrate
 
-.. note:: Before you run this make sure you have setup your database in the settings.py file
+.. note:: Before you run this make sure you have setup your database in the settings.py file. For more
+          information on this see ref:`database-config`.
 
 Optional Data
 --------------
