@@ -82,19 +82,18 @@ keeping all the packages for OpenEats2 in a separate place.  Saving the hassel o
 Installing virtualenv
 =======================
 
-To install `virtualenv`_ from the command line type
+To install `virtualenv`_ from the command line type::
 
-.. code-block:: bash
     pip install virtualenv
 
 You will also want to install the `virtualenvwrapper`_ package to make management of the virtual environment simpler
 
-To install `virtualenvwrapper`_  from the command line type
+To install `virtualenvwrapper`_  from the command line type::
 
-.. code-block:: bash
     pip install virtualenvwrapper
 
 .. _virtualenv-label:
+
 Creating the virtualenv
 ========================
 
@@ -108,7 +107,7 @@ To create the skeleton virtualenv run the following commands::
 
 .. note:: You can set your workon home directory anywhere you want it doesn't have to be in the Envs directory
           The virtualenvwrapper.sh may not be located in /usr/local/bin it varies by operating system.  For help
-           with `virtualenvwrapper`_ vist their site.
+          with `virtualenvwrapper`_ vist their site.
 
 .. _virtualenv: http://pypi.python.org/pypi/virtualenv
 .. _virtualenvwrapper: http://www.doughellmann.com/docs/virtualenvwrapper/
@@ -125,6 +124,7 @@ Installing
 
 
 .. _requirements:
+
 Installing Requirements packages
 ================================
 To install all the packages that OpenEats2 requires perform the following steps.
@@ -152,6 +152,7 @@ To install the `MySQL-Python`_ module perform the following steps
     pip install mysql-python
 
 
+.. _MySQL-Python: https://sourceforge.net/projects/mysql-python/
 .. _MySQL: http://www.mysql.com
 .. _SQLite: http://www.sqlite.org/
 .. _django supported: https://docs.djangoproject.com/en/1.2/ref/databases/
