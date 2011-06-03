@@ -3,10 +3,12 @@ Configuration
 #############
 
 This document covers the configuration settings for OpenEats2
+
 .. _database-config:
+
 Database
 =========
-To setup Django for your database refer to the 'Django Database'_ document
+To setup Django for your database refer to the `Django Database`_ document
 
 .. _Django Database: https://docs.djangoproject.com/en/1.2/intro/tutorial01/#database-setup
 

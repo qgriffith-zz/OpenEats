@@ -138,7 +138,7 @@ To install all the packages that OpenEats2 requires perform the following steps.
 Database
 =========
 OpenEats2 has been tested with `MySQL`_ and `SQLite`_  technically it should be able to work under
-any 'django supported'_ database.  SQLite is built into python and does not require any additional software.
+any `django supported`_ database.  SQLite is built into python and does not require any additional software.
 
 
 MySQL
@@ -170,8 +170,8 @@ Running the following command from the OpenEats2 directory, should load the requ
     ./manage.py syncdb
     ./manage.py migrate
 
-.. note:: Before you run this make sure you have setup your database in the settings.py file. For more
-          information on this see ref:`database-config`.
+.. note:: Before you run this make sure you have setup your database in the settings.py file.
+          For more information on this see :ref:`database-config`
 
 Optional Data
 --------------

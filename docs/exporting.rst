@@ -14,7 +14,7 @@ recipes.
 Export all Recipes
 ===================
 To export all the recipes on your site to the MealMaster format, you will need to run a command from the directory you
-installed OpenEats2.  Activate your virtualenv, see ref:`virtualenv-label` then run the following command from the
+installed OpenEats2.  Activate your virtualenv, see :ref:`virtualenv-label` then run the following command from the
 OpenEats2 directory::
 
     ./manage.py export_recipes > recipe.txt
