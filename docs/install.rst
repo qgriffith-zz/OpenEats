@@ -182,5 +182,20 @@ You can pre-load courses and cuisines by running the following commands from the
     ./manage.py loaddata recipe_groups/fixtures/cuisine_data.json
     
 
+Running
+-------
+After the install you can run the following command to start the internal Django webserver.  This will allow you to
+test your site prior to setting up a "real" webserver such as Apache::
+
+    ./manage.py runserver
+
+This will bind the webserver to port 8000 on 127.0.0.1 otherwise known as localhost.  If you are deploying OpenEats2 to
+a remote server and not your local computer run the following command instead::
+
+    ./manage.py runserver 0.0.0.0:8000
+
+You should then be able to access your new OpenEats2 site by pointing your browser to your URL with port 8000::
+
+    http://yoursite:8000
 
 

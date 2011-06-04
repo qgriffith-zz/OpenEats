@@ -20,7 +20,9 @@ Getting Started
     install
     config
     admin
+    testing
     exporting
+
 
 
 
