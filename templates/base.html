@@ -33,12 +33,13 @@
   
     </head>
     <body>
-            <div id="sidebar">
-                {% block sidebar %}
+    <div id="body-wrap">
+        <div id="sidebar">
+            {% block sidebar %}
                 {% load sidebar %}
-                 {% browse_tag %}
-              {% endblock %}
-            </div>
+                {% browse_tag %}
+            {% endblock %}
+        </div>
         <div id="page-wrap">
 
             <div id="main">
@@ -87,6 +88,7 @@
             </div><!---end main -->
         
         </div><!--- end page wrap div -->
+    </div> <!--- end body wrap div -->
         
     </body>
 </html>
