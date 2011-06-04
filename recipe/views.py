@@ -98,9 +98,9 @@ def recipeUser(request, shared, user):
        then only the private recipes will be shown this is mostly used for the users profile to display the users recipes
     '''
     if shared =='share':
-        recipe_list = Recipe.objects.filter(author__username=user, shared = Recipe.SHARE_SHARED)
+        recipe_list = Recipe.objects.filter(author__username=user, shared = Recipe.SHARE_SHARED).order_by('-pub_date')
     else:
-        recipe_list = Recipe.objects.filter(author__username=user, shared = Recipe.PRIVATE_SHARED)
+        recipe_list = Recipe.objects.filter(author__username=user, shared = Recipe.PRIVATE_SHARED).order_by('-pub_date')
        
     return render_to_response('recipe/recipe_userlist.html', {'recipe_list': recipe_list, 'user': user, 'shared': shared}, context_instance=RequestContext(request))
 
