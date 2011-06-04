@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.forms.models import inlineformset_factory
 from django.http import HttpResponse, Http404
 from django.contrib.contenttypes.models import ContentType
+from django.utils.translation import ugettext as _
 from models import Recipe, StoredRecipe, NoteRecipe,ReportedRecipe
 from ingredient.models import Ingredient
 from forms import RecipeForm,IngItemFormSet
@@ -43,7 +44,8 @@ def recipeShow(request, slug):
         note = None
     
     if recipe.shared == Recipe.PRIVATE_SHARED and recipe.author != request.user: #check if the recipe is a private recipe if so through a 404 error
-        raise Http404("Recipe %s is marked Private"  % recipe.slug)
+        output = _("Recipe %s is marked Private")  % recipe.slug
+        raise Http404(output)
     else:
         return render_to_response('recipe/recipe_detail.html', {'recipe': recipe, 'note': note}, context_instance=RequestContext(request))
     
@@ -56,7 +58,8 @@ def recipePrint(request, slug):
          note = None
      
      if recipe.shared == Recipe.PRIVATE_SHARED and recipe.author != request.user: #check if the recipe is a private recipe if so through a 404 error
-        raise Http404("Recipe %s is marked Private"  % recipe.slug)
+         output = _("Recipe %s is marked Private")  % recipe.slug
+         raise Http404(output)
      else:
         return render_to_response('recipe/recipe_print.html', {'recipe': recipe, 'note': note},context_instance=RequestContext(request))
 
@@ -128,12 +131,14 @@ def recipeStore(request, object_id):
     '''
     stored = StoredRecipe.objects.filter(recipe=object_id, user=request.user.id)
     if stored:
-        return HttpResponse("Recipe already in your favorites!")
+        output = _("Recipe already in your favorites!")
+        return HttpResponse(output)
     else: #save the recipe
         r = get_object_or_404(Recipe, pk=object_id)
         new_store = StoredRecipe(recipe=r, user=request.user)
         new_store.save()
-        return HttpResponse("Recipe added to your favorites!")
+        output = _("Recipe added to your favorites!")
+        return HttpResponse(output)
         
 
 @login_required
@@ -261,11 +266,13 @@ def recipeReport(request, slug):
     recipe = get_object_or_404(Recipe, slug=slug)
     reported = ReportedRecipe.objects.filter(recipe=recipe.pk)
     if reported:
-        return HttpResponse("Recipe has already been reported!")
+        output = _("Recipe has already been reported!")
+        return HttpResponse(output)
     else: #report the recipe
         new_reported = ReportedRecipe(recipe=recipe, reported_by=request.user)
         new_reported.save()
-        return HttpResponse("Recipe reported to the moderators!")
+        output = _("Recipe reported to the moderators!")
+        return HttpResponse(output)
 
 
     

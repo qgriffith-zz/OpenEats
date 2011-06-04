@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.core.urlresolvers import reverse
 from django.forms.models import inlineformset_factory
+from django.utils.translation import ugettext as _
 from recipe.models import Recipe
 from models import GroceryList, GroceryItem, GroceryShared
 from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList,GrocerySendMail, GroceryShareTo
@@ -23,7 +24,8 @@ def groceryDelete(request, id):
     ''' takes the id of a list andremoves a users grocery list'''
     list = get_object_or_404(GroceryList, author=request.user, id=id)
     list.delete()
-    messages.success(request, 'Your grocery list has been removed.')
+    output = _('Your grocery list has been removed.')
+    messages.success(request, output)
     return HttpResponseRedirect(reverse('list.views.index'))
 
 @login_required
@@ -55,10 +57,12 @@ def groceryCreate(request, user=None, slug=None):
             shared = GroceryShared.objects.filter(list=cur_list) #check to see if this list is shared
             if shared:
                 if shared[0].shared_to_id != request.user.id:
-                    messages.error(request,'You do not have permissions to edit this list ')
+                    output = _('You do not have permissions to edit this list ')
+                    messages.error(request,output)
                     return  redirect('grocery_list')
             else:
-                messages.error(request, 'You do not have permissions to edit this list ')
+                output = _('You do not have permissions to edit this list ')
+                messages.error(request, output)
                 return  redirect('grocery_list')
 
     else:
@@ -91,10 +95,12 @@ def groceryShow(request, slug, user, template_name='list/grocery_detail.html'):
         shared = GroceryShared.objects.filter(list=list) #check to see if this list is shared
         if shared:
             if shared[0].shared_to_id != request.user.id:
-                messages.error(request, 'You do not have permissions to view this list ')
+                output = _('You do not have permissions to view this list ')
+                messages.error(request, output)
                 return  redirect('grocery_list')
         else:
-             messages.error(request, 'You do not have permissions to view this list ')
+             output = _('You do not have permissions to view this list ')
+             messages.error(request, output)
              return  redirect('grocery_list')
         
     return render_to_response(template_name, {'list': list}, context_instance=RequestContext(request))
@@ -148,7 +154,8 @@ def groceryShareList(request, user, slug):
         form = GroceryShareTo(request.POST,instance=shared_list)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your grocery list has been shared.')
+            output = _('Your grocery list has been shared.')
+            messages.success(request, output)
             return redirect('grocery_show', user=request.user, slug=slug)
     else:
         form = GroceryShareTo()
@@ -161,7 +168,8 @@ def groceryUnShareList(request, user, slug):
     shared_list = get_object_or_404(GroceryShared, list=list)
     if shared_list.shared_to == request.user or shared_list.shared_by == request.user:
         shared_list.delete()
-        messages.success(request, "Grocery List has been un-shared")
+        output = ("Grocery List has been un-shared")
+        messages.success(request, output )
     return redirect('grocery_list')
 
 
