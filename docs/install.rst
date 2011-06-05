@@ -198,4 +198,10 @@ You should then be able to access your new OpenEats2 site by pointing your brows
 
     http://yoursite:8000
 
+.. note::  You should not run OpenEats2 in production with the built in webserver.  You will want to setup `Apache`_ or
+           `Ngnix`_ Check out the `Django Apache WSGI`_ document for more info.
+
+.. _Apache: http://www.apache.org
+.. _Ngnix: http://nginx.org/
+.. _Django Apache WSGI: https://docs.djangoproject.com/en/1.2/howto/deployment/modwsgi/
 
