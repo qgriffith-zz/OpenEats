@@ -82,6 +82,7 @@ def recipe(request,user=None, slug=None):
             for instance in instances:
                 instance.recipe_id = new_recipe.id #set the recipe id foregin key to the this recipe id
                 instance.save()
+            form.save(commit=False)
             return redirect(new_recipe.get_absolute_url())
     else:
         form = RecipeForm(instance=recipe_inst)

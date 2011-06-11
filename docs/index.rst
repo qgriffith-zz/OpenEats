@@ -22,10 +22,8 @@ Getting Started
     admin
     testing
     exporting
-
-
-
-
+    search_index
+    
 Indices and tables
 ==================
 
