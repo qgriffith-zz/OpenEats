@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-05 14:03-0400\n"
+"POT-Creation-Date: 2011-06-13 18:27-0400\n"
 "PO-Revision-Date: 2011-06-05 13:02\n"
 "Last-Translator:   <qgriffith@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -296,19 +296,19 @@ msgstr "nota"
 msgid "Recipe %s is marked Private"
 msgstr "Receta% s está marcado privada"
 
-#: recipe/views.py:134
+#: recipe/views.py:135
 msgid "Recipe already in your favorites!"
 msgstr "Receta ya en tus favoritos!"
 
-#: recipe/views.py:140
+#: recipe/views.py:141
 msgid "Recipe added to your favorites!"
 msgstr "Receta añadido a tus favoritos!"
 
-#: recipe/views.py:269
+#: recipe/views.py:270
 msgid "Recipe has already been reported!"
 msgstr "Receta ya ha sido reportado!"
 
-#: recipe/views.py:274
+#: recipe/views.py:275
 msgid "Recipe reported to the moderators!"
 msgstr "Receta informó a los moderadores!"
 
@@ -639,11 +639,6 @@ msgstr "Ingredientes"
 msgid "Directions"
 msgstr "Cómo llegar"
 
-#: templates/recipe/recipe_detail.html:7
-#, python-format
-msgid " OpenEats - %(recipe)s "
-msgstr ""
-
 #: templates/recipe/recipe_detail.html:110
 msgid "print"
 msgstr "de impresión"
@@ -952,6 +947,114 @@ msgstr "informó!"
 #: templatetags/recipe_links.py:30
 msgid "report"
 msgstr "informe"
+
+#, fuzzy
+#~ msgid "Go"
+#~ msgstr "Bueno"
+
+#, fuzzy
+#~ msgid "View on site"
+#~ msgstr "Volver al sitio"
+
+#, fuzzy
+#~ msgid "Add %(name)s"
+#~ msgstr "Añadir %(campo)s "
+
+#, fuzzy
+#~ msgid "Filter"
+#~ msgstr "tema"
+
+#, fuzzy
+#~ msgid "Export"
+#~ msgstr "informe"
+
+#, fuzzy
+#~ msgid "Delete"
+#~ msgstr "eliminar"
+
+#, fuzzy
+#~ msgid "Password:"
+#~ msgstr "Nueva contraseña:"
+
+#, fuzzy
+#~ msgid "User"
+#~ msgstr "usuario"
+
+#, fuzzy
+#~ msgid "Action"
+#~ msgstr "acciones"
+
+#, fuzzy
+#~ msgid "Created object"
+#~ msgstr "Creación de"
+
+#, fuzzy
+#~ msgid "Save"
+#~ msgstr "Compartir"
+
+#, fuzzy
+#~ msgid "Change"
+#~ msgstr "Cancelar"
+
+#, fuzzy
+#~ msgid "You don´t have permission to edit anything."
+#~ msgstr "Usted no tiene permisos para editar esta lista"
+
+#, fuzzy
+#~ msgid "My Actions"
+#~ msgstr "acciones"
+
+#, fuzzy
+#~ msgid "Documentation"
+#~ msgstr "Django documentación"
+
+#, fuzzy
+#~ msgid "Django administration"
+#~ msgstr "Django documentación"
+
+#, fuzzy
+#~ msgid "Password"
+#~ msgstr "De restablecimiento de contraseña"
+
+#, fuzzy
+#~ msgid "Password (again)"
+#~ msgstr "De restablecimiento de contraseña"
+
+#, fuzzy
+#~ msgid "Password change"
+#~ msgstr "Contraseña cambiada con éxito"
+
+#, fuzzy
+#~ msgid "Delete Item"
+#~ msgstr "eliminar"
+
+#, fuzzy
+#~ msgid "Bookmarklets"
+#~ msgstr "bookmakred"
+
+#, fuzzy
+#~ msgid "Log in again"
+#~ msgstr "Registrarse"
+
+#, fuzzy
+#~ msgid "Password change successful"
+#~ msgstr "Contraseña cambiada con éxito"
+
+#, fuzzy
+#~ msgid ""
+#~ "Please enter your old password, for securitys sake, and then enter your "
+#~ "new password twice so we can verify you typed it in correctly."
+#~ msgstr ""
+#~ "Por favor, introduzca su nueva contraseña dos veces para que podamos "
+#~ "verificar que la ha escrito correctamente."
+
+#, fuzzy
+#~ msgid "Old password:"
+#~ msgstr "Nueva contraseña:"
+
+#, fuzzy
+#~ msgid "Password reset confirmation"
+#~ msgstr "De restablecimiento de contraseña completa"
 
 #~ msgid "servers"
 #~ msgstr "servidores"

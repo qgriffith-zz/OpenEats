@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-05 14:03-0400\n"
-"PO-Revision-Date: 2011-06-05 13:46\n"
+"POT-Creation-Date: 2011-06-13 18:27-0400\n"
+"PO-Revision-Date: 2011-06-13 17:27\n"
 "Last-Translator:   <qgriffith@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -294,19 +294,19 @@ msgstr "beachten"
 msgid "Recipe %s is marked Private"
 msgstr "Rezept% s ist markiert Private"
 
-#: recipe/views.py:134
+#: recipe/views.py:135
 msgid "Recipe already in your favorites!"
 msgstr "Rezept bereits in Ihren Favoriten hinzu!"
 
-#: recipe/views.py:140
+#: recipe/views.py:141
 msgid "Recipe added to your favorites!"
 msgstr "Rezept zu Ihren Favoriten hinzu!"
 
-#: recipe/views.py:269
+#: recipe/views.py:270
 msgid "Recipe has already been reported!"
 msgstr "Rezept wurde bereits berichtet!"
 
-#: recipe/views.py:274
+#: recipe/views.py:275
 msgid "Recipe reported to the moderators!"
 msgstr "Rezept berichtet an die Moderatoren!"
 
@@ -336,7 +336,7 @@ msgstr "Rückkehr zum Ort"
 
 #: templates/base.html:6
 msgid "OpenEats2"
-msgstr ""
+msgstr "OpenEats2"
 
 #: templates/base.html:51
 msgid "Search"
@@ -636,11 +636,6 @@ msgstr "Zutaten"
 #: templates/recipe/recipe_detail.html:185
 msgid "Directions"
 msgstr "Anfahrt"
-
-#: templates/recipe/recipe_detail.html:7
-#, python-format
-msgid " OpenEats - %(recipe)s "
-msgstr "OpenEats - %(Rezept)s "
 
 #: templates/recipe/recipe_detail.html:110
 msgid "print"
@@ -949,3 +944,88 @@ msgstr "gemeldet!"
 #: templatetags/recipe_links.py:30
 msgid "report"
 msgstr "Bericht"
+
+#~ msgid "Go"
+#~ msgstr "Gute"
+
+#~ msgid "View on site"
+#~ msgstr "Zurück zur Startseite"
+
+#~ msgid "Add %(name)s"
+#~ msgstr "Schreibe %(field)s "
+
+#~ msgid "Filter"
+#~ msgstr "Artikel"
+
+#~ msgid "Export"
+#~ msgstr "Bericht"
+
+#~ msgid "Delete"
+#~ msgstr "löschen"
+
+#~ msgid "Password:"
+#~ msgstr "Neues Passwort:"
+
+#~ msgid "User"
+#~ msgstr "Benutzer"
+
+#~ msgid "Action"
+#~ msgstr "Aktionen"
+
+#~ msgid "Created object"
+#~ msgstr "erstellt am"
+
+#~ msgid "Save"
+#~ msgstr "Empfehlen"
+
+#~ msgid "Change"
+#~ msgstr "Abbrechen"
+
+#~ msgid "You don´t have permission to edit anything."
+#~ msgstr "Sie haben keine Rechte, um diese Liste bearbeiten"
+
+#~ msgid "My Actions"
+#~ msgstr "Aktionen"
+
+#~ msgid "Documentation"
+#~ msgstr "Django-Dokumentation"
+
+#~ msgid "Django administration"
+#~ msgstr "Django-Dokumentation"
+
+#~ msgid "Password"
+#~ msgstr "Passwort zurücksetzen"
+
+#~ msgid "Password (again)"
+#~ msgstr "Passwort zurücksetzen"
+
+#~ msgid "Password change"
+#~ msgstr "Kennwort geändert Erfolgreiche"
+
+#~ msgid "Delete Item"
+#~ msgstr "löschen"
+
+#~ msgid "Bookmarklets"
+#~ msgstr "bookmakred"
+
+#~ msgid "Log in again"
+#~ msgstr "Anmelden"
+
+#~ msgid "Password change successful"
+#~ msgstr "Kennwort geändert Erfolgreiche"
+
+#~ msgid ""
+#~ "Please enter your old password, for securitys sake, and then enter your"
+#~ " new password twice so we can verify you typed it in correctly."
+#~ msgstr ""
+#~ "Bitte geben Sie Ihr neues Passwort zweimal so können wir "
+#~ "sicherstellen, dass Sie nicht vertippt hast."
+
+#~ msgid "Old password:"
+#~ msgstr "Neues Passwort:"
+
+#~ msgid "Password reset confirmation"
+#~ msgstr "Password Reset abgeschlossen"
+
+#~ msgid " OpenEats - %(recipe)s "
+#~ msgstr "OpenEats - %(Rezept)s "
