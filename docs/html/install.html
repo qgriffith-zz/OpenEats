@@ -127,6 +127,7 @@ with <a class="reference external" href="http://www.doughellmann.com/docs/virtua
 <ul class="simple">
 <li>Download the latest package from <a class="reference external" href="https://github.com/qgriffith/OpenEats">github</a></li>
 <li>Unzip the files into a directory that your web server can access</li>
+<li>Make sure the directory is called openeats or python won&#8217;t be able to find it</li>
 <li>Install the required packages</li>
 </ul>
 <div class="section" id="installing-requirements-packages">
@@ -167,7 +168,8 @@ any <a class="reference external" href="https://docs.djangoproject.com/en/1.2/re
 <h4>2.4.3.1. Required Data<a class="headerlink" href="#required-data" title="Permalink to this headline">¶</a></h4>
 <p>Running the following command from the OpenEats2 directory, should load the required data:</p>
 <div class="highlight-python"><pre>./manage.py syncdb
-./manage.py migrate</pre>
+./manage.py migrate
+./manage.py loaddata fixtures/navbar_about_data.json</pre>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -178,7 +180,7 @@ For more information on this see <a class="reference internal" href="config.html
 <div class="section" id="optional-data">
 <h4>2.4.3.2. Optional Data<a class="headerlink" href="#optional-data" title="Permalink to this headline">¶</a></h4>
 <p>You can pre-load courses and cuisines by running the following commands from the OpenEats2 directory:</p>
-<div class="highlight-python"><pre>./manage.py loadata recipe_groups/fixtures/course_data.json
+<div class="highlight-python"><pre>./manage.py loaddata recipe_groups/fixtures/course_data.json
 ./manage.py loaddata recipe_groups/fixtures/cuisine_data.json</pre>
 </div>
 </div>

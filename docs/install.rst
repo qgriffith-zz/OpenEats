@@ -118,6 +118,7 @@ Installing
 
 * Download the latest package from `github`_
 * Unzip the files into a directory that your web server can access
+* Make sure the directory is called openeats or python won't be able to find it
 * Install the required packages
 
 .. _github: https://github.com/qgriffith/OpenEats
@@ -169,6 +170,7 @@ Running the following command from the OpenEats2 directory, should load the requ
 
     ./manage.py syncdb
     ./manage.py migrate
+    ./manage.py loaddata fixtures/navbar_about_data.json
 
 .. note:: Before you run this make sure you have setup your database in the settings.py file.
           For more information on this see :ref:`database-config`
@@ -178,7 +180,7 @@ Optional Data
 
 You can pre-load courses and cuisines by running the following commands from the OpenEats2 directory::
 
-    ./manage.py loadata recipe_groups/fixtures/course_data.json
+    ./manage.py loaddata recipe_groups/fixtures/course_data.json
     ./manage.py loaddata recipe_groups/fixtures/cuisine_data.json
     
 
