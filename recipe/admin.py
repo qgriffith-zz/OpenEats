@@ -4,6 +4,8 @@ from ingredient.models import Ingredient
 from reversion.admin import VersionAdmin
 from forms import IngItemFormSet
 from django.shortcuts import render_to_response
+from django.contrib.flatpages.models import FlatPage
+from django.contrib.flatpages.admin import FlatPageAdmin
 
 class RecipeInline(admin.TabularInline):
     model = Ingredient
@@ -58,6 +60,13 @@ class ReportedRecipeAdmin(admin.ModelAdmin):
     search_fields = ['reported_by__username', 'recipe__title']
     list_filter = ['reported_by',]
 
+class FlatPageAdmin(FlatPageAdmin):
+    class Media:
+        js = ['/site-media/admin/tinymce/jscripts/tiny_mce/tiny_mce.js', '/site-media/js/tinymce_setup.js',]
+
+
+admin.site.unregister(FlatPage)
+admin.site.register(FlatPage, FlatPageAdmin)
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(StoredRecipe, StoredRecipeAdmin)
 admin.site.register(NoteRecipe, NoteRecipeAdmin)
