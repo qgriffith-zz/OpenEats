@@ -94,8 +94,9 @@
              "sites": [
                  1
              ],
-             "content": "OpenEats2 is a work in progress.",
+             "content": "<div class=\"about\">\r\n<h2>\ufeffAbout OpenEats</h2>\r\n<p>OpenEats is an Open Source, recipe management web application. &nbsp;Using OpenEats you can store, share and catalogue your favorite recipes.</p>\r\n<h3>Features</h3>\r\n<ul>\r\n<li> \r\n<ul>\r\n<li>100% OpenSource you can download the software and run it on your own server or create an account at&nbsp;<a href=\"http://www.openeats.org/\">OpenEats</a></li>\r\n<li>Internationalization Support</li>\r\n<li>Recipe Sharing</li>\r\n<li>Recipe Ranking</li>\r\n<li>UTF-8 compliant</li>\r\n<li>Versioning of Recipes</li>\r\n<li>Share or mark recipes private</li>\r\n<li>Built in <a href=\"http://en.gravatar.com/\">Gravatar</a>&nbsp;Support</li>\r\n<li>Friend fellow chef's and follow them</li>\r\n<li>Tagging of recipes</li>\r\n<li>WYSIWYG Editor for recipes</li>\r\n<li>Print View</li>\r\n<li>Cooking view for recipes so you can have a large pop up view of the recipe you are working on and look at it while in the kitchen</li>\r\n<li>Security - preventing XSS attacks and CSRF attacks</li>\r\n<li>Grocery list so you can make sure you always have what you need to make the meals you want</li>\r\n</ul>\r\n</li>\r\n</ul>\r\n</div>",
              "enable_comments": false
+
          }
      }
 ]

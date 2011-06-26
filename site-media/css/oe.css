@@ -242,3 +242,9 @@ div#404-image{ position: fixed;
   margin-left: -100px;
   text-align: center;
 }
+/* About Page*/
+div.about{padding-left:20px; padding-top:15px; width:75%; color:#484846;}
+div.about h2{color:#F57F04; margin-bottom:5px;}
+div.about p {padding-bottom: 15px;}
+div.about h3 {color:#F57F04; padding-bottom:10px;}
+div.about li {list-style:circle; padding-bottom:5px;}
