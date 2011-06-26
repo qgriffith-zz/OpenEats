@@ -163,7 +163,7 @@ INSTALLED_APPS = (
 #OpenEats2 Settings
 OELOGO = 'images/oelogo.png'
 
-INTERNAL_IPS = ('127.0.0.1')
+INTERNAL_IPS = ('127.0.0.1',)
 
 ### DEBUG-TOOLBAR SETTINGS
 DEBUG_TOOLBAR_CONFIG = {
