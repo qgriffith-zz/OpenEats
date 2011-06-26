@@ -102,7 +102,7 @@ To create the skeleton virtualenv run the following commands::
     export WORKON_HOME=~/Envs
     mkdir -p $WORKON_HOME
     source /usr/local/bin/virtualenvwrapper.sh
-    mkvirtualenv openeats
+    mkvirtualenv openeats --no-site-packages
     workon openeats
 
 .. note:: You can set your workon home directory anywhere you want it doesn't have to be in the Envs directory
