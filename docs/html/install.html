@@ -188,7 +188,7 @@ For more information on this see <a class="reference internal" href="config.html
 <h4>2.4.3.3. Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h4>
 <p>After the install you can run the following command to start the internal Django webserver.  This will allow you to
 test your site prior to setting up a &#8220;real&#8221; webserver such as Apache:</p>
-<div class="highlight-python"><pre>./manage.py runserver</pre>
+<div class="highlight-python"><pre>./manage.py runserver 8000 --adminmedia=site-media/admin/</pre>
 </div>
 <p>This will bind the webserver to port 8000 on 127.0.0.1 otherwise known as localhost.  If you are deploying OpenEats2 to
 a remote server and not your local computer run the following command instead:</p>
