@@ -93,7 +93,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.request",
     "django.contrib.messages.context_processors.messages",
     "navbar.context_processors.navbars",
-    "grappelli.context_processors.admin_template_path",
     "openeats.context_processors.oelogo",
 
 )
