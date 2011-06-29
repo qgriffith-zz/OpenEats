@@ -7,6 +7,7 @@ import re
 from django import template
 from django.contrib.contenttypes.models import ContentType
 from django.utils.formats import get_format
+from django.utils.safestring import mark_safe
 from django.db import models
 from django.contrib import admin
 from django.conf import settings
@@ -119,3 +120,76 @@ def do_get_search_fields_verbose(parser, token):
     return GetSearchFields(opts, var_name)
 
 register.tag('get_search_fields_verbose', do_get_search_fields_verbose)
+
+
+@register.filter
+def classname(obj, arg=None):
+    classname = obj.__class__.__name__.lower()
+    if arg:
+        if arg.lower() == classname:
+            return True
+        else:
+            return False
+    else:
+        return classname
+
+
+# FORMSETSORT FOR SORTABLE INLINES
+
+@register.filter
+def formsetsort(formset, arg):
+    """
+    Takes a list of formset dicts, returns that list sorted by the sortable field.
+    """
+    
+    if arg:
+        sorted_list = []
+        for item in formset:
+            position = item.form[arg].data
+            if position and position != "-1":
+                sorted_list.append((int(position), item))
+        sorted_list.sort()
+        sorted_list = [item[1] for item in sorted_list]
+        for item in formset:
+            position = item.form[arg].data
+            if not position or position == "-1":
+                sorted_list.append(item)
+    else:
+        sorted_list = formset
+    return sorted_list
+
+
+# RELATED LOOKUPS
+
+def get_related_lookup_fields_fk(model_admin):
+    try:
+        value = model_admin.related_lookup_fields.get("fk", [])
+        value = mark_safe(list(value))
+    except:
+        value = []
+    return value
+
+register.simple_tag(get_related_lookup_fields_fk)
+
+
+def get_related_lookup_fields_m2m(model_admin):
+    try:
+        value = model_admin.related_lookup_fields.get("m2m", [])
+        value = mark_safe(list(value))
+    except:
+        value = []
+    return value
+
+register.simple_tag(get_related_lookup_fields_m2m)
+
+
+def get_related_lookup_fields_generic(model_admin):
+    try:
+        value = model_admin.related_lookup_fields.get("generic", [])
+        value = mark_safe(list(value))
+    except:
+        value = []
+    return value
+
+register.simple_tag(get_related_lookup_fields_generic)
+

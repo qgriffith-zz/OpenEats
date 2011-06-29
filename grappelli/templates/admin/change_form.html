@@ -3,11 +3,51 @@
 <!-- LOADING -->
 {% load i18n admin_modify adminmedia grp_tags %}
 
+<!-- STYLESHEETS -->
+{% block stylesheets %}
+    {{ block.super }}
+{% endblock %}
+
 <!-- JAVASCRIPTS -->
 {% block javascripts %}
     {{ block.super }}
     {% url admin:jsi18n as jsi18nurl %}
-    <script type="text/javascript" src="{{ jsi18nurl|default:"../../../jsi18n/" }}"></script>
+    <script type="text/javascript" src="{{ jsi18nurl|default:'../../../jsi18n/' }}"></script>
+    <script src="{% admin_media_prefix %}js/grappelli/jquery.grp_inline.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+        (function($) {
+            $(document).ready(function() {
+                grappelli.initDateAndTimePicker();
+                $("div.container-flexible div.group").grp_collapsible_group();
+                $("div#content .collapse").grp_collapsible({
+                    on_init: function(elem, options) {
+                        // open collapse (and all collapse parents) in case of errors
+                        if (elem.find("ul.errorlist").length > 0) {
+                            elem.removeClass("closed")
+                                .addClass("open");
+                            elem.parents(".collapse")
+                                .removeClass("closed")
+                                .addClass("open");
+                        }
+                    }
+                });
+                var related_lookup_fields_fk = {% get_related_lookup_fields_fk adminform.model_admin %};
+                var related_lookup_fields_m2m = {% get_related_lookup_fields_m2m adminform.model_admin %};
+                var related_lookup_fields_generic = {% get_related_lookup_fields_generic adminform.model_admin %};
+                $.each(related_lookup_fields_fk, function() {
+                    $("#id_" + this).grp_related_fk({lookup_url:"{% url grp_related_lookup %}"});
+                });
+                $.each(related_lookup_fields_m2m, function() {
+                    $("#id_" + this).grp_related_m2m({lookup_url:"{% url grp_m2m_lookup %}"});
+                });
+                $.each(related_lookup_fields_generic, function() {
+                    var content_type = "#id_" + this[0],
+                        object_id = "#id_" + this[1];
+                    $(object_id).grp_related_generic({content_type:content_type, object_id:object_id, lookup_url:"{% url grp_related_lookup %}"});
+                });
+            });
+        })(django.jQuery);
+    </script>
     {{ media }}
 {% endblock %}
 
@@ -80,7 +120,7 @@
                                 (function($){
                                     $(function(){
                                         try {
-                                            {# Focus on first FormField #}
+                                            // focus on first form-field
                                             $("#{{ adminform.first_field.auto_id }}, #{{ adminform.first_field.auto_id }}_0")
                                             .eq(0).focus();
                                         } catch(e) {}
