@@ -110,6 +110,10 @@ MIDDLEWARE_CLASSES = (
     
 )
 
+LOCALE_PATHS = (
+  os.path.join(BASE_PATH, 'locale',)
+)
+
 ROOT_URLCONF = 'openeats.urls'
 
 TEMPLATE_DIRS = (
