@@ -27,6 +27,7 @@ Requirements
 * `django-registration`_ 0.8-alpha-1
 * `django-relationships`_
 * `django-ratings`_
+* `django-grappelli`_2.3.3
 
 ************
 Optional
@@ -69,6 +70,7 @@ Optional
 .. _django-extensions: http://pypi.python.org/pypi/django-extensions/0.6
 .. _django-rosetta: http://code.google.com/p/django-rosetta/
 .. _django-debug-toolbar: http://pypi.python.org/pypi/django-debug-toolbar/0.8.4
+.. _django-grappelli: http://code.google.com/p/django-grappelli/
 
 ***************************
 Python Virtual Environment
@@ -182,12 +184,18 @@ You can pre-load courses and cuisines by running the following commands from the
     ./manage.py loaddata recipe_groups/fixtures/cuisine_data.json
     
 
+Collecting Static Files
+------------------------
+To collect the static files from the third party applications run the following command::
+
+    ./manage.py collectstatic
+
 Running
 -------
 After the install you can run the following command to start the internal Django webserver.  This will allow you to
 test your site prior to setting up a "real" webserver such as Apache::
 
-    sud./manage.py runserver 8000 --adminmedia=site-media/admin/
+    sud./manage.py runserver 8000
 
 
 This will bind the webserver to port 8000 on 127.0.0.1 otherwise known as localhost.  If you are deploying OpenEats2 to

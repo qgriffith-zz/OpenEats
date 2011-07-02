@@ -75,6 +75,7 @@
 <li><a class="reference external" href="https://bitbucket.org/ubernostrum/django-registration/downloads/django-registration-0.8-alpha-1.tar.gz">django-registration</a> 0.8-alpha-1</li>
 <li><a class="reference external" href="https://github.com/coleifer/django-relationships/tarball/4b56427b78ea5313b5a30cff51251bcf7712df4c">django-relationships</a></li>
 <li><a class="reference external" href="https://github.com/dcramer/django-ratings/tarball/3c31fac17a8a1b53628101e7addb8f5db7d775fe">django-ratings</a></li>
+<li><a href="#id1"><span class="problematic" id="id2">`</span></a>django-grappelli`_2.3.3</li>
 </ul>
 </div>
 <div class="section" id="optional">
@@ -130,7 +131,7 @@ with <a class="reference external" href="http://www.doughellmann.com/docs/virtua
 <li>Install the required packages</li>
 </ul>
 <div class="section" id="installing-requirements-packages">
-<span id="id1"></span><h3>2.4.1. Installing Requirements packages<a class="headerlink" href="#installing-requirements-packages" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>2.4.1. Installing Requirements packages<a class="headerlink" href="#installing-requirements-packages" title="Permalink to this headline">¶</a></h3>
 <p>To install all the packages that OpenEats2 requires perform the following steps.</p>
 <ul>
 <li><p class="first">Activate your virtualenv</p>
@@ -183,11 +184,17 @@ For more information on this see <a class="reference internal" href="config.html
 ./manage.py loaddata recipe_groups/fixtures/cuisine_data.json</pre>
 </div>
 </div>
+<div class="section" id="collecting-static-files">
+<h4>2.4.3.3. Collecting Static Files<a class="headerlink" href="#collecting-static-files" title="Permalink to this headline">¶</a></h4>
+<p>To collect the static files from the third party applications run the following command:</p>
+<div class="highlight-python"><pre>./manage.py collectstatic</pre>
+</div>
+</div>
 <div class="section" id="running">
-<h4>2.4.3.3. Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h4>
+<h4>2.4.3.4. Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h4>
 <p>After the install you can run the following command to start the internal Django webserver.  This will allow you to
 test your site prior to setting up a &#8220;real&#8221; webserver such as Apache:</p>
-<div class="highlight-python"><pre>sud./manage.py runserver 8000 --adminmedia=site-media/admin/</pre>
+<div class="highlight-python"><pre>sud./manage.py runserver 8000</pre>
 </div>
 <p>This will bind the webserver to port 8000 on 127.0.0.1 otherwise known as localhost.  If you are deploying OpenEats2 to
 a remote server and not your local computer run the following command instead:</p>
@@ -231,7 +238,8 @@ a remote server and not your local computer run the following command instead:</
 <li><a class="reference internal" href="#load-initial-data">2.4.3. Load Initial Data</a><ul>
 <li><a class="reference internal" href="#required-data">2.4.3.1. Required Data</a></li>
 <li><a class="reference internal" href="#optional-data">2.4.3.2. Optional Data</a></li>
-<li><a class="reference internal" href="#running">2.4.3.3. Running</a></li>
+<li><a class="reference internal" href="#collecting-static-files">2.4.3.3. Collecting Static Files</a></li>
+<li><a class="reference internal" href="#running">2.4.3.4. Running</a></li>
 </ul>
 </li>
 </ul>
