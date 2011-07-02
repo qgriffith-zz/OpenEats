@@ -62,11 +62,13 @@ USE_L10N = True
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = os.path.join(BASE_PATH, 'site-media')
+STATIC_ROOT = os.path.join(BASE_PATH, 'static')
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/site-media/'
+STATIC_URL = '/static/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.
@@ -130,6 +132,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.flatpages',
+    'django.contrib.staticfiles',
     'debug_toolbar',
     'taggit',
     'taggit_templatetags',

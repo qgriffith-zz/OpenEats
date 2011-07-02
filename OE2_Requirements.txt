@@ -25,6 +25,7 @@ django-paging==0.2.2
 webtest==1.2.3
 django-webtest==1.2.1
 reportlab==2.5
+django-grappelli==2.3.3
 https://bitbucket.org/ubernostrum/django-registration/downloads/django-registration-0.8-alpha-1.tar.gz
 https://github.com/coleifer/django-relationships/tarball/4b56427b78ea5313b5a30cff51251bcf7712df4c
 https://github.com/dcramer/django-ratings/tarball/3c31fac17a8a1b53628101e7addb8f5db7d775fe
