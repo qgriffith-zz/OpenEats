@@ -75,18 +75,6 @@ class CustomIndexDashboard(Dashboard):
             exclude=('django.contrib.*','openeats.*','recipe*',)
         ))
 
-        # append another link list module for "support".
-        self.children.append(modules.LinkList(
-            _('Media Management'),
-            column=2,
-            children=[
-                {
-                    'title': _('FileBrowser'),
-                    'url': '/admin/filebrowser/browse/',
-                    'external': False,
-                },
-            ]
-        ))
         # append a recent actions module
         self.children.append(modules.RecentActions(
             _('Recent Actions'),
