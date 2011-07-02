@@ -7,7 +7,7 @@ This document assumes you are familiar with Python and Django.
 Requirements
 ************
 * `Python`_ 2.6 or a higher release of 2.x
-* `Django`_ 1.2.4
+* `Django`_ 1.3
 * `South`_ 0.7.2
 * `django-disqus`_ 0.4.1
 * `django-imagekit`_ 0.3.3
@@ -24,7 +24,6 @@ Requirements
 * `django-haystack`_ 1.2.3
 * `django-taggit-templatetags`_ 0.4.6dev
 * `reportlab`_ 2.5
-* `django-admin-tools`_ 0.3.0
 * `django-registration`_ 0.8-alpha-1
 * `django-relationships`_
 * `django-ratings`_
@@ -59,7 +58,6 @@ Optional
 .. _django-haystack: http://haystacksearch.org/
 .. _django-taggit-templatetags: https://github.com/feuervogel/django-taggit-templatetags
 .. _reportlab: http://www.reportlab.com/software/opensource/
-.. _django-admin-tools: https://bitbucket.org/izi/django-admin-tools/wiki/Home
 .. _django-registration: https://bitbucket.org/ubernostrum/django-registration/downloads/django-registration-0.8-alpha-1.tar.gz
 .. _django-relationships: https://github.com/coleifer/django-relationships/tarball/4b56427b78ea5313b5a30cff51251bcf7712df4c
 .. _django-ratings: https://github.com/dcramer/django-ratings/tarball/3c31fac17a8a1b53628101e7addb8f5db7d775fe
