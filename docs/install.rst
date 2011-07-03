@@ -8,9 +8,9 @@ Requirements
 ************
 * `Python`_ 2.6 or a higher release of 2.x
 * `Django`_ 1.3
-* `South`_ 0.7.2
+* `South`_ 0.7.3
 * `django-disqus`_ 0.4.1
-* `django-imagekit`_ 0.3.3
+* `django-imagekit`_ 0.3.6
 * `django-reversion`_ 1.3.1
 * `django-taggit`_ 0.9.3
 * `akismet`_ 0.2.0
@@ -19,27 +19,27 @@ Requirements
 * `django-profiles`_ 0.2
 * `feedparser`_ 4.1
 * `html5lib`_ 0.90
-* `whoosh`_ 1.8.3
+* `whoosh`_ 1.8.4
 * `django-generic-flatblocks`_
-* `django-haystack`_ 1.2.3
+* `django-haystack`_ 1.2.4
 * `django-taggit-templatetags`_ 0.4.6dev
 * `reportlab`_ 2.5
 * `django-registration`_ 0.8-alpha-1
-* `django-relationships`_
-* `django-ratings`_
-* `django-grappelli`_2.3.3
+* `django-relationships`_ 0.2.3
+* `django-ratings`_ 0.3.6
+* `django-grappelli`_ 2.3.3
 
 ************
 Optional
 ************
 * `webtest`_ 1.2.3 used for testing
-* `django-webtest`_ 1.2.1 used for testing
-* `django-sentry`_ 1.3.13 used for debugging and troubleshooting errors
-* `django-indxer`_ 0.2 used by django-sentry
-* `django-paging`_ 0.2.2 used by django-sentry
+* `django-webtest`_ 1.4.1 used for testing
+* `django-sentry`_ 1.8.6.2 used for debugging and troubleshooting errors
+* `django-indxer`_ 0.3.0 used by django-sentry
+* `django-paging`_ 0.2.4 used by django-sentry
 * `django-extensions`_ 0.6 extra management commands
-* `django-rosetta`_ 0.6.0 used to ease translations
-* `django-debug-toolbar`_ 0.8.4 used to help troubleshooting
+* `django-rosetta`_ 0.6.2 used to ease translations
+* `django-debug-toolbar`_ 0.8.5 used to help troubleshooting
 
 .. _Python: http://www.python.org
 .. _Django: http://www.djangoproject.com

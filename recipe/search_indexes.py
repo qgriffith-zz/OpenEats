@@ -9,7 +9,7 @@ class RecipeIndex(RealTimeSearchIndex):
     course = CharField(model_attr='course')
     cuisine = CharField(model_attr='cuisine')
     pub_date = DateTimeField(model_attr='pub_date')
-    def get_queryset(self):
+    def index_queryset(self):
         """Used when the entire index for the recipe model is updated"""
         return Recipe.objects.filter(shared=Recipe.SHARE_SHARED, pub_date__lte=datetime.datetime.now()) #only index shared recipes no private
 

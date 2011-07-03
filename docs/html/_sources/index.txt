@@ -23,6 +23,7 @@ Getting Started
     testing
     exporting
     search_index
+    changelog
     
 Indices and tables
 ==================
