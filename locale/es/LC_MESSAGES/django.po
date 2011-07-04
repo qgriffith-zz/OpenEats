@@ -2,73 +2,72 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-06-13 18:27-0400\n"
-"PO-Revision-Date: 2011-06-05 13:02\n"
+"POT-Creation-Date: 2011-07-04 14:25-0500\n"
+"PO-Revision-Date: 2011-07-04 14:26\n"
 "Last-Translator:   <qgriffith@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Translated-Using: django-rosetta 0.6.0\n"
+"X-Translated-Using: django-rosetta 0.6.2\n"
 
-#: dashboard.py:19
-msgid "Quick links"
+#: dashboard.py:25
+#, fuzzy
+msgid "Quick Links"
 msgstr "Enlaces rápidos"
 
-#: dashboard.py:24
+#: dashboard.py:32
 msgid "Return to site"
 msgstr "Volver al sitio"
 
-#: dashboard.py:28
+#: dashboard.py:36
 msgid "Change password"
 msgstr "Cambiar la contraseña"
 
-#: dashboard.py:32
+#: dashboard.py:40
 msgid "Log out"
 msgstr "Cierre la sesión"
 
-#: dashboard.py:40
+#: dashboard.py:49 dashboard.py:54
 msgid "Administration"
 msgstr "Administración"
 
-#: dashboard.py:47
-msgid "OpenEats"
-msgstr "OpenEats"
-
-#: dashboard.py:55
-msgid "Third-Party Apps"
+#: dashboard.py:72
+#, fuzzy
+msgid "Third Party Applications"
 msgstr "Aplicaciones de terceros"
 
-#: dashboard.py:63 dashboard.py:133
+#: dashboard.py:80
 msgid "Recent Actions"
 msgstr "Acciones recientes"
 
-#: dashboard.py:71
-msgid "Latest OpenEats News"
-msgstr "Últimas Noticias OpenEats"
-
-#: dashboard.py:80
+#: dashboard.py:88
 msgid "Support"
 msgstr "Apoyo"
 
-#: dashboard.py:84
+#: dashboard.py:92
 msgid "OpenEats Forum"
 msgstr "OpenEats Foro"
 
-#: dashboard.py:89
+#: dashboard.py:97
 msgid "Django documentation"
 msgstr "Django documentación"
 
-#: dashboard.py:94
+#: dashboard.py:102
 msgid "Django \"django-users\" mailing list"
 msgstr "Django \"django-usuarios\" lista de correo"
+
+#: dashboard.py:111
+#, fuzzy
+msgid "Latest OpenEats2 News"
+msgstr "Últimas Noticias OpenEats"
 
 #: settings.py:42
 msgid "English"
@@ -152,8 +151,8 @@ msgstr "Lista de la compra de"
 #: list/forms.py:83
 msgid "Can not get grocery list id from invalid form data"
 msgstr ""
-"No se puede obtener la lista de comestibles Identificación de los datos del "
-"formulario no válido"
+"No se puede obtener la lista de comestibles Identificación de los "
+"datos del formulario no válido"
 
 #: list/forms.py:90
 msgid "Can not get to_email from invalid form data"
@@ -170,7 +169,7 @@ msgstr "Correo electrónico enviados"
 #: list/models.py:8 list/models.py:45 list/models.py:56
 #: templates/list/grocery_addrecipe.html:3
 #: templates/list/grocery_detail.html:3 templates/list/grocery_index.html:6
-#: templates/profiles/profile_detail.html:61 templates/sidebar/grocery.html:71
+#: templates/profiles/profile_detail.html:62 templates/sidebar/grocery.html:71
 msgid "grocery list"
 msgstr "lista de la compra"
 
@@ -257,8 +256,8 @@ msgstr "cocina"
 msgid "info"
 msgstr "Info"
 
-#: recipe/models.py:25 templates/recipe/recipe_detail.html:159
-#: templates/recipe/recipe_print.html:23
+#: recipe/models.py:25 templates/recipe/recipe_detail.html:161
+#: templates/recipe/recipe_print.html:24
 msgid "cook time"
 msgstr "tiempo de cocción"
 
@@ -326,36 +325,32 @@ msgstr ""
 
 #: templates/404.html:9
 msgid ""
-"Sorry the page came back with a 404 error we can't find what you are looking "
-"for"
+"Sorry the page came back with a 404 error we can't find what you are "
+"looking for"
 msgstr ""
-"Lo sentimos la página volvió con un error 404 que no puede encontrar lo que "
-"busca"
+"Lo sentimos la página volvió con un error 404 que no puede encontrar "
+"lo que busca"
 
 #: templates/404.html:10
 msgid "return to site"
 msgstr "volver al sitio"
 
-#: templates/base.html:6
-msgid "OpenEats2"
-msgstr "OpenEats2"
-
-#: templates/base.html:51
+#: templates/base.html:52
 msgid "Search"
 msgstr "Búsqueda"
 
-#: templates/base.html:63 templates/profiles/create_profile.html:4
-#: templates/profiles/edit_profile.html:5
-#: templates/profiles/profile_detail.html:5
-#: templates/profiles/profile_detail.html:36
+#: templates/base.html:64 templates/profiles/create_profile.html:5
+#: templates/profiles/edit_profile.html:6
+#: templates/profiles/profile_detail.html:6
+#: templates/profiles/profile_detail.html:37
 msgid "profile"
 msgstr "Ver el perfil"
 
-#: templates/base.html:64
+#: templates/base.html:65
 msgid "grocery lists"
 msgstr "listas de la compra"
 
-#: templates/base.html:65 templates/profiles/profile_detail.html:72
+#: templates/base.html:66 templates/profiles/profile_detail.html:73
 msgid "logout"
 msgstr "cierre de sesión"
 
@@ -367,36 +362,36 @@ msgstr "ingresar"
 msgid "sign up"
 msgstr "regístrate"
 
-#: templates/form/popadd.html:7
+#: templates/form/popadd.html:8
 msgid "Add"
 msgstr "Agregar"
 
-#: templates/form/popadd.html:11
+#: templates/form/popadd.html:12
 #, python-format
 msgid "Add %(field)s"
 msgstr "Añadir %(campo)s "
 
-#: templates/form/popadd.html:17
+#: templates/form/popadd.html:18
 msgid "submit"
 msgstr "presentar"
 
-#: templates/form/popadd.html:17
+#: templates/form/popadd.html:18
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: templates/friends/_feed.html:7
+#: templates/friends/_feed.html:8
 msgid "new recipe added- "
 msgstr "nueva receta añadido"
 
-#: templates/friends/_feed.html:15
+#: templates/friends/_feed.html:16
 msgid "rated a recipe "
 msgstr "nominal una receta"
 
-#: templates/friends/_feed.html:15
+#: templates/friends/_feed.html:16
 msgid "out of 5 - "
 msgstr "de 5 -"
 
-#: templates/friends/_feed.html:25
+#: templates/friends/_feed.html:26
 msgid "new shared list- "
 msgstr "nueva lista compartida"
 
@@ -404,35 +399,35 @@ msgstr "nueva lista compartida"
 msgid "feed for "
 msgstr "la alimentación de"
 
-#: templates/friends/list.html:6
+#: templates/friends/list.html:7
 msgid "chefs I'm following-"
 msgstr "chefs estoy siguiendo-"
 
-#: templates/friends/list.html:10
+#: templates/friends/list.html:11
 msgid "un-follow"
 msgstr "de las Naciones Unidas de seguir"
 
-#: templates/friends/list.html:16
+#: templates/friends/list.html:17
 msgid "chefs following me-"
 msgstr "chefs me sigue-"
 
-#: templates/friends/list.html:20
+#: templates/friends/list.html:21
 msgid "follow"
 msgstr "seguir"
 
-#: templates/friends/list.html:20
+#: templates/friends/list.html:21
 msgid "block"
 msgstr "bloque"
 
-#: templates/friends/list.html:29
+#: templates/friends/list.html:30
 msgid "chefs I'm blocking --"
 msgstr "chefs estoy bloqueo -"
 
-#: templates/friends/list.html:33
+#: templates/friends/list.html:34
 msgid "unblock"
 msgstr "desbloquear"
 
-#: templates/list/_list.html:10 templates/list/grocery_index.html:13
+#: templates/list/_list.html:11 templates/list/grocery_index.html:13
 msgid "created on "
 msgstr "Creación de"
 
@@ -445,11 +440,11 @@ msgstr "acciones"
 msgid "create"
 msgstr "crear"
 
-#: templates/list/grocery_ajax.html:30
+#: templates/list/grocery_ajax.html:31
 msgid "You have not added any grocery list yet!"
 msgstr "Usted no ha añadido ninguna lista de la compra todavía!"
 
-#: templates/list/grocery_ajax.html:31 templates/list/grocery_index.html:22
+#: templates/list/grocery_ajax.html:32 templates/list/grocery_index.html:22
 msgid "create a grocery list"
 msgstr "crear una lista de la compra"
 
@@ -466,8 +461,9 @@ msgid "grocery list -"
 msgstr "lista de la compra -"
 
 #: templates/list/grocery_index.html:3
-msgid "OpenEats Grocery List"
-msgstr "OpenEats lista de compras"
+#, fuzzy
+msgid "Grocery List"
+msgstr "lista de la compra"
 
 #: templates/list/grocery_index.html:21
 msgid "You do not have any grocery list created"
@@ -481,130 +477,132 @@ msgstr "compartida lista"
 msgid "shared by "
 msgstr "compartida por"
 
-#: templates/list/grocery_mail_body.html:7
-msgid "OpenEats Email"
-msgstr "OpenEats correo electrónico"
+#: templates/list/grocery_mail_body.html:8
+#, fuzzy
+msgid "Email"
+msgstr "correo electrónico"
 
-#: templates/list/grocery_mail_body.html:12
-#: templates/list/grocery_print.html:13
+#: templates/list/grocery_mail_body.html:13
+#: templates/list/grocery_print.html:14
 msgid "grocery list "
 msgstr "lista de la compra"
 
-#: templates/list/grocery_print.html:7 templates/recipe/recipe_print.html:8
-msgid "OpenEats Print"
-msgstr "OpenEats Imprimir"
+#: templates/list/grocery_print.html:8 templates/recipe/recipe_print.html:9
+#, fuzzy
+msgid "Print"
+msgstr "de impresión"
 
 #: templates/list/grocerylist_form.html:28
 msgid "items"
 msgstr "artículos"
 
-#: templates/profiles/create_profile.html:4
-#: templates/profiles/edit_profile.html:5
-#: templates/recipe/recipe_detail.html:113
+#: templates/profiles/create_profile.html:5
+#: templates/profiles/edit_profile.html:6
+#: templates/recipe/recipe_detail.html:115
 msgid "edit"
 msgstr "edición"
 
-#: templates/profiles/edit_profile.html:14
+#: templates/profiles/edit_profile.html:15
 msgid "To change your profile picture you will need to create/login to"
 msgstr "Para cambiar su foto de perfil que se necesita para crear o acceder a"
 
-#: templates/profiles/edit_profile.html:14
+#: templates/profiles/edit_profile.html:15
 msgid "Gravata"
 msgstr ""
 
-#: templates/profiles/edit_profile.html:14
+#: templates/profiles/edit_profile.html:15
 msgid "using the same email address you used for this site"
 msgstr ""
-"utilizando la misma dirección de correo electrónico que utilizó para este "
-"sitio"
+"utilizando la misma dirección de correo electrónico que utilizó para "
+"este sitio"
 
-#: templates/profiles/edit_profile.html:27
+#: templates/profiles/edit_profile.html:28
 msgid "Change Password"
 msgstr "Cambiar contraseña"
 
-#: templates/profiles/profile_detail.html:41
+#: templates/profiles/profile_detail.html:42
 msgid "location:"
 msgstr "Ubicación:"
 
-#: templates/profiles/profile_detail.html:44
+#: templates/profiles/profile_detail.html:45
 msgid "gender:"
 msgstr "género:"
 
-#: templates/profiles/profile_detail.html:47
+#: templates/profiles/profile_detail.html:48
 msgid "website:"
 msgstr "página web:"
 
-#: templates/profiles/profile_detail.html:50
+#: templates/profiles/profile_detail.html:51
 msgid "all about me"
 msgstr "todo acerca de mí"
 
-#: templates/profiles/profile_detail.html:57
+#: templates/profiles/profile_detail.html:58
 msgid "recipes"
 msgstr "recetas"
 
-#: templates/profiles/profile_detail.html:59
+#: templates/profiles/profile_detail.html:60
 msgid "private recipes"
 msgstr "recetas privadas"
 
-#: templates/profiles/profile_detail.html:60
+#: templates/profiles/profile_detail.html:61
 msgid "favorites"
 msgstr "los favoritos"
 
-#: templates/profiles/profile_detail.html:62
+#: templates/profiles/profile_detail.html:63
 msgid "followers"
 msgstr "seguidores"
 
-#: templates/profiles/profile_detail.html:63
+#: templates/profiles/profile_detail.html:64
 msgid "feed"
 msgstr "piensos"
 
-#: templates/profiles/profile_detail.html:64
+#: templates/profiles/profile_detail.html:65
 msgid "settings"
 msgstr "configuración"
 
-#: templates/profiles/profile_detail.html:70
+#: templates/profiles/profile_detail.html:71
 msgid "edit Profile"
 msgstr "Editar Perfil"
 
-#: templates/profiles/profile_detail.html:71
+#: templates/profiles/profile_detail.html:72
 msgid "change password"
 msgstr "cambiar la contraseña"
 
-#: templates/recipe/_list.html:28 templates/recipe/recipe_detail.html:154
-#: templates/recipe/recipe_print.html:16 templates/search/search.html:34
+#: templates/recipe/_list.html:29 templates/recipe/recipe_detail.html:156
+#: templates/recipe/recipe_print.html:17 templates/search/search.html:35
 msgid "Chef:"
 msgstr "Chef:"
 
-#: templates/recipe/_list.html:32 templates/search/search.html:38
+#: templates/recipe/_list.html:33 templates/search/search.html:39
 msgid "Average Rating:"
 msgstr "Valoración media:"
 
-#: templates/recipe/_list.html:34 templates/recipe/recipe_detail.html:142
-#: templates/search/search.html:40
+#: templates/recipe/_list.html:35 templates/recipe/recipe_detail.html:144
+#: templates/search/search.html:41
 msgid "Poor"
 msgstr "Pobres"
 
-#: templates/recipe/_list.html:35 templates/recipe/recipe_detail.html:143
-#: templates/search/search.html:41
+#: templates/recipe/_list.html:36 templates/recipe/recipe_detail.html:145
+#: templates/search/search.html:42
 msgid "Fair"
 msgstr "Feria"
 
-#: templates/recipe/_list.html:36 templates/recipe/recipe_detail.html:144
-#: templates/search/search.html:42
+#: templates/recipe/_list.html:37 templates/recipe/recipe_detail.html:146
+#: templates/search/search.html:43
 msgid "OK"
 msgstr "Aceptar"
 
-#: templates/recipe/_list.html:37 templates/recipe/recipe_detail.html:145
-#: templates/search/search.html:43
+#: templates/recipe/_list.html:38 templates/recipe/recipe_detail.html:147
+#: templates/search/search.html:44
 msgid "Good"
 msgstr "Bueno"
 
-#: templates/recipe/_list.html:38 templates/recipe/recipe_detail.html:146
-#: templates/search/search.html:44
+#: templates/recipe/_list.html:39 templates/recipe/recipe_detail.html:148
+#: templates/search/search.html:45
 msgid "Wow"
 msgstr "Wow"
 
-#: templates/recipe/_list.html:43 templates/search/search.html:49
+#: templates/recipe/_list.html:44 templates/search/search.html:50
 msgid "Read More"
 msgstr "Leer más"
 
@@ -620,108 +618,109 @@ msgstr "chef:"
 msgid "Recipe Tags"
 msgstr "Receta Etiquetas"
 
-#: templates/recipe/recipe_cook.html:6
+#: templates/recipe/recipe_cook.html:7
 msgid "Cook View"
 msgstr "Cook Ver"
 
-#: templates/recipe/recipe_cook.html:10 templates/recipe/recipe_print.html:13
+#: templates/recipe/recipe_cook.html:11 templates/recipe/recipe_print.html:14
 msgid "Recipe is marked Private and you are not the author of it!"
 msgstr "Receta se marca privada y usted no es el autor de la misma!"
 
-#: templates/recipe/recipe_cook.html:15
-#: templates/recipe/recipe_detail.html:168
-#: templates/recipe/recipe_print.html:27
+#: templates/recipe/recipe_cook.html:16
+#: templates/recipe/recipe_detail.html:170
+#: templates/recipe/recipe_print.html:28
 msgid "Ingredients"
 msgstr "Ingredientes"
 
-#: templates/recipe/recipe_cook.html:30
-#: templates/recipe/recipe_detail.html:185
+#: templates/recipe/recipe_cook.html:31
+#: templates/recipe/recipe_detail.html:187
 msgid "Directions"
 msgstr "Cómo llegar"
 
-#: templates/recipe/recipe_detail.html:110
+#: templates/recipe/recipe_detail.html:112
 msgid "print"
 msgstr "de impresión"
 
-#: templates/recipe/recipe_detail.html:111
+#: templates/recipe/recipe_detail.html:113
 msgid "cook"
 msgstr "cocinar"
 
-#: templates/recipe/recipe_detail.html:118
+#: templates/recipe/recipe_detail.html:120
 msgid "add to list"
 msgstr "añadir a la lista"
 
-#: templates/recipe/recipe_detail.html:125
+#: templates/recipe/recipe_detail.html:127
 msgid "tags:"
 msgstr "tags:"
 
-#: templates/recipe/recipe_detail.html:140
+#: templates/recipe/recipe_detail.html:142
 msgid "rate this:"
 msgstr "puntuar este:"
 
-#: templates/recipe/recipe_detail.html:152
+#: templates/recipe/recipe_detail.html:154
 msgid "Course:"
 msgstr "Curso:"
 
-#: templates/recipe/recipe_detail.html:153
+#: templates/recipe/recipe_detail.html:155
 msgid "Cuisine:"
 msgstr "Cocina:"
 
-#: templates/recipe/recipe_detail.html:158
-#: templates/recipe/recipe_print.html:22
+#: templates/recipe/recipe_detail.html:160
+#: templates/recipe/recipe_print.html:23
 msgid "serves"
 msgstr "sirve"
 
-#: templates/recipe/recipe_detail.html:195
-#: templates/recipe/recipe_print.html:51
+#: templates/recipe/recipe_detail.html:197
+#: templates/recipe/recipe_print.html:52
 msgid "Your Notes:"
 msgstr "Tus Notas:"
 
-#: templates/recipe/recipe_detail.html:224
+#: templates/recipe/recipe_detail.html:226
 msgid "comments"
 msgstr "comentarios"
 
-#: templates/recipe/recipe_form.html:4
-msgid "OpenEats | Add Recipe"
-msgstr "OpenEats | Añadir Receta"
+#: templates/recipe/recipe_form.html:5
+#, fuzzy
+msgid "Add Recipe"
+msgstr "Nueva receta"
 
-#: templates/recipe/recipe_form.html:99
+#: templates/recipe/recipe_form.html:100
 msgid "ingredients"
 msgstr "ingredientes"
 
-#: templates/recipe/recipe_form.html:124
+#: templates/recipe/recipe_form.html:125
 msgid "New Recipe"
 msgstr "Nueva receta"
 
-#: templates/recipe/recipe_print.html:23
+#: templates/recipe/recipe_print.html:24
 msgid "mintues"
 msgstr "Mintues"
 
-#: templates/recipe/recipe_print.html:43
+#: templates/recipe/recipe_print.html:44
 msgid "Steps"
 msgstr "Pasos"
 
-#: templates/recipe/recipe_userfav.html:30
+#: templates/recipe/recipe_userfav.html:31
 msgid "You have not added any favorite recipes yet!"
 msgstr "Usted no ha añadido ningún recetas favoritas todavía!"
 
-#: templates/recipe/recipe_userlist.html:40
+#: templates/recipe/recipe_userlist.html:41
 msgid "has not added any recipes yet!"
 msgstr "no ha añadido ningún recetas todavía!"
 
-#: templates/recipe_groups/course_form.html:8
+#: templates/recipe_groups/course_form.html:9
 msgid "add course"
 msgstr "añadir curso"
 
-#: templates/recipe_groups/course_list.html:5
+#: templates/recipe_groups/course_list.html:6
 msgid "Course List"
 msgstr "Curso de Lista"
 
-#: templates/recipe_groups/cuisine_list.html:5
+#: templates/recipe_groups/cuisine_list.html:6
 msgid "Cuisine List"
 msgstr "Lista de cocina"
 
-#: templates/recipe_groups/recipe_list.html:13
+#: templates/recipe_groups/recipe_list.html:14
 msgid "Recipes in "
 msgstr "Recetas en"
 
@@ -734,8 +733,9 @@ msgid "Account now Active!"
 msgstr "Cuenta ahora Active!"
 
 #: templates/registration/login.html:3
-msgid "OpenEats - Login"
-msgstr "OpenEats - Ingresar"
+#, fuzzy
+msgid "Login"
+msgstr "Registrarse"
 
 #: templates/registration/login.html:6
 msgid "create an account"
@@ -765,8 +765,8 @@ msgstr "De restablecimiento de contraseña completa"
 #: templates/registration/password_reset_complete.html:5
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr ""
-"Su contraseña se ha establecido. Usted puede seguir adelante e iniciar "
-"sesión ahora."
+"Su contraseña se ha establecido. Usted puede seguir adelante e iniciar"
+" sesión ahora."
 
 #: templates/registration/password_reset_complete.html:6
 msgid "Log in"
@@ -798,12 +798,12 @@ msgstr "De restablecimiento de contraseña sin éxito"
 
 #: templates/registration/password_reset_confirm.html:17
 msgid ""
-"The password reset link was invalid, possibly because it has already been "
-"used. Please request a new password reset."
+"The password reset link was invalid, possibly because it has already "
+"been used. Please request a new password reset."
 msgstr ""
-"El enlace de restablecimiento de contraseña no es válida, posiblemente "
-"debido a que ya se ha utilizado. Por favor, solicitar un restablecimiento de "
-"la contraseña nueva."
+"El enlace de restablecimiento de contraseña no es válida, posiblemente"
+" debido a que ya se ha utilizado. Por favor, solicitar un "
+"restablecimiento de la contraseña nueva."
 
 #: templates/registration/password_reset_done.html:4
 msgid "Password reset successful"
@@ -814,8 +814,9 @@ msgid ""
 "We've e-mailed a new password to the e-mail address you submitted. You "
 "should be receiving it shortly."
 msgstr ""
-"Hemos enviado por correo electrónico una nueva contraseña a la dirección de "
-"correo electrónico que envía. Usted debe estar recibiendo en breve."
+"Hemos enviado por correo electrónico una nueva contraseña a la "
+"dirección de correo electrónico que envía. Usted debe estar recibiendo"
+" en breve."
 
 #: templates/registration/password_reset_form.html:4
 msgid "Password reset"
@@ -823,11 +824,11 @@ msgstr "De restablecimiento de contraseña"
 
 #: templates/registration/password_reset_form.html:5
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll reset "
-"your password and e-mail the new one to you."
+"Forgotten your password? Enter your e-mail address below, and we'll "
+"reset your password and e-mail the new one to you."
 msgstr ""
-"¿Olvidó su contraseña? Ingrese su dirección de e-mail, y vamos a restablecer "
-"la contraseña y el correo electrónico el nuevo para usted."
+"¿Olvidó su contraseña? Ingrese su dirección de e-mail, y vamos a "
+"restablecer la contraseña y el correo electrónico el nuevo para usted."
 
 #: templates/registration/password_reset_form.html:8
 msgid "E-mail address:"
@@ -842,12 +843,15 @@ msgid "Activation Link Sent"
 msgstr "Activación de enlace enviado"
 
 #: templates/registration/registration_complete.html:6
-msgid ""
-"Thank you for signing up for OpenEats you have been emailed an activation "
-"link"
+msgid "Thank you for signing up for"
+msgstr "Gracias por inscribirse en"
+
+#: templates/registration/registration_complete.html:6
+#, fuzzy
+msgid "you have been emailed an activation link"
 msgstr ""
-"Gracias por inscribirse en OpenEats le han enviado por correo electrónico un "
-"enlace de activación"
+"Gracias por inscribirse en OpenEats le han enviado por correo "
+"electrónico un enlace de activación"
 
 #: templates/relationships/confirm.html:4
 #: templates/relationships/confirm.html:7
@@ -879,11 +883,11 @@ msgstr "ya no"
 msgid "%(to_user_username)s's profile"
 msgstr "% (To_user_username) el perfil de s"
 
-#: templates/search/search.html:14
+#: templates/search/search.html:15
 msgid "Search Results"
 msgstr "Resultados de la búsqueda"
 
-#: templates/search/search.html:53
+#: templates/search/search.html:54
 msgid "No Results found for search query"
 msgstr "No se encontraron resultados para la consulta de búsqueda"
 
@@ -948,111 +952,106 @@ msgstr "informó!"
 msgid "report"
 msgstr "informe"
 
-#, fuzzy
+#~ msgid "OpenEats"
+#~ msgstr "OpenEats"
+
+#~ msgid "OpenEats2"
+#~ msgstr "OpenEats2"
+
+#~ msgid "OpenEats Grocery List"
+#~ msgstr "OpenEats lista de compras"
+
+#~ msgid "OpenEats Email"
+#~ msgstr "OpenEats correo electrónico"
+
+#~ msgid "OpenEats Print"
+#~ msgstr "OpenEats Imprimir"
+
+#~ msgid "OpenEats | Add Recipe"
+#~ msgstr "OpenEats | Añadir Receta"
+
+#~ msgid "OpenEats - Login"
+#~ msgstr "OpenEats - Ingresar"
+
 #~ msgid "Go"
 #~ msgstr "Bueno"
 
-#, fuzzy
 #~ msgid "View on site"
 #~ msgstr "Volver al sitio"
 
-#, fuzzy
 #~ msgid "Add %(name)s"
 #~ msgstr "Añadir %(campo)s "
 
-#, fuzzy
 #~ msgid "Filter"
 #~ msgstr "tema"
 
-#, fuzzy
 #~ msgid "Export"
 #~ msgstr "informe"
 
-#, fuzzy
 #~ msgid "Delete"
 #~ msgstr "eliminar"
 
-#, fuzzy
 #~ msgid "Password:"
 #~ msgstr "Nueva contraseña:"
 
-#, fuzzy
 #~ msgid "User"
 #~ msgstr "usuario"
 
-#, fuzzy
 #~ msgid "Action"
 #~ msgstr "acciones"
 
-#, fuzzy
 #~ msgid "Created object"
 #~ msgstr "Creación de"
 
-#, fuzzy
 #~ msgid "Save"
 #~ msgstr "Compartir"
 
-#, fuzzy
 #~ msgid "Change"
 #~ msgstr "Cancelar"
 
-#, fuzzy
 #~ msgid "You don´t have permission to edit anything."
 #~ msgstr "Usted no tiene permisos para editar esta lista"
 
-#, fuzzy
 #~ msgid "My Actions"
 #~ msgstr "acciones"
 
-#, fuzzy
 #~ msgid "Documentation"
 #~ msgstr "Django documentación"
 
-#, fuzzy
 #~ msgid "Django administration"
 #~ msgstr "Django documentación"
 
-#, fuzzy
 #~ msgid "Password"
 #~ msgstr "De restablecimiento de contraseña"
 
-#, fuzzy
 #~ msgid "Password (again)"
 #~ msgstr "De restablecimiento de contraseña"
 
-#, fuzzy
 #~ msgid "Password change"
 #~ msgstr "Contraseña cambiada con éxito"
 
-#, fuzzy
 #~ msgid "Delete Item"
 #~ msgstr "eliminar"
 
-#, fuzzy
 #~ msgid "Bookmarklets"
 #~ msgstr "bookmakred"
 
-#, fuzzy
 #~ msgid "Log in again"
 #~ msgstr "Registrarse"
 
-#, fuzzy
 #~ msgid "Password change successful"
 #~ msgstr "Contraseña cambiada con éxito"
 
-#, fuzzy
 #~ msgid ""
-#~ "Please enter your old password, for securitys sake, and then enter your "
-#~ "new password twice so we can verify you typed it in correctly."
+#~ "Please enter your old password, for securitys sake, and then enter your"
+#~ " new password twice so we can verify you typed it in correctly."
 #~ msgstr ""
 #~ "Por favor, introduzca su nueva contraseña dos veces para que podamos "
 #~ "verificar que la ha escrito correctamente."
 
-#, fuzzy
 #~ msgid "Old password:"
 #~ msgstr "Nueva contraseña:"
 
-#, fuzzy
 #~ msgid "Password reset confirmation"
 #~ msgstr "De restablecimiento de contraseña completa"
 
