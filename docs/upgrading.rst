@@ -15,7 +15,7 @@ Install
 * Unzip the file
 * Backup your database
 * Backup your current site files
-* From the unzip file, copy everything other then the settings.py file into your current openeats directory, over writting
+* From the unzip file, copy everything other then the settings.py, site-media/upload and site-media/uploads file into your current openeats directory, over writting
   what is already there
 
 .. _github: https://github.com/qgriffith/OpenEats
@@ -34,6 +34,10 @@ Remove the following from the installed apps section of the settings.py file
 Add the following to the installed apps section of the settings.py file on the *first* line::
 
     'grappelli.dashboard',
+
+Add the following to the installed apps section of the settings.py file::
+
+        'django.contrib.staticfiles',
 
 Remove the following from the *context processors* section of the settings.py file::
 
@@ -99,8 +103,22 @@ Database changes
 Running the following command from the OpenEats2 directory::
 
     ./manage.py syncdb
-    ./manage.py migrate
-
+    ./manage.py migrate djangoratings 0001 --fake
+    ./manage.py migrate djangoratings 0002 --fake
+    ./manage.py migrate djangoratings 0003
+    ./manage.py migrate djangoratings 0004 --fake
+    ./manage.py migrate djangoratings 0005 --fake
+    ./manage.py migrate djangoratings
+    ./manage.py migrate sentry 0001 --fake
+    ./manage.py migrate sentry 0002 --fake
+    ./manage.py migrate sentry 0003 --fake
+    ./manage.py migrate sentry 0004 --fake
+    ./manage.py migrate sentry 0005 --fake
+    ./manage.py migrate sentry 0006 --fake
+    ./manage.py migrate sentry 0007 --fake
+    ./manage.py migrate sentry 0008 --fake
+    ./manage.py migrate sentry 0009 --fake
+    ./manage.py migrate sentry
 
 Third Party static files
 --------------------------
@@ -110,6 +128,14 @@ This does away with having to setup symnlinks to them yourself.  The files are s
 To get the initial files set run the following command::
 
     ./manage.py collectstatic
+
+
+Rebuild Search Index
+---------------------
+
+The search engine was updated as part of this release so it is a good idea to run the folloiwng command to rebuild it::
+
+    ./manage.py rebuild_index
 
 Running
 -------

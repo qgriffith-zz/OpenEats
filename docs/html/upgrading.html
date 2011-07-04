@@ -60,7 +60,7 @@
 <li>Unzip the file</li>
 <li>Backup your database</li>
 <li>Backup your current site files</li>
-<li>From the unzip file, copy everything other then the settings.py file into your current openeats directory, over writting
+<li>From the unzip file, copy everything other then the settings.py, site-media/upload and site-media/uploads file into your current openeats directory, over writting
 what is already there</li>
 </ul>
 </div>
@@ -75,6 +75,10 @@ what is already there</li>
 </ul>
 <p>Add the following to the installed apps section of the settings.py file on the <em>first</em> line:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;grappelli.dashboard&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>Add the following to the installed apps section of the settings.py file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
 </pre></div>
 </div>
 <p>Remove the following from the <em>context processors</em> section of the settings.py file:</p>
@@ -98,6 +102,15 @@ what is already there</li>
 </div>
 <p>Add the following line to your settings.py file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">GRAPPELLI_INDEX_DASHBOARD</span> <span class="o">=</span> <span class="s">&#39;openeats.dashboard.CustomIndexDashboard&#39;</span>
+</pre></div>
+</div>
+<p>Add the following lines to your settings.py file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_PATH</span><span class="p">,</span> <span class="s">&#39;static-files&#39;</span><span class="p">)</span>
+<span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s">&#39;/static-files/&#39;</span>
+</pre></div>
+</div>
+<p>Change the <em>ADMIN_MEDIA_PREFIX</em> setting in the settings.py file to this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">ADMIN_MEDIA_PREFIX</span> <span class="o">=</span> <span class="n">STATIC_URL</span> <span class="o">+</span> <span class="s">&quot;grappelli/&quot;</span>
 </pre></div>
 </div>
 <p>Add the following line under the <em>OpenEats Settings</em> section of the settings.py file:</p>
@@ -133,7 +146,22 @@ what is already there</li>
 <h3>3.1.5. Database changes<a class="headerlink" href="#database-changes" title="Permalink to this headline">¶</a></h3>
 <p>Running the following command from the OpenEats2 directory:</p>
 <div class="highlight-python"><pre>./manage.py syncdb
-./manage.py migrate</pre>
+./manage.py migrate djangoratings 0001 --fake
+./manage.py migrate djangoratings 0002 --fake
+./manage.py migrate djangoratings 0003
+./manage.py migrate djangoratings 0004 --fake
+./manage.py migrate djangoratings 0005 --fake
+./manage.py migrate djangoratings
+./manage.py migrate sentry 0001 --fake
+./manage.py migrate sentry 0002 --fake
+./manage.py migrate sentry 0003 --fake
+./manage.py migrate sentry 0004 --fake
+./manage.py migrate sentry 0005 --fake
+./manage.py migrate sentry 0006 --fake
+./manage.py migrate sentry 0007 --fake
+./manage.py migrate sentry 0008 --fake
+./manage.py migrate sentry 0009 --fake
+./manage.py migrate sentry</pre>
 </div>
 </div>
 <div class="section" id="third-party-static-files">
@@ -144,8 +172,14 @@ To get the initial files set run the following command:</p>
 <div class="highlight-python"><pre>./manage.py collectstatic</pre>
 </div>
 </div>
+<div class="section" id="rebuild-search-index">
+<h3>3.1.7. Rebuild Search Index<a class="headerlink" href="#rebuild-search-index" title="Permalink to this headline">¶</a></h3>
+<p>The search engine was updated as part of this release so it is a good idea to run the folloiwng command to rebuild it:</p>
+<div class="highlight-python"><pre>./manage.py rebuild_index</pre>
+</div>
+</div>
 <div class="section" id="running">
-<h3>3.1.7. Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h3>
+<h3>3.1.8. Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h3>
 <p>After the upgrade you can run the following command to start the internal Django webserver.  This will allow you to
 test your site:</p>
 <div class="highlight-python"><pre>./manage.py runserver 8000</pre>
@@ -170,7 +204,8 @@ test your site:</p>
 <li><a class="reference internal" href="#upgrade-third-party-apps">3.1.4. Upgrade third party apps</a></li>
 <li><a class="reference internal" href="#database-changes">3.1.5. Database changes</a></li>
 <li><a class="reference internal" href="#third-party-static-files">3.1.6. Third Party static files</a></li>
-<li><a class="reference internal" href="#running">3.1.7. Running</a></li>
+<li><a class="reference internal" href="#rebuild-search-index">3.1.7. Rebuild Search Index</a></li>
+<li><a class="reference internal" href="#running">3.1.8. Running</a></li>
 </ul>
 </li>
 </ul>
