@@ -76,7 +76,7 @@ Optional
 Python Virtual Environment
 ***************************
 The easiest way to install OpenEats2, is to create a python virtual environment.  This allows for
-keeping all the packages for OpenEats2 in a separate place.  Saving the hassel of dealing with application dependencies.
+keeping all the packages for OpenEats2 in a separate place.  Saving the hassle of dealing with application dependencies.
 
 
 Installing virtualenv
@@ -195,7 +195,7 @@ Running
 After the install you can run the following command to start the internal Django webserver.  This will allow you to
 test your site prior to setting up a "real" webserver such as Apache::
 
-    sud./manage.py runserver 8000
+    ./manage.py runserver 8000
 
 
 This will bind the webserver to port 8000 on 127.0.0.1 otherwise known as localhost.  If you are deploying OpenEats2 to

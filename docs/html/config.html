@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3. Configuration &mdash; OpenEats2 v2.1.0Alpha documentation</title>
+    <title>4. Configuration &mdash; OpenEats2 v2.1.0Alpha documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,8 +23,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="OpenEats2 v2.1.0Alpha documentation" href="index.html" />
-    <link rel="next" title="5. Admin Page" href="admin.html" />
-    <link rel="prev" title="2. Installation" href="install.html" /> 
+    <link rel="next" title="6. Admin Page" href="admin.html" />
+    <link rel="prev" title="3. Upgrade" href="upgrading.html" /> 
   </head>
   <body>
     <div class="related">
@@ -34,10 +34,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="admin.html" title="5. Admin Page"
+          <a href="admin.html" title="6. Admin Page"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="install.html" title="2. Installation"
+          <a href="upgrading.html" title="3. Upgrade"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">OpenEats2 v2.1.0Alpha documentation</a> &raquo;</li> 
       </ul>
@@ -49,14 +49,14 @@
           <div class="body">
             
   <div class="section" id="configuration">
-<h1>3. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<h1>4. Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
 <p>This document covers the configuration settings for OpenEats2</p>
 <div class="section" id="database">
-<span id="database-config"></span><h2>3.1. Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
+<span id="database-config"></span><h2>4.1. Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h2>
 <p>To setup Django for your database refer to the <a class="reference external" href="https://docs.djangoproject.com/en/1.2/intro/tutorial01/#database-setup">Django Database</a> document</p>
 </div>
 <div class="section" id="email">
-<h2>3.2. Email<a class="headerlink" href="#email" title="Permalink to this headline">¶</a></h2>
+<h2>4.2. Email<a class="headerlink" href="#email" title="Permalink to this headline">¶</a></h2>
 <p>To setup your email server open up the settings.py file located in the OpenEats2 directory and fill in the following
 settings with your own email server settings:</p>
 <div class="highlight-python"><pre>#Email Server Settings
@@ -74,7 +74,7 @@ to learn how.</p>
 </div>
 </div>
 <div class="section" id="logo">
-<h2>3.3. Logo<a class="headerlink" href="#logo" title="Permalink to this headline">¶</a></h2>
+<h2>4.3. Logo<a class="headerlink" href="#logo" title="Permalink to this headline">¶</a></h2>
 <p>If you want to change the logo to your own logo you can modify the OELOGO setting in the setting.py file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">#OpenEats2 Settings</span>
 <span class="n">OELOGO</span> <span class="o">=</span> <span class="s">&#39;images/oelogo.png&#39;</span>
@@ -83,7 +83,7 @@ to learn how.</p>
 <p>Change the oelogo.png to what ever your logo image name is and place your new logo in <em>site-media/images</em> directory</p>
 </div>
 <div class="section" id="site-title">
-<h2>3.4. Site Title<a class="headerlink" href="#site-title" title="Permalink to this headline">¶</a></h2>
+<h2>4.4. Site Title<a class="headerlink" href="#site-title" title="Permalink to this headline">¶</a></h2>
 <p>If you want to set your own site title, different from the default OpenEats2.  You can modify the OETITLE setting
 in the setting.py file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">OETITLE</span> <span class="o">=</span> <span class="s">&#39;OpenEats2&#39;</span>
@@ -92,7 +92,7 @@ in the setting.py file:</p>
 <p>Change the word between the quotes to what ever you want your site title to be</p>
 </div>
 <div class="section" id="debug">
-<h2>3.5. Debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h2>
+<h2>4.5. Debug<a class="headerlink" href="#debug" title="Permalink to this headline">¶</a></h2>
 <p>By default OpenEats2 is in debug mode to allow users to find issues with their site during initial setup.  Once
 conferable with your site you should turn debug mode off by changing the following line in your settings.py file and
 restarting your webserver:</p>
@@ -105,15 +105,15 @@ DEBUG = False</pre>
 </div>
 </div>
 <div class="section" id="comments">
-<h1>4. Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h1>
+<h1>5. Comments<a class="headerlink" href="#comments" title="Permalink to this headline">¶</a></h1>
 <p>OpenEats2 uses <a class="reference external" href="http://disqus.com/">Disqus</a> for its comment system.  In order to use Disqus on your OpenEats2 site you will need to apply
 for an API key and register your site.</p>
 <div class="section" id="disqus-api-key">
-<h2>4.1. Disqus API Key<a class="headerlink" href="#disqus-api-key" title="Permalink to this headline">¶</a></h2>
+<h2>5.1. Disqus API Key<a class="headerlink" href="#disqus-api-key" title="Permalink to this headline">¶</a></h2>
 <p>To get your own Disqus API key visit the <a class="reference external" href="http://disqus.com/admin/register/">Disqus register</a> site and sign up.  Make sure you enter the fully qualified domain
 name of where you are hosting OpenEats2.</p>
 <div class="section" id="disqus-configuration">
-<h3>4.1.1. Disqus Configuration<a class="headerlink" href="#disqus-configuration" title="Permalink to this headline">¶</a></h3>
+<h3>5.1.1. Disqus Configuration<a class="headerlink" href="#disqus-configuration" title="Permalink to this headline">¶</a></h3>
 <p>Once you have register your site with Disqus you will need to add the following to your settings.py file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c">#Disqus settings</span>
 <span class="n">DISQUS_API_KEY</span> <span class="o">=</span> <span class="s">&quot;your API key&quot;</span>
@@ -132,17 +132,17 @@ name of where you are hosting OpenEats2.</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">3. Configuration</a><ul>
-<li><a class="reference internal" href="#database">3.1. Database</a></li>
-<li><a class="reference internal" href="#email">3.2. Email</a></li>
-<li><a class="reference internal" href="#logo">3.3. Logo</a></li>
-<li><a class="reference internal" href="#site-title">3.4. Site Title</a></li>
-<li><a class="reference internal" href="#debug">3.5. Debug</a></li>
+<li><a class="reference internal" href="#">4. Configuration</a><ul>
+<li><a class="reference internal" href="#database">4.1. Database</a></li>
+<li><a class="reference internal" href="#email">4.2. Email</a></li>
+<li><a class="reference internal" href="#logo">4.3. Logo</a></li>
+<li><a class="reference internal" href="#site-title">4.4. Site Title</a></li>
+<li><a class="reference internal" href="#debug">4.5. Debug</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#comments">4. Comments</a><ul>
-<li><a class="reference internal" href="#disqus-api-key">4.1. Disqus API Key</a><ul>
-<li><a class="reference internal" href="#disqus-configuration">4.1.1. Disqus Configuration</a></li>
+<li><a class="reference internal" href="#comments">5. Comments</a><ul>
+<li><a class="reference internal" href="#disqus-api-key">5.1. Disqus API Key</a><ul>
+<li><a class="reference internal" href="#disqus-configuration">5.1.1. Disqus Configuration</a></li>
 </ul>
 </li>
 </ul>
@@ -150,11 +150,11 @@ name of where you are hosting OpenEats2.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="install.html"
-                        title="previous chapter">2. Installation</a></p>
+  <p class="topless"><a href="upgrading.html"
+                        title="previous chapter">3. Upgrade</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="admin.html"
-                        title="next chapter">5. Admin Page</a></p>
+                        title="next chapter">6. Admin Page</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/config.txt"
@@ -184,10 +184,10 @@ name of where you are hosting OpenEats2.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="admin.html" title="5. Admin Page"
+          <a href="admin.html" title="6. Admin Page"
              >next</a> |</li>
         <li class="right" >
-          <a href="install.html" title="2. Installation"
+          <a href="upgrading.html" title="3. Upgrade"
              >previous</a> |</li>
         <li><a href="index.html">OpenEats2 v2.1.0Alpha documentation</a> &raquo;</li> 
       </ul>

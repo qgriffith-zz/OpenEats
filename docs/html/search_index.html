@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>8. Search Index &mdash; OpenEats2 v2.1.0Alpha documentation</title>
+    <title>9. Search Index &mdash; OpenEats2 v2.1.0Alpha documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
@@ -23,7 +23,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="OpenEats2 v2.1.0Alpha documentation" href="index.html" />
-    <link rel="prev" title="7. Exporting Recipes" href="exporting.html" /> 
+    <link rel="next" title="10. Changelog" href="changelog.html" />
+    <link rel="prev" title="8. Exporting Recipes" href="exporting.html" /> 
   </head>
   <body>
     <div class="related">
@@ -33,7 +34,10 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="exporting.html" title="7. Exporting Recipes"
+          <a href="changelog.html" title="10. Changelog"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="exporting.html" title="8. Exporting Recipes"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">OpenEats2 v2.1.0Alpha documentation</a> &raquo;</li> 
       </ul>
@@ -45,17 +49,17 @@
           <div class="body">
             
   <div class="section" id="search-index">
-<h1>8. Search Index<a class="headerlink" href="#search-index" title="Permalink to this headline">¶</a></h1>
+<h1>9. Search Index<a class="headerlink" href="#search-index" title="Permalink to this headline">¶</a></h1>
 <p>The search feature on OpenEats2 is handled by two different applications; <a class="reference external" href="http://haystacksearch.org/">django-haystack</a> and <a class="reference external" href="https://bitbucket.org/mchaput/whoosh/wiki/Home">whoosh</a></p>
 <div class="section" id="updating-the-index">
-<h2>8.1. Updating the Index<a class="headerlink" href="#updating-the-index" title="Permalink to this headline">¶</a></h2>
+<h2>9.1. Updating the Index<a class="headerlink" href="#updating-the-index" title="Permalink to this headline">¶</a></h2>
 <p>You have two options when updating the search index;</p>
 <ul class="simple">
 <li>Real time, as a recipe is added or deleted the index is updated, this is the default method.</li>
 <li>Scheduled, you can run a script every x minutes to update the index</li>
 </ul>
 <div class="section" id="real-time-updates">
-<h3>8.1.1. Real time Updates<a class="headerlink" href="#real-time-updates" title="Permalink to this headline">¶</a></h3>
+<h3>9.1.1. Real time Updates<a class="headerlink" href="#real-time-updates" title="Permalink to this headline">¶</a></h3>
 <p>By default OpenEats2 ships with real time update dates out of the box; meaning if a recipe is added the search index
 is updated.  There are some downsides to this.  If you have a real active site, updating the index in real time could
 cause a huge slow down.  The handoff between the database save and the search index update could cause some weird issues
@@ -68,7 +72,7 @@ updated because of garbage collection on Apache.</p>
 </div>
 </div>
 <div class="section" id="schedule-updates">
-<h3>8.1.2. Schedule Updates<a class="headerlink" href="#schedule-updates" title="Permalink to this headline">¶</a></h3>
+<h3>9.1.2. Schedule Updates<a class="headerlink" href="#schedule-updates" title="Permalink to this headline">¶</a></h3>
 <p>If you do not wish to run real time updates you can set the index to be update via a script that you run on a schedule.
 To do this you will want to edit the <em>recipe/search_indexes.py</em> file:</p>
 <div class="highlight-python"><pre>Change line
@@ -97,10 +101,10 @@ virtenv:</p>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">8. Search Index</a><ul>
-<li><a class="reference internal" href="#updating-the-index">8.1. Updating the Index</a><ul>
-<li><a class="reference internal" href="#real-time-updates">8.1.1. Real time Updates</a></li>
-<li><a class="reference internal" href="#schedule-updates">8.1.2. Schedule Updates</a></li>
+<li><a class="reference internal" href="#">9. Search Index</a><ul>
+<li><a class="reference internal" href="#updating-the-index">9.1. Updating the Index</a><ul>
+<li><a class="reference internal" href="#real-time-updates">9.1.1. Real time Updates</a></li>
+<li><a class="reference internal" href="#schedule-updates">9.1.2. Schedule Updates</a></li>
 </ul>
 </li>
 </ul>
@@ -109,7 +113,10 @@ virtenv:</p>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="exporting.html"
-                        title="previous chapter">7. Exporting Recipes</a></p>
+                        title="previous chapter">8. Exporting Recipes</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="changelog.html"
+                        title="next chapter">10. Changelog</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/search_index.txt"
@@ -139,7 +146,10 @@ virtenv:</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="exporting.html" title="7. Exporting Recipes"
+          <a href="changelog.html" title="10. Changelog"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="exporting.html" title="8. Exporting Recipes"
              >previous</a> |</li>
         <li><a href="index.html">OpenEats2 v2.1.0Alpha documentation</a> &raquo;</li> 
       </ul>

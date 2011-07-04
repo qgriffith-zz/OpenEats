@@ -18,6 +18,7 @@ Getting Started
 
     intro
     install
+    upgrading
     config
     admin
     testing
