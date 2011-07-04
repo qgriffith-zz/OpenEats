@@ -58,6 +58,15 @@ Add the following line to your settings.py file::
 
     GRAPPELLI_INDEX_DASHBOARD = 'openeats.dashboard.CustomIndexDashboard'
 
+Add the following lines to your settings.py file::
+
+    STATIC_ROOT = os.path.join(BASE_PATH, 'static-files')
+    STATIC_URL = '/static-files/'
+
+Change the *ADMIN_MEDIA_PREFIX* setting in the settings.py file to this::
+
+    ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
+
 Add the following line under the *OpenEats Settings* section of the settings.py file::
 
     OETITLE="OpenEats2"
