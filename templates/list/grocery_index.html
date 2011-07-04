@@ -1,6 +1,6 @@
 {% extends 'list/grocery_base.html' %}
 {% load i18n %}
-{% block title %} {% trans 'OpenEats Grocery List' %}{% endblock %}
+{% block title %} {{ block.super }} {% trans 'Grocery List' %}{% endblock %}
 {% block content %}
 <div id="grocery-list" >
     <h1>{{ request.user }} {%trans 'grocery list'%}</h1>

@@ -38,6 +38,17 @@ If you want to change the logo to your own logo you can modify the OELOGO settin
 
 Change the oelogo.png to what ever your logo image name is and place your new logo in *site-media/images* directory
 
+
+Site Title
+===========
+If you want to set your own site title, different from the default OpenEats2.  You can modify the OETITLE setting
+in the setting.py file::
+
+    OETITLE = 'OpenEats2'
+
+Change the word between the quotes to what ever you want your site title to be
+
+
 Debug
 ======
 

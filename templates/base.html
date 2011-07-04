@@ -3,7 +3,7 @@
 <html>
     <head>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-        <title>{% block title %}{% trans "OpenEats2" %}{% endblock %}</title>
+        <title>{% block title %}{{ OETITLE }}{% endblock %}</title>
          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
          <script type="text/javascript" src="{{ MEDIA_URL }}js/oe.js"></script>
@@ -84,7 +84,7 @@
                 </div>
                 <div id="footer">
                    {% navbars %}
-                    &copy;OpenEats 2010
+                    &copy;OpenEats 2011
                 </div>
             </div><!---end main -->
         

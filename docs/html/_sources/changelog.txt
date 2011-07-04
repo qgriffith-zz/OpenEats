@@ -1,8 +1,8 @@
 Changelog
 ==========
 
-2.1
-----
+Version 2.1
+--------------
 * Upgraded Django to 1.3
 * Added CSRF protection for AJAX calls
 * Upgraded to django-grappelli 2.3.3
@@ -21,5 +21,5 @@ Changelog
 * Upgraded django-webtest to 1.4.1
 * Upgraded django-relationships to 0.2.3
 * Upgraded django-ratings to 0.3.6
-
+* Added the ability for users to change the tile of the site via settings.py
 

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
-{%block title %}{%trans "OpenEats - Login" %}{% endblock %}
+{%block title %}{{ block.super }}- {%trans "Login" %}{% endblock %}
 {% block content %}
  {% include 'registration/_login_form.html' %}
  <a href="/accounts/register/">{%trans 'create an account' %}</a>

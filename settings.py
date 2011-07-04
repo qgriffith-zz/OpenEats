@@ -98,6 +98,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.messages.context_processors.messages",
     "navbar.context_processors.navbars",
     "openeats.context_processors.oelogo",
+    "openeats.context_processors.oetitle",
 
 )
 
@@ -168,6 +169,8 @@ INSTALLED_APPS = (
 
 #OpenEats2 Settings
 OELOGO = 'images/oelogo.png'
+OETITLE = 'OpenEats2 Dev'
+
 
 INTERNAL_IPS = ('127.0.0.1',)
 

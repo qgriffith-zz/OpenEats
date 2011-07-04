@@ -4,7 +4,7 @@
     <head>
         <link rel="stylesheet" type="text/css" media="print" href="http://{{ request.get_host }}{{MEDIA_URL}}css/grocery_print.css" />
         <link rel="stylesheet" type="text/css" media="screen" href="http://{{ request.get_host }}{{MEDIA_URL}}css/grocery_prints.css" />
-        <title>{% trans 'OpenEats Email'%} {{ list }}</title>
+        <title>{{ OETITLE }}{% trans 'Email'%} {{ list }}</title>
     </head>
     <body>
         <div id="grocery-print">
