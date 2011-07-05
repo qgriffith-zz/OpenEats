@@ -119,6 +119,7 @@ Running the following command from the OpenEats2 directory::
     ./manage.py migrate sentry 0008 --fake
     ./manage.py migrate sentry 0009 --fake
     ./manage.py migrate sentry
+    ./manage.py migrate
 
 Third Party static files
 --------------------------

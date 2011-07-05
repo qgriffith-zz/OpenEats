@@ -22,4 +22,5 @@ Version 2.1
 * Upgraded django-relationships to 0.2.3
 * Upgraded django-ratings to 0.3.6
 * Added the ability for users to change the tile of the site via settings.py
+* Added the ability to change and clear a picture on a recipe when edited
 
