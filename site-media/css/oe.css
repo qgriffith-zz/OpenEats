@@ -120,7 +120,7 @@ div#recipe-form textarea:focus, input:focus { border: 2px solid #900;}
 div#recipe-form label { font-size: 110%}
 div#recipe-form em { padding-left: 8px; color:#5f562a;}
 div#recipe-form p { margin-bottom: 10px;}
-div#recipe-form p#recipe-photo{color:#484846; padding-bottom:5px; padding-left:18px;}
+div#recipe-form p#recipe-photo{color:#484846; padding-bottom:5px; padding-left:20px;}
 div#recipe-form p#recipe-photo a{color:#5f562a;}
 div#recipe-form p#recipe-photo a:hover{color:#900;}
 div#recipe-form p#recipe-photo label{float:none !important;}
