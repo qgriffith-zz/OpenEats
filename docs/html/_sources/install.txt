@@ -25,7 +25,7 @@ Requirements
 * `django-taggit-templatetags`_ 0.4.6dev
 * `reportlab`_ 2.5
 * `django-registration`_ 0.8-alpha-1
-* `django-relationships`_ 0.2.3
+* `django-relationships`_ 0.3.0
 * `django-ratings`_ 0.3.6
 * `django-grappelli`_ 2.3.3
 

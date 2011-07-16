@@ -19,7 +19,7 @@ Version 2.1
 * Upgraded django-rosetta to 0.6.2
 * Upgraded django-sentry to 1.8.6.2
 * Upgraded django-webtest to 1.4.1
-* Upgraded django-relationships to 0.2.3
+* Upgraded django-relationships to 0.3.0
 * Upgraded django-ratings to 0.3.6
 * Added the ability for users to change the tile of the site via settings.py
 * Added the ability to change and clear a picture on a recipe when edited

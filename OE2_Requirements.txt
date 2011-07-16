@@ -26,7 +26,7 @@ webtest==1.2.3
 django-webtest==1.4.1
 reportlab==2.5
 django-grappelli==2.3.3
-django-relationships==0.2.3
+django-relationships==0.3.0
 django-ratings==0.3.6
 https://bitbucket.org/ubernostrum/django-registration/downloads/django-registration-0.8-alpha-1.tar.gz
 
