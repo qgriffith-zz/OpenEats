@@ -3,6 +3,10 @@
 <html>
     <head>
         <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+        {% block keywords %}
+            <meta http-equiv="keywords" content="Recipes, OpenEats2, OpenEats, Django, Grocery List, Grocery Lists, Share Recipes, rated recipes" />
+        {% endblock %}
+        <meta name="description" content="Amazing Recipes and beautiful food photography. Created as well as rated by you and fellow foodies."/>
         <title>{% block title %}{{ OETITLE }}{% endblock %}</title>
          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>

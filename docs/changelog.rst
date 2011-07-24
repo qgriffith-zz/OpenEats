@@ -24,3 +24,7 @@ Version 2.1
 * Added the ability for users to change the tile of the site via settings.py
 * Added the ability to change and clear a picture on a recipe when edited
 
+Version 2.2
+--------------
+* Added meta keywords and description to the main page
+* Added meta keywords using recipe titles and tages to the recipe detail page

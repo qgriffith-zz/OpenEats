@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load recipe_keywords %}
 {% comment %}This template is the recipe detail view{% endcomment %}
 {% load sanitize %}
 {% load ratings %}
 {% load recipe_links %}
 {%block title %}{{ block.super }}- {{ recipe }} {% endblock %}
+{% block keywords %}<meta name="keywords" content="{% recipe_keywords recipe.id 10 %}"/>{% endblock %}
 {% block jscript %}
     <link rel="stylesheet" href="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox.css" />
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
