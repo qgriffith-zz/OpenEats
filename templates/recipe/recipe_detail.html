@@ -41,7 +41,8 @@
         });
     </script>
    {% rating_by_request request on recipe.rating as vote %}{% comment %}check to see if the user has voted on this before {% endcomment %}
-    
+
+
     {% if request.user.is_authenticated and vote == False %}
     <script type="text/javascript">
         $(document).ready(function () {
@@ -92,16 +93,21 @@
          });
          // Change widget's title
         $("#rating-title").text("Average rating");
-         var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
-         var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
-       $("#recipe-rate").stars("selectID", selectid); //set the select value to the avg rate
-       $caption.text(" (" + '{{ recipe.rating.votes }}' + " votes)");
+        $caption.text(" (" + '{{ recipe.rating.votes }}' + " votes)");
        // Append caption element !after! the Stars
-	$caption.appendTo("#recipe-rate");
+	   $caption.appendTo("#recipe-rate");
      });
  </script>
 
  {% endif %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //set the average rating on the stars
+            var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
+            var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
+            $("#recipe-rate").stars("selectID", selectid); //set the select value to the avg rate
+        });
+    </script>
 {% endblock %}
 
 {% block content %}

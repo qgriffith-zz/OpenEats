@@ -28,3 +28,4 @@ Version 2.2
 --------------
 * Added meta keywords and description to the main page
 * Added meta keywords using recipe titles and tages to the recipe detail page
+* Fixed bug of ratings not showing up on a recipe till a user voted on them even if another user had rated the recipe
