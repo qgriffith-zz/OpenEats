@@ -1,18 +1,7 @@
 from django.conf.urls.defaults import *
 from django.views.generic import list_detail
+from django.views.generic import ListView
 from models import Recipe
-
-recipe_info={
-    'queryset': Recipe.objects.all(),
-    "template_object_name": 'recipe',
-}
-
-recipe_list={
-    'queryset': Recipe.objects.filter(shared=Recipe.SHARE_SHARED).order_by('pub_date', 'title')[:10],
-    "template_object_name": 'recipe',
-    'template_name': 'recipe/index.html',
-}
-
 
 urlpatterns = patterns('',
     url(r'^new/$', 'recipe.views.recipe', name="new_recipe"),
@@ -26,8 +15,8 @@ urlpatterns = patterns('',
     (r'^ajaxulist/(?P<shared>[-\w]+)/(?P<user>[-\w]+)/$', 'recipe.views.recipeUser'),
     url(r'^ajax-raterecipe/(?P<object_id>\d+)/(?P<score>\d+)/$', 'recipe.views.recipeRate', name='recipe_rate'),
     (r'^ajax-favrecipe/$', 'recipe.views.recipeUserFavs'),
+    url(r'^recent/$', ListView.as_view(queryset=Recipe.objects.filter(shared=Recipe.SHARE_SHARED).order_by('-pub_date', 'title')[:20],context_object_name='recipe_list')),
     url(r'^(?P<slug>[-\w]+)/$', 'recipe.views.recipeShow', name='recipe_show'),
     url(r'^export/(?P<slug>[-\w]+)/$', 'recipe.views.exportPDF', name='recipe_export'),
     url(r'^$', 'recipe.views.index', name='recipe_index'),
-
    )
