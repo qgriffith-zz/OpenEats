@@ -10,7 +10,7 @@
   <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
 
   <div id="title">
-      <h3>{% trans "Recent Recipes" %}</h3>
+      <h3>{% blocktrans %}{{ title }}{% endblocktrans %}</h3>
   </div>
     {% autopaginate recipe_list  %}
 

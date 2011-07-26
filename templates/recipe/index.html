@@ -17,6 +17,9 @@
         </dl>
         {% endfor %}
     </div>
+    <div id="recent-link">
+        <a href="{% url recipe_recent %}"> {% trans 'more recent recipes' %}</a>
+    </div>
     <h2 id="tag-title">{% trans 'Recipe Tags' %}</h2>
     <div id="tag-cloud">
        {% get_tagcloud as tags for 'recipe' %}

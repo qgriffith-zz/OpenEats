@@ -11,6 +11,8 @@
 
 <h3>{% trans 'browse' %}</h3>
 <ul>
+    <li><a href="{% url recipe_top %}"> {% trans 'top recipes' %}</a></li>
+    <li><a href="{% url recipe_recent %}"> {% trans 'recent recipes' %}</a></li>
     {% for course in course_list %}
     <li><a href="{% url course_recipes slug=course.slug %}">{{ course }}</a>  </li>
     {% endfor %}
