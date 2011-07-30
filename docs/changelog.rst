@@ -31,3 +31,4 @@ Version 2.2
 * Fixed bug of ratings not showing up on a recipe till a user voted on them even if another user had rated the recipe
 * Added a top recipe view that shows the top 20 recipes
 * Added a most recent recipes view that shows the 20 most recent recipes
+* Added recent recipe rss feed

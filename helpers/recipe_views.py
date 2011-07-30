@@ -10,6 +10,7 @@ class RecentRecipeView(ListView):
         context = super(RecentRecipeView, self).get_context_data(**kwargs)
         # Add in a QuerySet of all the books
         context['title'] = 'Recent Recipes'
+        context['feed'] = "/feed/recent/"
         return context
 
 class TopRecipeView(ListView):

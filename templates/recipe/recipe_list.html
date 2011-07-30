@@ -3,6 +3,8 @@
 {% comment %}This template list all recipes found in a course or a cuisine it is called from the course_list or the cuisine_list {% endcomment %}
 {% load sanitize %}
 {% load pagination_tags %}
+{% block feeds %}<link href="{{ feed }}" rel="alternate" type="application/rss+xml" title="{% blocktrans %}{{ title }} Recipe Feed{% endblocktrans %}" />{% endblock %}
+
 
 {% block content %}
 
