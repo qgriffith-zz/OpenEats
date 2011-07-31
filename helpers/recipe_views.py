@@ -22,5 +22,6 @@ class TopRecipeView(ListView):
         # Call the base implementation first to get a context
         context = super(TopRecipeView, self).get_context_data(**kwargs)
         # Add in a QuerySet of all the books
+        context['feed'] = "/feed/top/"
         context['title'] = 'Top Recipes'
         return context
