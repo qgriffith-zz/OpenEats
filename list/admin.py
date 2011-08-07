@@ -21,7 +21,10 @@ class GroceryItemAdmin(admin.ModelAdmin):
     search_fields = ['list']
 
 class GroceryAisleAdmin(admin.ModelAdmin):
-    ordering = ['aisle']
+    list_display = ['aisle', 'author']
+    ordering = ['aisle', 'author__username']
+    list_filter = ['author']
+    search_fields = ['aurhtor__username', 'aisle']
 
 class GrocerySharedAdmin(admin.ModelAdmin):
     list_display = ['list', 'shared_by']

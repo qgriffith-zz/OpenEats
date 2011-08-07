@@ -71,7 +71,7 @@ def groceryCreate(request, user=None, slug=None):
     if request.method=='POST':
       
         form = GroceryListForm(request.POST, instance=cur_list)
-        formset = ItemFormSet(request.POST, instance=cur_list)
+        formset = ItemFormSet(request.POST, instance=cur_list,user=cur_list.author)
         if form.is_valid() and formset.is_valid():
             new_list = form.save()
             instances = formset.save(commit=False)#save the items seperatly
@@ -82,7 +82,7 @@ def groceryCreate(request, user=None, slug=None):
             return redirect('grocery_show', user=new_list.author, slug=new_list.slug)
     else:
         form = GroceryListForm(instance=cur_list)
-        formset = ItemFormSet(instance=cur_list)
+        formset = ItemFormSet(instance=cur_list,user=cur_list.author)
 
     return render_to_response('list/grocerylist_form.html', {'form': form, 'formset' : formset,'user':owner}, context_instance=RequestContext(request))
 

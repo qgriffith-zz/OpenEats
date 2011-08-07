@@ -34,10 +34,10 @@
                               <td>
                                 {% for hid in form.hidden_fields %}{{ hid }}{% endfor %}
                                 {% if form.instance.pk %} {{  form.DELETE }}{% endif %}
-                                {{ form.item.label_tag|lower }}
+                                 {{ form.item.errors }} {{ form.item.label_tag|lower }}
                               </td>
                               <td class="item">{{ form.item }}</td>
-                              <td>{{ form.aisle.label_tag|lower }}</td>
+                              <td>{{ form.aisle.errors }} {{ form.aisle.label_tag|lower }}</td>
                               <td class="aisle">{{ form.aisle }}</td>
                             </tr>
 

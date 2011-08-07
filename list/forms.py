@@ -1,13 +1,14 @@
 from django.forms import ModelForm, forms
 import django.forms as forms
 from django.http import HttpResponse
-from models import GroceryList,GroceryShared
+from models import GroceryList,GroceryShared,GroceryAisle
 from django.forms.models import BaseInlineFormSet
 from django.utils.translation import ugettext_lazy as _
 from django.core.mail import EmailMessage, BadHeaderError
 from django.conf import settings
 from django.template import loader, RequestContext
 from django.contrib.sites.models import Site
+from django.db.models import Q
 
 class GroceryListForm(ModelForm):
     '''used to create a new grocery list for a user'''
@@ -16,6 +17,15 @@ class GroceryListForm(ModelForm):
         exclude=('slug')
 
 class GroceryItemFormSet(BaseInlineFormSet):
+
+     def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None) #get the user passed to the form off of the keyword argument
+        super(GroceryItemFormSet, self).__init__(*args, **kwargs)
+
+     def add_fields(self, form, index):
+        super(GroceryItemFormSet, self).add_fields(form, index)
+        form.fields["aisle"] = forms.ModelChoiceField(queryset=GroceryAisle.objects.filter(Q(author__isnull=True) | Q( author=self.user)), required=False)
+
      """Require at least one form in the formset to be completed."""
      def clean(self):
          super(GroceryItemFormSet, self).clean()

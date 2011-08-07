@@ -34,6 +34,7 @@ class GroceryList(models.Model):
 class GroceryAisle(models.Model):
     '''simple table to hold aisle names for the grocery list'''
     aisle = models.CharField(_('aisle'), max_length=100)
+    author = models.ForeignKey(User, verbose_name=_('user'), blank=True, null=True)
 
     class Meta:
         ordering = ['aisle']
