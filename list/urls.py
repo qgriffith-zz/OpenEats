@@ -13,5 +13,5 @@ urlpatterns = patterns('',
     url(r'^grocery/share/(?P<user>[-\w]+)/(?P<slug>[-\w]+)/$', 'list.views.groceryShareList', name='grocery_share'),
     url(r'^grocery/unshare/(?P<user>[-\w]+)/(?P<slug>[-\w]+)/$', 'list.views.groceryUnShareList', name='grocery_unshare'),
     url(r'^grocery/grocery-ajax/$', 'list.views.groceryProfile', name="grocery_profile"),
-
+    url(r'^grocery/aisle/$', 'list.views.groceryAisle', name="grocery_aisle"),
    )

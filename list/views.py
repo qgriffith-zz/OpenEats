@@ -9,7 +9,7 @@ from django.forms.models import inlineformset_factory
 from django.utils.translation import ugettext as _
 from recipe.models import Recipe
 from models import GroceryList, GroceryItem, GroceryShared
-from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList,GrocerySendMail, GroceryShareTo
+from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList,GrocerySendMail, GroceryShareTo, GroceryAisleForm
 from datetime import date
 
 @login_required
@@ -71,18 +71,18 @@ def groceryCreate(request, user=None, slug=None):
     if request.method=='POST':
       
         form = GroceryListForm(request.POST, instance=cur_list)
-        formset = ItemFormSet(request.POST, instance=cur_list,user=cur_list.author)
+        formset = ItemFormSet(request.POST, instance=cur_list,user=owner)
         if form.is_valid() and formset.is_valid():
             new_list = form.save()
-            instances = formset.save(commit=False)#save the items seperatly
+            instances = formset.save(commit=False)#save the items separately
             for instance in instances:
-               instance.list_id = new_list.id #set the grocery id foregin key to the this grocery id
+               instance.list_id = new_list.id #set the grocery id foreign key to the this grocery id
                instance.save()
            
             return redirect('grocery_show', user=new_list.author, slug=new_list.slug)
     else:
         form = GroceryListForm(instance=cur_list)
-        formset = ItemFormSet(instance=cur_list,user=cur_list.author)
+        formset = ItemFormSet(instance=cur_list,user=owner)
 
     return render_to_response('list/grocerylist_form.html', {'form': form, 'formset' : formset,'user':owner}, context_instance=RequestContext(request))
 
@@ -184,7 +184,19 @@ def groceryMail(request, gid):
         form = GrocerySendMail(request=request)
     return render_to_response('list/grocery_email.html', {'form': form, 'gid': gid}, context_instance=RequestContext(request))
 
-
+@login_required
+def groceryAisle(request):
+    '''used by users to manage their grocery aisles '''
+    if request.method == "POST":
+        form = GroceryAisleForm(request.POST)
+        if form.is_valid():
+            aisle = form.save(commit=False)
+            aisle.author = request.user
+            aisle.save()
+            return redirect('grocery_list')
+    else:
+        form = GroceryAisleForm()
+    return render_to_response('list/groceryaisle_form.html', {'form': form,}, context_instance=RequestContext(request))
 
 
 

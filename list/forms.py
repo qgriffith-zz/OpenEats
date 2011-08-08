@@ -14,7 +14,7 @@ class GroceryListForm(ModelForm):
     '''used to create a new grocery list for a user'''
     class Meta:
         model = GroceryList
-        exclude=('slug')
+        exclude=('slug',)
 
 class GroceryItemFormSet(BaseInlineFormSet):
 
@@ -53,6 +53,11 @@ class GroceryUserList(forms.Form):
         choices.sort()
         self.fields['lists'] = forms.ChoiceField( widget = forms.Select(), choices=choices, initial=0)
 
+class GroceryAisleForm(ModelForm):
+    '''used by users to add a new aisle'''
+    class Meta:
+        model = GroceryAisle
+        exclude = ('author',)
 
 class GroceryShareTo(ModelForm):
     '''grocery form to allow you to select a user from your friends to share a list with'''
