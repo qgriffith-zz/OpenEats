@@ -1,5 +1,6 @@
 from django.forms import ModelForm, forms
 import django.forms as forms
+from django.forms.widgets import HiddenInput
 from django.http import HttpResponse
 from models import GroceryList,GroceryShared,GroceryAisle
 from django.forms.models import BaseInlineFormSet
@@ -57,7 +58,19 @@ class GroceryAisleForm(ModelForm):
     '''used by users to add a new aisle'''
     class Meta:
         model = GroceryAisle
-        exclude = ('author',)
+        widgets = { 'author': HiddenInput() }
+
+    def clean(self):
+        '''make sure the user is not trying to add the same aisle twice'''
+        cleaned_data = self.cleaned_data
+        try:
+            GroceryAisle.objects.get(aisle=cleaned_data['aisle'], author=cleaned_data['author'])
+        except:
+            pass
+        else:
+            raise forms.ValidationError(_('Aisle with this name already exists for your account'))
+        return cleaned_data
+        
 
 class GroceryShareTo(ModelForm):
     '''grocery form to allow you to select a user from your friends to share a list with'''
