@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 from django.forms.models import inlineformset_factory
 from django.utils.translation import ugettext as _
 from recipe.models import Recipe
-from models import GroceryList, GroceryItem, GroceryShared
+from models import GroceryList, GroceryItem, GroceryShared, GroceryAisle
 from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList,GrocerySendMail, GroceryShareTo, GroceryAisleForm
 from datetime import date
 
@@ -168,7 +168,7 @@ def groceryUnShareList(request, user, slug):
     shared_list = get_object_or_404(GroceryShared, list=list)
     if shared_list.shared_to == request.user or shared_list.shared_by == request.user:
         shared_list.delete()
-        output = ("Grocery List has been un-shared")
+        output = _("Grocery List has been un-shared")
         messages.success(request, output )
     return redirect('grocery_list')
 
@@ -187,18 +187,33 @@ def groceryMail(request, gid):
 @login_required
 def groceryAisle(request):
     '''used by users to manage their grocery aisles '''
+    aisles = GroceryAisle.objects.filter(author=request.user)
+    grocery_aisle = GroceryAisle()
+    grocery_aisle.author = request.user
     if request.method == "POST":
-        form = GroceryAisleForm(request.POST)
+        form = GroceryAisleForm(request.POST, instance=grocery_aisle)
+
         if form.is_valid():
-            aisle = form.save(commit=False)
-            aisle.author = request.user
-            aisle.save()
+            form.save()
+            output = _("New Aisle added")
+            messages.success(request, output )
             return redirect('grocery_list')
     else:
-        form = GroceryAisleForm()
-    return render_to_response('list/groceryaisle_form.html', {'form': form,}, context_instance=RequestContext(request))
+        form = GroceryAisleForm(instance=grocery_aisle)
 
+    return render_to_response('list/groceryaisle_form.html', {'form': form, 'aisles':aisles}, context_instance=RequestContext(request))
 
+@login_required
+def groceryAisleAjaxDelete(request):
+    aisles = GroceryAisle.objects.filter(author=request.user)
+    if request.method == 'POST':
+        if request.POST['id']:
+            try:
+                aisle = get_object_or_404(GroceryAisle, author=request.user, id=request.POST['id'])
+            except GroceryList.DoesNotExist:
+                raise Http404
+            aisle.delete()
+    return render_to_response("/list/_aisles.html", {'aisles': aisles}, context_instance=RequestContext(request))
 
 
 
