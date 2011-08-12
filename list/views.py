@@ -197,7 +197,7 @@ def groceryAisle(request):
             form.save()
             output = _("New Aisle added")
             messages.success(request, output )
-            return redirect('grocery_list')
+            return redirect('grocery_aisle')
     else:
         form = GroceryAisleForm(instance=grocery_aisle)
 
