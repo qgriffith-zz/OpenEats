@@ -2,12 +2,16 @@
 {% load i18n %}
 
 {% block content %}
-<form action="" method="post">{% csrf_token %}
- {{ form.as_p }}
- <input type="submit" value="{% trans 'new aisle' %}">
-</form>
+<div id="aisles">
+    <h2>{% trans 'add new aisle' %}</h2>
+        <form action="" method="post">{% csrf_token %}
+            {{ form.as_p }}
+            <br />
+            <input type="submit" value="{% trans 'new aisle' %}">
+        </form>
 
-<div id="user_aisles">
-{% include "list/_aisles.html" %}
+    <div id="user_aisles">
+        {% include "list/_aisles.html" %}
+    </div>
 </div>
 {%  endblock %}

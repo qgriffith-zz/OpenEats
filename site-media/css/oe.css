@@ -254,3 +254,12 @@ div.about h2{color:#F57F04; margin-bottom:5px;}
 div.about p {padding-bottom: 15px;}
 div.about h3 {color:#F57F04; padding-bottom:10px;}
 div.about li {list-style:circle; padding-bottom:5px;}
+
+
+/* Grocery Aisle Form */
+div#aisles h2{color:#F57F04; margin-bottom:10px; margin-top:20px;}
+div#aisles{padding:10px;}
+div#aisles label {	color:#484846; margin-right: 15px; width: 90px;}
+div#user_aisles ul {background-color: #FEFDF2; border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em; width:400px;}
+div#user_aisles li {list-style:none; padding-bottom:10px; margin-left: 10px; border-bottom: dotted 1px #C8C199;}
+div#user_aisles img {padding-left:5px;}

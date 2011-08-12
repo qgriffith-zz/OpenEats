@@ -32,3 +32,4 @@ Version 2.2
 * Added a top recipe view that shows the top 20 recipes
 * Added a most recent recipes view that shows the 20 most recent recipes
 * Added recent recipe rss feed
+* Added user created aisles for grocery lists

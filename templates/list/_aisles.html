@@ -1,3 +1,5 @@
+{% comment %}Called by groceryaisle_form.html to load the current aisles for a user and is called by ajaz when an aisle is removed on that form{% endcomment %}
+
 {% load i18n %}
 {% block jscript %}
    <script type="text/javascript">
@@ -16,6 +18,8 @@
 <h2>{% trans 'Current Aisles' %}</h2>
     <ul>
     {% for aisle in aisles %}
-     <li>{{ aisle }}<a href ="#" onclick="return confirm('Are you sure you want to delete?')" id="{{ aisle.id}}" class="remove-aisle"><img title="remove" alt="remove" src="{{ MEDIA_URL }}/images/remove.gif" /></a></li>
+        <li>{{ aisle }}<a href ="#" id="{{ aisle.id}}" class="remove-aisle"><img title="remove" alt="remove" src="{{ MEDIA_URL }}/images/delete.png" /></a></li>
+    {% empty %}
+        {% trans "you have not created any aisles yet!" %}
     {% endfor %}
    </ul>
