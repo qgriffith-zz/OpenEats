@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import GroceryList, GroceryItem, GroceryAisle, GroceryShared
+from models import GroceryList, GroceryItem, GroceryAisle, GroceryShared,GroceryRecipe
 from forms import GroceryItemFormSet
 
 class GroceryListInline(admin.TabularInline):
@@ -15,10 +15,14 @@ class GroceryListAdmin(admin.ModelAdmin):
     ordering = ['author__username', 'title']
 
 class GroceryItemAdmin(admin.ModelAdmin):
-    list_display = ['list', 'item']
-    list_filter = ['list']
+    list_display = ['list', 'item', 'listAuthor']
+    list_filter = ['list', 'list__author']
     ordering = ['list', 'item']
     search_fields = ['list']
+
+    def listAuthor(self,obj):
+        return obj.list.author
+    listAuthor.short_description = 'Author'
 
 class GroceryAisleAdmin(admin.ModelAdmin):
     list_display = ['aisle', 'author']
@@ -33,7 +37,15 @@ class GrocerySharedAdmin(admin.ModelAdmin):
     exclude = ['shared_by']
     ordering = ['list']
 
+class GroceryRecipeAdmin(admin.ModelAdmin):
+    list_display = ['list', 'recipe','listAuthor']
+    list_filter = ['list', 'recipe', 'list__author']
+    def listAuthor(self,obj):
+        return obj.list.author
+    listAuthor.short_description = 'Author'
+    
 admin.site.register(GroceryList, GroceryListAdmin)
 admin.site.register(GroceryShared, GrocerySharedAdmin)
 admin.site.register(GroceryItem, GroceryItemAdmin)
 admin.site.register(GroceryAisle, GroceryAisleAdmin)
+admin.site.register(GroceryRecipe, GroceryRecipeAdmin)

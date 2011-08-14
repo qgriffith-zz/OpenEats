@@ -8,7 +8,7 @@ from django.core.urlresolvers import reverse
 from django.forms.models import inlineformset_factory
 from django.utils.translation import ugettext as _
 from recipe.models import Recipe
-from models import GroceryList, GroceryItem, GroceryShared, GroceryAisle
+from models import GroceryList, GroceryItem, GroceryShared, GroceryAisle, GroceryRecipe
 from forms import GroceryListForm, GroceryItemFormSet,GroceryUserList,GrocerySendMail, GroceryShareTo, GroceryAisleForm
 from datetime import date
 
@@ -30,7 +30,6 @@ def groceryDelete(request, id):
 
 @login_required
 def groceryAjaxDelete(request):
-
     if request.method == 'POST':
         if request.POST['id']:
             try:
@@ -114,7 +113,6 @@ def groceryProfile(request):
 @login_required
 def groceryAddRecipe(request, recipe_slug):
     '''Takes a recipe and adds all the ingredients from that recipe to a grocery list'''
-
     if request.method == 'POST':
         #not validating the form since the form is only a prepoulated drop box and can't really be validated
         if request.POST['lists'] == '0':  #must of selected to create a new list because no id can be set to zero otherwise
@@ -125,7 +123,12 @@ def groceryAddRecipe(request, recipe_slug):
         else:
             list = get_object_or_404(GroceryList, pk=request.POST['lists'], author=request.user)
         recipe = get_object_or_404(Recipe, pk=request.POST['recipe_id'])
-        
+
+        new_groceryRecipe = GroceryRecipe() #save the recipe added to the grocery list
+        new_groceryRecipe.recipe_id = recipe.id
+        new_groceryRecipe.list_id = list.id
+        new_groceryRecipe.save()
+
         for ing in recipe.ingredient_set.all():
             new_item = GroceryItem()
             new_item.list_id = list.id
@@ -133,6 +136,10 @@ def groceryAddRecipe(request, recipe_slug):
             new_item.save()
 
         if recipe.related:
+            new_groceryRecipe = GroceryRecipe()
+            new_groceryRecipe.recipe_id = recipe.related.id
+            new_groceryRecipe.list_id = list.id
+            new_groceryRecipe.save()
             for ing in recipe.related.ingredient_set.all():
                 new_item = GroceryItem()
                 new_item.list_id = list.id
