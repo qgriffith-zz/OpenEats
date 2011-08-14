@@ -67,6 +67,15 @@
             <li><a href="{% url grocery_unshare user=list.author slug=list.slug %}">{% trans 'un-share' %} {{ list }}</a></li>
         {% endif %}
     </ul>
+    <h3>Recipes on List</h3>
+    <ul>
+    {% for recipe  in list.groceryrecipe_set.all  %}
+        <li><a href="{% url recipe_show slug=recipe.recipe.slug %}">{{ recipe }}</a></li>
+    {% empty %}
+        <li>{% trans 'no recipes' %}</li>
+    {% endfor %}
+    </ul>
+
 {% endif %}
 <h3>{% trans 'grocery list' %}</h3>
 <ul>
