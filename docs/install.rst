@@ -28,8 +28,6 @@ Requirements
 * `django-relationships`_ 0.3.0
 * `django-ratings`_ 0.3.6
 * `django-grappelli`_ 2.3.3
-* `django-tastypie`_ 0.9.9
-* `lxml`_ 2.3
 
 ************
 Optional
@@ -42,6 +40,8 @@ Optional
 * `django-extensions`_ 0.6 extra management commands
 * `django-rosetta`_ 0.6.2 used to ease translations
 * `django-debug-toolbar`_ 0.8.5 used to help troubleshooting
+* `django-tastypie`_ 0.9.9
+* `lxml`_ 2.3
 
 .. _Python: http://www.python.org
 .. _Django: http://www.djangoproject.com
@@ -74,7 +74,7 @@ Optional
 .. _django-debug-toolbar: http://pypi.python.org/pypi/django-debug-toolbar/0.8.4
 .. _django-grappelli: http://code.google.com/p/django-grappelli/
 .. _django-tastypie: http://readthedocs.org/docs/django-tastypie/en/v0.9.9/
-.._lxml: http://lxml.de/
+.. _lxml: http://lxml.de/
 
 ***************************
 Python Virtual Environment

@@ -34,4 +34,4 @@ Version 2.2
 * Added recent recipe rss feed
 * Added user created aisles for grocery lists
 * Added recipes displayed on grocery list when they are added to a list
-* Added django-tastypie package for API
+* Added django-tastypie package for API]

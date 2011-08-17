@@ -32,7 +32,7 @@ urlpatterns = patterns('',
     (r'^tags/', include('tags.urls')),
     (r'^search/', include('haystack.urls')),
     (r'^sentry/', include('sentry.web.urls')),
-    (r'^api/', include('api.urls')),
+    #(r'^api/', include('api.urls')), #api is in the testing phase leaving commented out for release
     (r'^$', 'recipe.views.index'),
 
 )
