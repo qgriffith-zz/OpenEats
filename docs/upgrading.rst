@@ -15,7 +15,7 @@ Install
 * Unzip the file
 * Backup your database
 * Backup your current site files
-* From the unzip file, copy everything other then the settings.py, site-media/upload and site-media/uploads file into your current openeats directory, over writting
+* From the unzip file, copy everything other then the settings.py, site-media/upload and site-media/uploads file into your current openeats directory, over writing
   what is already there
 
 .. _github: https://github.com/qgriffith/OpenEats
@@ -100,7 +100,7 @@ To upgrade all the packages that OpenEats2 requires perform the following steps.
 Database changes
 ------------------
 
-Running the following command from the OpenEats2 directory::
+Run the following command from the OpenEats2 directory::
 
     ./manage.py syncdb
     ./manage.py migrate djangoratings 0001 --fake
@@ -125,7 +125,7 @@ Third Party static files
 --------------------------
 
 Django 1.3 offers a new feature that pulls in all the css and image files from third party apps into one folder.
-This does away with having to setup symnlinks to them yourself.  The files are stored in the static-files directory.
+This does away with having to setup symlinks to them yourself.  The files are stored in the static-files directory.
 To get the initial files set run the following command::
 
     ./manage.py collectstatic
@@ -134,7 +134,7 @@ To get the initial files set run the following command::
 Rebuild Search Index
 ---------------------
 
-The search engine was updated as part of this release so it is a good idea to run the folloiwng command to rebuild it::
+The search engine was updated as part of this release so it is a good idea to run the following command to rebuild it::
 
     ./manage.py rebuild_index
 
@@ -145,3 +145,34 @@ test your site::
 
     ./manage.py runserver 8000
 
+
+Upgrade 2.1 to 2.2
+=====================
+This procedure covers how to upgrade your existing 2.1 OpenEats2 site to version 2.2.  If you are upgrading from 2.0 to 2.2
+you will need to follow the steps from Config File Changes down in the *Upgrading from 2.0 to 2.1* section.
+
+
+Install
+---------
+* Download the latest package from `github`_
+* Unzip the file
+* Backup your database
+* Backup your current site files
+* From the unzip file, copy everything other then the settings.py, site-media/upload and site-media/uploads file into your current openeats directory, over writing
+  what is already there
+
+.. _github: https://github.com/qgriffith/OpenEats
+
+Database changes
+------------------
+
+Run the following command from the OpenEats2 directory::
+
+    ./manage.py migrate list
+
+Running
+-------
+After the upgrade you can run the following command to start the internal Django webserver.  This will allow you to
+test your site::
+
+    ./manage.py runserver 8000
