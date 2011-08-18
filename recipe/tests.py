@@ -42,12 +42,12 @@ class recipeViewsTestCase(WebTest):
         form['shared'] = 1  #making the recipe private
         form['tags'] = 'recipe'
         form['directions'] = "cook till done"
-        form['ingredient_set-0-quantity'] = 2
-        form['ingredient_set-0-measurement'] = 'cups'
-        form['ingredient_set-0-title'] = 'flour'
-        form['ingredient_set-1-quantity'] = 1
-        form['ingredient_set-1-measurement'] = 'cup'
-        form['ingredient_set-1-title'] = 'water'
+        form['ingredients-0-quantity'] = 2
+        form['ingredients-0-measurement'] = 'cups'
+        form['ingredients-0-title'] = 'flour'
+        form['ingredients-1-quantity'] = 1
+        form['ingredients-1-measurement'] = 'cup'
+        form['ingredients-1-title'] = 'water'
         resp = form.submit().follow()
         self.assertEqual(resp.context['recipe'].title, 'my recipe')
         recipe = Recipe.objects.get(slug=resp.context['recipe'].slug)
@@ -157,15 +157,15 @@ class recipeViewsTestCase(WebTest):
         #sanitty check
         self.assertEqual(recipe.author.username, 'admin')
         self.assertEqual(recipe.servings, 8)
-        self.assertEqual(recipe.ingredient_set.count(), 12)
+        self.assertEqual(recipe.ingredients.count(), 12)
         resp = self.app.get(reverse('recipe_edit', kwargs={'user':'admin', 'slug':recipe.slug}), user='admin')
         self.assertEqual(resp.status, '200 OK')
         self.assertTrue(resp.forms[1])
         form = resp.forms[1]
         form['servings'] = 10
-        form['ingredient_set-13-quantity'] = 1
-        form['ingredient_set-13-measurement'] = 'cup'
-        form['ingredient_set-13-title'] = 'cheddar cheese'
+        form['ingredients-13-quantity'] = 1
+        form['ingredients-13-measurement'] = 'cup'
+        form['ingredients-13-title'] = 'cheddar cheese'
         resp = form.submit().follow()
         self.assertEqual(resp.context['recipe'].slug, 'tasty-chili')
         self.assertEqual(resp.request.url, 'http://localhost' + reverse('recipe_show',kwargs={'slug': recipe.slug}))
@@ -173,7 +173,7 @@ class recipeViewsTestCase(WebTest):
         #make sure the form saved our changes
         recipe = Recipe.objects.get(pk=1) #got to get the recipe again so that it gets our new numbers after the save
         self.assertEqual(recipe.servings, 10)
-        self.assertEqual(recipe.ingredient_set.count(), 13)
+        self.assertEqual(recipe.ingredients.count(), 13)
 
         #test editing a non-existant recipe
         resp = self.app.get(reverse('recipe_edit', kwargs={'user':'admin', 'slug':'bad-recipe'}), user='admin', status=404)
