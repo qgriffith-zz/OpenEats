@@ -2,7 +2,7 @@
 {{ object.info }}
 {{ object.author }}
 
-{% for ing in object.ingredient_set.all %}
+{% for ing in object.ingredients.all %}
     {{ ing.title }}
     {{ ing.preparation }}
 {% endfor %}

@@ -21,7 +21,7 @@ class recipeViewsTestCase(WebTest):
         self.assertEqual(resp.status_code, 200)
         self.assertTrue('recipe' in resp.context)
         self.assertTrue(resp.context['recipe'].slug, 'chili')
-        ing = recipe.ingredient_set.all()
+        ing = recipe.ingredients.all()
         self.assertTrue(ing[0], 'black pepper')
 
         #make sure a non-existent recipe throws a 404

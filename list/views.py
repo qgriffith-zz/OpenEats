@@ -129,7 +129,7 @@ def groceryAddRecipe(request, recipe_slug):
         new_groceryRecipe.list_id = list.id
         new_groceryRecipe.save()
 
-        for ing in recipe.ingredient_set.all():
+        for ing in recipe.ingredients.all():
             new_item = GroceryItem()
             new_item.list_id = list.id
             new_item.item =  str(ing.quantity) + ' '  + str(ing.measurement) + ' ' + ing.title
@@ -140,7 +140,7 @@ def groceryAddRecipe(request, recipe_slug):
             new_groceryRecipe.recipe_id = recipe.related.id
             new_groceryRecipe.list_id = list.id
             new_groceryRecipe.save()
-            for ing in recipe.related.ingredient_set.all():
+            for ing in recipe.related.ingredients.all():
                 new_item = GroceryItem()
                 new_item.list_id = list.id
                 new_item.item =  str(ing.quantity) + ' '  + str(ing.measurement) + ' ' + ing.title

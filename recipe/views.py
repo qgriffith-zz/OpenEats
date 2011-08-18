@@ -248,7 +248,7 @@ def exportPDF(request, slug):
     elements.append(Paragraph(recipe.info, styleNormal))
     elements.append(Paragraph('ingredients', styleH2))
 
-    for ing in recipe.ingredient_set.all():
+    for ing in recipe.ingredients.all():
         ing = "%s %s %s %s" %(ing.quantity, ing.measurement, ing.title, ing.preparation)
         elements.append(Paragraph(ing, styleBullet))
 

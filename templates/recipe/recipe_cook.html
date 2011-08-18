@@ -14,14 +14,14 @@
         <hr />
         <h2>{% trans 'Ingredients' %}</h2>
         <ul>
-            {% for ing in recipe.ingredient_set.all %}
+            {% for ing in recipe.ingredients.all %}
             <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.title }} {{ ing.preparation }}</li>
             {% endfor %}
         </ul>
             {% if recipe.related %}
                 <h4>{{ recipe.related }}</h4>
                  <ul>
-                {% for ing in recipe.related.ingredient_set.all %}
+                {% for ing in recipe.related.ingredients.all %}
                 <li> {{ ing.quantity }} {{ ing.measurement}} - {{ ing.title }} {{ ing.preparation }}</li>
                 {% endfor %}
             </ul>
