@@ -45,7 +45,7 @@ class GroceryAisle(models.Model):
 class GroceryItem(models.Model):
     list = models.ForeignKey(GroceryList, verbose_name=_('grocery list'))
     item = models.CharField(_("item"), max_length=550)
-    aisle = models.ForeignKey(GroceryAisle, blank = True, null = True, default=None)
+    aisle = models.ForeignKey(GroceryAisle, blank = True, null = True, default=None, on_delete=models.SET_NULL)
     
     class Meta:
         ordering = ['aisle', 'item']
