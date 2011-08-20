@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-07-04 14:25-0500\n"
-"PO-Revision-Date: 2011-07-04 14:26\n"
+"POT-Creation-Date: 2011-08-20 08:27-0500\n"
+"PO-Revision-Date: 2011-08-20 09:03\n"
 "Last-Translator:   <qgriffith@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -89,8 +89,8 @@ msgstr "Hombre"
 msgid "Female"
 msgstr "Mujer"
 
-#: accounts/models.py:11 list/models.py:10 recipe/models.py:20
-#: recipe/models.py:58
+#: accounts/models.py:11 list/models.py:10 list/models.py:37
+#: recipe/models.py:20 recipe/models.py:58
 msgid "user"
 msgstr "usuario"
 
@@ -118,6 +118,26 @@ msgstr "Los perfiles de usuario"
 msgid "You have been logged out!."
 msgstr "Se le ha cerrado la sesión!."
 
+#: feed/views.py:7
+#, fuzzy
+msgid " Recent Recipes"
+msgstr "Acciones recientes"
+
+#: feed/views.py:9
+#, fuzzy
+msgid "Updates added on new recipes added to "
+msgstr "no ha añadido ningún recetas todavía!"
+
+#: feed/views.py:21
+#, fuzzy
+msgid " Top Recipes"
+msgstr "Nueva receta"
+
+#: feed/views.py:23
+#, fuzzy
+msgid "Top recipes on "
+msgstr "Recetas en"
+
 #: ingredient/models.py:6 news/models.py:6 recipe_groups/models.py:7
 #: recipe_groups/models.py:24
 msgid "title"
@@ -135,41 +155,45 @@ msgstr "de medición"
 msgid "preparation"
 msgstr "preparación"
 
-#: ingredient/models.py:10 recipe/models.py:57 recipe/models.py:64
-#: recipe/models.py:75
+#: ingredient/models.py:10 list/models.py:75 recipe/models.py:57
+#: recipe/models.py:64 recipe/models.py:75
 msgid "recipe"
 msgstr "receta"
 
-#: list/forms.py:67
+#: list/forms.py:71
+msgid "Aisle with this name already exists for your account"
+msgstr "Pasillo con este nombre ya existe en su cuenta"
+
+#: list/forms.py:95
 msgid "email address"
 msgstr "dirección de correo electrónico"
 
-#: list/forms.py:72
+#: list/forms.py:100
 msgid "Grocery list from "
 msgstr "Lista de la compra de"
 
-#: list/forms.py:83
+#: list/forms.py:111
 msgid "Can not get grocery list id from invalid form data"
 msgstr ""
 "No se puede obtener la lista de comestibles Identificación de los "
 "datos del formulario no válido"
 
-#: list/forms.py:90
+#: list/forms.py:118
 msgid "Can not get to_email from invalid form data"
 msgstr "No se puede obtener a partir de datos to_email forma inválida"
 
-#: list/forms.py:100
+#: list/forms.py:128
 msgid "Invalid header found."
 msgstr "encabezado no válido que se encuentran."
 
-#: list/forms.py:101
+#: list/forms.py:129
 msgid "Email Sent"
 msgstr "Correo electrónico enviados"
 
-#: list/models.py:8 list/models.py:45 list/models.py:56
+#: list/models.py:8 list/models.py:46 list/models.py:57 list/models.py:74
 #: templates/list/grocery_addrecipe.html:3
 #: templates/list/grocery_detail.html:3 templates/list/grocery_index.html:6
-#: templates/profiles/profile_detail.html:62 templates/sidebar/grocery.html:71
+#: templates/profiles/profile_detail.html:62 templates/sidebar/grocery.html:80
 msgid "grocery list"
 msgstr "lista de la compra"
 
@@ -182,15 +206,15 @@ msgstr "babosa"
 msgid "aisle"
 msgstr "pasillo"
 
-#: list/models.py:46
+#: list/models.py:47
 msgid "item"
 msgstr "tema"
 
-#: list/models.py:57
+#: list/models.py:58
 msgid "shared by"
 msgstr "compartida por"
 
-#: list/models.py:58
+#: list/models.py:59
 msgid "shared to"
 msgstr "compartida"
 
@@ -198,17 +222,27 @@ msgstr "compartida"
 msgid "Your grocery list has been removed."
 msgstr "Su lista de la compra se ha eliminado."
 
-#: list/views.py:60 list/views.py:64
+#: list/views.py:59 list/views.py:63
 msgid "You do not have permissions to edit this list "
 msgstr "Usted no tiene permisos para editar esta lista"
 
-#: list/views.py:98 list/views.py:102
+#: list/views.py:97 list/views.py:101
 msgid "You do not have permissions to view this list "
 msgstr "Usted no tiene permisos para ver esta lista"
 
-#: list/views.py:157
+#: list/views.py:164
 msgid "Your grocery list has been shared."
 msgstr "Su lista de la compra ha sido compartida."
+
+#: list/views.py:178
+#, fuzzy
+msgid "Grocery List has been un-shared"
+msgstr "Su lista de la compra ha sido compartida."
+
+#: list/views.py:205
+#, fuzzy
+msgid "New Aisle added"
+msgstr "nueva receta añadido"
 
 #: news/models.py:8
 msgid "content"
@@ -256,7 +290,7 @@ msgstr "cocina"
 msgid "info"
 msgstr "Info"
 
-#: recipe/models.py:25 templates/recipe/recipe_detail.html:161
+#: recipe/models.py:25 templates/recipe/recipe_detail.html:169
 #: templates/recipe/recipe_print.html:24
 msgid "cook time"
 msgstr "tiempo de cocción"
@@ -335,22 +369,26 @@ msgstr ""
 msgid "return to site"
 msgstr "volver al sitio"
 
-#: templates/base.html:52
+#: templates/base.html:11
+msgid "Top Recipe Feed"
+msgstr "Receta de alimentación superior"
+
+#: templates/base.html:57
 msgid "Search"
 msgstr "Búsqueda"
 
-#: templates/base.html:64 templates/profiles/create_profile.html:5
+#: templates/base.html:69 templates/profiles/create_profile.html:5
 #: templates/profiles/edit_profile.html:6
 #: templates/profiles/profile_detail.html:6
 #: templates/profiles/profile_detail.html:37
 msgid "profile"
 msgstr "Ver el perfil"
 
-#: templates/base.html:65
+#: templates/base.html:70
 msgid "grocery lists"
 msgstr "listas de la compra"
 
-#: templates/base.html:66 templates/profiles/profile_detail.html:73
+#: templates/base.html:71 templates/profiles/profile_detail.html:73
 msgid "logout"
 msgstr "cierre de sesión"
 
@@ -427,6 +465,15 @@ msgstr "chefs estoy bloqueo -"
 msgid "unblock"
 msgstr "desbloquear"
 
+#: templates/list/_aisles.html:19
+msgid "Current Aisles"
+msgstr "Los pasillos actual"
+
+#: templates/list/_aisles.html:24
+#, fuzzy
+msgid "you have not created any aisles yet!"
+msgstr "Usted no ha añadido ningún recetas favoritas todavía!"
+
 #: templates/list/_list.html:11 templates/list/grocery_index.html:13
 msgid "created on "
 msgstr "Creación de"
@@ -436,7 +483,7 @@ msgid "actions"
 msgstr "acciones"
 
 #: templates/list/grocery_addrecipe.html:13
-#: templates/list/grocerylist_form.html:53 templates/sidebar/grocery.html:73
+#: templates/list/grocerylist_form.html:53 templates/sidebar/grocery.html:82
 msgid "create"
 msgstr "crear"
 
@@ -492,13 +539,22 @@ msgstr "lista de la compra"
 msgid "Print"
 msgstr "de impresión"
 
+#: templates/list/groceryaisle_form.html:6
+msgid "add new aisle"
+msgstr "Añadir nuevo pasillo"
+
+#: templates/list/groceryaisle_form.html:10
+#, fuzzy
+msgid "new aisle"
+msgstr "pasillo"
+
 #: templates/list/grocerylist_form.html:28
 msgid "items"
 msgstr "artículos"
 
 #: templates/profiles/create_profile.html:5
 #: templates/profiles/edit_profile.html:6
-#: templates/recipe/recipe_detail.html:115
+#: templates/recipe/recipe_detail.html:123
 msgid "edit"
 msgstr "edición"
 
@@ -568,7 +624,7 @@ msgstr "Editar Perfil"
 msgid "change password"
 msgstr "cambiar la contraseña"
 
-#: templates/recipe/_list.html:29 templates/recipe/recipe_detail.html:156
+#: templates/recipe/_list.html:29 templates/recipe/recipe_detail.html:164
 #: templates/recipe/recipe_print.html:17 templates/search/search.html:35
 msgid "Chef:"
 msgstr "Chef:"
@@ -577,27 +633,27 @@ msgstr "Chef:"
 msgid "Average Rating:"
 msgstr "Valoración media:"
 
-#: templates/recipe/_list.html:35 templates/recipe/recipe_detail.html:144
+#: templates/recipe/_list.html:35 templates/recipe/recipe_detail.html:152
 #: templates/search/search.html:41
 msgid "Poor"
 msgstr "Pobres"
 
-#: templates/recipe/_list.html:36 templates/recipe/recipe_detail.html:145
+#: templates/recipe/_list.html:36 templates/recipe/recipe_detail.html:153
 #: templates/search/search.html:42
 msgid "Fair"
 msgstr "Feria"
 
-#: templates/recipe/_list.html:37 templates/recipe/recipe_detail.html:146
+#: templates/recipe/_list.html:37 templates/recipe/recipe_detail.html:154
 #: templates/search/search.html:43
 msgid "OK"
 msgstr "Aceptar"
 
-#: templates/recipe/_list.html:38 templates/recipe/recipe_detail.html:147
+#: templates/recipe/_list.html:38 templates/recipe/recipe_detail.html:155
 #: templates/search/search.html:44
 msgid "Good"
 msgstr "Bueno"
 
-#: templates/recipe/_list.html:39 templates/recipe/recipe_detail.html:148
+#: templates/recipe/_list.html:39 templates/recipe/recipe_detail.html:156
 #: templates/search/search.html:45
 msgid "Wow"
 msgstr "Wow"
@@ -614,7 +670,12 @@ msgstr "Recién salido del horno!"
 msgid "chef: "
 msgstr "chef:"
 
-#: templates/recipe/index.html:20
+#: templates/recipe/index.html:21
+#, fuzzy
+msgid "more recent recipes"
+msgstr "ver recetas"
+
+#: templates/recipe/index.html:23
 msgid "Recipe Tags"
 msgstr "Receta Etiquetas"
 
@@ -627,55 +688,55 @@ msgid "Recipe is marked Private and you are not the author of it!"
 msgstr "Receta se marca privada y usted no es el autor de la misma!"
 
 #: templates/recipe/recipe_cook.html:16
-#: templates/recipe/recipe_detail.html:170
+#: templates/recipe/recipe_detail.html:178
 #: templates/recipe/recipe_print.html:28
 msgid "Ingredients"
 msgstr "Ingredientes"
 
 #: templates/recipe/recipe_cook.html:31
-#: templates/recipe/recipe_detail.html:187
+#: templates/recipe/recipe_detail.html:195
 msgid "Directions"
 msgstr "Cómo llegar"
 
-#: templates/recipe/recipe_detail.html:112
+#: templates/recipe/recipe_detail.html:120
 msgid "print"
 msgstr "de impresión"
 
-#: templates/recipe/recipe_detail.html:113
+#: templates/recipe/recipe_detail.html:121
 msgid "cook"
 msgstr "cocinar"
 
-#: templates/recipe/recipe_detail.html:120
+#: templates/recipe/recipe_detail.html:128
 msgid "add to list"
 msgstr "añadir a la lista"
 
-#: templates/recipe/recipe_detail.html:127
+#: templates/recipe/recipe_detail.html:135
 msgid "tags:"
 msgstr "tags:"
 
-#: templates/recipe/recipe_detail.html:142
+#: templates/recipe/recipe_detail.html:150
 msgid "rate this:"
 msgstr "puntuar este:"
 
-#: templates/recipe/recipe_detail.html:154
+#: templates/recipe/recipe_detail.html:162
 msgid "Course:"
 msgstr "Curso:"
 
-#: templates/recipe/recipe_detail.html:155
+#: templates/recipe/recipe_detail.html:163
 msgid "Cuisine:"
 msgstr "Cocina:"
 
-#: templates/recipe/recipe_detail.html:160
+#: templates/recipe/recipe_detail.html:168
 #: templates/recipe/recipe_print.html:23
 msgid "serves"
 msgstr "sirve"
 
-#: templates/recipe/recipe_detail.html:197
+#: templates/recipe/recipe_detail.html:205
 #: templates/recipe/recipe_print.html:52
 msgid "Your Notes:"
 msgstr "Tus Notas:"
 
-#: templates/recipe/recipe_detail.html:226
+#: templates/recipe/recipe_detail.html:234
 msgid "comments"
 msgstr "comentarios"
 
@@ -691,6 +752,16 @@ msgstr "ingredientes"
 #: templates/recipe/recipe_form.html:125
 msgid "New Recipe"
 msgstr "Nueva receta"
+
+#: templates/recipe/recipe_list.html:7
+#, python-format
+msgid "%(title)s Recipe Feed"
+msgstr ""
+
+#: templates/recipe/recipe_list.html:16
+#, fuzzy, python-format
+msgid "%(title)s"
+msgstr "título"
 
 #: templates/recipe/recipe_print.html:24
 msgid "mintues"
@@ -899,6 +970,16 @@ msgstr "última visita"
 msgid "browse"
 msgstr "ver"
 
+#: templates/sidebar/browse.html:14
+#, fuzzy
+msgid "top recipes"
+msgstr "recetas"
+
+#: templates/sidebar/browse.html:15
+#, fuzzy
+msgid "recent recipes"
+msgstr "ver recetas"
+
 #: templates/sidebar/grocery.html:57
 msgid "print "
 msgstr "de impresión"
@@ -927,11 +1008,20 @@ msgstr "compartir"
 msgid "un-share"
 msgstr "sin cuota de"
 
-#: templates/sidebar/grocery.html:74
+#: templates/sidebar/grocery.html:75
+#, fuzzy
+msgid "no recipes"
+msgstr "recetas"
+
+#: templates/sidebar/grocery.html:83
 msgid "list"
 msgstr "lista"
 
-#: templates/sidebar/grocery.html:75
+#: templates/sidebar/grocery.html:84
+msgid "manage aisles"
+msgstr "gestión de los pasillos"
+
+#: templates/sidebar/grocery.html:85
 msgid "browse recipes"
 msgstr "ver recetas"
 
