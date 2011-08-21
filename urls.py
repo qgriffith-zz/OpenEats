@@ -12,7 +12,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
-    url(r'^admin_tools/', include('admin_tools.urls')),
     (r'^grappelli/', include('grappelli.urls')),
     (r'^accounts/logout/$', 'accounts.views.logout_page'),
     (r'^accounts/signIn/$', 'accounts.views.signIn_page'),
