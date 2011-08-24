@@ -77,6 +77,12 @@ Add the following line under the *OpenEats Settings* section of the settings.py 
 
 You can set this to anything you want your site title to be, it doesn't have to be set to *OpenEats2*
 
+Remove the following line from urls.py::
+
+       url(r'^admin_tools/', include('admin_tools.urls')),
+
+
+
 Removing directories
 ----------------------
 
