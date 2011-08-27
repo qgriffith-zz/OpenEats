@@ -148,7 +148,7 @@ with <a class="reference external" href="http://www.doughellmann.com/docs/virtua
 </div>
 <div class="section" id="database">
 <h3>2.4.2. Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h3>
-<p>OpenEats2 has been tested with <a class="reference external" href="http://www.mysql.com">MySQL</a> and <a class="reference external" href="http://www.sqlite.org/">SQLite</a>  technically it should be able to work under
+<p>OpenEats2 has been tested with <a class="reference external" href="http://www.mysql.com">MySQL</a> and <a class="reference external" href="http://www.sqlite.org/">SQLite</a> and minaimal testing has been done with <cite>PostgreSQL_</cite>  Technically it should be able to work under
 any <a class="reference external" href="https://docs.djangoproject.com/en/1.2/ref/databases/">django supported</a> database.  SQLite is built into python and does not require any additional software.</p>
 <div class="section" id="mysql">
 <h4>2.4.2.1. MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h4>
@@ -161,6 +161,28 @@ any <a class="reference external" href="https://docs.djangoproject.com/en/1.2/re
 </div>
 </li>
 </ul>
+</div>
+<div class="section" id="postgressql">
+<h4>2.4.2.2. PostgresSQL<a class="headerlink" href="#postgressql" title="Permalink to this headline">¶</a></h4>
+<p>To install the <a href="#id3"><span class="problematic" id="id4">`Postgres`_</span></a> module perform the following steps</p>
+<ul>
+<li><p class="first">Activate your OpenEats2 virtualenv</p>
+</li>
+<li><p class="first">Run the following command:</p>
+<div class="highlight-python"><pre>pip install psycopg2</pre>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">There is a small issue with PostgresSQL that will cause you an error when loading the data.  To get around this issue
+do the following. Copy the postgres_settings.py to settings.py.  Then skip running the migrate command from the <em>Required
+Data</em> section below.  After running the ./manage.py syncdb command from the <em>Required Data</em> section, edit the settings.py
+file and remove the <em>#</em> from in front of the word <em>south</em> in the file and save it.  Then run the command <em>./manage.py migrate
+&#8211;fake</em>. Then continue with the rest of the instructions as normal.</p>
+</div>
+<p>.._PostgreSQL: <a class="reference external" href="http://www.postgresql.org/">http://www.postgresql.org/</a>
+.._Postgres: <a class="reference external" href="http://initd.org/psycopg/">http://initd.org/psycopg/</a></p>
 </div>
 </div>
 <div class="section" id="load-initial-data">
@@ -235,6 +257,7 @@ a remote server and not your local computer run the following command instead:</
 <li><a class="reference internal" href="#installing-requirements-packages">2.4.1. Installing Requirements packages</a></li>
 <li><a class="reference internal" href="#database">2.4.2. Database</a><ul>
 <li><a class="reference internal" href="#mysql">2.4.2.1. MySQL</a></li>
+<li><a class="reference internal" href="#postgressql">2.4.2.2. PostgresSQL</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#load-initial-data">2.4.3. Load Initial Data</a><ul>
