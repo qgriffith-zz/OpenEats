@@ -15,8 +15,8 @@ from datetime import date
 @login_required
 def index(request):
     '''returns a list of grocery list for a user'''
-    glist = GroceryList.objects.filter(author=request.user)
-    gshared = GroceryShared.objects.filter(shared_to = request.user)
+    glist = GroceryList.objects.filter(author=request.user).order_by('-pub_date')
+    gshared = GroceryShared.objects.filter(shared_to = request.user).order_by('-list__pub_date')
     return render_to_response('list/grocery_index.html', {'glists' : glist, 'gshared':gshared}, context_instance=RequestContext(request))
 
 @login_required
