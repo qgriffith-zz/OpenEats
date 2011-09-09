@@ -5,7 +5,9 @@ div#body-wrap {margin:0 auto; width:1430px;}
 div#page-wrap {width:882px; margin:0 auto; padding:57px 0 65px 0; }
 div#main{ background:#fff; width:100%; padding-left:10px;}
 div#logo{margin-bottom:20px; padding-top:10px;}
-div#title{background:url("../images/title-bg.gif") repeat-x top; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+#div#title{background-color: #FF990C; height:30px; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+div#title{border-bottom: 1px dashed #FF990C; margin-bottom:25px; width:50%}
+div#title h3{padding:5px; color:#459E00; font-size:130%;}
 
 .ui-widget-header{font-size:90%;}
 
