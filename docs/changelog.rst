@@ -36,3 +36,10 @@ Version 2.2
 * Added recipes displayed on grocery list when they are added to a list
 * Added django-tastypie package for API
 * Fixed urls.py by removing a url to a package that is not not used anymore
+
+Version 2.3
+--------------
+* Added instructions and a special settings file to support PostgreSQL
+* Moved the api module to the contrib folder
+* Sorted grocery list and shared grocery list by created date
+* Changed the submit button text on all forms to make more sense
