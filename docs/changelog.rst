@@ -43,3 +43,4 @@ Version 2.3
 * Moved the api module to the contrib folder
 * Sorted grocery list and shared grocery list by created date
 * Changed the submit button text on all forms to make more sense
+* Changed the design of the title bar that is found above all the category list of recipes
