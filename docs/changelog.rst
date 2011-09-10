@@ -47,3 +47,4 @@ Version 2.3
 * Removed the "follow me" link from a users profile if they are viewing their own profile.
 * Branched the django ratings application and updated it to work with django 1.3
 * Lots of CSS tweaks
+* Upgraded to Django 1.3.1

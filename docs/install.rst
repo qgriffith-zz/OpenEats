@@ -7,7 +7,7 @@ This document assumes you are familiar with Python and Django.
 Requirements
 ************
 * `Python`_ 2.6 or a higher release of 2.x
-* `Django`_ 1.3
+* `Django`_ 1.3.1
 * `South`_ 0.7.3
 * `django-disqus`_ 0.4.1
 * `django-imagekit`_ 0.3.6
