@@ -74,19 +74,19 @@ div#toolbar span#toolbar-buttons a {margin-left:5px;}
 div#recipe-info { width: 500px; margin-bottom:10px;}
 #recipe-report { color: #ff4500 !important; float:right;}
 div#recipe-info span { color: #c53c0c; }
-div#recipe-cook{ width: 600px; padding:5px; margin-bottom:5px; border:dotted 1px black; background-color: #FEFDF2; }
+div#recipe-cook{ width: 300px; padding:5px; margin-bottom:5px; border:dotted 1px #E6E5CB; background-color: #FEFDF2; -moz-border-radius: .8em; -webkit-border-radius: .8em; }
 div#recipe-cook ul {text-align: center; color:#484846; font-size: 1.1em;}
 div#recipe-cook li {display:inline; list-style: none; padding-right:15px;}
 div#recipe-cook li span {font-weight:bold;}
 div#recipe-info hr { border: 0; width:80%;  margin:15px 0 10px; background-color: #DAD3A9; color: #DAD3A9; height:1px; line-height:1px;}
 div#recipe-ing{ float:left; width: 40%; margin-right:5px; border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em; padding:10px;}
 div#recipe-ing h2{ background:url("../images/title-bg2.jpg") no-repeat scroll left top transparent; padding:6px 0 7px 70px; color:#434242; font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px; margin-left:8px;}
-div#recipe-ing ul {background-color: #FEFDF2; border:1px solid #E6E5CB;  -moz-border-radius: .8em; -webkit-border-radius: .8em; padding:10px; }
+div#recipe-ing ul {background-color: #FEFDF2; border:1px solid #E6E5CB; -moz-border-radius: .8em; -webkit-border-radius: .8em; padding:10px; }
 div#recipe-ing li {list-style: none; border-bottom: dotted 1px #C8C199; margin-bottom:15px; padding-bottom:14px;  color:#484846;}
 div#recipe-directions { padding:10px; margin-right:55px; margin-top:5px; float:right; color:#484846; width:45%;}
 div#recipe-directions h2{color:#434242; font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px;}
 div#recipe-comments{float:left; width:550px; margin-top:5px; clear:both;}
-div#recipe-rate{float:right; padding:5px 40px 5px 5px; width:200px; border:1px burlywood dashed; border-right: none; color:#847840;}
+div#recipe-rate{float:right; margin-right:40px; padding:8px 40px 10px 5px; width:200px; border:1px #E6E5CB dashed; color:#847840; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 div#caption{margin-right:60px;}
 #messages {color: #fd1c24;}
 #ajax-messages, li.success, h3.shared-list-heading{ margin-bottom:10px; padding:10px; border:1px green dashed; background-color: lightgreen; font-size: 140%; color:white; font-weight:bold; width:80%}
@@ -176,7 +176,7 @@ div#tenfoot h2 { margin-bottom: 10px;}
 div#tenfoot ul { margin-bottom: 15px;}
 
 /* News View */
-div#news { width:95%; border:1px solid #5f562a; background-color:#F5F3E5; height:300px;}
+div#news { width:95%; border:1px solid #5f562a; background-color:#F5F3E5; height:275px;}
 div#news-content { float:left; width: 60%; margin-left: 20px; margin-top:15px; padding:10px; color:#7A787D; font-size:120%; font-family:Georgia, serif;}
 div#news-content h2 { padding-bottom:10px; color:#9F954A;}
 div#news-photo-wrap { float:right; margin-left:10px;}

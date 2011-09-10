@@ -45,3 +45,5 @@ Version 2.3
 * Changed the submit button text on all forms to make more sense
 * Changed the design of the title bar that is found above all the category list of recipes
 * Removed the "follow me" link from a users profile if they are viewing their own profile.
+* Branched the django ratings application and updated it to work with django 1.3
+* Lots of CSS tweaks
