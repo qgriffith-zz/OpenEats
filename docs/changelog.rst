@@ -44,3 +44,4 @@ Version 2.3
 * Sorted grocery list and shared grocery list by created date
 * Changed the submit button text on all forms to make more sense
 * Changed the design of the title bar that is found above all the category list of recipes
+* Removed the "follow me" link from a users profile if they are viewing their own profile.
