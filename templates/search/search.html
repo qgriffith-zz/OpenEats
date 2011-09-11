@@ -5,8 +5,8 @@
 {% load sanitize %}
 
 {% block jscript %}
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
-    <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
+    <link href="{{ STATIC_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
 {% endblock %}
 
 {% block content %}
@@ -28,7 +28,7 @@
         {% if result.object.photo %}
             <img id="list-thumb"src="{{ result.object.list_thumbnail.url }}" alt="{{ result.object.photo.name }}" />
         {% else %}
-            <img id="list-thumb"src="{{ MEDIA_URL  }}images/parsley.jpg" alt="{{ result.object.title }} photo" />
+            <img id="list-thumb"src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ result.object.title }} photo" />
         {% endif %}
         <h4><a href="{{ result.object.get_absolute_url }}">{{result.object.title}}</a></h4>
         <p class="chef">{%trans 'Chef:' %} <a href="{{ result.object.author.get_profile.get_absolute_url }}">{{ result.object.author }}</a> </p>

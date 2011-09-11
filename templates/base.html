@@ -11,10 +11,10 @@
         {% block feeds %}<link href="/feed/recent/" rel="alternate" type="application/rss+xml" title="{{ OETITLE }}{% blocktrans %}Top Recipe Feed{% endblocktrans %}" />{% endblock %}
          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
-         <script type="text/javascript" src="{{ MEDIA_URL }}js/oe.js"></script>
+         <script type="text/javascript" src="{{ STATIC_URL }}js/oe.js"></script>
          <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/south-street/jquery-ui.css" rel="stylesheet" />
-         <script type="text/javascript" src="{{ MEDIA_URL }}js/fg-menu/fg.menu.js"></script>
-         <link type="text/css" href="{{ MEDIA_URL }}js/fg-menu/fg.menu.css" media="screen" rel="stylesheet" />
+         <script type="text/javascript" src="{{ STATIC_URL }}js/fg-menu/fg.menu.js"></script>
+         <link type="text/css" href="{{ STATIC_URL }}js/fg-menu/fg.menu.css" media="screen" rel="stylesheet" />
          <script type="text/javascript">
              $(function(){
                  // BUTTONS
@@ -33,7 +33,7 @@
         {% block jscript %}
 
         {% endblock %}
-        <link rel="stylesheet" href="{{ MEDIA_URL }}css/oe.css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/oe.css" />
         <meta name="keywords" content="" />
         <meta name="description" content="" />
   

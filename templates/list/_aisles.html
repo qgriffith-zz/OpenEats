@@ -18,7 +18,7 @@
 <h2>{% trans 'Current Aisles' %}</h2>
     <ul>
     {% for aisle in aisles %}
-        <li>{{ aisle }}<a href ="#" id="{{ aisle.id}}" class="remove-aisle"><img title="remove" alt="remove" src="{{ MEDIA_URL }}/images/delete.png" /></a></li>
+        <li>{{ aisle }}<a href ="#" id="{{ aisle.id}}" class="remove-aisle"><img title="remove" alt="remove" src="{{ STATIC_URL }}/images/delete.png" /></a></li>
     {% empty %}
         {% trans "you have not created any aisles yet!" %}
     {% endfor %}

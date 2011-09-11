@@ -9,7 +9,7 @@
 <h1 class="grocery-list-heading">{{ list.author}} {% trans 'grocery list -' %} {{ list.title }}</h1>
     {% if list.author == request.user %}
             <a href="{% url grocery_delete id=list.id %}" onclick="return confirm('Are you sure you want to delete?')" >
-             <img class="grocery-delete" src="{{MEDIA_URL}}/images/remove.gif" alt="remove"/></a>
+             <img class="grocery-delete" src="{{STATIC_URL}}/images/remove.gif" alt="remove"/></a>
     {% endif %}
 
     {% load grocery_item %}

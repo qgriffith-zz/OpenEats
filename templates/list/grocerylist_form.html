@@ -1,7 +1,7 @@
 {% extends 'list/grocery_base.html' %}
 {% load i18n %}
 {% block jscript %}
-     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery.formset.js"></script>
+     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.formset.js"></script>
      <script type="text/javascript">
          $(function() {
              $('tbody tr').formset({

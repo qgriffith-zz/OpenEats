@@ -33,7 +33,7 @@
 {% endblock %}
 {% block content %}
 <div id="user-profile" >
-    <h2>{{ profile.user.username }} {%trans 'profile' %} {% if profile.user != request.user %}  <a href="/follow/add/{{ profile.user.username }}/following/"><img src="{{ MEDIA_URL }}images/follow-me.png" /></a>
+    <h2>{{ profile.user.username }} {%trans 'profile' %} {% if profile.user != request.user %}  <a href="/follow/add/{{ profile.user.username }}/following/"><img src="{{ STATIC_URL }}images/follow-me.png" /></a>
         {% endif %} </h2>
     <div id="profile-pic" >
         {% load gravatar_profile %}

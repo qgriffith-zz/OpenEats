@@ -23,7 +23,7 @@
             {% if lists|length > 0 %}
               {% autopaginate lists 3 %}
               {% for list in lists %}
-                    <a href ="#" onclick="return confirm('Are you sure you want to delete?')" id="{{ list.id}}" class="remove-grocery"><img title="remove" alt="remove" src="{{ MEDIA_URL }}/images/remove.gif" /></a>{% include '/list/_list.html' %}
+                    <a href ="#" onclick="return confirm('Are you sure you want to delete?')" id="{{ list.id}}" class="remove-grocery"><img title="remove" alt="remove" src="{{ STATIC_URL }}/images/remove.gif" /></a>{% include '/list/_list.html' %}
               {% endfor %}
              {% paginate %}
             {% else %}

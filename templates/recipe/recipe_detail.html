@@ -8,11 +8,11 @@
 {%block title %}{{ block.super }}- {{ recipe }} {% endblock %}
 {% block keywords %}<meta name="keywords" content="{% recipe_keywords recipe.id 10 %}"/>{% endblock %}
 {% block jscript %}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox.css" />
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
-    <link href="{{ MEDIA_URL }}js/jquery.ui.stars/crystal-stars.css" rel="stylesheet" />
-    <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery/jquery.jeditable.js"> </script>
+    <link rel="stylesheet" href="{{ STATIC_URL }}js/jquery/fancybox/jquery.fancybox.css" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
+    <link href="{{ STATIC_URL }}js/jquery.ui.stars/crystal-stars.css" rel="stylesheet" />
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.jeditable.js"> </script>
     <script type="text/javascript">
         $(document).ready(function() {
             $("a#recipe-photo").fancybox();
@@ -140,7 +140,7 @@
     {% if recipe.photo %}
        <a id="recipe-photo" href="{{recipe.display.url }}"> <img src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe }} photo" /></a>
     {% else %}
-       <a id="recipe-photo" href="{{ MEDIA_URL  }}images/parsley.jpg"> <img src="{{ MEDIA_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
+       <a id="recipe-photo" href="{{ STATIC_URL  }}images/parsley.jpg"> <img src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
     {% endif %}
 </div>
 <form>

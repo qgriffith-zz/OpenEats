@@ -150,8 +150,6 @@ INSTALLED_APPS = (
     'djangoratings',
     'haystack',
     'django_generic_flatblocks',
-    'indexer',
-    'paging',
     'sentry',
     'sentry.client',
     'pagination',

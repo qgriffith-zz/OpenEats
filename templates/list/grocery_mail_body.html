@@ -2,8 +2,8 @@
 {% load i18n %}
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" media="print" href="http://{{ request.get_host }}{{MEDIA_URL}}css/grocery_print.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="http://{{ request.get_host }}{{MEDIA_URL}}css/grocery_prints.css" />
+        <link rel="stylesheet" type="text/css" media="print" href="http://{{ request.get_host }}{{STATIC_URL}}css/grocery_print.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="http://{{ request.get_host }}{{STATIC_URL}}css/grocery_prints.css" />
         <title>{{ OETITLE }}{% trans 'Email'%} {{ list }}</title>
     </head>
     <body>

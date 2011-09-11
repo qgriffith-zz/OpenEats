@@ -18,7 +18,7 @@ django-generic-flatblocks
 django-haystack==1.2.4
 django-rosetta==0.6.2
 django-taggit-templatetags==0.4.6dev
-django-sentry==1.8.6.2
+django-sentry==1.10.1
 django-extensions==0.6
 django-indexer==0.3.0
 django-paging==0.2.4
@@ -27,9 +27,8 @@ django-webtest==1.4.1
 reportlab==2.5
 django-grappelli==2.3.3
 django-relationships==0.3.0
-#django-ratings==0.3.6
 https://github.com/qgriffith/django-ratings/zipball/master
-#django-tastypie==0.9.9
-#lxml==2.3
+django-tastypie==0.9.9
+lxml==2.3
 https://bitbucket.org/ubernostrum/django-registration/downloads/django-registration-0.8-alpha-1.tar.gz
 

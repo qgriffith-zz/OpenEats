@@ -3,8 +3,8 @@
 {% load pagination_tags %}
 <html>
     <head> 
-        <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
-        <link href="{{ MEDIA_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
+        <link href="{{ STATIC_URL }}js/jquery.ui.stars/jquery.ui.stars.css" rel="stylesheet" />
         <script type="text/javascript">
             $(function () {
                 $(".remove-fav").click( function () {
@@ -23,7 +23,7 @@
             {% if recipe_list|length > 0 %}
                {% autopaginate recipe_list  %}
                {% for recipe in recipe_list %}
-                  <a href ="#" onclick="return confirm('Are you sure you want to delete?')" id="{{ recipe.id}}" class="remove-fav"><img title="remove" alt="remove" src="{{ MEDIA_URL }}/images/remove.gif" /></a>{% include '/recipe/_list.html' %}
+                  <a href ="#" onclick="return confirm('Are you sure you want to delete?')" id="{{ recipe.id}}" class="remove-fav"><img title="remove" alt="remove" src="{{ STATIC_URL }}/images/remove.gif" /></a>{% include '/recipe/_list.html' %}
                {% endfor %}
                {% paginate %}
           {% else %}

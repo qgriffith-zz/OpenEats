@@ -34,7 +34,7 @@ Optional
 ************
 * `webtest`_ 1.2.3 used for testing
 * `django-webtest`_ 1.4.1 used for testing
-* `django-sentry`_ 1.8.6.2 used for debugging and troubleshooting errors
+* `django-sentry`_ 1.10.1 used for debugging and troubleshooting errors
 * `django-indxer`_ 0.3.0 used by django-sentry
 * `django-paging`_ 0.2.4 used by django-sentry
 * `django-extensions`_ 0.6 extra management commands

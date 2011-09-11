@@ -2,8 +2,8 @@
 {% load i18n %}
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" media="print" href="{{MEDIA_URL}}css/grocery_print.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="{{MEDIA_URL}}css/grocery_prints.css" />
+        <link rel="stylesheet" type="text/css" media="print" href="{{STATIC_URL}}css/grocery_print.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="{{STATIC_URL}}css/grocery_prints.css" />
         <title>{{ OETITLE }} {% trans 'Print'%} {{ list }}</title>
     </head>
     <body>
