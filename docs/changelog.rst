@@ -49,3 +49,6 @@ Version 2.3
 * Lots of CSS tweaks
 * Upgraded to Django 1.3.1
 * Moved all the CSS, images, and JS to a new folder called static to be more in-line with the Django 1.3 way of doing things
+* Upgraded Grapelli to version 2.3.4
+
+

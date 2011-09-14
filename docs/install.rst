@@ -27,7 +27,7 @@ Requirements
 * `django-registration`_ 0.8-alpha-1
 * `django-relationships`_ 0.3.0
 * `django-ratings`_ 0.3.6
-* `django-grappelli`_ 2.3.3
+* `django-grappelli`_ 2.3.4
 
 ************
 Optional
@@ -48,7 +48,7 @@ Optional
 .. _PIL: http://www.pythonware.com/products/pil/
 .. _South: http://south.aeracode.org/
 .. _django-disqus: https://github.com/arthurk/django-disqus
-.. _django-imagekit: https://bitbucket.org/jdriscoll/django-imagekit/overview
+.. _django-imagekit: https://github.com/jdriscoll/django-imagekit/
 .. _django-reversion: https://github.com/etianen/django-reversion
 .. _django-taggit: https://github.com/alex/django-taggit/
 .. _akismet: http://pypi.python.org/pypi/akismet/0.2.0

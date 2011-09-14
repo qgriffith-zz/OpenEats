@@ -25,7 +25,7 @@ django-paging==0.2.4
 webtest==1.2.3
 django-webtest==1.4.1
 reportlab==2.5
-django-grappelli==2.3.3
+django-grappelli==2.3.4
 django-relationships==0.3.0
 https://github.com/qgriffith/django-ratings/zipball/master
 django-tastypie==0.9.9
