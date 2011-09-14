@@ -10,8 +10,8 @@ Requirements
 * `Django`_ 1.3.1
 * `South`_ 0.7.3
 * `django-disqus`_ 0.4.1
-* `django-imagekit`_ 0.3.6
-* `django-reversion`_ 1.3.1
+* `django-imagekit`_ 0.4.0
+* `django-reversion`_ 1.5
 * `django-taggit`_ 0.9.3
 * `akismet`_ 0.2.0
 * `PIL`_ 1.1.7
@@ -20,7 +20,7 @@ Requirements
 * `feedparser`_ 4.1
 * `html5lib`_ 0.90
 * `whoosh`_ 1.8.4
-* `django-generic-flatblocks`_
+* `django-generic-flatblocks`_ 0.9.1
 * `django-haystack`_ 1.2.4
 * `django-taggit-templatetags`_ 0.4.6dev
 * `reportlab`_ 2.5
