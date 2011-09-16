@@ -1,7 +1,6 @@
 from django.contrib import admin
 from models import Recipe, StoredRecipe, NoteRecipe, ReportedRecipe
 from ingredient.models import Ingredient
-from reversion.admin import VersionAdmin
 from forms import IngItemFormSet
 from django.shortcuts import render_to_response
 from django.contrib.flatpages.models import FlatPage
@@ -11,7 +10,7 @@ class RecipeInline(admin.TabularInline):
     model = Ingredient
     formset=IngItemFormSet
 
-class RecipeAdmin(VersionAdmin):
+class RecipeAdmin(admin.ModelAdmin):
 
     def export_MealMaster(self, request, queryset):
         response = render_to_response('recipe/mealmaster_export.txt', {'queryset': queryset}, mimetype='text/plain')

@@ -11,7 +11,6 @@ Requirements
 * `South`_ 0.7.3
 * `django-disqus`_ 0.4.1
 * `django-imagekit`_ 0.4.0
-* `django-reversion`_ 1.5
 * `django-taggit`_ 0.9.3
 * `akismet`_ 0.2.0
 * `PIL`_ 1.1.7
@@ -49,7 +48,6 @@ Optional
 .. _South: http://south.aeracode.org/
 .. _django-disqus: https://github.com/arthurk/django-disqus
 .. _django-imagekit: https://github.com/jdriscoll/django-imagekit/
-.. _django-reversion: https://github.com/etianen/django-reversion
 .. _django-taggit: https://github.com/alex/django-taggit/
 .. _akismet: http://pypi.python.org/pypi/akismet/0.2.0
 .. _django_navbar: http://code.google.com/p/django-navbar/

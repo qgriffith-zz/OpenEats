@@ -51,6 +51,6 @@ Version 2.3
 * Moved all the CSS, images, and JS to a new folder called static to be more in-line with the Django 1.3 way of doing things
 * Upgraded Grapelli to version 2.3.4
 * Upgraded django-generic-flatblocks to 0.9.1
-* Upgraded django-reversion to 1.5
+* Removed the plugin django-reversion 
 * Upgraded django-imagekit to 0.4.0
 

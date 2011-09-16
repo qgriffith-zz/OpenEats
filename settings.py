@@ -139,7 +139,6 @@ INSTALLED_APPS = (
     'debug_toolbar',
     'taggit',
     'taggit_templatetags',
-    'reversion',
     'south',
     'navbar',
     'disqus',
