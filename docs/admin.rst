@@ -11,7 +11,7 @@ To access the Admin site point your browser to the following URL::
 
     http://yourdomain/admin
 
-You will be prompted to login with a userid and password the defaults are:::
+You will be prompted to login with a userid and password the defaults are::
 
     user: admin
     password: password
@@ -20,6 +20,6 @@ You will want to change this as soon as you login by click on the *users* link i
 
 Change Site Name
 ==================
-You will want to change the site name on the Admin page to match your domain name. Do do so click on the *sites* link
+You will want to change the site name on the Admin page to match your domain name. To do so click on the *sites* link
 on the Admin Page then click on the current entry for site name which should be *example* then change that to match your
 domain name, with out the *http or www* part
