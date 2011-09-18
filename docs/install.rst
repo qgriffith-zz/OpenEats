@@ -140,7 +140,7 @@ To install all the packages that OpenEats2 requires perform the following steps.
 
 Database
 =========
-OpenEats2 has been tested with `MySQL`_ and `SQLite`_ and minaimal testing has been done with `PostgreSQL_`  Technically it should be able to work under
+OpenEats2 has been tested with `MySQL`_ and `SQLite`_ and minimal testing has been done with `PostgreSQL_`  Technically it should be able to work under
 any `django supported`_ database.  SQLite is built into python and does not require any additional software.
 
 
@@ -165,19 +165,21 @@ To install the `Postgres`_ module perform the following steps
 
     pip install psycopg2
 
-.. note::
-    There is a small issue with PostgresSQL that will cause you an error when loading the data.  To get around this issue
-    do the following. Copy the postgres_settings.py to settings.py.  Then skip running the migrate command from the *Required
-    Data* section below.  After running the ./manage.py syncdb command from the *Required Data* section, edit the settings.py
-    file and remove the *#* from in front of the word *south* in the file and save it.  Then run the command *./manage.py migrate
-    --fake*. Then continue with the rest of the instructions as normal.
+There is a small issue with PostgresSQL that will cause you an error when loading the data.  To get around this issue
+perform the following steps;
+
+* Copy the postgres_settings.py to settings.py.
+* Then skip running the migrate command from the *Required Data* section below.
+* After running the ./manage.py syncdb command from the *Required Data* section, edit the settings.py file and remove the *#* from in front of the word *south* in the file and save it.
+* Then run the command *./manage.py migrate --fake*.
+* Continue with the rest of the instructions as normal.
 
 .. _MySQL-Python: https://sourceforge.net/projects/mysql-python/
 .. _MySQL: http://www.mysql.com
 .. _SQLite: http://www.sqlite.org/
 .. _django supported: https://docs.djangoproject.com/en/1.2/ref/databases/
-.._PostgreSQL: http://www.postgresql.org/
-.._Postgres: http://initd.org/psycopg/
+.. _PostgreSQL: http://www.postgresql.org/
+.. _Postgres: http://initd.org/psycopg/
 
 Load Initial Data
 ==================
@@ -235,3 +237,7 @@ You should then be able to access your new OpenEats2 site by pointing your brows
 .. _Ngnix: http://nginx.org/
 .. _Django Apache WSGI: https://docs.djangoproject.com/en/1.2/howto/deployment/modwsgi/
 
+
+Site Name
+----------
+You will need to set up your site name before you can use certain features. See :ref:`site-name`

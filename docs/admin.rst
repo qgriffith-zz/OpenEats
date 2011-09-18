@@ -18,8 +18,14 @@ You will be prompted to login with a userid and password the defaults are::
 
 You will want to change this as soon as you login by click on the *users* link inside the admin page
 
+.. _site-name:
+
 Change Site Name
 ==================
 You will want to change the site name on the Admin page to match your domain name. To do so click on the *sites* link
 on the Admin Page then click on the current entry for site name which should be *example* then change that to match your
 domain name, with out the *http or www* part
+
+.. note::  Do not just delete the name that is currently there. Django expects your site name to start with the primary key
+           of 1 in the database.  If you delete the site name and add a new one it will have the id of 2. So edit the site name
+           that is already there.

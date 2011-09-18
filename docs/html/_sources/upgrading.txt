@@ -182,3 +182,13 @@ After the upgrade you can run the following command to start the internal Django
 test your site::
 
     ./manage.py runserver 8000
+
+Upgrade 2.2 to 2.3
+=====================
+
+Settings Changes
+-----------------
+
+Add the following to your settings.py file under the TEMPLATE_CONTEXT_PROCESSORS area::
+
+     'django.core.context_processors.static',

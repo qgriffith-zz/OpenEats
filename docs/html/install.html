@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>2. Installation &mdash; OpenEats2 v2.2.0 documentation</title>
+    <title>2. Installation &mdash; OpenEats2 v2.3Aplha documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.2.0',
+        VERSION:     '2.3Aplha',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="OpenEats2 v2.2.0 documentation" href="index.html" />
+    <link rel="top" title="OpenEats2 v2.3Aplha documentation" href="index.html" />
     <link rel="next" title="3. Upgrade" href="upgrading.html" />
     <link rel="prev" title="1. Introduction" href="intro.html" /> 
   </head>
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="intro.html" title="1. Introduction"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">OpenEats2 v2.2.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">OpenEats2 v2.3Aplha documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -55,11 +55,10 @@
 <h2>2.1. Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="http://www.python.org">Python</a> 2.6 or a higher release of 2.x</li>
-<li><a class="reference external" href="http://www.djangoproject.com">Django</a> 1.3</li>
+<li><a class="reference external" href="http://www.djangoproject.com">Django</a> 1.3.1</li>
 <li><a class="reference external" href="http://south.aeracode.org/">South</a> 0.7.3</li>
 <li><a class="reference external" href="https://github.com/arthurk/django-disqus">django-disqus</a> 0.4.1</li>
-<li><a class="reference external" href="https://bitbucket.org/jdriscoll/django-imagekit/overview">django-imagekit</a> 0.3.6</li>
-<li><a class="reference external" href="https://github.com/etianen/django-reversion">django-reversion</a> 1.3.1</li>
+<li><a class="reference external" href="https://github.com/jdriscoll/django-imagekit/">django-imagekit</a> 0.4.0</li>
 <li><a class="reference external" href="https://github.com/alex/django-taggit/">django-taggit</a> 0.9.3</li>
 <li><a class="reference external" href="http://pypi.python.org/pypi/akismet/0.2.0">akismet</a> 0.2.0</li>
 <li><a class="reference external" href="http://www.pythonware.com/products/pil/">PIL</a> 1.1.7</li>
@@ -68,14 +67,14 @@
 <li><a class="reference external" href="http://www.feedparser.org/">feedparser</a> 4.1</li>
 <li><a class="reference external" href="http://code.google.com/p/html5lib/">html5lib</a> 0.90</li>
 <li><a class="reference external" href="https://bitbucket.org/mchaput/whoosh/wiki/Home">whoosh</a> 1.8.4</li>
-<li><a class="reference external" href="https://github.com/bartTC/django-generic-flatblocks/tree">django-generic-flatblocks</a></li>
+<li><a class="reference external" href="https://github.com/bartTC/django-generic-flatblocks/tree">django-generic-flatblocks</a> 0.9.1</li>
 <li><a class="reference external" href="http://haystacksearch.org/">django-haystack</a> 1.2.4</li>
 <li><a class="reference external" href="https://github.com/feuervogel/django-taggit-templatetags">django-taggit-templatetags</a> 0.4.6dev</li>
 <li><a class="reference external" href="http://www.reportlab.com/software/opensource/">reportlab</a> 2.5</li>
 <li><a class="reference external" href="https://bitbucket.org/ubernostrum/django-registration/downloads/django-registration-0.8-alpha-1.tar.gz">django-registration</a> 0.8-alpha-1</li>
 <li><a class="reference external" href="https://github.com/coleifer/django-relationships/tarball/4b56427b78ea5313b5a30cff51251bcf7712df4c">django-relationships</a> 0.3.0</li>
 <li><a class="reference external" href="https://github.com/dcramer/django-ratings/tarball/3c31fac17a8a1b53628101e7addb8f5db7d775fe">django-ratings</a> 0.3.6</li>
-<li><a class="reference external" href="http://code.google.com/p/django-grappelli/">django-grappelli</a> 2.3.3</li>
+<li><a class="reference external" href="http://code.google.com/p/django-grappelli/">django-grappelli</a> 2.3.4</li>
 </ul>
 </div>
 <div class="section" id="optional">
@@ -83,7 +82,7 @@
 <ul class="simple">
 <li><a class="reference external" href="http://pypi.python.org/pypi/WebTest/0.9">webtest</a> 1.2.3 used for testing</li>
 <li><a class="reference external" href="http://pypi.python.org/pypi/django-webtest">django-webtest</a> 1.4.1 used for testing</li>
-<li><a class="reference external" href="https://github.com/dcramer/django-sentry">django-sentry</a> 1.8.6.2 used for debugging and troubleshooting errors</li>
+<li><a class="reference external" href="https://github.com/dcramer/django-sentry">django-sentry</a> 1.10.1 used for debugging and troubleshooting errors</li>
 <li><a class="reference external" href="http://pypi.python.org/pypi/django-indexer/0.2">django-indxer</a> 0.3.0 used by django-sentry</li>
 <li><a class="reference external" href="http://pypi.python.org/pypi/django-paging/0.2.2">django-paging</a> 0.2.4 used by django-sentry</li>
 <li><a class="reference external" href="http://pypi.python.org/pypi/django-extensions/0.6">django-extensions</a> 0.6 extra management commands</li>
@@ -148,7 +147,7 @@ with <a class="reference external" href="http://www.doughellmann.com/docs/virtua
 </div>
 <div class="section" id="database">
 <h3>2.4.2. Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h3>
-<p>OpenEats2 has been tested with <a class="reference external" href="http://www.mysql.com">MySQL</a> and <a class="reference external" href="http://www.sqlite.org/">SQLite</a> and minaimal testing has been done with <cite>PostgreSQL_</cite>  Technically it should be able to work under
+<p>OpenEats2 has been tested with <a class="reference external" href="http://www.mysql.com">MySQL</a> and <a class="reference external" href="http://www.sqlite.org/">SQLite</a> and minimal testing has been done with <cite>PostgreSQL_</cite>  Technically it should be able to work under
 any <a class="reference external" href="https://docs.djangoproject.com/en/1.2/ref/databases/">django supported</a> database.  SQLite is built into python and does not require any additional software.</p>
 <div class="section" id="mysql">
 <h4>2.4.2.1. MySQL<a class="headerlink" href="#mysql" title="Permalink to this headline">¶</a></h4>
@@ -164,7 +163,7 @@ any <a class="reference external" href="https://docs.djangoproject.com/en/1.2/re
 </div>
 <div class="section" id="postgressql">
 <h4>2.4.2.2. PostgresSQL<a class="headerlink" href="#postgressql" title="Permalink to this headline">¶</a></h4>
-<p>To install the <a href="#id3"><span class="problematic" id="id4">`Postgres`_</span></a> module perform the following steps</p>
+<p>To install the <a class="reference external" href="http://initd.org/psycopg/">Postgres</a> module perform the following steps</p>
 <ul>
 <li><p class="first">Activate your OpenEats2 virtualenv</p>
 </li>
@@ -173,16 +172,15 @@ any <a class="reference external" href="https://docs.djangoproject.com/en/1.2/re
 </div>
 </li>
 </ul>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">There is a small issue with PostgresSQL that will cause you an error when loading the data.  To get around this issue
-do the following. Copy the postgres_settings.py to settings.py.  Then skip running the migrate command from the <em>Required
-Data</em> section below.  After running the ./manage.py syncdb command from the <em>Required Data</em> section, edit the settings.py
-file and remove the <em>#</em> from in front of the word <em>south</em> in the file and save it.  Then run the command <em>./manage.py migrate
-&#8211;fake</em>. Then continue with the rest of the instructions as normal.</p>
-</div>
-<p>.._PostgreSQL: <a class="reference external" href="http://www.postgresql.org/">http://www.postgresql.org/</a>
-.._Postgres: <a class="reference external" href="http://initd.org/psycopg/">http://initd.org/psycopg/</a></p>
+<p>There is a small issue with PostgresSQL that will cause you an error when loading the data.  To get around this issue
+perform the following steps;</p>
+<ul class="simple">
+<li>Copy the postgres_settings.py to settings.py.</li>
+<li>Then skip running the migrate command from the <em>Required Data</em> section below.</li>
+<li>After running the ./manage.py syncdb command from the <em>Required Data</em> section, edit the settings.py file and remove the <em>#</em> from in front of the word <em>south</em> in the file and save it.</li>
+<li>Then run the command <em>./manage.py migrate &#8211;fake</em>.</li>
+<li>Continue with the rest of the instructions as normal.</li>
+</ul>
 </div>
 </div>
 <div class="section" id="load-initial-data">
@@ -233,6 +231,10 @@ a remote server and not your local computer run the following command instead:</
 <a class="reference external" href="http://nginx.org/">Ngnix</a> Check out the <a class="reference external" href="https://docs.djangoproject.com/en/1.2/howto/deployment/modwsgi/">Django Apache WSGI</a> document for more info.</p>
 </div>
 </div>
+<div class="section" id="site-name">
+<h4>2.4.3.5. Site Name<a class="headerlink" href="#site-name" title="Permalink to this headline">¶</a></h4>
+<p>You will need to set up your site name before you can use certain features. See <a class="reference internal" href="admin.html#site-name"><em>Change Site Name</em></a></p>
+</div>
 </div>
 </div>
 </div>
@@ -265,6 +267,7 @@ a remote server and not your local computer run the following command instead:</
 <li><a class="reference internal" href="#optional-data">2.4.3.2. Optional Data</a></li>
 <li><a class="reference internal" href="#collecting-static-files">2.4.3.3. Collecting Static Files</a></li>
 <li><a class="reference internal" href="#running">2.4.3.4. Running</a></li>
+<li><a class="reference internal" href="#site-name">2.4.3.5. Site Name</a></li>
 </ul>
 </li>
 </ul>
@@ -313,8 +316,15 @@ a remote server and not your local computer run the following command instead:</
         <li class="right" >
           <a href="intro.html" title="1. Introduction"
              >previous</a> |</li>
-        <li><a href="index.html">OpenEats2 v2.2.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">OpenEats2 v2.3Aplha documentation</a> &raquo;</li> 
       </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Quenten Griffith.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
+    </div>
+  </body>
+</html>     </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Quenten Griffith.
