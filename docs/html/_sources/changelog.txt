@@ -53,4 +53,5 @@ Version 2.3
 * Upgraded django-generic-flatblocks to 0.9.1
 * Removed the plugin django-reversion 
 * Upgraded django-imagekit to 0.4.0
+* Changed the site Logo
 
