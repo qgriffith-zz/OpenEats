@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-20 08:27-0500\n"
-"PO-Revision-Date: 2011-08-20 09:03\n"
+"POT-Creation-Date: 2011-09-24 08:23-0500\n"
+"PO-Revision-Date: 2011-09-24 08:24\n"
 "Last-Translator:   <qgriffith@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -69,15 +69,15 @@ msgstr "Django \"django-usuarios\" lista de correo"
 msgid "Latest OpenEats2 News"
 msgstr "Últimas Noticias OpenEats"
 
-#: settings.py:42
+#: settings.py:42 settings_postgres.py:42
 msgid "English"
 msgstr ""
 
-#: settings.py:43
+#: settings.py:43 settings_postgres.py:43
 msgid "German"
 msgstr ""
 
-#: settings.py:44
+#: settings.py:44 settings_postgres.py:44
 msgid "Spanish"
 msgstr ""
 
@@ -193,7 +193,7 @@ msgstr "Correo electrónico enviados"
 #: list/models.py:8 list/models.py:46 list/models.py:57 list/models.py:74
 #: templates/list/grocery_addrecipe.html:3
 #: templates/list/grocery_detail.html:3 templates/list/grocery_index.html:6
-#: templates/profiles/profile_detail.html:62 templates/sidebar/grocery.html:80
+#: templates/profiles/profile_detail.html:63 templates/sidebar/grocery.html:80
 msgid "grocery list"
 msgstr "lista de la compra"
 
@@ -388,7 +388,7 @@ msgstr "Ver el perfil"
 msgid "grocery lists"
 msgstr "listas de la compra"
 
-#: templates/base.html:71 templates/profiles/profile_detail.html:73
+#: templates/base.html:71 templates/profiles/profile_detail.html:74
 msgid "logout"
 msgstr "cierre de sesión"
 
@@ -483,8 +483,8 @@ msgid "actions"
 msgstr "acciones"
 
 #: templates/list/grocery_addrecipe.html:13
-#: templates/list/grocerylist_form.html:53 templates/sidebar/grocery.html:82
-msgid "create"
+#, fuzzy
+msgid "create list"
 msgstr "crear"
 
 #: templates/list/grocery_ajax.html:31
@@ -552,6 +552,11 @@ msgstr "pasillo"
 msgid "items"
 msgstr "artículos"
 
+#: templates/list/grocerylist_form.html:53
+#, fuzzy
+msgid "save list"
+msgstr "compartida lista"
+
 #: templates/profiles/create_profile.html:5
 #: templates/profiles/edit_profile.html:6
 #: templates/recipe/recipe_detail.html:123
@@ -576,51 +581,52 @@ msgstr ""
 msgid "Change Password"
 msgstr "Cambiar contraseña"
 
-#: templates/profiles/profile_detail.html:42
+#: templates/profiles/profile_detail.html:43
 msgid "location:"
 msgstr "Ubicación:"
 
-#: templates/profiles/profile_detail.html:45
+#: templates/profiles/profile_detail.html:46
 msgid "gender:"
 msgstr "género:"
 
-#: templates/profiles/profile_detail.html:48
+#: templates/profiles/profile_detail.html:49
 msgid "website:"
 msgstr "página web:"
 
-#: templates/profiles/profile_detail.html:51
+#: templates/profiles/profile_detail.html:52
 msgid "all about me"
 msgstr "todo acerca de mí"
 
-#: templates/profiles/profile_detail.html:58
+#: templates/profiles/profile_detail.html:59
 msgid "recipes"
 msgstr "recetas"
 
-#: templates/profiles/profile_detail.html:60
+#: templates/profiles/profile_detail.html:61
 msgid "private recipes"
 msgstr "recetas privadas"
 
-#: templates/profiles/profile_detail.html:61
+#: templates/profiles/profile_detail.html:62
 msgid "favorites"
 msgstr "los favoritos"
 
-#: templates/profiles/profile_detail.html:63
+#: templates/profiles/profile_detail.html:64
 msgid "followers"
 msgstr "seguidores"
 
-#: templates/profiles/profile_detail.html:64
+#: templates/profiles/profile_detail.html:65
 msgid "feed"
 msgstr "piensos"
 
-#: templates/profiles/profile_detail.html:65
+#: templates/profiles/profile_detail.html:66
 msgid "settings"
 msgstr "configuración"
 
-#: templates/profiles/profile_detail.html:71
+#: templates/profiles/profile_detail.html:72
 msgid "edit Profile"
 msgstr "Editar Perfil"
 
-#: templates/profiles/profile_detail.html:72
+#: templates/profiles/profile_detail.html:73
+#: templates/registration/password_change_form.html:14
 msgid "change password"
 msgstr "cambiar la contraseña"
 
@@ -750,8 +756,9 @@ msgid "ingredients"
 msgstr "ingredientes"
 
 #: templates/recipe/recipe_form.html:125
-msgid "New Recipe"
-msgstr "Nueva receta"
+#, fuzzy
+msgid "save recipe"
+msgstr "ver recetas"
 
 #: templates/recipe/recipe_list.html:7
 #, python-format
@@ -824,11 +831,6 @@ msgstr "Contraseña cambiada con éxito"
 msgid "Your password was changed."
 msgstr "Su contraseña se ha cambiado."
 
-#: templates/registration/password_change_form.html:14
-#: templates/registration/password_reset_confirm.html:13
-msgid "Change my password"
-msgstr "Cambiar mi contraseña"
-
 #: templates/registration/password_reset_complete.html:4
 msgid "Password reset complete"
 msgstr "De restablecimiento de contraseña completa"
@@ -862,6 +864,10 @@ msgstr "Nueva contraseña:"
 #: templates/registration/password_reset_confirm.html:12
 msgid "Confirm password:"
 msgstr "Confirmar contraseña:"
+
+#: templates/registration/password_reset_confirm.html:13
+msgid "Change my password"
+msgstr "Cambiar mi contraseña"
 
 #: templates/registration/password_reset_confirm.html:16
 msgid "Password reset unsuccessful"
@@ -906,7 +912,8 @@ msgid "E-mail address:"
 msgstr "E-mail:"
 
 #: templates/registration/password_reset_form.html:8
-msgid "Reset my password"
+#, fuzzy
+msgid "reset password"
 msgstr "Perdí mi contraseña"
 
 #: templates/registration/registration_complete.html:5
@@ -1013,6 +1020,10 @@ msgstr "sin cuota de"
 msgid "no recipes"
 msgstr "recetas"
 
+#: templates/sidebar/grocery.html:82
+msgid "create"
+msgstr "crear"
+
 #: templates/sidebar/grocery.html:83
 msgid "list"
 msgstr "lista"
@@ -1041,6 +1052,9 @@ msgstr "informó!"
 #: templatetags/recipe_links.py:30
 msgid "report"
 msgstr "informe"
+
+#~ msgid "New Recipe"
+#~ msgstr "Nueva receta"
 
 #~ msgid "OpenEats"
 #~ msgstr "OpenEats"

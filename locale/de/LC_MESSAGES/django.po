@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-08-20 08:27-0500\n"
+"POT-Creation-Date: 2011-09-24 08:23-0500\n"
 "PO-Revision-Date: 2011-08-20 09:04\n"
 "Last-Translator:   <qgriffith@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -68,15 +68,15 @@ msgstr "Django \"Django-User\"-Mailingliste"
 msgid "Latest OpenEats2 News"
 msgstr "Aktuelle News OpenEats"
 
-#: settings.py:42
+#: settings.py:42 settings_postgres.py:42
 msgid "English"
 msgstr "Englisch"
 
-#: settings.py:43
+#: settings.py:43 settings_postgres.py:43
 msgid "German"
 msgstr ""
 
-#: settings.py:44
+#: settings.py:44 settings_postgres.py:44
 msgid "Spanish"
 msgstr ""
 
@@ -190,7 +190,7 @@ msgstr "E-Mail gesendet"
 #: list/models.py:8 list/models.py:46 list/models.py:57 list/models.py:74
 #: templates/list/grocery_addrecipe.html:3
 #: templates/list/grocery_detail.html:3 templates/list/grocery_index.html:6
-#: templates/profiles/profile_detail.html:62 templates/sidebar/grocery.html:80
+#: templates/profiles/profile_detail.html:63 templates/sidebar/grocery.html:80
 msgid "grocery list"
 msgstr "Einkaufsliste"
 
@@ -351,16 +351,16 @@ msgid ""
 "Our chef's ruined this recipe in the test kitchen, we suggest you try "
 "something else"
 msgstr ""
-"Unser Küchenchef ist das Rezept in der Versuchsküche ruiniert, "
-"empfehlen wir Ihnen etwas anderes versuchen"
+"Unser Küchenchef ist das Rezept in der Versuchsküche ruiniert, empfehlen wir "
+"Ihnen etwas anderes versuchen"
 
 #: templates/404.html:9
 msgid ""
-"Sorry the page came back with a 404 error we can't find what you are "
-"looking for"
+"Sorry the page came back with a 404 error we can't find what you are looking "
+"for"
 msgstr ""
-"Sorry die Seite kam mit einem 404-Fehler können wir nicht finden, was "
-"Sie suchen"
+"Sorry die Seite kam mit einem 404-Fehler können wir nicht finden, was Sie "
+"suchen"
 
 #: templates/404.html:10
 msgid "return to site"
@@ -385,7 +385,7 @@ msgstr "Profil"
 msgid "grocery lists"
 msgstr "Einkaufszettel"
 
-#: templates/base.html:71 templates/profiles/profile_detail.html:73
+#: templates/base.html:71 templates/profiles/profile_detail.html:74
 msgid "logout"
 msgstr "Abmelden"
 
@@ -480,8 +480,8 @@ msgid "actions"
 msgstr "Aktionen"
 
 #: templates/list/grocery_addrecipe.html:13
-#: templates/list/grocerylist_form.html:53 templates/sidebar/grocery.html:82
-msgid "create"
+#, fuzzy
+msgid "create list"
 msgstr "schaffen"
 
 #: templates/list/grocery_ajax.html:31
@@ -549,6 +549,11 @@ msgstr "Gang"
 msgid "items"
 msgstr "Begriffe"
 
+#: templates/list/grocerylist_form.html:53
+#, fuzzy
+msgid "save list"
+msgstr "freigegebene Liste"
+
 #: templates/profiles/create_profile.html:5
 #: templates/profiles/edit_profile.html:6
 #: templates/recipe/recipe_detail.html:123
@@ -558,8 +563,7 @@ msgstr "bearbeiten"
 #: templates/profiles/edit_profile.html:15
 msgid "To change your profile picture you will need to create/login to"
 msgstr ""
-"So ändern Sie Ihr Profil Bild, das Sie benötigen zum Erstellen / "
-"anmelden"
+"So ändern Sie Ihr Profil Bild, das Sie benötigen zum Erstellen / anmelden"
 
 #: templates/profiles/edit_profile.html:15
 msgid "Gravata"
@@ -573,51 +577,52 @@ msgstr "mit der gleichen E-Mail-Adresse, die Sie für diese Website verwendet"
 msgid "Change Password"
 msgstr "Passwort ändern"
 
-#: templates/profiles/profile_detail.html:42
+#: templates/profiles/profile_detail.html:43
 msgid "location:"
 msgstr "Standort:"
 
-#: templates/profiles/profile_detail.html:45
+#: templates/profiles/profile_detail.html:46
 msgid "gender:"
 msgstr "Geschlecht:"
 
-#: templates/profiles/profile_detail.html:48
+#: templates/profiles/profile_detail.html:49
 msgid "website:"
 msgstr "Website:"
 
-#: templates/profiles/profile_detail.html:51
+#: templates/profiles/profile_detail.html:52
 msgid "all about me"
 msgstr "alles über mich"
 
-#: templates/profiles/profile_detail.html:58
+#: templates/profiles/profile_detail.html:59
 msgid "recipes"
 msgstr "Rezepte"
 
-#: templates/profiles/profile_detail.html:60
+#: templates/profiles/profile_detail.html:61
 msgid "private recipes"
 msgstr "privaten Rezepte"
 
-#: templates/profiles/profile_detail.html:61
+#: templates/profiles/profile_detail.html:62
 msgid "favorites"
 msgstr "Favoriten"
 
-#: templates/profiles/profile_detail.html:63
+#: templates/profiles/profile_detail.html:64
 msgid "followers"
 msgstr "Anhänger"
 
-#: templates/profiles/profile_detail.html:64
+#: templates/profiles/profile_detail.html:65
 msgid "feed"
 msgstr "Futtermittel"
 
-#: templates/profiles/profile_detail.html:65
+#: templates/profiles/profile_detail.html:66
 msgid "settings"
 msgstr "Einstellungen"
 
-#: templates/profiles/profile_detail.html:71
+#: templates/profiles/profile_detail.html:72
 msgid "edit Profile"
 msgstr "Profil bearbeiten"
 
-#: templates/profiles/profile_detail.html:72
+#: templates/profiles/profile_detail.html:73
+#: templates/registration/password_change_form.html:14
 msgid "change password"
 msgstr "Passwort ändern"
 
@@ -747,8 +752,9 @@ msgid "ingredients"
 msgstr "Zutaten"
 
 #: templates/recipe/recipe_form.html:125
-msgid "New Recipe"
-msgstr "Neue Rezepte"
+#, fuzzy
+msgid "save recipe"
+msgstr "Besuche Rezepte"
 
 #: templates/recipe/recipe_list.html:7
 #, python-format
@@ -821,11 +827,6 @@ msgstr "Kennwort geändert Erfolgreiche"
 msgid "Your password was changed."
 msgstr "Ihr Passwort wurde geändert."
 
-#: templates/registration/password_change_form.html:14
-#: templates/registration/password_reset_confirm.html:13
-msgid "Change my password"
-msgstr "Mein Passwort ändern"
-
 #: templates/registration/password_reset_complete.html:4
 msgid "Password reset complete"
 msgstr "Password Reset abgeschlossen"
@@ -833,8 +834,8 @@ msgstr "Password Reset abgeschlossen"
 #: templates/registration/password_reset_complete.html:5
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr ""
-"Ihr Passwort wurde gesetzt. Sie können gehen Sie vor und melden Sie "
-"sich jetzt."
+"Ihr Passwort wurde gesetzt. Sie können gehen Sie vor und melden Sie sich "
+"jetzt."
 
 #: templates/registration/password_reset_complete.html:6
 msgid "Log in"
@@ -849,8 +850,8 @@ msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
 msgstr ""
-"Bitte geben Sie Ihr neues Passwort zweimal so können wir "
-"sicherstellen, dass Sie nicht vertippt hast."
+"Bitte geben Sie Ihr neues Passwort zweimal so können wir sicherstellen, dass "
+"Sie nicht vertippt hast."
 
 #: templates/registration/password_reset_confirm.html:10
 msgid "New password:"
@@ -860,14 +861,18 @@ msgstr "Neues Passwort:"
 msgid "Confirm password:"
 msgstr "Passwort bestätigen:"
 
+#: templates/registration/password_reset_confirm.html:13
+msgid "Change my password"
+msgstr "Mein Passwort ändern"
+
 #: templates/registration/password_reset_confirm.html:16
 msgid "Password reset unsuccessful"
 msgstr "Passwort-Reset erfolglos"
 
 #: templates/registration/password_reset_confirm.html:17
 msgid ""
-"The password reset link was invalid, possibly because it has already "
-"been used. Please request a new password reset."
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
 msgstr ""
 "Die Passwort-Reset Link war ungültig, weil sie möglicherweise bereits "
 "verwendet wurde. Bitte fordern Sie ein neues Passwort zurückzusetzen."
@@ -881,8 +886,8 @@ msgid ""
 "We've e-mailed a new password to the e-mail address you submitted. You "
 "should be receiving it shortly."
 msgstr ""
-"Wir haben E-ein neues Passwort an die E-Mail-Adresse eingereicht "
-"geschickt. Sie sollten erhalten sie in Kürze."
+"Wir haben E-ein neues Passwort an die E-Mail-Adresse eingereicht geschickt. "
+"Sie sollten erhalten sie in Kürze."
 
 #: templates/registration/password_reset_form.html:4
 msgid "Password reset"
@@ -890,8 +895,8 @@ msgstr "Passwort zurücksetzen"
 
 #: templates/registration/password_reset_form.html:5
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll "
-"reset your password and e-mail the new one to you."
+"Forgotten your password? Enter your e-mail address below, and we'll reset "
+"your password and e-mail the new one to you."
 msgstr ""
 "Passwort vergessen? Geben Sie einfach Ihre E-Mail-Adresse ein und wir "
 "schicken Ihnen das Passwort und E-Mail die neue für Sie zurückgesetzt."
@@ -901,7 +906,8 @@ msgid "E-mail address:"
 msgstr "E-Mail-Adresse:"
 
 #: templates/registration/password_reset_form.html:8
-msgid "Reset my password"
+#, fuzzy
+msgid "reset password"
 msgstr "Mein Passwort zurücksetzen"
 
 #: templates/registration/registration_complete.html:5
@@ -916,8 +922,8 @@ msgstr "Vielen Dank für Ihre Anmeldung bei"
 #, fuzzy
 msgid "you have been emailed an activation link"
 msgstr ""
-"Vielen Dank für Ihre Anmeldung bei OpenEats Sie wurden einem "
-"Aktivierungs-Link per E-Mail"
+"Vielen Dank für Ihre Anmeldung bei OpenEats Sie wurden einem Aktivierungs-"
+"Link per E-Mail"
 
 #: templates/relationships/confirm.html:4
 #: templates/relationships/confirm.html:7
@@ -1008,6 +1014,10 @@ msgstr "UN-Aktie"
 msgid "no recipes"
 msgstr "Rezepte"
 
+#: templates/sidebar/grocery.html:82
+msgid "create"
+msgstr "schaffen"
+
 #: templates/sidebar/grocery.html:83
 msgid "list"
 msgstr "Liste"
@@ -1036,6 +1046,9 @@ msgstr "gemeldet!"
 #: templatetags/recipe_links.py:30
 msgid "report"
 msgstr "Bericht"
+
+#~ msgid "New Recipe"
+#~ msgstr "Neue Rezepte"
 
 #~ msgid "OpenEats2"
 #~ msgstr "OpenEats2"
@@ -1125,11 +1138,11 @@ msgstr "Bericht"
 #~ msgstr "Kennwort geändert Erfolgreiche"
 
 #~ msgid ""
-#~ "Please enter your old password, for securitys sake, and then enter your"
-#~ " new password twice so we can verify you typed it in correctly."
+#~ "Please enter your old password, for securitys sake, and then enter your "
+#~ "new password twice so we can verify you typed it in correctly."
 #~ msgstr ""
-#~ "Bitte geben Sie Ihr neues Passwort zweimal so können wir "
-#~ "sicherstellen, dass Sie nicht vertippt hast."
+#~ "Bitte geben Sie Ihr neues Passwort zweimal so können wir sicherstellen, "
+#~ "dass Sie nicht vertippt hast."
 
 #~ msgid "Old password:"
 #~ msgstr "Neues Passwort:"
