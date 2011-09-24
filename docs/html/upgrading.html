@@ -222,11 +222,61 @@ test your site:</p>
 </div>
 <div class="section" id="upgrade-2-2-to-2-3">
 <h2>3.3. Upgrade 2.2 to 2.3<a class="headerlink" href="#upgrade-2-2-to-2-3" title="Permalink to this headline">¶</a></h2>
+<p>This procedure covers how to upgrade your existing 2.2 OpenEats2 site to version 2.3.  If you are upgrading from 2.0 to 2.3
+you will need to follow the steps from Config File Changes down in the <em>Upgrading from 2.0 to 2.1</em> section.</p>
+<div class="section" id="id5">
+<h3>3.3.1. Install<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Download the latest package from <a class="reference external" href="https://github.com/qgriffith/OpenEats">github</a></li>
+<li>Unzip the file</li>
+<li>Backup your database</li>
+<li>Backup your current site files</li>
+<li>From the unzip file, copy everything other then the settings.py, site-media/upload and site-media/uploads file into your current openeats directory, over writing
+what is already there</li>
+</ul>
+</div>
 <div class="section" id="settings-changes">
-<h3>3.3.1. Settings Changes<a class="headerlink" href="#settings-changes" title="Permalink to this headline">¶</a></h3>
+<h3>3.3.2. Settings Changes<a class="headerlink" href="#settings-changes" title="Permalink to this headline">¶</a></h3>
 <p>Add the following to your settings.py file under the TEMPLATE_CONTEXT_PROCESSORS area:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;django.core.context_processors.static&#39;</span><span class="p">,</span>
 </pre></div>
+</div>
+<p>Remove the following from the installed_apps section of the settings.py file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;reversion&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>3.3.3. Upgrade third party apps<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>To upgrade all the packages that OpenEats2 requires perform the following steps.</p>
+<ul>
+<li><p class="first">Activate your virtualenv</p>
+</li>
+<li><p class="first">Change to the directory that you unzipped the OpenEats2 files into</p>
+</li>
+<li><p class="first">Run the following command:</p>
+<div class="highlight-python"><pre>pip install -r OE2_Requirements.txt --upgrade</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>3.3.4. Database changes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Run the following command from the OpenEats2 directory:</p>
+<div class="highlight-python"><pre>./manage.py migrate</pre>
+</div>
+</div>
+<div class="section" id="update-static-files">
+<h3>3.3.5. Update Static Files<a class="headerlink" href="#update-static-files" title="Permalink to this headline">¶</a></h3>
+<p>To update the static files from the third party applications run the following command:</p>
+<div class="highlight-python"><pre>./manage.py collectstatic</pre>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>3.3.6. Running<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>After the upgrade you can run the following command to start the internal Django webserver.  This will allow you to
+test your site:</p>
+<div class="highlight-python"><pre>./manage.py runserver 8000</pre>
 </div>
 </div>
 </div>
@@ -259,7 +309,12 @@ test your site:</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#upgrade-2-2-to-2-3">3.3. Upgrade 2.2 to 2.3</a><ul>
-<li><a class="reference internal" href="#settings-changes">3.3.1. Settings Changes</a></li>
+<li><a class="reference internal" href="#id5">3.3.1. Install</a></li>
+<li><a class="reference internal" href="#settings-changes">3.3.2. Settings Changes</a></li>
+<li><a class="reference internal" href="#id6">3.3.3. Upgrade third party apps</a></li>
+<li><a class="reference internal" href="#id7">3.3.4. Database changes</a></li>
+<li><a class="reference internal" href="#update-static-files">3.3.5. Update Static Files</a></li>
+<li><a class="reference internal" href="#id8">3.3.6. Running</a></li>
 </ul>
 </li>
 </ul>
