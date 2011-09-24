@@ -29,5 +29,6 @@ django-grappelli==2.3.4
 django-relationships==0.3.0
 django-tastypie==0.9.9
 lxml==2.3
+https://github.com/qgriffith/django-ratings/zipball/stable
 https://bitbucket.org/ubernostrum/django-registration/downloads/django-registration-0.8-alpha-1.tar.gz
 
