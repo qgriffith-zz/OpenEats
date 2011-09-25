@@ -1,5 +1,5 @@
 """OpenEats"""
-__version__ = '2.3'
+__version__ = '2.4Alpha'
 __license__ = 'BSD License'
 
 __author__ = 'Quenten Griffith'
