@@ -2,13 +2,13 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-24 08:23-0500\n"
+"POT-Creation-Date: 2011-09-25 10:12-0500\n"
 "PO-Revision-Date: 2011-09-24 08:24\n"
 "Last-Translator:   <qgriffith@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -175,8 +175,8 @@ msgstr "Lista de la compra de"
 #: list/forms.py:111
 msgid "Can not get grocery list id from invalid form data"
 msgstr ""
-"No se puede obtener la lista de comestibles Identificación de los "
-"datos del formulario no válido"
+"No se puede obtener la lista de comestibles Identificación de los datos del "
+"formulario no válido"
 
 #: list/forms.py:118
 msgid "Can not get to_email from invalid form data"
@@ -359,11 +359,11 @@ msgstr ""
 
 #: templates/404.html:9
 msgid ""
-"Sorry the page came back with a 404 error we can't find what you are "
-"looking for"
+"Sorry the page came back with a 404 error we can't find what you are looking "
+"for"
 msgstr ""
-"Lo sentimos la página volvió con un error 404 que no puede encontrar "
-"lo que busca"
+"Lo sentimos la página volvió con un error 404 que no puede encontrar lo que "
+"busca"
 
 #: templates/404.html:10
 msgid "return to site"
@@ -574,8 +574,8 @@ msgstr ""
 #: templates/profiles/edit_profile.html:15
 msgid "using the same email address you used for this site"
 msgstr ""
-"utilizando la misma dirección de correo electrónico que utilizó para "
-"este sitio"
+"utilizando la misma dirección de correo electrónico que utilizó para este "
+"sitio"
 
 #: templates/profiles/edit_profile.html:28
 msgid "Change Password"
@@ -838,8 +838,8 @@ msgstr "De restablecimiento de contraseña completa"
 #: templates/registration/password_reset_complete.html:5
 msgid "Your password has been set.  You may go ahead and log in now."
 msgstr ""
-"Su contraseña se ha establecido. Usted puede seguir adelante e iniciar"
-" sesión ahora."
+"Su contraseña se ha establecido. Usted puede seguir adelante e iniciar "
+"sesión ahora."
 
 #: templates/registration/password_reset_complete.html:6
 msgid "Log in"
@@ -875,12 +875,12 @@ msgstr "De restablecimiento de contraseña sin éxito"
 
 #: templates/registration/password_reset_confirm.html:17
 msgid ""
-"The password reset link was invalid, possibly because it has already "
-"been used. Please request a new password reset."
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
 msgstr ""
-"El enlace de restablecimiento de contraseña no es válida, posiblemente"
-" debido a que ya se ha utilizado. Por favor, solicitar un "
-"restablecimiento de la contraseña nueva."
+"El enlace de restablecimiento de contraseña no es válida, posiblemente "
+"debido a que ya se ha utilizado. Por favor, solicitar un restablecimiento de "
+"la contraseña nueva."
 
 #: templates/registration/password_reset_done.html:4
 msgid "Password reset successful"
@@ -891,9 +891,8 @@ msgid ""
 "We've e-mailed a new password to the e-mail address you submitted. You "
 "should be receiving it shortly."
 msgstr ""
-"Hemos enviado por correo electrónico una nueva contraseña a la "
-"dirección de correo electrónico que envía. Usted debe estar recibiendo"
-" en breve."
+"Hemos enviado por correo electrónico una nueva contraseña a la dirección de "
+"correo electrónico que envía. Usted debe estar recibiendo en breve."
 
 #: templates/registration/password_reset_form.html:4
 msgid "Password reset"
@@ -901,11 +900,11 @@ msgstr "De restablecimiento de contraseña"
 
 #: templates/registration/password_reset_form.html:5
 msgid ""
-"Forgotten your password? Enter your e-mail address below, and we'll "
-"reset your password and e-mail the new one to you."
+"Forgotten your password? Enter your e-mail address below, and we'll reset "
+"your password and e-mail the new one to you."
 msgstr ""
-"¿Olvidó su contraseña? Ingrese su dirección de e-mail, y vamos a "
-"restablecer la contraseña y el correo electrónico el nuevo para usted."
+"¿Olvidó su contraseña? Ingrese su dirección de e-mail, y vamos a restablecer "
+"la contraseña y el correo electrónico el nuevo para usted."
 
 #: templates/registration/password_reset_form.html:8
 msgid "E-mail address:"
@@ -928,8 +927,8 @@ msgstr "Gracias por inscribirse en"
 #, fuzzy
 msgid "you have been emailed an activation link"
 msgstr ""
-"Gracias por inscribirse en OpenEats le han enviado por correo "
-"electrónico un enlace de activación"
+"Gracias por inscribirse en OpenEats le han enviado por correo electrónico un "
+"enlace de activación"
 
 #: templates/relationships/confirm.html:4
 #: templates/relationships/confirm.html:7
@@ -1147,8 +1146,8 @@ msgstr "informe"
 #~ msgstr "Contraseña cambiada con éxito"
 
 #~ msgid ""
-#~ "Please enter your old password, for securitys sake, and then enter your"
-#~ " new password twice so we can verify you typed it in correctly."
+#~ "Please enter your old password, for securitys sake, and then enter your "
+#~ "new password twice so we can verify you typed it in correctly."
 #~ msgstr ""
 #~ "Por favor, introduzca su nueva contraseña dos veces para que podamos "
 #~ "verificar que la ha escrito correctamente."
