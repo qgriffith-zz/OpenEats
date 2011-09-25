@@ -1,0 +1,1005 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-09-25 10:12-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: dashboard.py:25
+msgid "Quick Links"
+msgstr ""
+
+#: dashboard.py:32
+msgid "Return to site"
+msgstr ""
+
+#: dashboard.py:36
+msgid "Change password"
+msgstr ""
+
+#: dashboard.py:40
+msgid "Log out"
+msgstr ""
+
+#: dashboard.py:49 dashboard.py:54
+msgid "Administration"
+msgstr ""
+
+#: dashboard.py:72
+msgid "Third Party Applications"
+msgstr ""
+
+#: dashboard.py:80
+msgid "Recent Actions"
+msgstr ""
+
+#: dashboard.py:88
+msgid "Support"
+msgstr ""
+
+#: dashboard.py:92
+msgid "OpenEats Forum"
+msgstr ""
+
+#: dashboard.py:97
+msgid "Django documentation"
+msgstr ""
+
+#: dashboard.py:102
+msgid "Django \"django-users\" mailing list"
+msgstr ""
+
+#: dashboard.py:111
+msgid "Latest OpenEats2 News"
+msgstr ""
+
+#: settings.py:42 settings_postgres.py:42
+msgid "English"
+msgstr ""
+
+#: settings.py:43 settings_postgres.py:43
+msgid "German"
+msgstr ""
+
+#: settings.py:44 settings_postgres.py:44
+msgid "Spanish"
+msgstr ""
+
+#: accounts/models.py:8
+msgid "Male"
+msgstr ""
+
+#: accounts/models.py:9
+msgid "Female"
+msgstr ""
+
+#: accounts/models.py:11 list/models.py:10 list/models.py:37
+#: recipe/models.py:20 recipe/models.py:58
+msgid "user"
+msgstr ""
+
+#: accounts/models.py:12
+msgid "about"
+msgstr ""
+
+#: accounts/models.py:13
+msgid "gender"
+msgstr ""
+
+#: accounts/models.py:14
+msgid "url"
+msgstr ""
+
+#: accounts/models.py:15
+msgid "location"
+msgstr ""
+
+#: accounts/models.py:20
+msgid "User profiles"
+msgstr ""
+
+#: accounts/views.py:14
+msgid "You have been logged out!."
+msgstr ""
+
+#: feed/views.py:7
+msgid " Recent Recipes"
+msgstr ""
+
+#: feed/views.py:9
+msgid "Updates added on new recipes added to "
+msgstr ""
+
+#: feed/views.py:21
+msgid " Top Recipes"
+msgstr ""
+
+#: feed/views.py:23
+msgid "Top recipes on "
+msgstr ""
+
+#: ingredient/models.py:6 news/models.py:6 recipe_groups/models.py:7
+#: recipe_groups/models.py:24
+msgid "title"
+msgstr ""
+
+#: ingredient/models.py:7
+msgid "quantity"
+msgstr ""
+
+#: ingredient/models.py:8
+msgid "measurement"
+msgstr ""
+
+#: ingredient/models.py:9
+msgid "preparation"
+msgstr ""
+
+#: ingredient/models.py:10 list/models.py:75 recipe/models.py:57
+#: recipe/models.py:64 recipe/models.py:75
+msgid "recipe"
+msgstr ""
+
+#: list/forms.py:71
+msgid "Aisle with this name already exists for your account"
+msgstr ""
+
+#: list/forms.py:95
+msgid "email address"
+msgstr ""
+
+#: list/forms.py:100
+msgid "Grocery list from "
+msgstr ""
+
+#: list/forms.py:111
+msgid "Can not get grocery list id from invalid form data"
+msgstr ""
+
+#: list/forms.py:118
+msgid "Can not get to_email from invalid form data"
+msgstr ""
+
+#: list/forms.py:128
+msgid "Invalid header found."
+msgstr ""
+
+#: list/forms.py:129
+msgid "Email Sent"
+msgstr ""
+
+#: list/models.py:8 list/models.py:46 list/models.py:57 list/models.py:74
+#: templates/list/grocery_addrecipe.html:3
+#: templates/list/grocery_detail.html:3 templates/list/grocery_index.html:6
+#: templates/profiles/profile_detail.html:63 templates/sidebar/grocery.html:80
+msgid "grocery list"
+msgstr ""
+
+#: list/models.py:9 news/models.py:7 recipe/models.py:19
+#: recipe_groups/models.py:8 recipe_groups/models.py:25
+msgid "slug"
+msgstr ""
+
+#: list/models.py:36
+msgid "aisle"
+msgstr ""
+
+#: list/models.py:47
+msgid "item"
+msgstr ""
+
+#: list/models.py:58
+msgid "shared by"
+msgstr ""
+
+#: list/models.py:59
+msgid "shared to"
+msgstr ""
+
+#: list/views.py:27
+msgid "Your grocery list has been removed."
+msgstr ""
+
+#: list/views.py:59 list/views.py:63
+msgid "You do not have permissions to edit this list "
+msgstr ""
+
+#: list/views.py:97 list/views.py:101
+msgid "You do not have permissions to view this list "
+msgstr ""
+
+#: list/views.py:164
+msgid "Your grocery list has been shared."
+msgstr ""
+
+#: list/views.py:178
+msgid "Grocery List has been un-shared"
+msgstr ""
+
+#: list/views.py:205
+msgid "New Aisle added"
+msgstr ""
+
+#: news/models.py:8
+msgid "content"
+msgstr ""
+
+#: news/models.py:9
+msgid "image"
+msgstr ""
+
+#: pagination/templates/pagination/pagination.html:6
+#: pagination/templates/pagination/pagination.html:8
+msgid "previous"
+msgstr ""
+
+#: pagination/templates/pagination/pagination.html:22
+#: pagination/templates/pagination/pagination.html:24
+msgid "next"
+msgstr ""
+
+#: recipe/models.py:14
+msgid "Share"
+msgstr ""
+
+#: recipe/models.py:15
+msgid "Private"
+msgstr ""
+
+#: recipe/models.py:18
+msgid "Recipe Title"
+msgstr ""
+
+#: recipe/models.py:21
+msgid "photo"
+msgstr ""
+
+#: recipe/models.py:22
+msgid "course"
+msgstr ""
+
+#: recipe/models.py:23
+msgid "cuisine"
+msgstr ""
+
+#: recipe/models.py:24
+msgid "info"
+msgstr ""
+
+#: recipe/models.py:25 templates/recipe/recipe_detail.html:169
+#: templates/recipe/recipe_print.html:24
+msgid "cook time"
+msgstr ""
+
+#: recipe/models.py:26
+msgid "servings"
+msgstr ""
+
+#: recipe/models.py:27
+msgid "directions"
+msgstr ""
+
+#: recipe/models.py:28
+msgid "shared"
+msgstr ""
+
+#: recipe/models.py:29
+msgid "tags"
+msgstr ""
+
+#: recipe/models.py:31
+msgid "related"
+msgstr ""
+
+#: recipe/models.py:65 recipe/models.py:76 recipe_groups/models.py:9
+#: recipe_groups/models.py:26
+msgid "author"
+msgstr ""
+
+#: recipe/models.py:66
+msgid "note"
+msgstr ""
+
+#: recipe/views.py:47 recipe/views.py:61
+#, python-format
+msgid "Recipe %s is marked Private"
+msgstr ""
+
+#: recipe/views.py:135
+msgid "Recipe already in your favorites!"
+msgstr ""
+
+#: recipe/views.py:141
+msgid "Recipe added to your favorites!"
+msgstr ""
+
+#: recipe/views.py:270
+msgid "Recipe has already been reported!"
+msgstr ""
+
+#: recipe/views.py:275
+msgid "Recipe reported to the moderators!"
+msgstr ""
+
+#: templates/404.html:3
+msgid "we could not find what you are looking for"
+msgstr ""
+
+#: templates/404.html:7
+msgid ""
+"Our chef's ruined this recipe in the test kitchen, we suggest you try "
+"something else"
+msgstr ""
+
+#: templates/404.html:9
+msgid ""
+"Sorry the page came back with a 404 error we can't find what you are looking "
+"for"
+msgstr ""
+
+#: templates/404.html:10
+msgid "return to site"
+msgstr ""
+
+#: templates/base.html:11
+msgid "Top Recipe Feed"
+msgstr ""
+
+#: templates/base.html:57
+msgid "Search"
+msgstr ""
+
+#: templates/base.html:69 templates/profiles/create_profile.html:5
+#: templates/profiles/edit_profile.html:6
+#: templates/profiles/profile_detail.html:6
+#: templates/profiles/profile_detail.html:37
+msgid "profile"
+msgstr ""
+
+#: templates/base.html:70
+msgid "grocery lists"
+msgstr ""
+
+#: templates/base.html:71 templates/profiles/profile_detail.html:74
+msgid "logout"
+msgstr ""
+
+#: templates/accounts/signIn_page.html:19
+msgid "sign in"
+msgstr ""
+
+#: templates/accounts/signIn_page.html:20
+msgid "sign up"
+msgstr ""
+
+#: templates/form/popadd.html:8
+msgid "Add"
+msgstr ""
+
+#: templates/form/popadd.html:12
+#, python-format
+msgid "Add %(field)s"
+msgstr ""
+
+#: templates/form/popadd.html:18
+msgid "submit"
+msgstr ""
+
+#: templates/form/popadd.html:18
+msgid "Cancel"
+msgstr ""
+
+#: templates/friends/_feed.html:8
+msgid "new recipe added- "
+msgstr ""
+
+#: templates/friends/_feed.html:16
+msgid "rated a recipe "
+msgstr ""
+
+#: templates/friends/_feed.html:16
+msgid "out of 5 - "
+msgstr ""
+
+#: templates/friends/_feed.html:26
+msgid "new shared list- "
+msgstr ""
+
+#: templates/friends/feed.html:4
+msgid "feed for "
+msgstr ""
+
+#: templates/friends/list.html:7
+msgid "chefs I'm following-"
+msgstr ""
+
+#: templates/friends/list.html:11
+msgid "un-follow"
+msgstr ""
+
+#: templates/friends/list.html:17
+msgid "chefs following me-"
+msgstr ""
+
+#: templates/friends/list.html:21
+msgid "follow"
+msgstr ""
+
+#: templates/friends/list.html:21
+msgid "block"
+msgstr ""
+
+#: templates/friends/list.html:30
+msgid "chefs I'm blocking --"
+msgstr ""
+
+#: templates/friends/list.html:34
+msgid "unblock"
+msgstr ""
+
+#: templates/list/_aisles.html:19
+msgid "Current Aisles"
+msgstr ""
+
+#: templates/list/_aisles.html:24
+msgid "you have not created any aisles yet!"
+msgstr ""
+
+#: templates/list/_list.html:11 templates/list/grocery_index.html:13
+msgid "created on "
+msgstr ""
+
+#: templates/list/grocery_addrecipe.html:5 templates/sidebar/grocery.html:55
+msgid "actions"
+msgstr ""
+
+#: templates/list/grocery_addrecipe.html:13
+msgid "create list"
+msgstr ""
+
+#: templates/list/grocery_ajax.html:31
+msgid "You have not added any grocery list yet!"
+msgstr ""
+
+#: templates/list/grocery_ajax.html:32 templates/list/grocery_index.html:22
+msgid "create a grocery list"
+msgstr ""
+
+#: templates/list/grocery_detail.html:7
+msgid "this list is currently shared by"
+msgstr ""
+
+#: templates/list/grocery_detail.html:7
+msgid "to user"
+msgstr ""
+
+#: templates/list/grocery_detail.html:9
+msgid "grocery list -"
+msgstr ""
+
+#: templates/list/grocery_index.html:3
+msgid "Grocery List"
+msgstr ""
+
+#: templates/list/grocery_index.html:21
+msgid "You do not have any grocery list created"
+msgstr ""
+
+#: templates/list/grocery_index.html:25
+msgid "shared list"
+msgstr ""
+
+#: templates/list/grocery_index.html:31
+msgid "shared by "
+msgstr ""
+
+#: templates/list/grocery_mail_body.html:8
+msgid "Email"
+msgstr ""
+
+#: templates/list/grocery_mail_body.html:13
+#: templates/list/grocery_print.html:14
+msgid "grocery list "
+msgstr ""
+
+#: templates/list/grocery_print.html:8 templates/recipe/recipe_print.html:9
+msgid "Print"
+msgstr ""
+
+#: templates/list/groceryaisle_form.html:6
+msgid "add new aisle"
+msgstr ""
+
+#: templates/list/groceryaisle_form.html:10
+msgid "new aisle"
+msgstr ""
+
+#: templates/list/grocerylist_form.html:28
+msgid "items"
+msgstr ""
+
+#: templates/list/grocerylist_form.html:53
+msgid "save list"
+msgstr ""
+
+#: templates/profiles/create_profile.html:5
+#: templates/profiles/edit_profile.html:6
+#: templates/recipe/recipe_detail.html:123
+msgid "edit"
+msgstr ""
+
+#: templates/profiles/edit_profile.html:15
+msgid "To change your profile picture you will need to create/login to"
+msgstr ""
+
+#: templates/profiles/edit_profile.html:15
+msgid "Gravata"
+msgstr ""
+
+#: templates/profiles/edit_profile.html:15
+msgid "using the same email address you used for this site"
+msgstr ""
+
+#: templates/profiles/edit_profile.html:28
+msgid "Change Password"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:43
+msgid "location:"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:46
+msgid "gender:"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:49
+msgid "website:"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:52
+msgid "all about me"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:59
+msgid "recipes"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:61
+msgid "private recipes"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:62
+msgid "favorites"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:64
+msgid "followers"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:65
+msgid "feed"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:66
+msgid "settings"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:72
+msgid "edit Profile"
+msgstr ""
+
+#: templates/profiles/profile_detail.html:73
+#: templates/registration/password_change_form.html:14
+msgid "change password"
+msgstr ""
+
+#: templates/recipe/_list.html:29 templates/recipe/recipe_detail.html:164
+#: templates/recipe/recipe_print.html:17 templates/search/search.html:35
+msgid "Chef:"
+msgstr ""
+
+#: templates/recipe/_list.html:33 templates/search/search.html:39
+msgid "Average Rating:"
+msgstr ""
+
+#: templates/recipe/_list.html:35 templates/recipe/recipe_detail.html:152
+#: templates/search/search.html:41
+msgid "Poor"
+msgstr ""
+
+#: templates/recipe/_list.html:36 templates/recipe/recipe_detail.html:153
+#: templates/search/search.html:42
+msgid "Fair"
+msgstr ""
+
+#: templates/recipe/_list.html:37 templates/recipe/recipe_detail.html:154
+#: templates/search/search.html:43
+msgid "OK"
+msgstr ""
+
+#: templates/recipe/_list.html:38 templates/recipe/recipe_detail.html:155
+#: templates/search/search.html:44
+msgid "Good"
+msgstr ""
+
+#: templates/recipe/_list.html:39 templates/recipe/recipe_detail.html:156
+#: templates/search/search.html:45
+msgid "Wow"
+msgstr ""
+
+#: templates/recipe/_list.html:44 templates/search/search.html:50
+msgid "Read More"
+msgstr ""
+
+#: templates/recipe/index.html:10
+msgid "Fresh from the Oven!"
+msgstr ""
+
+#: templates/recipe/index.html:15
+msgid "chef: "
+msgstr ""
+
+#: templates/recipe/index.html:21
+msgid "more recent recipes"
+msgstr ""
+
+#: templates/recipe/index.html:23
+msgid "Recipe Tags"
+msgstr ""
+
+#: templates/recipe/recipe_cook.html:7
+msgid "Cook View"
+msgstr ""
+
+#: templates/recipe/recipe_cook.html:11 templates/recipe/recipe_print.html:14
+msgid "Recipe is marked Private and you are not the author of it!"
+msgstr ""
+
+#: templates/recipe/recipe_cook.html:16
+#: templates/recipe/recipe_detail.html:178
+#: templates/recipe/recipe_print.html:28
+msgid "Ingredients"
+msgstr ""
+
+#: templates/recipe/recipe_cook.html:31
+#: templates/recipe/recipe_detail.html:195
+msgid "Directions"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:120
+msgid "print"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:121
+msgid "cook"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:128
+msgid "add to list"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:135
+msgid "tags:"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:150
+msgid "rate this:"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:162
+msgid "Course:"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:163
+msgid "Cuisine:"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:168
+#: templates/recipe/recipe_print.html:23
+msgid "serves"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:205
+#: templates/recipe/recipe_print.html:52
+msgid "Your Notes:"
+msgstr ""
+
+#: templates/recipe/recipe_detail.html:234
+msgid "comments"
+msgstr ""
+
+#: templates/recipe/recipe_form.html:5
+msgid "Add Recipe"
+msgstr ""
+
+#: templates/recipe/recipe_form.html:100
+msgid "ingredients"
+msgstr ""
+
+#: templates/recipe/recipe_form.html:125
+msgid "save recipe"
+msgstr ""
+
+#: templates/recipe/recipe_list.html:7
+#, python-format
+msgid "%(title)s Recipe Feed"
+msgstr ""
+
+#: templates/recipe/recipe_list.html:16
+#, python-format
+msgid "%(title)s"
+msgstr ""
+
+#: templates/recipe/recipe_print.html:24
+msgid "mintues"
+msgstr ""
+
+#: templates/recipe/recipe_print.html:44
+msgid "Steps"
+msgstr ""
+
+#: templates/recipe/recipe_userfav.html:31
+msgid "You have not added any favorite recipes yet!"
+msgstr ""
+
+#: templates/recipe/recipe_userlist.html:41
+msgid "has not added any recipes yet!"
+msgstr ""
+
+#: templates/recipe_groups/course_form.html:9
+msgid "add course"
+msgstr ""
+
+#: templates/recipe_groups/course_list.html:6
+msgid "Course List"
+msgstr ""
+
+#: templates/recipe_groups/cuisine_list.html:6
+msgid "Cuisine List"
+msgstr ""
+
+#: templates/recipe_groups/recipe_list.html:14
+msgid "Recipes in "
+msgstr ""
+
+#: templates/registration/activate.html:5
+msgid "Account activation key is invalid!"
+msgstr ""
+
+#: templates/registration/activation_complete.html:5
+msgid "Account now Active!"
+msgstr ""
+
+#: templates/registration/login.html:3
+msgid "Login"
+msgstr ""
+
+#: templates/registration/login.html:6
+msgid "create an account"
+msgstr ""
+
+#: templates/registration/logout.html:4
+msgid "You have been succesfully logged out!"
+msgstr ""
+
+#: templates/registration/password_change_done.html:4
+msgid "Password changed Succesful"
+msgstr ""
+
+#: templates/registration/password_change_done.html:5
+msgid "Your password was changed."
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:4
+msgid "Password reset complete"
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:5
+msgid "Your password has been set.  You may go ahead and log in now."
+msgstr ""
+
+#: templates/registration/password_reset_complete.html:6
+msgid "Log in"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:6
+msgid "Enter new password"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:7
+msgid ""
+"Please enter your new password twice so we can verify you typed it in "
+"correctly."
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:10
+msgid "New password:"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:12
+msgid "Confirm password:"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:13
+msgid "Change my password"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:16
+msgid "Password reset unsuccessful"
+msgstr ""
+
+#: templates/registration/password_reset_confirm.html:17
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used. Please request a new password reset."
+msgstr ""
+
+#: templates/registration/password_reset_done.html:4
+msgid "Password reset successful"
+msgstr ""
+
+#: templates/registration/password_reset_done.html:5
+msgid ""
+"We've e-mailed a new password to the e-mail address you submitted. You "
+"should be receiving it shortly."
+msgstr ""
+
+#: templates/registration/password_reset_form.html:4
+msgid "Password reset"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:5
+msgid ""
+"Forgotten your password? Enter your e-mail address below, and we'll reset "
+"your password and e-mail the new one to you."
+msgstr ""
+
+#: templates/registration/password_reset_form.html:8
+msgid "E-mail address:"
+msgstr ""
+
+#: templates/registration/password_reset_form.html:8
+msgid "reset password"
+msgstr ""
+
+#: templates/registration/registration_complete.html:5
+msgid "Activation Link Sent"
+msgstr ""
+
+#: templates/registration/registration_complete.html:6
+msgid "Thank you for signing up for"
+msgstr ""
+
+#: templates/registration/registration_complete.html:6
+msgid "you have been emailed an activation link"
+msgstr ""
+
+#: templates/relationships/confirm.html:4
+#: templates/relationships/confirm.html:7
+msgid "No longer"
+msgstr ""
+
+#: templates/relationships/confirm.html:12
+msgid "Confirm"
+msgstr ""
+
+#: templates/relationships/success.html:5
+msgid "Success"
+msgstr ""
+
+#: templates/relationships/success.html:6
+msgid "You are "
+msgstr ""
+
+#: templates/relationships/success.html:6
+msgid "now"
+msgstr ""
+
+#: templates/relationships/success.html:6
+msgid "no longer"
+msgstr ""
+
+#: templates/relationships/success.html:7
+#, python-format
+msgid "%(to_user_username)s's profile"
+msgstr ""
+
+#: templates/search/search.html:15
+msgid "Search Results"
+msgstr ""
+
+#: templates/search/search.html:54
+msgid "No Results found for search query"
+msgstr ""
+
+#: templates/sidebar/browse.html:4
+msgid "last viewed"
+msgstr ""
+
+#: templates/sidebar/browse.html:12
+msgid "browse"
+msgstr ""
+
+#: templates/sidebar/browse.html:14
+msgid "top recipes"
+msgstr ""
+
+#: templates/sidebar/browse.html:15
+msgid "recent recipes"
+msgstr ""
+
+#: templates/sidebar/grocery.html:57
+msgid "print "
+msgstr ""
+
+#: templates/sidebar/grocery.html:58
+msgid "edit "
+msgstr ""
+
+#: templates/sidebar/grocery.html:59
+msgid "send list "
+msgstr ""
+
+#: templates/sidebar/grocery.html:59
+msgid "email "
+msgstr ""
+
+#: templates/sidebar/grocery.html:61
+msgid "delete "
+msgstr ""
+
+#: templates/sidebar/grocery.html:65
+msgid "share"
+msgstr ""
+
+#: templates/sidebar/grocery.html:67
+msgid "un-share"
+msgstr ""
+
+#: templates/sidebar/grocery.html:75
+msgid "no recipes"
+msgstr ""
+
+#: templates/sidebar/grocery.html:82
+msgid "create"
+msgstr ""
+
+#: templates/sidebar/grocery.html:83
+msgid "list"
+msgstr ""
+
+#: templates/sidebar/grocery.html:84
+msgid "manage aisles"
+msgstr ""
+
+#: templates/sidebar/grocery.html:85
+msgid "browse recipes"
+msgstr ""
+
+#: templatetags/recipe_links.py:13
+msgid "bookmakred"
+msgstr ""
+
+#: templatetags/recipe_links.py:15 templatetags/recipe_links.py:19
+#: templatetags/recipe_links.py:34
+msgid "favorite"
+msgstr ""
+
+#: templatetags/recipe_links.py:28
+msgid "reported!"
+msgstr ""
+
+#: templatetags/recipe_links.py:30
+msgid "report"
+msgstr ""
