@@ -1,9 +1,10 @@
 from django.conf.urls.defaults import *
 from tastypie.api import Api
-from api import RecipeResource
+from api import RecipeResource, GroceryResource
 
-recipe_resource = RecipeResource()
-
+v1_api = Api(api_name='v1')
+v1_api.register(RecipeResource())
+v1_api.register(GroceryResource())
 urlpatterns = patterns('',
-    (r'^v1/', include(recipe_resource.urls)),
+    (r'^', include(v1_api.urls)),
 )

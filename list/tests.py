@@ -30,8 +30,8 @@ class listViewsTestCase(TestCase):
         list = resp.context['list']
         self.assertEqual(list.pk, 1)
         self.assertEqual(list.title, "test")
-        self.assertEqual(list.groceryitem_set.count(), 2)
-        items = list.groceryitem_set.all()
+        self.assertEqual(list.items.count(), 2)
+        items = list.items.all()
         self.assertEqual(items[0].item, '1 loaf bread')
         self.assertEqual(items[0].aisle.aisle, 'bakery')
 
@@ -52,22 +52,22 @@ class listViewsTestCase(TestCase):
         data = {
             'title':'test',
             'author':2,
-            'groceryitem_set-TOTAL_FORMS': 1,
-            'groceryitem_set-INITIAL_FORMS':0,
-            'groceryitem_set-0-id': str(list.id),
-            'groceryitem_set-0-item': '1 gallon milk',
-            'groceryitem_set-0-aisle': 1,
-            'groceryitem_set-1-item': '1 loaf bread',
-            'groceryitem_set-1-aisle': 3,
-            'groceryitem_set-2-item': '1 carton eggs',
-            'groceryitem_set-2-aisle': 1,
+            'items-TOTAL_FORMS': 1,
+            'items-INITIAL_FORMS':0,
+            'items-0-id': str(list.id),
+            'items-0-item': '1 gallon milk',
+            'items-0-aisle': 1,
+            'items-1-item': '1 loaf bread',
+            'items-1-aisle': 3,
+            'items-2-item': '1 carton eggs',
+            'items-2-aisle': 1,
         }
 
-        self.assertEqual(list.groceryitem_set.count(), 2)
+        self.assertEqual(list.items.count(), 2)
         resp = self.client.post(reverse('grocery_edit',kwargs={'user':'testUser', 'slug':'test'}), data)
         self.assertEqual(resp.status_code, 302)
         self.assertRedirects(resp, reverse('grocery_show',kwargs={'user':'testUser', 'slug':'test'}))
-        self.assertEqual(list.groceryitem_set.count(), 3)
+        self.assertEqual(list.items.count(), 3)
 
     def test_bad_post(self):
         '''test that the grocery list form fails when it should'''
@@ -79,16 +79,16 @@ class listViewsTestCase(TestCase):
         #send no data
         list = GroceryList.objects.get(pk=1)
         no_title = {
-            'groceryitem_set-TOTAL_FORMS': 1,
-            'groceryitem_set-INITIAL_FORMS':0,
-            'groceryitem_set-0-id': str(list.id),
+            'items-TOTAL_FORMS': 1,
+            'items-INITIAL_FORMS':0,
+            'items-0-id': str(list.id),
         }
         no_item = {
             'title':'test',
             'author':2,
-            'groceryitem_set-TOTAL_FORMS': 1,
-            'groceryitem_set-INITIAL_FORMS':0,
-            'groceryitem_set-0-id': str(list.id),
+            'items-TOTAL_FORMS': 1,
+            'items-INITIAL_FORMS':0,
+            'items-0-id': str(list.id),
         }
 
         resp = self.client.post(reverse('grocery_edit',kwargs={'user':'testUser', 'slug':'test'}),no_title)
@@ -186,7 +186,7 @@ class listViewsTestCase(TestCase):
         #sanity check
         self.assertEqual(recipe.slug, 'tasty-chili')
         self.assertEqual(list.title, "test")
-        self.assertEqual(list.groceryitem_set.count(), 2)
+        self.assertEqual(list.items.count(), 2)
         self.assertFalse(GroceryList.objects.filter(pk=2))
 
         resp = self.client.post(reverse('grocery_addrecipe',kwargs={'recipe_slug':recipe.slug}),{'recipe_slug':recipe.slug, 'lists':1, 'recipe_id':recipe.id})
@@ -194,7 +194,7 @@ class listViewsTestCase(TestCase):
         self.assertEqual(resp['location'], "http://testserver" + reverse('grocery_edit', kwargs={'user':'testUser', 'slug':'test'}))
 
         #test we now have more items
-        self.assertEqual(list.groceryitem_set.count(), 14)
+        self.assertEqual(list.items.count(), 14)
 
         #test trying to do a recipe that does not exist
         resp = self.client.post(reverse('grocery_addrecipe',kwargs={'recipe_slug':'bad-recipe'}),{'recipe_slug':'bad-recipe', 'lists':1, 'recipe_id':30000})
@@ -206,7 +206,7 @@ class listViewsTestCase(TestCase):
 
         self.assertTrue(GroceryList.objects.get(pk=2))
         list = GroceryList.objects.get(pk=2)
-        self.assertEqual(list.groceryitem_set.count(), 12)
+        self.assertEqual(list.items.count(), 12)
 
 
 

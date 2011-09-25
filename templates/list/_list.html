@@ -9,7 +9,7 @@
          <hr />
         <span class="create-date">{% trans 'created on ' %} {{ list.pub_date }}</span>
         <ul>
-            {%for item in  list.groceryitem_set.all|slice:":5" %}
+            {%for item in  list.items.all|slice:":5" %}
             <li>{{ item }}</li>
             {% endfor %}
         </ul>

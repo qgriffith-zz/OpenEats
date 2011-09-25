@@ -1,5 +1,8 @@
 from tastypie.resources import ModelResource
 from tastypie import fields
+from tastypie.authorization import DjangoAuthorization
+from tastypie.authentication import BasicAuthentication
+from list.models import GroceryList, GroceryItem,GroceryAisle
 from ingredient.models import Ingredient
 from recipe.models import Recipe
 from django.contrib.auth.models import User
@@ -31,3 +34,26 @@ class RecipeResource(ModelResource):
         queryset = Recipe.objects.filter(shared=Recipe.SHARE_SHARED)
         excludes = ['id']
         include_resource_url = False
+
+class ListItemsResource(ModelResource):
+    class Meta:
+        queryset = GroceryItem.objects.all()
+        include_resource_url = False
+
+class AisleItemsResource(ModelResource):
+    class Meta:
+        queryset = GroceryAisle.objects.all()
+        include_resource_url = False
+
+class GroceryResource(ModelResource):
+    author = fields.OneToOneField(AuthorResource, 'author', full=True)
+    items = fields.ToManyField(ListItemsResource, 'items', full=True)
+    
+    class Meta:
+        queryset = GroceryList.objects.all()
+        resource_name = 'lists'
+        list_allowed_methods = ['get',]
+        authentication = BasicAuthentication()
+        authorization = DjangoAuthorization()
+    def apply_authorization_limits(self, request, object_list):
+        return object_list.filter(author=request.user)

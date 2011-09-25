@@ -12,7 +12,7 @@
             <hr />
             <span class="create-date">{% trans 'created on ' %} {{ glist.pub_date }}</span>
             <ul>
-           {%for item in  glist.groceryitem_set.all|slice:":5" %}
+           {%for item in  glist.items.all|slice:":5" %}
               <li>{{ item }}</li>
            {% endfor %}
             </ul>
@@ -31,7 +31,7 @@
             <span class="create-date">{% trans 'shared by ' %} {{ shared.shared_by }}</span>
             <hr />
            <ul>
-           {%for item in  shared.list.groceryitem_set.all|slice:":5" %}
+           {%for item in  shared.list.items.all|slice:":5" %}
               <li>{{ item }}</li>
            {% endfor %}
             </ul>

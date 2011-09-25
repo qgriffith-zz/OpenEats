@@ -12,7 +12,7 @@
             <img src="{{ OELOGO }}" alt="OpenEats logo" />
             <h2>{% trans 'grocery list ' %}{{ list }}</h2>
                 {% load grocery_item %}
-                {% item_tag list.groceryitem_set.all %}
+                {% item_tag list.items.all %}
         </div>
     </body>
 </html

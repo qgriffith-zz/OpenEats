@@ -43,7 +43,7 @@ class GroceryAisle(models.Model):
         return self.aisle
 
 class GroceryItem(models.Model):
-    list = models.ForeignKey(GroceryList, verbose_name=_('grocery list'))
+    list = models.ForeignKey(GroceryList, verbose_name=_('grocery list'),related_name='items')
     item = models.CharField(_("item"), max_length=550)
     aisle = models.ForeignKey(GroceryAisle, blank = True, null = True, default=None, on_delete=models.SET_NULL)
     
