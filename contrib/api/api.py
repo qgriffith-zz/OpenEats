@@ -12,19 +12,19 @@ from taggit.models import Tag
 class IngredientResource(ModelResource):
     class Meta:
         queryset = Ingredient.objects.all()
-        include_resource_url = False
+        include_resource_uri = False
 
 
 class AuthorResource(ModelResource):
     class Meta:
         queryset = User.objects.all()
         fields = ['username']
+        include_resource_uri = False
 
 class TagResource(ModelResource):
     class Meta:
         queryset = Tag.objects.all()
-        include_resource_url = False
-
+        include_resource_uri = False
 
 class RecipeResource(ModelResource):
     ingredients = fields.ToManyField(IngredientResource, 'ingredients', full=True)
@@ -35,15 +35,19 @@ class RecipeResource(ModelResource):
         excludes = ['id']
         include_resource_url = False
 
-class ListItemsResource(ModelResource):
-    class Meta:
-        queryset = GroceryItem.objects.all()
-        include_resource_url = False
-
 class AisleItemsResource(ModelResource):
     class Meta:
         queryset = GroceryAisle.objects.all()
-        include_resource_url = False
+        excludes = ['id']
+        include_resource_uri = False
+
+
+class ListItemsResource(ModelResource):
+    location = fields.OneToOneField(AisleItemsResource, 'aisle', full=True, null=True)
+    class Meta:
+        queryset = GroceryItem.objects.all()
+        excludes = ['id']
+        include_resource_uri = False
 
 class GroceryResource(ModelResource):
     author = fields.OneToOneField(AuthorResource, 'author', full=True)
