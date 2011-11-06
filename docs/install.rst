@@ -191,8 +191,8 @@ Required Data
 
 Running the following command from the OpenEats2 directory, should load the required data::
 
-    ./manage.py syncdb
-    ./manage.py migrate
+    ./manage.py syncdb --all
+    ./manage.py migrate --fake
     ./manage.py loaddata fixtures/navbar_about_data.json
 
 .. note:: Before you run this make sure you have setup your database in the settings.py file.
