@@ -50,7 +50,7 @@
 
             <div id="main">
                 <div id="header">
-                    <div id="logo"><img src="{{ OELOGO }}" alt="logo" />
+                    <div id="logo"><a href="{% url recipe_index %}" title="home page"> <img src="{{ OELOGO }}" alt="logo" /> </a>
                         <div id="search">
                             <form method="get" action="/search/" >
                                 <input type="text" id="id_q" name="q">
