@@ -145,7 +145,7 @@
 </div>
 <form>
 <div id="recipe-rate">
-    <p id="rating-title""><strong>{%trans 'rate this:' %}</strong> <span id="rating-cap"></span></p>
+    <p id="rating-title"><strong>{%trans 'rate this:' %}</strong> <span id="rating-cap"></span></p>
     <select name="selrate">
         <option value="1">{%trans 'Poor' %}</option>
         <option value="2">{%trans 'Fair' %}</option>
@@ -157,8 +157,8 @@
 </form>
 <div id="recipe-show">
     <div id="recipe-info">
-        <p><span>{%trans "Course:" %}</span> {{ recipe.course }}</p>
-        <p><span>{%trans "Cuisine:" %}</span> {{ recipe.cuisine }}</p>
+        <p><span>{%trans "Course:" %}</span> <a href="{% url course_recipes slug=recipe.course.slug %}">{{ recipe.course }}</a></p>
+        <p><span>{%trans "Cuisine:" %}</span> <a href="{% url cuisine_recipes slug=recipe.cuisine.slug %}">{{ recipe.cuisine }}</a></p>
         <p><span>{%trans "Chef:" %}</span> <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
     </div>
     <div id="recipe-cook">

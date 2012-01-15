@@ -74,6 +74,7 @@ div#toolbar span#toolbar-buttons a {margin-left:5px;}
 div#recipe-info { width: 500px; margin-bottom:10px;}
 #recipe-report { color: #ff4500 !important; float:right;}
 div#recipe-info span { color: #c53c0c; }
+div#recipe-info a { text-decoration: none; color:#459E00;}
 div#recipe-cook{ width: 300px; padding:5px; margin-bottom:5px; border:dotted 1px #E6E5CB; background-color: #FEFDF2; -moz-border-radius: .8em; -webkit-border-radius: .8em; }
 div#recipe-cook ul {text-align: center; color:#484846; font-size: 1.1em;}
 div#recipe-cook li {display:inline; list-style: none; padding-right:15px;}
