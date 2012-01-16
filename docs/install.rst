@@ -39,7 +39,7 @@ Optional
 * `django-extensions`_ 0.6 extra management commands
 * `django-rosetta`_ 0.6.2 used to ease translations
 * `django-debug-toolbar`_ 0.8.5 used to help troubleshooting
-* `django-tastypie`_ 0.9.9
+* `django-tastypie`_ 0.9.11
 * `lxml`_ 2.3
 
 .. _Python: http://www.python.org
