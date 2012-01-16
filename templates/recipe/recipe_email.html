@@ -1,0 +1,9 @@
+{%  load i18n %}
+<div>
+    <form action="{% url recipe_mail id=id %}" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="id" value="{{ id }}" />
+        <input type="submit"  />
+
+    </form>
+</div>

@@ -6,7 +6,7 @@ from models import Recipe
 
 urlpatterns = patterns('',
     url(r'^new/$', 'recipe.views.recipe', name="new_recipe"),
-    url(r'^mail/(?P<id>\d+)/$', 'list.views.recipeMail', name='recipe_mail'),
+    url(r'^mail/(?P<id>\d+)/$', 'recipe.views.recipeMail', name='recipe_mail'),
     url(r'^edit/(?P<user>[-\w]+)/(?P<slug>[-\w]+)/$', 'recipe.views.recipe', name='recipe_edit'),
     url(r'^print/(?P<slug>[-\w]+)/$', 'recipe.views.recipePrint', name="print_recipe"),
     (r'^cook/(?P<slug>[-\w]+)/$', list_detail.object_detail, {'queryset': Recipe.objects.all(), "template_object_name": 'recipe',"template_name": 'recipe/recipe_cook.html',}),

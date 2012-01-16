@@ -55,28 +55,28 @@ class RecipeSendMail(forms.Form):
             raise TypeError("Keyword argument 'request must be supplies'")
         super(RecipeSendMail, self).__init__(data=data, files=files, *args, **kwargs)
         self.request = request
-        #set up the return email address and sender name to the user logged in
-        if request.user.is_authenticated():
-            self.fields['to_email'].initial= request.user.email
+
 
 
     to_email = forms.EmailField(widget=forms.TextInput(),label=_('email address'))
     id = forms.CharField(widget=forms.HiddenInput())
 
-    from_email = settings.DEFAULT_FROM_EMAIL
     from_site = Site.objects.get_current()
-    subject = _('Recipe from ' + str(from_site))
+
+    def _get_recipe(self):
+        if self.is_valid():
+            recipe = Recipe.objects.get(pk = self.cleaned_data['id'])
+            self.recipe = recipe
+            return self.recipe
+        else:
+            raise ValueError(_('Can not get the recipe id from invalid form data'))
 
 
     def get_body(self):
         '''get the recipe and return the message body for the email'''
-        if self.is_valid():
-            recipe = Recipe.objects.get(pk = self.cleaned_data['id'])
-            template_name = 'recipe/recipe_mail_body.html' #template that contains the email body and also shared by the grocery print view
-            message = loader.render_to_string(template_name, {'recipe': recipe}, context_instance=RequestContext(self.request))
-            return message
-        else:
-            raise ValueError(_('Can not get the recipe id from invalid form data'))
+        template_name = 'recipe/recipe_mail_body.html' #template that contains the email body and also shared by the grocery print view
+        message = loader.render_to_string(template_name, {'recipe': self._get_recipe()}, context_instance=RequestContext(self.request))
+        return message
 
     def get_toMail(self):
         '''gets the email to send the list to from the form'''
@@ -87,6 +87,8 @@ class RecipeSendMail(forms.Form):
 
     def save(self, fail_silently=False):
         ''' sends the email message'''
+        self.subject = _(str(self.from_site) + ' recipe: ' + self._get_recipe().title)
+        self.from_email =  self.request.user.email
         if self.subject and self.get_body() and self.from_email:
             try:
                 msg = EmailMessage(self.subject, self.get_body(), self.from_email, [self.get_toMail()])

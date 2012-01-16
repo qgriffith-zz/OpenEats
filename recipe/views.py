@@ -7,7 +7,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.utils.translation import ugettext as _
 from models import Recipe, StoredRecipe, NoteRecipe,ReportedRecipe
 from ingredient.models import Ingredient
-from forms import RecipeForm,IngItemFormSet
+from forms import RecipeForm,IngItemFormSet,RecipeSendMail
 from djangoratings.views import AddRatingView
 from django.utils import simplejson
 from django.conf import settings
@@ -275,5 +275,16 @@ def recipeReport(request, slug):
         output = _("Recipe reported to the moderators!")
         return HttpResponse(output)
 
+@login_required
+def recipeMail(request, id):
+    '''this view creates a form used to send a recipe to someone via email'''
+    if request.method == 'POST':
+        form = RecipeSendMail(data=request.POST, request=request) #passing the request object so that in the form I can get the request post dict to save the form
+        if form.is_valid():
+            form.save(fail_silently=False)
+            return HttpResponse("recipe sent to " + request.POST['to_email'])
+    else:
+        form = RecipeSendMail(request=request)
+    return render_to_response('recipe/recipe_email.html', {'form': form, 'id': id}, context_instance=RequestContext(request))
 
     
