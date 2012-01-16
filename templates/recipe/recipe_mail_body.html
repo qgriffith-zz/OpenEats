@@ -1,0 +1,18 @@
+{% comment %}This template is the template for the recipe email body{% endcomment %}
+{% load i18n %}
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" media="print" href="http://{{ request.get_host }}{{STATIC_URL}}css/grocery_print.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="http://{{ request.get_host }}{{STATIC_URL}}css/grocery_prints.css" />
+        <title>{{ OETITLE }}{% trans 'Email'%} {{ list }}</title>
+    </head>
+    <body>
+        <div id="grocery-print">
+            <img src="http://{{ request.get_host }}{{ OELOGO }}" alt="OpenEats logo" />
+            <p>{%  trans 'A recipe has been shared with you' %}</p>
+            <h2>{% trans 'Recipe ' %} <a href="http://{{ request.get_host }}{{ recipe.get_absolute_url }}">{{ recipe }}</a></h2>
+                {{ recipe.info|safe }}
+
+        </div>
+    </body>
+</html

@@ -13,6 +13,7 @@
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
     <link href="{{ STATIC_URL }}js/jquery.ui.stars/crystal-stars.css" rel="stylesheet" />
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.jeditable.js"> </script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/oe_email.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $("a#recipe-photo").fancybox();
@@ -125,6 +126,7 @@
         {% if request.user.is_authenticated %}
             <a href="{% url grocery_addrecipe recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a>
             {% report_link request.user recipe.id %}
+            <a title="{% trans 'email recipe ' %} {{ recipe }}" id='email-link' href="{% url recipe_mail id=recipe.id %}">{% trans 'email' %}</a>
         {% endif %}
 
     </span>
