@@ -15,7 +15,7 @@
                 {% if recipe.photo %}
                    <a id="recipe-photo" href="http://{{ request.get_host }}{{recipe.display.url }}"> <img src="http://{{ request.get_host }}{{ recipe.thumbnail_image.url }}" alt="{{ recipe }} photo" /></a>
                 {% else %}
-                   <a id="recipe-photo" href="{{ STATIC_URL  }}images/parsley.jpg"> <img src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
+                   <a id="recipe-photo" href="http://{{ request.get_host }}{{ STATIC_URL  }}images/parsley.jpg"> <img src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
                 {% endif %}
             </div>
                 {{ recipe.info|safe }}
