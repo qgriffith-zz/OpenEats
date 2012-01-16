@@ -9,7 +9,6 @@
     <body>
         <div id="grocery-print">
             <img src="http://{{ request.get_host }}{{ OELOGO }}" alt="OpenEats logo" />
-<<<<<<< HEAD
             <p>{{ request.user }}{%  trans ' has shared a recipe with you' %}</p>
             <h2><a href="http://{{ request.get_host }}{{ recipe.get_absolute_url }}">{{ recipe }}</a></h2>
             <div id="photo">
@@ -19,16 +18,8 @@
                    <a id="recipe-photo" href="{{ STATIC_URL  }}images/parsley.jpg"> <img src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
                 {% endif %}
             </div>
-=======
-            <p>{%  trans 'A recipe has been shared with you' %}</p>
-            <h2>{% trans 'Recipe ' %} <a href="http://{{ request.get_host }}{{ recipe.get_absolute_url }}">{{ recipe }}</a></h2>
->>>>>>> 90185f7c09855690452c8ad556742695fe984168
                 {{ recipe.info|safe }}
 
         </div>
     </body>
-<<<<<<< HEAD
 </html>
-=======
-</html
->>>>>>> 90185f7c09855690452c8ad556742695fe984168
