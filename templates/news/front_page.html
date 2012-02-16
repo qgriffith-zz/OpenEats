@@ -1,7 +1,7 @@
 <div id="news">
     <div id="news-content">
         <h2> {{ news.title }}</h2>
-        {{ news.content|safe }}
+        {{ news.content|safe|truncatewords_html:150 }}
     </div>
     <div id="news-photo-wrap">
         {% if news.image %}
