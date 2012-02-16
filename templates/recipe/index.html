@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% load generic_flatblocks %}
+{% load front_page %}
 {% load taggit_extras %}
 
 {% block content %}
-    {% gblock 1 for "news.Entry" %}
+    {% frontpage_news %}
 
     <div id="recent-recipes">
         <h1>{%trans 'Fresh from the Oven!' %}</h1>

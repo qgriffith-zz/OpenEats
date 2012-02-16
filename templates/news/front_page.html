@@ -1,0 +1,12 @@
+<div id="news">
+    <div id="news-content">
+        <h2> {{ news.title }}</h2>
+        {{ news.content|safe }}
+    </div>
+    <div id="news-photo-wrap">
+        {% if news.image %}
+            <img id="news-photo" src="{{ STATIC_URL }}{{ news.image }}" alt=""/>
+        {% endif %}
+    </div>
+    <br style="clear:both;" />
+</div>

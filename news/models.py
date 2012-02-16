@@ -6,6 +6,7 @@ class Entry(models.Model):
     title = models.CharField(_('title') ,max_length=255, blank=True)
     slug = AutoSlugField(_('slug'), populate_from='title', unique=True)
     content = models.TextField(_('content'), blank=True)
+    frontpage = models.BooleanField(_('frontpage'), default=False, help_text="determines if the story appears on the front page")
     image = models.ImageField(_('image'), upload_to='uploads/news/', blank=True)
     pub_date =  models.DateTimeField(auto_now_add=True)
 
