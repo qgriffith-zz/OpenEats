@@ -149,7 +149,6 @@ INSTALLED_APPS = (
     'imagekit',
     'djangoratings',
     'haystack',
-    'django_generic_flatblocks',
     'indexer',
     'paging',
     'sentry',

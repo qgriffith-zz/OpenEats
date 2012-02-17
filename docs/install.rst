@@ -19,7 +19,6 @@ Requirements
 * `feedparser`_ 4.1
 * `html5lib`_ 0.90
 * `whoosh`_ 1.8.4
-* `django-generic-flatblocks`_ 0.9.1
 * `django-haystack`_ 1.2.4
 * `django-taggit-templatetags`_ 0.4.6dev
 * `reportlab`_ 2.5
