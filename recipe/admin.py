@@ -5,6 +5,7 @@ from forms import IngItemFormSet
 from django.shortcuts import render_to_response
 from django.contrib.flatpages.models import FlatPage
 from django.contrib.flatpages.admin import FlatPageAdmin
+from django.conf import settings
 
 class RecipeInline(admin.TabularInline):
     model = Ingredient
@@ -28,7 +29,7 @@ class RecipeAdmin(admin.ModelAdmin):
     search_fields = ['author__username', 'title',]
     radio_fields = {"shared": admin.HORIZONTAL}
     class Media:
-        js = ['/site-media/admin/tinymce/jscripts/tiny_mce/tiny_mce.js', '/site-media/js/tinymce_setup.js',]
+        js = [settings.STATIC_URL+'grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js', settings.STATIC_URL+'js/tinymce_setup.js',]
 
 class StoredRecipeAdmin(admin.ModelAdmin):
     list_display = ['user', 'recipe']
