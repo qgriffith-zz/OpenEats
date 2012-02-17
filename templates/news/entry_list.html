@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load pagination_tags %}
+{% block title %}{{ block.super }}- | {% trans 'news' %} {% endblock %}
+{% block content %}
+    {% if entry_list.count > 0 %}
+        {% autopaginate entry_list  %}
+    {% for entry in entry_list %}
+        <div id="news">
+             <div id="news-content">
+                 <h2> {{ entry.title }}</h2>
+                  {{ entry.content|safe|truncatewords_html:150 }}
+                  <p><a href="{{ entry.get_absolute_url }}">{% trans 'read more' %}</a></p>
+             </div>
+              <div id="news-photo-wrap">
+                   {% if entry.image %}
+                        <img id="news-photo" src="{{ STATIC_URL }}{{ entry.image }}" alt=""/>
+                   {% endif %}
+              </div>
+              <br style="clear:both;" />
+        </div>
+        <br />
+    {% endfor %}
+   {% else %}
+        <p>{% trans "There currently isn't any news" %}</p>
+   {% endif %}
+
+{% endblock %}
