@@ -7,17 +7,8 @@
         	"image": "", 
         	"pub_date": "2010-10-10 13:32:47", 
         	"slug": "test-news-entry", 
-        	"title": "OpenEats 2"
-        }
-    },
-    {
-        "pk": 1,
-        "model": "django_generic_flatblocks.genericflatblock",
-        "fields": {
-            "slug": "test-news-entry",
-            "content_type": 30,
-            "object_id": 1
+        	"title": "OpenEats 2",
+            "frontpage":1
         }
     }
-
-]
+  ]
