@@ -1,7 +1,9 @@
+{% load i18n %}
 <div id="news">
     <div id="news-content">
         <h2> {{ news.title }}</h2>
         {{ news.content|safe|truncatewords_html:150 }}
+        <p class="news-read"><a href="{{ news.get_absolute_url }}">{% trans 'read more' %}</a></p>
     </div>
     <div id="news-photo-wrap">
         {% if news.image %}

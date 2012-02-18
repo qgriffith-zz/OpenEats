@@ -12,10 +12,10 @@ div#title h3{padding:5px; color:#459E00; font-size:130%;}
 .ui-widget-header{font-size:90%;}
 
 /*Navigation*/
-div#nav-bar{ background:url(../images/nav-bg.gif) left top repeat-x; margin-right:20px; margin-bottom:10px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+div#nav-bar{ background:url(../images/nav-bg.gif) left top repeat-x; margin-right:20px; margin-bottom:10px; -moz-border-radius: .8em; -webkit-border-radius: .8em; width:95%;}
 div#nav-bar ul {padding:8px 0 8px 0;}
 div#nav-bar li { display:inline;}
-div#nav-bar li a { color:#fff; text-decoration:none; font-size:1.1em; text-transform:lowercase; background:url(../images/divider.gif) no-repeat left top; padding:0 14px 0 27px; letter-spacing:.1em; font-size:1.4em;}
+div#nav-bar li a { color:#fff; text-decoration:none; font-size:1.1em; text-transform:lowercase; background:url(../images/divider.gif) no-repeat left top; padding:0 14px 0 20px; letter-spacing:.1em; font-size:1.4em;}
 div#nav-bar li a.first { background:none;}
 div#nav-bar li a:hover { text-decoration:underline;}
 
@@ -183,6 +183,9 @@ div#news-content h2 { padding-bottom:10px; color:#9F954A;}
 div#news-photo-wrap { float:right; margin-left:10px;}
 div#recent-recipes { margin-top: 30px; }
 div#recent-recipes h1 { margin-bottom:10px; color:#EF8106;}
+p.news-read { float:left; margin-top:10px;}
+p.news-read a, div#news-content a{text-decoration:none; color:#BD2200;}
+p.news-read a:hover,  div#news-content a:hover {color:#EF8106;}
 
 dl.captioned-image         { border: 1px solid #e0d3ab;  -moz-border-radius: .4em; -webkit-border-radius: .4em; position: relative; padding: .6em; margin: .4em; float:left;}
 dl.captioned-image dt img  { display: block; }

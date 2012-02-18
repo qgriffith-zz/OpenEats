@@ -56,7 +56,7 @@
         }
     }, 
     {
-        "pk": 6, 
+        "pk": 8,
         "model": "navbar.navbarentry", 
         "fields": {
             "name": "admin", 
@@ -68,9 +68,23 @@
             "path_type": "P", 
             "order": 6
         }
-    }, 
+    },
     {
-        "pk": 5, 
+        "pk": 6,
+        "model": "navbar.navbarentry",
+        "fields": {
+            "name": "news",
+            "parent": null,
+            "title": "development blog",
+            "url": "/news/list/",
+            "user_type": "E",
+            "groups": [],
+            "path_type": "P",
+            "order": 6
+        }
+    },
+    {
+        "pk": 7,
         "model": "navbar.navbarentry", 
         "fields": {
             "name": "blog", 

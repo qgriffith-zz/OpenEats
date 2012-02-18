@@ -10,7 +10,7 @@
              <div id="news-content">
                  <h2> {{ entry.title }}</h2>
                   {{ entry.content|safe|truncatewords_html:150 }}
-                  <p><a href="{{ entry.get_absolute_url }}">{% trans 'read more' %}</a></p>
+                  <p class="news-read"><a href="{{ entry.get_absolute_url }}">{% trans 'read more' %}</a></p>
              </div>
               <div id="news-photo-wrap">
                    {% if entry.image %}
