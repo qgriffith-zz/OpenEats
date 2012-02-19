@@ -66,6 +66,17 @@
             </div>
           </div>
         </div>
+
+        <div class="container-fluid">
+          <div class="row-fluid">
+            <div class="span3">
+              <div class="well sidebar-nav">
+               {% block sidebar %}
+                {% load sidebar %}
+                {% browse_tag %}
+              {% endblock %}
+              </div><!--/.well -->
+            </div><!--/span-->
         <!-- javascript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->

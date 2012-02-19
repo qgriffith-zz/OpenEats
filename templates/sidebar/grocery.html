@@ -6,8 +6,8 @@
 
 
 {% if list.id %}
-    <h3>{% trans 'actions' %}</h3>
-    <ul>
+    <ul class="nav nav-list">
+        <li class="nav-header">{% trans 'actions' %}</li>
         <li><a href="{% url grocery_print user=list.author slug=list.slug %}">{% trans 'print ' %}{{ list }}</a></li>
         <li><a href="{% url grocery_edit user=list.author slug=list.slug %}">{%trans 'edit ' %} {{ list }}</a></li>
         <li><a title="{% trans 'send list ' %} {{ list }}" id='email-link' href="{% url grocery_mail gid=list.id %}">{% trans 'email ' %} {{  list }}</a></li>
@@ -21,8 +21,9 @@
             <li><a href="{% url grocery_unshare user=list.author slug=list.slug %}">{% trans 'un-share' %} {{ list }}</a></li>
         {% endif %}
     </ul>
-    <h3>Recipes on List</h3>
-    <ul>
+
+    <ul class="nav nav-list">
+     <li class="nav-header">{% trans 'recipes on list' %}</li>
     {% for recipe  in list.groceryrecipe_set.all  %}
         <li><a href="{% url recipe_show slug=recipe.recipe.slug %}">{{ recipe }}</a></li>
     {% empty %}
@@ -31,8 +32,9 @@
     </ul>
 
 {% endif %}
-<h3>{% trans 'grocery list' %}</h3>
-<ul>
+
+<ul  class="nav nav-list">
+    <li class="nav-header">{% trans 'grocery list' %}</li>
     <li><a href="{% url grocery_create %}"> {% trans 'create' %}</a></li>
     <li><a href="{% url grocery_list %}" > {% trans 'list' %}</a></li>
      <li><a href="{% url grocery_aisle %}" > {% trans 'manage aisles' %}</a></li>
