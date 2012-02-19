@@ -13,26 +13,7 @@
          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
          <script type="text/javascript" src="{{ STATIC_URL }}js/oe.js"></script>
          <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/south-street/jquery-ui.css" rel="stylesheet" />
-         <script type="text/javascript" src="{{ STATIC_URL }}js/fg-menu/fg.menu.js"></script>
-         <link type="text/css" href="{{ STATIC_URL }}js/fg-menu/fg.menu.css" media="screen" rel="stylesheet" />
-         <script type="text/javascript">
-             $(function(){
-                 // BUTTONS
-                 $('.fg-button').hover(
-                 function(){ $(this).removeClass('ui-state-default').addClass('ui-state-focus'); },
-                 function(){ $(this).removeClass('ui-state-focus').addClass('ui-state-default'); }
-             );
-
-                 // MENUS
-                 $('#flat').fgmenu({
-                     content: $('#flat').next().html(), // grab content from this page
-                     showSpeed: 300
-                 });
-             })
-        </script>
-        {% block jscript %}
-
-        {% endblock %}
+        {% block jscript %}{% endblock %}
         <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" />
         <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" />
        <!-- <link rel="stylesheet" href="{{STATIC_URL}}css/oe.css" /> -->
