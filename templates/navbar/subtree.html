@@ -1,0 +1,5 @@
+<ul class='level-{{ level }}'>{% load navbar %}{% for entry in subtree %}
+<li{% if entry.selected %} class="selected"{% endif %}><a href="{{ entry.url }}" {% if entry.selected %} class="selected"{% endif %} title="{{ entry.title|escape }}">{{ entry.name|escape }}</a></li>
+{% if entry.children|length %}{% if entry.selected or show_unselected %}
+{% subtree entry.children depth %}{% endif %}{% endif %}{% endfor %}
+</ul>

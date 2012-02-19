@@ -9,7 +9,7 @@
         <meta name="description" content="Amazing Recipes and beautiful food photography. Created as well as rated by you and fellow foodies."/>
         <title>{% block title %}{{ OETITLE }}{% endblock %}</title>
         {% block feeds %}<link href="/feed/recent/" rel="alternate" type="application/rss+xml" title="{{ OETITLE }}{% blocktrans %}Top Recipe Feed{% endblocktrans %}" />{% endblock %}
-         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
+         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
          <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
          <script type="text/javascript" src="{{ STATIC_URL }}js/oe.js"></script>
          <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/south-street/jquery-ui.css" rel="stylesheet" />
@@ -33,68 +33,63 @@
         {% block jscript %}
 
         {% endblock %}
-        <link rel="stylesheet" href="{{STATIC_URL}}css/oe.css" />
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" />
+       <!-- <link rel="stylesheet" href="{{STATIC_URL}}css/oe.css" /> -->
+        <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+    </style>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+        <meta name="keywords" content="recipes,OpenEats2,grocery list" />
+        <meta name="description" content="OpenEats2 is an opensource recipe sharing website" />
   
     </head>
     <body>
-    <div id="body-wrap">
-        <div id="sidebar">
-            {% block sidebar %}
-                {% load sidebar %}
-                {% browse_tag %}
-            {% endblock %}
-        </div>
-        <div id="page-wrap">
 
-            <div id="main">
-                <div id="header">
-                    <div id="logo"><a href="{% url recipe_index %}" title="home page"> <img src="{{ OELOGO }}" alt="logo" /> </a>
-                        <div id="search">
-                            <form method="get" action="/search/" >
-                                <input type="text" id="id_q" name="q">
-                                <input type="submit" value="{%trans 'Search' %}">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-             
-                <div id="nav-bar">
-                    {% if request.user.is_authenticated %}
-                    <div id="login-menu">
-                        <a tabindex="0" href="#" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="flat"><span class="ui-icon ui-icon-triangle-1-s"></span>{{ request.user }}</a>
-                        <div id="login-nav" class="hidden">
-                            <ul>
+        <div class="navbar navbar-fixed-top">
+          <div class="navbar-inner">
+            <div class="container-fluid">
+              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
+              <a class="brand" href="#">{{ OETITLE }}</a>
+              <div class="nav-collapse">
+                  {% load navbar %}
+                  {% navbars %}
+                  {% if request.user.is_authenticated %}
+                      <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user }} <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
                                 <li><a href="{{request.user.get_profile.get_absolute_url}}">{% trans 'profile' %}</a></li>
                                 <li><a href="{% url grocery_list %}"> {% trans 'grocery lists' %}</a></li>
+                                <li class="divider"></li>
                                 <li><a href="{% url accounts.views.logout_page %}">{% trans 'logout' %}</a></li>
                             </ul>
-                        </div>
-                    </div>
-                   {% endif %}
-                    {% load navbar %}
-                    {% navbars %}
-               </div><!--- end navbar div --->
+                        </li>
+                      </ul>
+                {% endif %}
 
-                <div id="content">
-                    {% if messages %}
-                    <ul class="messages">
-                        {% for message in messages %}
-                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                    {% block content %}{% endblock %}
-                </div>
-                <div id="footer">
-                   {% navbars %}
-                    &copy;OpenEats 2011
-                </div>
-            </div><!---end main -->
-        
-        </div><!--- end page wrap div -->
-    </div> <!--- end body wrap div -->
-        
-    </body>
+              </div><!--/.nav-collapse -->
+            </div>
+          </div>
+        </div>
+        <!-- javascript
+        ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="{{ STATIC_URL }}bootstrap/js/bootstrap-dropdown.js"></script>
+
+
+   </body>
 </html>
