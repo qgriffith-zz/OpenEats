@@ -3,8 +3,9 @@
 {% if 'recipe_history' in request.session %}
 
     <ul class="nav nav-list">
+        <li class="nav-header">{% trans 'last viewed' %}</li>
         {% for t,l in request.session.recipe_history %}
-            <li class="nav-header">{% trans 'last viewed' %}</li>
+
             <li><a href="{{ l }}" alt={{ t }}>{{ t }}</a></li>
         {% endfor %}
     </ul>
