@@ -2,16 +2,17 @@
 {% load i18n %}
 {% block title %}{{ block.super }}- {{ entry.title }} {% endblock %}
 {% block content %}
-    <div id="news">
-        <div id="news-content">
-            <h2> {{ entry.title }}</h2>
-            {{ entry.content|safe}}
-        </div>
-        <div id="news-photo-wrap">
-            {% if entry.image %}
-                <img id="news-photo" src="{{ STATIC_URL }}{{ entry.image }}" alt=""/>
-            {% endif %}
-        </div>
-        <br style="clear:both;" />
+    <div class="hero-unit">
+      <h2> {{ entry.title }}</h2>
+
+      {% if entry.image %}
+       <ul class="thumbnails pull-right">
+          <li class="span2">
+            <a href="#" class="thumbnail"><img src="{{ MEDIA_URL }}{{ entry.image }}"/></a>
+          </li>
+      </ul>
+      {% endif %}
+
+      {{ entry.content|safe}}
     </div>
 {% endblock %}
