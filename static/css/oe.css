@@ -8,3 +8,15 @@ div#tenfoot{font-size:xx-large; width:800px;}
 div#tenfoot hr { margin-bottom: 15px;}
 div#tenfoot h2 { margin-bottom: 10px;}
 div#tenfoot ul { margin-bottom: 15px;}
+
+/*recipe caption front page*/
+dl.captioned-image         {  position: relative; padding: .6em; margin: .4em; float:left;}
+dl.captioned-image dt img  { display: block; }
+dl.captioned-image dt a:hover .thumbnail {border-color: #0088CC;}
+dl.captioned-image dd      { position: absolute; left: 0.2em; bottom: .88em; font: bold 1.2em Helvetica, sans-serif; }
+dl.captioned-image.top dd  { top: 1.25em; }
+dl.captioned-image dd span { width:213px; display: block; float: left; clear: both;
+                             background: #000; background: rgba(0, 0, 0, 0.7);
+                             padding: 0.4em 0.6em; color: #fff; }
+dl.captioned-image cite   {  font-size: 80%;}
+

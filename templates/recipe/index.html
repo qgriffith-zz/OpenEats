@@ -6,6 +6,27 @@
 {% block content %}
    {% frontpage_news %}
 
+   <div class="row-fluid">
+     {% for recipe in new_recipes|slice:"0:3" %}
+       <div class="span4">
+         <dl class="captioned-image">
+           <dt><a href="{{ recipe.get_absolute_url }}"><img class="thumbnail" src="{{recipe.index_thumbnail.url}}" alt="{{ recipe.title }}"/></a></dt>
+           <dd><span>{{ recipe.title }} <br /><cite>{%trans 'chef: ' %}{{ recipe.author }}</cite></span></dd>
+         </dl>
+       </div>
+     {% endfor %}
+
+   </div>
+    <div class="row-fluid">
+      {% for recipe in new_recipes|slice:"3:6" %}
+        <div class="span4">
+          <dl class="captioned-image">
+            <dt><a href="{{ recipe.get_absolute_url }}"><img class="thumbnail" src="{{recipe.index_thumbnail.url}}" alt="{{ recipe.title }}"/></a></dt>
+            <dd><span>{{ recipe.title }} <br /><cite>{%trans 'chef: ' %}{{ recipe.author }}</cite></span></dd>
+          </dl>
+        </div>
+      {% endfor %}
+    </div>
 
 {% endblock %}
 
