@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block content %}
-{{ flatpage.content|safe }}
+ <div class="hero-unit">
+    {{ flatpage.content|safe }}
+ </div>
 {% endblock %}
