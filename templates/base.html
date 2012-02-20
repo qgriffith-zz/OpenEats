@@ -1,87 +1,112 @@
 <!DOCTYPE html>
 {% load i18n %}
 <html>
-    <head>
-        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
-        {% block keywords %}
-            <meta http-equiv="keywords" content="Recipes, OpenEats2, OpenEats, Django, Grocery List, Grocery Lists, Share Recipes, rated recipes" />
-        {% endblock %}
-        <meta name="description" content="Amazing Recipes and beautiful food photography. Created as well as rated by you and fellow foodies."/>
-        <title>{% block title %}{{ OETITLE }}{% endblock %}</title>
-        {% block feeds %}<link href="/feed/recent/" rel="alternate" type="application/rss+xml" title="{{ OETITLE }}{% blocktrans %}Top Recipe Feed{% endblocktrans %}" />{% endblock %}
-         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
-         <script type="text/javascript" src="{{ STATIC_URL }}js/oe.js"></script>
-         <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/south-street/jquery-ui.css" rel="stylesheet" />
-        {% block jscript %}{% endblock %}
-        <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css" />
-        <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css" />
-       <!-- <link rel="stylesheet" href="{{STATIC_URL}}css/oe.css" /> -->
-        <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
+<head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
+    {% block keywords %}
+        <meta http-equiv="keywords"
+              content="Recipes, OpenEats2, OpenEats, Django, Grocery List, Grocery Lists, Share Recipes, rated recipes"/>
+    {% endblock %}
+    <meta name="description"
+          content="Amazing Recipes and beautiful food photography. Created as well as rated by you and fellow foodies."/>
+    <title>{% block title %}{{ OETITLE }}{% endblock %}</title>
+    {% block feeds %}
+        <link href="/feed/recent/" rel="alternate" type="application/rss+xml"
+              title="{{ OETITLE }}{% blocktrans %}Top Recipe Feed{% endblocktrans %}"/>{% endblock %}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/oe.js"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/themes/south-street/jquery-ui.css"
+          rel="stylesheet"/>
+    {% block jscript %}{% endblock %}
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css"/>
+    <!-- <link rel="stylesheet" href="{{STATIC_URL}}css/oe.css" /> -->
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+
+        .sidebar-nav {
+            padding: 9px 0;
+        }
     </style>
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-        <meta name="keywords" content="recipes,OpenEats2,grocery list" />
-        <meta name="description" content="OpenEats2 is an opensource recipe sharing website" />
-  
-    </head>
-    <body>
+    <meta name="keywords" content="recipes,OpenEats2,grocery list"/>
+    <meta name="description" content="OpenEats2 is an opensource recipe sharing website"/>
 
-        <div class="navbar navbar-fixed-top">
-          <div class="navbar-inner">
-            <div class="container-fluid">
-              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-              </a>
-              <a class="brand" href="#">{{ OETITLE }}</a>
-              <div class="nav-collapse">
-                  {% load navbar %}
-                  {% navbars %}
-                  {% if request.user.is_authenticated %}
-                      <ul class="nav pull-right">
+            </a>
+            <a class="brand" href="#">{{ OETITLE }}</a>
+
+            <div class="nav-collapse">
+                {% load navbar %}
+                {% navbars %}
+                {% if request.user.is_authenticated %}
+                    <ul class="nav pull-right">
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user }} <b class="caret"></b></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user }} <b
+                                    class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{request.user.get_profile.get_absolute_url}}">{% trans 'profile' %}</a></li>
+                                <li><a href="{{request.user.get_profile.get_absolute_url}}">{% trans 'profile' %}</a>
+                                </li>
                                 <li><a href="{% url grocery_list %}"> {% trans 'grocery lists' %}</a></li>
                                 <li class="divider"></li>
                                 <li><a href="{% url accounts.views.logout_page %}">{% trans 'logout' %}</a></li>
                             </ul>
                         </li>
-                      </ul>
+                    </ul>
                 {% endif %}
 
-              </div><!--/.nav-collapse -->
             </div>
-          </div>
+          </div><!--/.nav-collapse -->
         </div>
+    </div>
+</div>
 
-        <div class="container-fluid">
-          <div class="row-fluid">
-            <div class="span3">
-              <div class="well sidebar-nav">
-               {% block sidebar %}
-                {% load sidebar %}
-                {% browse_tag %}
-              {% endblock %}
-              </div><!--/.well -->
-            </div><!--/span-->
-        <!-- javascript
-        ================================================== -->
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script src="{{ STATIC_URL }}bootstrap/js/bootstrap-dropdown.js"></script>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span3">
+            <div class="well sidebar-nav">
+                {% block sidebar %}
+                    {% load sidebar %}
+                    {% browse_tag %}
+                {% endblock %}
+            </div><!--/.well -->
+        </div><!--/span-->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% block content %}{% endblock %}
+
+        <hr>
+        <footer>
+            &copy;OpenEats 2012
+        </footer>
+    </div><!--/.fluid-container-->
+
+    <!-- javascript
+   ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap-dropdown.js"></script>
 
 
-   </body>
+ </body>
 </html>
