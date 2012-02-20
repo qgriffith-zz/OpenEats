@@ -20,3 +20,16 @@ dl.captioned-image dd span { width:213px; display: block; float: left; clear: bo
                              padding: 0.4em 0.6em; color: #fff; }
 dl.captioned-image cite   {  font-size: 80%;}
 
+/*Tag Cloud*/
+div#tag-cloud {float:left; margin-top:20px; margin-left:150px; width:550px;}
+div#tag-cloud ul { margin: 1em 0; padding: 0.5em 10px;  text-align: center;}
+div#tag-cloud li { display: inline; list-style: none outside none;  margin: 0; padding: 0;}
+div#tag-cloud li a { padding: 0 2px; text-decoration: none;}
+.tag1 { font-size: 100%; }
+.tag2 { font-size: 120%; }
+.tag3 { font-size: 140%; }
+.tag4 { font-size: 160%; }
+.tag5 { font-size: 180%; }
+.tag6 { font-size: 200%; }
+
+

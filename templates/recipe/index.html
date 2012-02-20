@@ -28,6 +28,17 @@
       {% endfor %}
     </div>
 
+        <div id="tag-cloud" class="hero-unit">
+            <h1>{% trans  'recipe tags'%}</h1>
+            {% get_tagcloud as tags for 'recipe' %}
+           <ul>
+             {% for tag in tags %}
+               <li><a href="{% url recipe_tags tag=tag.slug %}" class="tag{{ tag.weight|floatformat:0 }}">{{tag}}</a></li>
+             {% endfor %}
+           </ul>
+
+        </div>
+
 {% endblock %}
 
 
