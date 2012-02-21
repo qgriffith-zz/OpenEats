@@ -25,7 +25,9 @@ Requirements
 * `django-registration`_ 0.8-alpha-1
 * `django-relationships`_ 0.3.0
 * `django-ratings`_ 0.3.6
-* `django-grappelli`_ 2.3.4
+* `django-grappelli`_ 2.3.7
+* `django-crispy-forms`_ 1.1.1
+
 
 ************
 Optional
@@ -70,6 +72,7 @@ Optional
 .. _django-rosetta: http://code.google.com/p/django-rosetta/
 .. _django-debug-toolbar: http://pypi.python.org/pypi/django-debug-toolbar/0.8.4
 .. _django-grappelli: http://code.google.com/p/django-grappelli/
+.. _django-crispy-forms: https://github.com/maraujop/django-crispy-forms
 .. _django-tastypie: http://readthedocs.org/docs/django-tastypie/en/v0.9.9/
 .. _lxml: http://lxml.de/
 

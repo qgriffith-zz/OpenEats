@@ -154,6 +154,7 @@ INSTALLED_APPS = (
     'django_extensions',
     'relationships',
     'tastypie',
+    'crispy_forms',
     'openeats',
     'openeats.recipe',
     'openeats.recipe_groups',
