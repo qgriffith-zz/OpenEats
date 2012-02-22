@@ -6,26 +6,34 @@
 {% block content %}
    {% frontpage_news %}
 
-   <div class="row-fluid">
-     {% for recipe in new_recipes|slice:"0:3" %}
-       <div class="span4">
-         <dl class="captioned-image">
-           <dt><a href="{{ recipe.get_absolute_url }}"><img class="thumbnail" src="{{recipe.index_thumbnail.url}}" alt="{{ recipe.title }}"/></a></dt>
-           <dd><span>{{ recipe.title }} <br /><cite>{%trans 'chef: ' %}{{ recipe.author }}</cite></span></dd>
-         </dl>
-       </div>
-     {% endfor %}
-
-   </div>
     <div class="row-fluid">
-      {% for recipe in new_recipes|slice:"3:6" %}
-        <div class="span4">
-          <dl class="captioned-image">
-            <dt><a href="{{ recipe.get_absolute_url }}"><img class="thumbnail" src="{{recipe.index_thumbnail.url}}" alt="{{ recipe.title }}"/></a></dt>
-            <dd><span>{{ recipe.title }} <br /><cite>{%trans 'chef: ' %}{{ recipe.author }}</cite></span></dd>
-          </dl>
-        </div>
-      {% endfor %}
+      <ul class="thumbnails">
+        {% for recipe in new_recipes|slice:"0:3" %}
+          <li class="span3">
+            <a href="{{ recipe.get_absolute_url }}"><img class="thumbnail" src="{{recipe.index_thumbnail.url}}" alt="{{ recipe.title }}"/></a>
+            <div class="caption">
+              <h5>{{ recipe.title }}</h5>
+                <p>chef: <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+                <p>{{ recipe.info|striptags|truncatewords:50 }}</p>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="row-fluid">
+      <ul class="thumbnails">
+        {% for recipe in new_recipes|slice:"3:6" %}
+          <li class="span3">
+            <a href="{{ recipe.get_absolute_url }}"><img class="thumbnail" src="{{recipe.index_thumbnail.url}}" alt="{{ recipe.title }}"/></a>
+            <div class="caption">
+              <h5>{{ recipe.title }}</h5>
+                <p>chef: <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+                <p>{{ recipe.info|striptags|truncatewords:50 }}</p>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
 
     <div id="tag-cloud" class="accordion">

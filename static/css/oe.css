@@ -10,15 +10,7 @@ div#tenfoot h2 { margin-bottom: 10px;}
 div#tenfoot ul { margin-bottom: 15px;}
 
 /*recipe caption front page*/
-dl.captioned-image         {  position: relative; padding: .6em; margin: .4em; float:left;}
-dl.captioned-image dt img  { display: block; }
-dl.captioned-image dt a:hover .thumbnail {border-color: #0088CC;}
-dl.captioned-image dd      { position: absolute; left: 0.2em; bottom: .88em; font: bold 1.2em Helvetica, sans-serif; }
-dl.captioned-image.top dd  { top: 1.25em; }
-dl.captioned-image dd span { width:213px; display: block; float: left; clear: both;
-                             background: #000; background: rgba(0, 0, 0, 0.7);
-                             padding: 0.4em 0.6em; color: #fff; }
-dl.captioned-image cite   {  font-size: 80%;}
+a:hover .thumbnail {border-color: #0088CC;}
 
 /*Tag Cloud*/
 div#tag-cloud {float:left; margin-top:20px; margin-left:150px; width:550px;}
@@ -31,5 +23,3 @@ div#tag-cloud li a { padding: 0 2px; text-decoration: none;}
 .tag4 { font-size: 160%; }
 .tag5 { font-size: 180%; }
 .tag6 { font-size: 200%; }
-
-
