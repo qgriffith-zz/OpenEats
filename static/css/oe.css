@@ -28,3 +28,6 @@ div#tag-cloud li a { padding: 0 2px; text-decoration: none;}
 
 form ul.errorlist {list-style:none;}
 form ul.errorlist li {color:#B94A48;}
+
+/* Profile */
+span.profile-info { color:#808080; }
