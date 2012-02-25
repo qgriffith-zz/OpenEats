@@ -23,3 +23,8 @@ div#tag-cloud li a { padding: 0 2px; text-decoration: none;}
 .tag4 { font-size: 160%; }
 .tag5 { font-size: 180%; }
 .tag6 { font-size: 200%; }
+
+/*Form Errors*/
+
+form ul.errorlist {list-style:none;}
+form ul.errorlist li {color:#B94A48;}

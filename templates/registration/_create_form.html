@@ -1,22 +1,47 @@
+{%  load i18n %}
 {# create account form called via an include statement #}
-<div id="account-form">
-    {{ form.non_field_errors }} {# this is a special error field for erros not associated with a field in the form this is used if the passwords don't match #}
-    <form method="post" action="/accounts/register/">{% csrf_token %}
-        {{ form.username.errors }}
+{% if form.non_field_errors %} {# this is a special error field for erros not associated with a field in the form this is used if the passwords don't match #}
+    <div class="alert alert-error">
+        <strong>{% trans 'Alert!' %}</strong> {{ form.non_field_errors }}
+    </div>
+{% endif %}
+
+    <form class="well form-vertical" method="post" action="/accounts/register/">{% csrf_token %}
+
         <p>{{ form.username.label_tag }}</p>
-        <p>{{ form.username }}</p>
+        {{ form.username.errors }}
+        <div class="input-prepend">
+            <span class="add-on">
+                <i class="icon-user"></i>
+            </span>
+             {{ form.username }}
+        </div>
 
-        {{ form.email.errors }}
         <p>{{ form.email.label_tag }}</p>
-        <p>{{ form.email}}</p>
+        {{ form.email.errors }}
+        <div class="input-prepend">
+            <span class="add-on">
+                <i class="icon-envelope"></i>
+            </span>
+            {{ form.email }}
+        </div>
 
-        {{ form.password1.errors }}
         <p>{{ form.password1.label_tag }}</p>
-        <p>{{ form.password1 }}</p>
+        {{ form.password1.errors }}
+        <div class="input-prepend">
+            <span class="add-on">
+                <i class="icon-lock"></i>
+            </span>
+            {{ form.password1 }}
+        </div>
 
-        {{ form.password2.errors }}
         <p>{{ form.password2.label_tag }}</p>
-        <p>{{ form.password2 }}</p>
-        <input type="submit" value="create account" />
+        {{ form.password2.errors }}
+        <div class="input-prepend">
+            <span class="add-on">
+                <i class="icon-lock"></i>
+            </span>
+            {{ form.password2 }}
+        </div>
+        <button type="submit" class="btn">{% trans 'create account' %}</button>
     </form>
-</div>
