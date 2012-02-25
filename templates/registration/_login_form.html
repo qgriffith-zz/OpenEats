@@ -1,14 +1,25 @@
 {# login form called via an include statement #}
+{% load i18n %}
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
-<div id="login-form">
-    <form method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
-        <p>{{ form.username.label_tag }}</p>
-        <p>{{ form.username }}</p>
-        <p>{{ form.password.label_tag }}</p>
-        <p>{{ form.password }} </p>
+
+    <form class="well form-vertical" method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
+        {{ form.username.label_tag }}
+        <div class="input-prepend">
+            <span class="add-on">
+                <i class="icon-user"></i>
+            </span>
+            {{ form.username }}
+        </div>
+        {{ form.password.label_tag  }}
+        <div class="input-prepend">
+            <span class="add-on">
+                <i class="icon-lock"></i>
+            </span>
+            {{ form.password }}
+        </div>
+
         <input type="hidden" name="next" value="{{ next }}" />
-        <input type="submit" value="login" />
+        <button type="submit" class="btn">{% trans 'login' %}</button>
     </form>
-</div>
