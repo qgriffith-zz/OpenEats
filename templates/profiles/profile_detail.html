@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
-{% load i18n %}
 {% comment %}This template displays the users profile{% endcomment %}
+{% load i18n %}
 {% load recipe_count %}
+{% load gravatar_profile %}
 {% block title %}{{ profile.user.username }} {%trans 'profile' %} {% endblock %}
 
 {% block jscript %}
@@ -20,7 +21,7 @@
             ajaxOptions: {
                 error: function(xhr, status, index, anchor) {
                     $(anchor.hash).html("Couldn't load this tab.");
-                },
+                }
             },
             load: function(event, ui) {
                 hijax(ui.panel);
@@ -32,26 +33,36 @@
 
 {% endblock %}
 {% block content %}
-<div id="user-profile" >
-    <h2>{{ profile.user.username }} {%trans 'profile' %} {% if profile.user != request.user %}  <a href="/follow/add/{{ profile.user.username }}/following/"><img src="{{ STATIC_URL }}images/follow-me.png" /></a>
-        {% endif %} </h2>
-    <div id="profile-pic" >
-        {% load gravatar_profile %}
-        {% gravatar profile.user 120%}
-        {% if profile.location %}
-         <p><span class="profile-info">{%trans 'location:' %}</span> {{ profile.location }}</p>
-        {% endif %}
-        {% if profile.gender %}
-          <p><span class="profile-info">{%trans 'gender:' %}</span> {{ profile.gender }}</p>
-        {% endif %}
-        {% if profile.url %}
-          <p><span class="profile-info">{%trans 'website:' %}</span> <a href="{{ profile.url }}"> {{ profile.url }}</a></p>
-        {% endif %}    
-    </div>
-    <h3>{% trans 'all about me' %}</h3>
-    <div id="profile-about">   
+    <ul class="thumbnails">
+        <li class="span3">
+            <h2>{{ profile.user.username }} {%trans 'profile' %}</h2>
+            {% if profile.user != request.user %}
+                <a href="/follow/add/{{ profile.user.username }}/following/">
+                    <img src="{{ STATIC_URL }}images/follow-me.png" /></a>
+            {% endif %}
+
+            <div class="thumbnail">
+                {% gravatar profile.user 120%}
+                <h5>{% trans 'info' %}</h5>
+                {% if profile.location %}
+                    <p><span class="profile-info">{%trans 'location:' %}</span> {{ profile.location }}</p>
+                {% endif %}
+                {% if profile.gender %}
+                    <p><span class="profile-info">{%trans 'gender:' %}</span> {{ profile.gender }}</p>
+                {% endif %}
+                {% if profile.url %}
+                    <p><span class="profile-info">{%trans 'website:' %}</span> <a href="{{ profile.url }}"> {{ profile.url }}</a></p>
+                {% endif %}
+            </div>
+        </li>
+
+    </ul>
+    <div class="hero-unit">
+        <h3>{% trans 'all about me' %}</h3>
         <p>{{ profile.about }}</p>
     </div>
+
+
 
      <div id="tabs">
         <ul>
@@ -67,11 +78,13 @@
 
         </ul>
         {% if profile.user.username == request.user.username %}
-        <div id="settings">
-              <a href="/profiles/edit/">{%trans 'edit Profile' %}</a>
-              <a href="/accounts/password/change/">{%trans 'change password' %}</a>
-              <a href="/accounts/logout/">{%trans 'logout' %}</a>
-        </div>
+         <div id="settings">
+           <ul>
+             <li><a href="/profiles/edit/">{%trans 'edit Profile' %}</a></li>
+             <li><a href="/accounts/password/change/">{%trans 'change password' %}</a></li>
+             <li><a href="/accounts/logout/">{%trans 'logout' %}</a></li>
+           </ul>
+         </div>
         {% endif %}
     </div>
 
