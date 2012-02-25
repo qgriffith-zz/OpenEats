@@ -1,7 +1,9 @@
 {# login form called via an include statement #}
 {% load i18n %}
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+    <div class="alert alert-error">
+        <strong>{% trans 'Alert!' %}</strong> {% trans "Your username and password didn't match. Please try again."%}
+    </div>
 {% endif %}
 
     <form class="well form-vertical" method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
