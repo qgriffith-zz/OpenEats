@@ -32,5 +32,4 @@ form ul.errorlist li {color:#B94A48;}
 /* Profile */
 span.profile-info { color:#808080; }
 div#settings a, .friend-feed a {color: #0088cc; text-decoration: none;}
-div#settings a:hover, .friend-feed a:hover { color: #005580; text-decoration: underline;
-}
+div#settings a:hover, .friend-feed a:hover { color: #005580; text-decoration: underline;}
