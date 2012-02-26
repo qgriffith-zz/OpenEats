@@ -3,15 +3,13 @@
 {% load i18n %}
 {% load sanitize %}
 
-<div id="grocery-list" >
-    <div class="grocery-detail"">
-         <h3><a href="{% url grocery_show user=list.author, slug=list.slug %}">{{ list }}</a></h3>
-         <hr />
-        <span class="create-date">{% trans 'created on ' %} {{ list.pub_date }}</span>
-        <ul>
-            {%for item in  list.items.all|slice:":5" %}
-            <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-    </div>
+<div class="well grocery">
+   <h3><a href="{% url grocery_show user=list.author slug=list.slug %}">{{ list }}</a></h3>
+   <hr />
+   <span class="create-date">{% trans 'created on ' %} {{ list.pub_date }}</span>
+   <ul>
+     {%for item in  list.items.all|slice:":5" %}
+       <li>{{ item }}</li>
+     {% endfor %}
+    </ul>
 </div>

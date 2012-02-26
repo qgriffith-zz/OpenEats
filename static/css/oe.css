@@ -30,6 +30,9 @@ form ul.errorlist {list-style:none;}
 form ul.errorlist li {color:#B94A48;}
 
 /* Profile */
-span.profile-info { color:#808080; }
-div#settings a, .friend-feed a {color: #0088cc; text-decoration: none;}
-div#settings a:hover, .friend-feed a:hover { color: #005580; text-decoration: underline;}
+span.profile-info, span.create-date { color:#808080; }
+div#settings a, .friend-feed a, .grocery a {color: #0088cc; text-decoration: none;}
+div#settings a:hover, .friend-feed a:hover, .grocery a:hover { color: #005580; text-decoration: underline;}
+
+/* remove buttons for list*/
+.remove-fav, .remove-grocery { float:right; margin:14px;}
