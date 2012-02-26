@@ -1,12 +1,12 @@
 {% load i18n %}
 
-  <div class="hero-unit">
-    <h1>{{ news.title }}</h1>
+ <div class="hero-unit">
+   <h1>{{ news.title }}</h1>
     <p>{{ news.content|safe|truncatewords_html:150 }}</p>
-      <div id="news-photo-wrap">
-             {% if entry.image %}
-                 <img id="news-photo" src="{{ STATIC_URL }}{{ entry.image }}" alt=""/>
-             {% endif %}
-         </div>
-      <p><a class="btn btn-primary btn-large" href="{{ news.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
-  </div>
+    <div id="news-photo-wrap">
+      {% if entry.image %}
+        <img id="news-photo" src="{{ STATIC_URL }}{{ entry.image }}" alt=""/>
+      {% endif %}
+    </div>
+    <p><a class="btn btn-primary btn-large" href="{{ news.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
+</div>

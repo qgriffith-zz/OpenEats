@@ -3,44 +3,46 @@
 {% load i18n %}
 {% load sanitize %}
 {% block jscript %}
-<script type="text/javascript">
+  <script type="text/javascript">
     $(document).ready(function () {
-        $(".{{ recipe.slug }}-rate").stars({
-            inputType: "select",
-            disabled: true
-        });
-        var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
-        var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
-        $(".{{ recipe.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
+      $(".{{ recipe.slug }}-rate").stars({
+       inputType:"select", disabled:true
+      });
+      var avg = '{{recipe.rating.score}}' / '{{recipe.rating.votes}}';
+      var selectid = avg - 1;  // the average rating and minus one selects start with zero so a score of one is actuall an id of 0
+      $(".{{ recipe.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
     });
-</script>
-
+  </script>
 {% endblock %}
 
-<div class="recipe" id="recipe-{{recipe.id}}">
-
-    {% if recipe.photo %}
-    <img id="list-thumb"src="{{ recipe.list_thumbnail.url }}" alt="{{ recipe.photo.name }}" />
-    {% else %}
-    <img id="list-thumb"src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" />
-    {% endif %}
-    <h4><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h4>
-    <p class="chef">{%trans 'Chef:' %} <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a> </p>
-    <p>{{ recipe.info|sanitize_html|safe }}</p>
-    <form>
-        <div class="{{ recipe.slug }}-rate recipe-rate">
-            <p class="rating-title""><strong>{%trans 'Average Rating:' %}</strong> <span class="rating-cap"></span></p>
-            <select name="selrate">
-                <option value="1">{% trans 'Poor' %}</option>
-                <option value="2">{% trans 'Fair' %}</option>
-                <option value="3">{% trans 'OK' %}</option>
-                <option value="4">{% trans 'Good' %}</option>
-                <option value="5">{% trans 'Wow' %}</option>
-            </select>
-        </div>
-    </form>
-    <br />
-    <a class="recipe-more" href="{{ recipe.get_absolute_url }}"><em><b>{%trans 'Read More' %}</b></em></a>
-    <br />
- 
+<div class="recipe well" id="recipe-{{recipe.id}}">
+    <h3><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h3>
+    <ul class="thumbnails">
+        <li class="span3">
+            <div>
+              {% if recipe.photo %}
+                <img id="list-thumb"src="{{ recipe.list_thumbnail.url }}" alt="{{ recipe.photo.name }}" />
+              {% else %}
+                <img id="list-thumb"src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" />
+              {% endif %}
+              <p class="chef">{%trans 'Chef:' %} <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+              <form>
+                  <div class="{{ recipe.slug }}-rate recipe-rate">
+                     <p class="rating-title"><strong>{%trans 'Average Rating:' %}</strong> <span class="rating-cap"></span></p>
+                        <select name="selrate">
+                          <option value="1">{% trans 'Poor' %}</option>
+                          <option value="2">{% trans 'Fair' %}</option>
+                          <option value="3">{% trans 'OK' %}</option>
+                          <option value="4">{% trans 'Good' %}</option>
+                          <option value="5">{% trans 'Wow' %}</option>
+                        </select>
+                   </div>
+               </form>
+            </div>
+        </li>
+    </ul>
+   <div class="recipe-info">
+       <p>{{ recipe.info|striptags|truncatewords:'100' }}</p>
+       <p><a class="btn btn-primary btn-large" href="{{ recipe.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
+   </div>
 </div>

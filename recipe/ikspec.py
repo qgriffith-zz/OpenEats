@@ -23,8 +23,8 @@ class ResizeAdminThumb(processors.Resize):
 
 class ResizeListThumb(processors.Resize):
     '''Recipe list view thumbnail resize proccessor'''
-    height = 100
-    width = 100
+    height = 120
+    width = 160
     crop = True
 
 class ResizeDisplay(processors.Resize):

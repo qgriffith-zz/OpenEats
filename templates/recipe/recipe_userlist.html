@@ -22,7 +22,7 @@
     <body>        
         {% if recipe_list.count > 0 %}
            {% if shared = 'share'  %}
-              {% autopaginate recipe_list  %}
+              {% autopaginate recipe_list 8  %}
               {% for recipe in recipe_list %}
                  {% include '/recipe/_list.html' %}
               {% endfor %}

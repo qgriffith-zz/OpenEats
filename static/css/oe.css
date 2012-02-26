@@ -30,9 +30,13 @@ form ul.errorlist {list-style:none;}
 form ul.errorlist li {color:#B94A48;}
 
 /* Profile */
-span.profile-info, span.create-date { color:#808080; }
-div#settings a, .friend-feed a, .grocery a {color: #0088cc; text-decoration: none;}
+span.profile-info, span.create-date, p.chef { color:#808080; }
+div#settings a, .friend-feed a, .grocery a, .recipe a {color: #0088cc; text-decoration: none;}
 div#settings a:hover, .friend-feed a:hover, .grocery a:hover { color: #005580; text-decoration: underline;}
 
 /* remove buttons for list*/
 .remove-fav, .remove-grocery { float:right; margin:14px;}
+
+/*recipe list profile*/
+.recipe-info {width:60%;}
+.recipe-info a { color:#fff;}
