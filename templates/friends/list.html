@@ -1,39 +1,52 @@
 {% load i18n %}
 {% load gravatar_profile %}
 {%  comment %} This page displays a list of followers friends and people a user is following.  This will be displayed on the users profile using a jquery ui tab{% endcomment %}
-
-<div class="following">
-    <h3>{% trans "chefs I'm following-" %}</h3>
-    {% for user in following_list %}
-        <dl class="follow-caption">
-            <dt><a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a></dt>
-            <dd><span>{{ user.username }}<cite><a href="/follow/remove/{{ user.username}}/following/">{% trans 'un-follow' %}</a></cite></span></dd>
-        </dl>
-    {% endfor %}
-</div>
-<br style="clear:both"/>
-<div class="following">
-    <h3>{% trans "chefs following me-" %}</h3>
-        {% for user in followers_list %}
-        <dl class="follow-caption">
-            <dt><a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a></dt>
-            <dd><span>{{ user.username }}<cite><a href="/follow/add/{{ user.username }}/following/">{% trans 'follow' %}</a> <a href="/follow/add/{{ user.username }}/blocking/">{% trans 'block' %}</a></cite></span></dd>
-        </dl>
-    {% endfor %}
-
-</div>
-
-{% if username == request.user.username %}
-    <br style="clear:both"/>
-    <div class="following">
-        <h3>{% trans "chefs I'm blocking --" %}</h3>
-            {% for user in blocking_list %}
-            <dl class="follow-caption">
-                <dt><a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a></dt>
-                <dd><span>{{ user.username }}<cite><a href="/follow/remove/{{ user.username }}/blocking/">{% trans 'unblock' %}</a></cite></span></dd>
-            </dl>
-        {% endfor %}
-
+<div class="well">
+    <div class="following row-fluid">
+        <h3>{% trans "chefs I'm following-" %}</h3>
+        <ul class="thumbnails">
+          {% for user in following_list %}
+            <li class="span2">
+              <div class="thumbnail">
+                  <a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a>
+                  <h5>{{ user.username }}</h5>
+                  <p><a href="/follow/remove/{{ user.username}}/following/">{% trans 'un-follow' %}</a></p>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
     </div>
-{% endif %}
-<br style="clear:both"/>
+
+    <div class="following row-fluid">
+        <h3>{% trans "chefs following me-" %}</h3>
+        <ul class="thumbnails">
+            {% for user in followers_list %}
+            <li class="span2">
+              <div class="thumbnail">
+                  <a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a>
+                  <h5>{{ user.username }}</h5>
+                  <p><a href="/follow/add/{{ user.username }}/following/">{% trans 'follow' %}</a> <a href="/follow/add/{{ user.username }}/blocking/">{% trans 'block' %}</a></p>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+    </div>
+    {% if username == request.user.username %}
+        <div class="following row-fluid">
+                <h3>{% trans "chefs I'm blocking-" %}</h3>
+                <ul class="thumbnails">
+                    {% for user in blocking_list %}
+                    <li class="span2">
+                      <div class="thumbnail">
+                          <a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a>
+                          <h5>{{ user.username }}</h5>
+                          <p><a href="/follow/remove/{{ user.username }}/blocking/">{% trans 'unblock' %}</a></p>
+                      </div>
+                    </li>
+                  {% endfor %}
+                </ul>
+            </div>
+
+    {% endif %}
+
+</div>
