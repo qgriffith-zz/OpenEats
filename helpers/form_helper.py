@@ -21,4 +21,4 @@ def handlePopAdd(request, addForm, field):
         form = addForm()
 
     pageContext = {'form': form, 'field': field}
-    return render_to_response("form/popadd.html", pageContext, context_instance=RequestContext(request))
+    return render_to_response("recipe_groups/popadd.html", pageContext, context_instance=RequestContext(request))
