@@ -3,92 +3,140 @@
 {% comment %}This template is used to add recipes{% endcomment %}
 {% block title %}{{ block.super }} - {% trans "Add Recipe" %} {% endblock %}
 {% block jscript %}
- <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.formset.js"></script>
- <script type="text/javascript" src="{{ STATIC_URL }}js/RelatedObjectLookups.js"></script>
- <script type="text/javascript" src="{{ STATIC_URL }}js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
- <script type="text/javascript">
+   <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.formset.js"></script>
+   <script type="text/javascript" src="{{ STATIC_URL }}js/RelatedObjectLookups.js"></script>
+   <script type="text/javascript" src="{{ STATIC_URL }}js/tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+   <script type="text/javascript">
      tinyMCE.init({
-         mode : "textareas",
-         theme : "simple"
+       mode : "textareas",
+       theme : "simple",
+       width: "450"
 
      });
- </script>
-<script type="text/javascript">
-$(function() {
-    $('tbody tr').formset({
+   </script>
+   <script type="text/javascript">
+     $(function() {
+      $('tbody tr').formset({
         prefix: '{{ formset.prefix }}',
-        added: function(row){
+          added: function(row){
             var txt = row.find('#ing-field input');
             txt.unbind();
             makeAutoComplete(); /* call the makeAutoComplete function to assign the jquery ui autocomplete to the new row added*/
         },
         extraClasses: ['row1', 'row2'],
         deleteText: ''
+       });
+     })
 
-    });
-})
-
-
-function makeAutoComplete() {
-    $(function() {
+     function makeAutoComplete() {
+      $(function() {
         $("#ing-field input").autocomplete({
-            source: '/ingredient/auto/',
-            minLength: 2
+          source: '/ingredient/auto/',
+          minLength: 2
         });
-    })
-    };
-makeAutoComplete()
-</script>
- <script type="text/javascript">
-
-     function stopRKey(evt) {
-         var evt = (evt) ? evt : ((event) ? event : null);
-         var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
-         if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
-     }
-
-     document.onkeypress = stopRKey;
-
- </script>
+      })
+     };
+     makeAutoComplete()
+   </script>
+  <script type="text/javascript">
+    function stopRKey(evt) {
+      var evt = (evt) ? evt : ((event) ? event : null);
+      var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+      if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+    }
+    document.onkeypress = stopRKey;
+  </script>
 {% endblock %}
 {% block content %}
-<form action="" enctype="multipart/form-data" method="post">{% csrf_token %}
-    <div id="recipe-form">
-     
-        {{ form.title.errors }}
-        <p>{{ form.title.label_tag|lower }} {{ form.title }}</p>
-    
-        {{ form.photo.errors }}
-        <p id="recipe-photo">{{ form.photo.label_tag|lower }}{{ form.photo }} </p>
 
-        {{ form.course.errors }}
-        <p>{{ form.course.label_tag|lower }}{{ form.course }} </p>
-        
+<form class="form-horizontal" action="" enctype="multipart/form-data" method="post">{% csrf_token %}
+  <fieldset>
+    <legend>{% trans 'recipe info' %}</legend>
+      <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.title.name}}">{{ form.title.label|lower }}</label>
+        <div class="controls">
+          {{ form.title }}{{ form.title.errors }}
+        </div>
+      </div>
 
-        {{ form.cuisine.errors }}
-        <p>{{ form.cuisine.label_tag|lower }} {{ form.cuisine }}</p>
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.photo.name}}">{{ form.photo.label|lower }}</label>
+        <div class="controls">
+          {{ form.photo }}{{ form.photo.errors }}
+        </div>
+      </div>
 
-        {{ form.info.errors }}
-        <p>{{ form.info.label_tag|lower }} {{ form.info }} <em>{{ form.info.help_text }}</em></p>
-       
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.course.title}}">{{ form.course.label|lower }}</label>
+        <div class="controls">
+          {{ form.course }}{{ form.course.errors }}
+        </div>
+      </div>
 
-        {{ form.cook_time.errors }}
-        <p>{{ form.cook_time.label_tag|lower }} {{ form.cook_time }} <em>{{ form.cook_time.help_text }}</em></p>
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.cuisine.title}}">{{ form.cuisine.label|lower }}</label>
+        <div class="controls">
+          {{ form.course }}{{ form.cuisine.errors }}
+        </div>
+      </div>
 
-        {{ form.servings.errors }}
-        <p>{{ form.servings.label_tag|lower }} {{ form.servings }}</p>
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.cook_time.title}}">{{ form.cook_time.label|lower }}</label>
+        <div class="controls">
+          {{ form.cook_time }}{{ form.cook_time.errors }}
+            <p class="help-block">{{ form.cook_time.help_text }}</p>
+        </div>
+      </div>
 
-        {{ form.directions.errors }}
-        <p>{{ form.directions.label_tag|lower }} {{ form.directions }}</p>
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.servings.title}}">{{ form.servings.label|lower }}</label>
+        <div class="controls">
+          {{ form.servings }}{{ form.servings.errors }}
+        </div>
+      </div>
 
-        {{ form.shared.errors }}
-        <p>{{ form.shared.label_tag|lower }} {{ form.shared }} <em>{{ form.shared.help_text }}</em></p>
-        {{ form.related.errors }}
-        <p>{{ form.related.label_tag|lower }} {{ form.related }} <em>{{ form.related.help_text }}</em></p>
-       <br />
-        <p>{{ form.tags.label_tag|lower }} {{ form.tags }}<em>{{ form.tags.help_text }}</em></p>
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.info.title}}">{{ form.info.label|lower }}</label>
+        <div class="controls">
+          {{ form.info }}{{ form.info.errors }}
+        </div>
+      </div>
 
-        <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.directions.title}}">{{ form.directions.label|lower }}</label>
+        <div class="controls">
+          {{ form.directions }}{{ form.directions.errors }}
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.shared.title}}">{{ form.shared.label|lower }}</label>
+        <div class="controls">
+          {{ form.shared }}{{ form.shared.errors }}
+          <p class="help-block">{{ form.shared.help_text }}</p>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.related.title}}">{{ form.related.label|lower }}</label>
+        <div class="controls">
+          {{ form.related }}{{ form.related.errors }}
+          <p class="help-block">{{ form.related.help_text }}</p>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="id_{{ form.tags.title}}">{{ form.tags.label|lower }}</label>
+        <div class="controls">
+          {{ form.tags }}{{ form.tags.errors }}
+          <p class="help-block">{{ form.tags.help_text }}</p>
+        </div>
+      </div>
+  </fieldset>
+
+
+
         <!-- ugh going to do a form here since it is tabular data but still don't like it -->
         <div id="ingredients">
             <p>{{ formset.non_form_errors }}</p>
@@ -118,9 +166,11 @@ makeAutoComplete()
             </table>
      
         </div>
-    </div>
-
-    <p>{{ formset.management_form }}<input type="submit" value="{% trans "save recipe" %}" /></p>
+        <div class="form-actions">
+          {{ formset.management_form }}
+          <button type="submit" class="btn btn-primary">{% trans 'save recipe' %}</button>
+          <button class="btn">{% trans 'cancel' %}</button>
+       </div>
 </form>
 
 {% endblock %}
