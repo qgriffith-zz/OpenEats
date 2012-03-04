@@ -40,3 +40,13 @@ div#settings a:hover, .friend-feed a:hover, .grocery a:hover { color: #005580; t
 /*recipe list profile*/
 .recipe-info {width:60%;}
 .recipe-info a { color:#fff;}
+
+/*recipe form*/
+table#ing-grid td{ font-size: 90%; padding-bottom:15px;}
+table#ing-grid td label {width:auto; margin-left:10px;}
+table#ing-grid .quantity input { width:40px;}
+table#ing-grid .measurement input { width:75px;}
+table#ing-grid .ing-field input, table#ing-grid .preparation input { width:130px;}
+table#ing-grid tr.row2, table#list-grid tr.row2  { background-color:#F9F9F9;}
+table#ing-grid td a.delete-row {padding-left:18px; margin-left:3px; background:url(../images/delete.png) no-repeat left;}
+table#ing-grid a.add-row {padding-left:18px; background:url(../images/add.png) no-repeat left center; }
