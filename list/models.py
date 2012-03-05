@@ -5,7 +5,7 @@ from django_extensions.db.fields import AutoSlugField
 from recipe.models import Recipe
 
 class GroceryList(models.Model):
-    title = models.CharField(_("grocery list"), max_length=250)
+    title = models.CharField(_("grocery list title"), max_length=250)
     slug = AutoSlugField(_('slug'), populate_from='title')
     author = models.ForeignKey(User, verbose_name=_('user'))
     pub_date = models.DateTimeField(auto_now_add=True)

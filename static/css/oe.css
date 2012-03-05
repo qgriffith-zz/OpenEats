@@ -48,5 +48,5 @@ table#ing-grid .quantity input { width:40px;}
 table#ing-grid .measurement input { width:75px;}
 table#ing-grid .ing-field input, table#ing-grid .preparation input { width:130px;}
 table#ing-grid tr.row2, table#list-grid tr.row2  { background-color:#F9F9F9;}
-table#ing-grid td a.delete-row {padding-left:18px; margin-left:3px; background:url(../images/delete.png) no-repeat left;}
-table#ing-grid a.add-row {padding-left:18px; background:url(../images/add.png) no-repeat left center; }
+table#ing-grid td a.delete-row, table#list-grid td a.delete-row  {padding-left:18px; margin-left:3px; background:url(../images/delete.png) no-repeat left;}
+table#ing-grid a.add-row, table#list-grid a.add-row {padding-left:18px; background:url(../images/add.png) no-repeat left center; }

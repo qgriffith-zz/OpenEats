@@ -2,16 +2,17 @@
 {% load i18n %}
 
 {% block content %}
-<div id="aisles">
-    <h2>{% trans 'add new aisle' %}</h2>
-        <form action="" method="post">{% csrf_token %}
-            {{ form.as_p }}
-            <br />
-            <input type="submit" value="{% trans 'new aisle' %}">
-        </form>
+  <h2>{% trans 'add new aisle' %}</h2>
+    <form class="well form-horizontal" action="" method="post">{% csrf_token %}
+      {{ form.as_p }}
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">{% trans 'save' %}</button>
+          <a class="btn" href="{% url grocery_list %}">{% trans 'cancel' %}</a>
+        </div>
+    </form>
 
-    <div id="user_aisles">
-        {% include "list/_aisles.html" %}
-    </div>
+<div id="user_aisles">
+  {% include "list/_aisles.html" %}
 </div>
+
 {%  endblock %}
