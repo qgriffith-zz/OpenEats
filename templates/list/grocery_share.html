@@ -2,10 +2,11 @@
 {% load i18n %}
 
 {% block content %}
-<form action="" method="post">{% csrf_token %}
-{{ form.as_p }}
-   
-    <input type="submit" value="submit"/>
-
+<form class="well form-horizontal" action="" method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">{% trans 'save' %}</button>
+    <a class="btn" href="{% url grocery_list %}">{% trans 'cancel' %}</a>
+  </div>
 </form>
 {%  endblock %}
