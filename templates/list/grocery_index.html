@@ -1,43 +1,45 @@
 {% extends 'list/grocery_base.html' %}
 {% load i18n %}
 {% block title %} {{ block.super }} {% trans 'Grocery List' %}{% endblock %}
+
 {% block content %}
-<div id="grocery-list" >
-    <h1>{{ request.user }} {%trans 'grocery list'%}</h1>
-        {% for glist in glists %}
-        <div class="{% cycle 'grow1' 'grow2' %} grocery-detail"">
-             
-             <h3><a href="{% url grocery_show user=glist.author slug=glist.slug %}">{{ glist }}</a></h3> <a href="{% url grocery_delete id=glist.id %}" onclick="return confirm('Are you sure you want to delete?')">
-             <img class="grocery-delete" src="{{STATIC_URL}}/images/remove.gif" alt="remove"/></a>
-            <hr />
-            <span class="create-date">{% trans 'created on ' %} {{ glist.pub_date }}</span>
-            <ul>
-           {%for item in  glist.items.all|slice:":5" %}
+  <h2>{{ request.user }} {%trans 'grocery list'%}</h2>
+    <div class="well" >
+      {% for glist in glists %}
+        <div class="{% cycle 'grow1' 'grow2' %} grocery-detail">
+          <a href="{% url grocery_delete id=glist.id %}" onclick="return confirm('Are you sure you want to delete?')">
+            <img class="grocery-delete" src="{{STATIC_URL}}/images/remove.gif" alt="remove"/></a>
+          <h3><a href="{% url grocery_show user=glist.author slug=glist.slug %}">{{ glist }}</a></h3>
+          <span class="create-date">{% trans 'created on ' %} {{ glist.pub_date }}</span>
+          <ul>
+            {%for item in  glist.items.all|slice:":5" %}
               <li>{{ item }}</li>
-           {% endfor %}
-            </ul>
+            {% endfor %}
+          </ul>
         </div>
-        {% empty %}
-            <h3>{%trans 'You do not have any grocery list created' %}</h3>
-             <p><a href="{% url grocery_create %}"> {% trans 'create a grocery list' %}</a></p>
-        {% endfor %}
-    {% if gshared %}
+        <hr />
+
+      {% empty %}
+        <h3>{%trans 'You do not have any grocery list created' %}</h3>
+        <p><a href="{% url grocery_create %}"> {% trans 'create a grocery list' %}</a></p>
+      {% endfor %}
+
+      {% if gshared %}
         <h1>{% trans 'shared list' %}</h1>
         {% for shared in gshared %}
-        <div class="{% cycle 'grow1' 'grow2' %} grocery-detail"">
-
-             <h3><a href="{% url grocery_show user=shared.shared_by slug=shared.list.slug %}">{{ shared.list.title }}</a></h3> <a href="{% url grocery_unshare slug=shared.list.slug user=shared.shared_to %}" onclick="return confirm('Are you sure you want to delete?')">
-             <img class="grocery-delete" src="{{STATIC_URL}}/images/remove.gif" alt="remove"/></a>
+          <div class="{% cycle 'grow1' 'grow2' %} grocery-detail">
+            <h3><a href="{% url grocery_show user=shared.shared_by slug=shared.list.slug %}">{{ shared.list.title }}</a></h3>
+            <a href="{% url grocery_unshare slug=shared.list.slug user=shared.shared_to %}" onclick="return confirm('Are you sure you want to delete?')">
+              <img class="grocery-delete" src="{{STATIC_URL}}/images/remove.gif" alt="remove"/></a>
             <span class="create-date">{% trans 'shared by ' %} {{ shared.shared_by }}</span>
-            <hr />
-           <ul>
-           {%for item in  shared.list.items.all|slice:":5" %}
+            <ul>
+             {%for item in  shared.list.items.all|slice:":5" %}
               <li>{{ item }}</li>
-           {% endfor %}
+             {% endfor %}
             </ul>
-        </div>
-        {% endfor %}
-    {% endif %}
-
-    </div>
+          </div>
+          <hr/>
+         {% endfor %}
+      {% endif %}
+  </div>
 {% endblock %}
