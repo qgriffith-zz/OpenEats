@@ -54,3 +54,8 @@ table#ing-grid a.add-row, table#list-grid a.add-row {padding-left:18px; backgrou
 /*grocery list index*/
 .grow2 { background-color:#fff;}
 .grocery-delete{float:right;}
+
+/* grocery detail */
+ul.grocery-item-list { margin:5px;}
+ul.grocery-item-list li{list-style:none; margin-bottom:5px;}
+ul.grocery-item-list input{margin:3px;}

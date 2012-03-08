@@ -4,14 +4,17 @@
 
 {% block content %}
     {% if list.get_shared %}
-        <h3 class="shared-list-heading">{% trans 'this list is currently shared by' %} {{ list.author }} {% trans 'to user' %} {{ list.get_shared_to }}</h3>
+        <div class="alert alert-info">
+            {% trans 'this list is currently shared by' %} {{ list.author }} {% trans 'to user' %} {{ list.get_shared_to }}
+        </div>
     {% endif %}
-<h1 class="grocery-list-heading">{{ list.author}} {% trans 'grocery list -' %} {{ list.title }}</h1>
-    {% if list.author == request.user %}
-            <a href="{% url grocery_delete id=list.id %}" onclick="return confirm('Are you sure you want to delete?')" >
-             <img class="grocery-delete" src="{{STATIC_URL}}/images/remove.gif" alt="remove"/></a>
-    {% endif %}
-
-    {% load grocery_item %}
-    {% item_tag list.items.all %}
+    <h2>{{ list.author}} {% trans 'grocery list -' %} {{ list.title }}</h2>
+    <div class="well">
+        {% if list.author == request.user %}
+          <a href="{% url grocery_delete id=list.id %}" onclick="return confirm('Are you sure you want to delete?')" >
+            <img class="grocery-delete" src="{{STATIC_URL}}/images/remove.gif" alt="remove"/></a>
+        {% endif %}
+        {% load grocery_item %}
+        {% item_tag list.items.all %}
+    </div>
 {% endblock %}
