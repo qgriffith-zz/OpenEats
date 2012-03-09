@@ -58,6 +58,14 @@
      </div> <!--./nav-bar inner -->
    </div> <!--./navbar -->
 
+   {% if messages %}
+     {% for message in messages %}
+       <div class="alert alert-{{  message.tags  }}">
+         {{ message }}
+       </div>
+     {% endfor %}
+   {% endif %}
+
    <div class="container-fluid">
      <div class="row-fluid">
        <div class="span3">
@@ -68,13 +76,7 @@
            {% endblock %}
          </div><!--/.well -->
        </div><!--/span-->
-       {% if messages %}
-         <ul class="messages">
-           {% for message in messages %}
-             <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-           {% endfor %}
-         </ul>
-       {% endif %}
+
        <div class="span9">
          {% block content %}{% endblock %}
        </div>
