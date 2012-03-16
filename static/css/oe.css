@@ -59,3 +59,24 @@ table#ing-grid a.add-row, table#list-grid a.add-row {padding-left:18px; backgrou
 ul.grocery-item-list { margin:5px;}
 ul.grocery-item-list li{list-style:none; margin-bottom:5px;}
 ul.grocery-item-list input{margin:3px;}
+
+/*recipe detail*/
+.recipe-toolbar {padding-left:5px; padding-top:10px; height:45px; background-color:#f5f5f5; border:1px #dcdcdc solid; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+.recipe-toolbar li {margin-right: 15px;}
+.recipe-toolbar .btn-info:hover {color:#fff; font-weight: bold; }
+
+/*cook view*/
+div#recipe-cook{ width: 300px; padding:5px; margin-bottom:5px; border:dotted 1px #E6E5CB; background-color: #FEFDF2; -moz-border-radius: .8em; -webkit-border-radius: .8em; }
+div#recipe-cook ul {text-align: center; color:#484846; font-size: 1.1em;}
+div#recipe-cook li {display:inline; list-style: none; padding-right:15px;}
+div#recipe-cook li span {font-weight:bold;}
+
+
+/* 404 Page */
+div#404-image{ position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -100px;
+  text-align: center;
+}
