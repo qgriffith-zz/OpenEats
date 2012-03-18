@@ -4,12 +4,13 @@
 <html>
     <head>
         <title>{% trans 'Cook View' %} - {{ recipe }} </title>
+        <link rel="stylesheet" href="{{STATIC_URL}}css/oe.css" />
     </head>
     <body>
         {% if recipe.shared == 1 and recipe.author != request.user %}
             <h2>{%trans 'Recipe is marked Private and you are not the author of it!' %}</h2>
          {% else %}
-    <div id="tenfoot"
+    <div id="tenfoot">
         <h1> {{ recipe }} </h1>
         <hr />
         <h2>{% trans 'Ingredients' %}</h2>

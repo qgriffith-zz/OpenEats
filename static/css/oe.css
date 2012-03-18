@@ -71,8 +71,27 @@ div#recipe-cook li {display:inline; list-style: none; font-size: 90%}
 div#recipe-cook li span {font-weight:bold;}
 ul.recipe-groups li {display:inline; list-style: none;}
 
-div#tags {background-color: #f5f5f5; float:right; margin-right:20px; padding:8px; width:250px; border:1px gainsboro solid;  -moz-border-radius: .8em; -webkit-border-radius: .8em; }
 
+div#tags {background-color: #f5f5f5; margin-left:20px; padding:8px; width:250px; border:1px gainsboro solid;  -moz-border-radius: .8em; -webkit-border-radius: .8em; }
+div#recipe-rate{ margin-left:10%; background-color: #f5f5f5; padding:8px 40px 10px 5px; width:200px; border:1px gainsboro solid; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+
+div#recipe-ing{ float:left; width: 40%; margin-right:5px; border:1px gainsboro solid;  -moz-border-radius: .8em; -webkit-border-radius: .8em; padding:10px;}
+div#recipe-ing h2{  font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px; margin-left:8px;}
+div#recipe-ing ul {background-color: #f5f5f5; border:1px solid #E6E5CB; -moz-border-radius: .8em; -webkit-border-radius: .8em; padding:10px; }
+div#recipe-ing li {list-style: none; border-bottom: dotted 1px #E6E5CB; margin-bottom:15px; padding-bottom:14px;  color:#484846;}
+div#recipe-directions { padding:10px; margin-right:55px; margin-top:5px; float:right; color:#484846; width:45%;}
+div#recipe-directions h2{color:#434242; font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px;}
+
+div#recipe-comments{float:left; width:550px; margin-top:5px; clear:both;}
+div#recipe-note {  float:left; clear:left; padding:10px; width:40%; height: 200px;}
+.editable textarea { background-color: #FEFDF2; }
+
+
+/* Cook View */
+div#tenfoot{font-size:xx-large; width:800px;}
+div#tenfoot hr { margin-bottom: 15px;}
+div#tenfoot h2 { margin-bottom: 10px;}
+div#tenfoot ul { margin-bottom: 15px;}
 
 /* 404 Page */
 div#404-image{ position: fixed;
