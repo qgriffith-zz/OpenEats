@@ -10,7 +10,7 @@
 {% block keywords %}<meta name="keywords" content="{% recipe_keywords recipe.id 10 %}"/>{% endblock %}
 {% block jscript %}
   <link rel="stylesheet" href="{{ STATIC_URL }}js/jquery/fancybox/jquery.fancybox.css" />
-  <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/fancybox/jquery.fancybox-1.3.1.pack.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/fancybox/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
   <link href="{{ STATIC_URL }}js/jquery.ui.stars/crystal-stars.css" rel="stylesheet" />
   <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.jeditable.js"> </script>
@@ -111,7 +111,7 @@
 
     <ul class="nav nav-pills recipe-toolbar">
         <li><a class="btn-info" href="/recipe/print/{{ recipe.slug }}/">{%trans 'print' %}</a></li>
-        <li><a class="btn-info" id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a></li>
+        <li><a class="btn-info fancybox.iframe" id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a></li>
 
         {% if recipe.author == request.user %}
          <li><a class="btn-info" href="{% url recipe_edit user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a></li>
@@ -153,7 +153,7 @@
              <p><span>{%trans "Chef:" %}</span> <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
 
              {% if recipe.photo %}
-               <a id="recipe-photo" href="{{recipe.display.url }}"> <img src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe }} photo" /></a>
+               <a id="recipe-photo" href="{{recipe.display.url }}" title="{{ recipe }}"> <img id="recipe-thumb" src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe }} photo" /></a>
             {% else %}
               <a href="{{ STATIC_URL  }}images/parsley.jpg"> <img src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
             {% endif %}

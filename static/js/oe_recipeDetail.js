@@ -6,12 +6,18 @@
  */
 
 $(document).ready(function() {
-    $("a#recipe-photo").fancybox();
+    $("a#recipe-photo").fancybox({
+        'openEffect': 'elastic',
+        'closeEffect': 'fade'
+    });
     $("a#cook-view").fancybox({
-        'autoDimensions': false,
-        'autoScale': false,
+        'autoSize':true,
+        'fitToView':true,
+        'closeBtn': true,
+        'closeClick': true,
+        'height': 1000,
         'width': 1000,
-        'height': 1000
+        'scrolling':auto
     });
 
 });

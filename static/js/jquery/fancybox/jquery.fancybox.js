@@ -1,1077 +1,1414 @@
-/*
- * FancyBox - jQuery Plugin
- * Simple and fancy lightbox alternative
+ /*!
+ * fancyBox - jQuery Plugin
+ * version: 2.0.5 (21/02/2012)
+ * @requires jQuery v1.6 or later
  *
- * Examples and documentation at: http://fancybox.net
- * 
- * Copyright (c) 2008 - 2010 Janis Skarnelis
+ * Examples at http://fancyapps.com/fancybox/
+ * License: www.fancyapps.com/fancybox/#license
  *
- * Version: 1.3.1 (05/03/2010)
- * Requires: jQuery v1.3+
+ * Copyright 2012 Janis Skarnelis - janis@fancyapps.com
  *
- * Dual licensed under the MIT and GPL licenses:
- *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
  */
+(function (window, document, $) {
+	var W = $(window),
+		D = $(document),
+		F = $.fancybox = function () {
+			F.open.apply( this, arguments );
+		},
+		didResize = false,
+		resizeTimer = null,
+		isMobile = typeof document.createTouch !== "undefined";
 
-(function($) {
+	$.extend(F, {
+		// The current version of fancyBox
+		version: '2.0.5',
 
-	var tmp, loading, overlay, wrap, outer, inner, close, nav_left, nav_right,
+		defaults: {
+			padding: 15,
+			margin: 20,
 
-		selectedIndex = 0, selectedOpts = {}, selectedArray = [], currentIndex = 0, currentOpts = {}, currentArray = [],
+			width: 800,
+			height: 600,
+			minWidth: 100,
+			minHeight: 100,
+			maxWidth: 9999,
+			maxHeight: 9999,
 
-		ajaxLoader = null, imgPreloader = new Image(), imgRegExp = /\.(jpg|gif|png|bmp|jpeg)(.*)?$/i, swfRegExp = /[^\.]\.(swf)\s*$/i,
+			autoSize: true,
+			autoResize: !isMobile,
+			autoCenter : !isMobile,
+			fitToView: true,
+			aspectRatio: false,
+			topRatio: 0.5,
 
-		loadingTimer, loadingFrame = 1,
+			fixed: !($.browser.msie && $.browser.version <= 6) && !isMobile,
+			scrolling: 'auto', // 'auto', 'yes' or 'no'
+			wrapCSS: 'fancybox-default',
 
-		start_pos, final_pos, busy = false, shadow = 20, fx = $.extend($('<div/>')[0], { prop: 0 }), titleh = 0, 
+			arrows: true,
+			closeBtn: true,
+			closeClick: false,
+			nextClick : false,
+			mouseWheel: true,
+			autoPlay: false,
+			playSpeed: 3000,
+			preload : 3,
 
-		isIE6 = !$.support.opacity && !window.XMLHttpRequest,
+			modal: false,
+			loop: true,
+			ajax: { dataType: 'html', headers: { 'X-fancyBox': true } },
+			keys: {
+				next: [13, 32, 34, 39, 40], // enter, space, page down, right arrow, down arrow
+				prev: [8, 33, 37, 38], // backspace, page up, left arrow, up arrow
+				close: [27] // escape key
+			},
+
+			// Override some properties
+			index: 0,
+			type: null,
+			href: null,
+			content: null,
+			title: null,
+
+			// HTML templates
+			tpl: {
+				wrap: '<div class="fancybox-wrap"><div class="fancybox-outer"><div class="fancybox-inner"></div></div></div>',
+				image: '<img class="fancybox-image" src="{href}" alt="" />',
+				iframe: '<iframe class="fancybox-iframe" name="fancybox-frame{rnd}" frameborder="0" hspace="0"' + ($.browser.msie ? ' allowtransparency="true"' : '') + '></iframe>',
+				swf: '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="100%" height="100%"><param name="wmode" value="transparent" /><param name="allowfullscreen" value="true" /><param name="allowscriptaccess" value="always" /><param name="movie" value="{href}" /><embed src="{href}" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="always" width="100%" height="100%" wmode="transparent"></embed></object>',
+				error: '<p class="fancybox-error">The requested content cannot be loaded.<br/>Please try again later.</p>',
+				closeBtn: '<div title="Close" class="fancybox-item fancybox-close"></div>',
+				next: '<a title="Next" class="fancybox-nav fancybox-next"><span></span></a>',
+				prev: '<a title="Previous" class="fancybox-nav fancybox-prev"><span></span></a>'
+			},
+
+			// Properties for each animation type
+			// Opening fancyBox
+			openEffect: 'fade', // 'elastic', 'fade' or 'none'
+			openSpeed: 250,
+			openEasing: 'swing',
+			openOpacity: true,
+			openMethod: 'zoomIn',
+
+			// Closing fancyBox
+			closeEffect: 'fade', // 'elastic', 'fade' or 'none'
+			closeSpeed: 250,
+			closeEasing: 'swing',
+			closeOpacity: true,
+			closeMethod: 'zoomOut',
+
+			// Changing next gallery item
+			nextEffect: 'elastic', // 'elastic', 'fade' or 'none'
+			nextSpeed: 300,
+			nextEasing: 'swing',
+			nextMethod: 'changeIn',
+
+			// Changing previous gallery item
+			prevEffect: 'elastic', // 'elastic', 'fade' or 'none'
+			prevSpeed: 300,
+			prevEasing: 'swing',
+			prevMethod: 'changeOut',
+
+			// Enabled helpers
+			helpers: {
+				overlay: {
+					speedIn: 0,
+					speedOut: 300,
+					opacity: 0.8,
+					css: {
+						cursor: 'pointer'
+					},
+					closeClick: true
+				},
+				title: {
+					type: 'float' // 'float', 'inside', 'outside' or 'over'
+				}
+			},
+
+			// Callbacks
+			onCancel: $.noop, // If canceling
+			beforeLoad: $.noop, // Before loading
+			afterLoad: $.noop, // After loading
+			beforeShow: $.noop, // Before changing in current item
+			afterShow: $.noop, // After opening
+			beforeClose: $.noop, // Before closing
+			afterClose: $.noop // After closing
+		},
+
+		//Current state
+		group: {}, // Selected group
+		opts: {}, // Group options
+		coming: null, // Element being loaded
+		current: null, // Currently loaded element
+		isOpen: false, // Is currently open
+		isOpened: false, // Have been fully opened at least once
+		wrap: null,
+		outer: null,
+		inner: null,
+
+		player: {
+			timer: null,
+			isActive: false
+		},
+
+		// Loaders
+		ajaxLoad: null,
+		imgPreload: null,
+
+		// Some collections
+		transitions: {},
+		helpers: {},
 
 		/*
-		 * Private methods 
+		 *	Static methods
 		 */
 
-		fancybox_abort = function() {
-			loading.hide();
+		open: function (group, opts) {
+			//Kill existing instances
+			F.close(true);
 
-			imgPreloader.onerror = imgPreloader.onload = null;
-
-			if (ajaxLoader) {
-				ajaxLoader.abort();
+			//Normalize group
+			if (group && !$.isArray(group)) {
+				group = group instanceof $ ? $(group).get() : [group];
 			}
 
-			tmp.empty();
+			F.isActive = true;
+
+			//Extend the defaults
+			F.opts = $.extend(true, {}, F.defaults, opts);
+
+			//All options are merged recursive except keys
+			if ($.isPlainObject(opts) && typeof opts.keys !== 'undefined') {
+				F.opts.keys = opts.keys ? $.extend({}, F.defaults.keys, opts.keys) : false;
+			}
+
+			F.group = group;
+
+			F._start(F.opts.index || 0);
 		},
 
-		fancybox_error = function() {
-			$.fancybox('<p id="fancybox_error">The requested content cannot be loaded.<br />Please try again later.</p>', {
-				'scrolling'		: 'no',
-				'padding'		: 20,
-				'transitionIn'	: 'none',
-				'transitionOut'	: 'none'
-			});
-		},
-
-		fancybox_get_viewport = function() {
-			return [ $(window).width(), $(window).height(), $(document).scrollLeft(), $(document).scrollTop() ];
-		},
-
-		fancybox_get_zoom_to = function () {
-			var view	= fancybox_get_viewport(),
-				to		= {},
-
-				margin = currentOpts.margin,
-				resize = currentOpts.autoScale,
-
-				horizontal_space	= (shadow + margin) * 2,
-				vertical_space		= (shadow + margin) * 2,
-				double_padding		= (currentOpts.padding * 2),
-				
-				ratio;
-
-			if (currentOpts.width.toString().indexOf('%') > -1) {
-				to.width = ((view[0] * parseFloat(currentOpts.width)) / 100) - (shadow * 2) ;
-				resize = false;
-
-			} else {
-				to.width = currentOpts.width + double_padding;
-			}
-
-			if (currentOpts.height.toString().indexOf('%') > -1) {
-				to.height = ((view[1] * parseFloat(currentOpts.height)) / 100) - (shadow * 2);
-				resize = false;
-
-			} else {
-				to.height = currentOpts.height + double_padding;
-			}
-
-			if (resize && (to.width > (view[0] - horizontal_space) || to.height > (view[1] - vertical_space))) {
-				if (selectedOpts.type == 'image' || selectedOpts.type == 'swf') {
-					horizontal_space	+= double_padding;
-					vertical_space		+= double_padding;
-
-					ratio = Math.min(Math.min( view[0] - horizontal_space, currentOpts.width) / currentOpts.width, Math.min( view[1] - vertical_space, currentOpts.height) / currentOpts.height);
-
-					to.width	= Math.round(ratio * (to.width	- double_padding)) + double_padding;
-					to.height	= Math.round(ratio * (to.height	- double_padding)) + double_padding;
-
-				} else {
-					to.width	= Math.min(to.width,	(view[0] - horizontal_space));
-					to.height	= Math.min(to.height,	(view[1] - vertical_space));
-				}
-			}
-
-			to.top	= view[3] + ((view[1] - (to.height	+ (shadow * 2 ))) * 0.5);
-			to.left	= view[2] + ((view[0] - (to.width	+ (shadow * 2 ))) * 0.5);
-
-			if (currentOpts.autoScale === false) {
-				to.top	= Math.max(view[3] + margin, to.top);
-				to.left	= Math.max(view[2] + margin, to.left);
-			}
-
-			return to;
-		},
-
-		fancybox_format_title = function(title) {
-			if (title && title.length) {
-				switch (currentOpts.titlePosition) {
-					case 'inside':
-						return title;
-					case 'over':
-						return '<span id="fancybox-title-over">' + title + '</span>';
-					default:
-						return '<span id="fancybox-title-wrap"><span id="fancybox-title-left"></span><span id="fancybox-title-main">' + title + '</span><span id="fancybox-title-right"></span></span>';
-				}
-			}
-
-			return false;
-		},
-
-		fancybox_process_title = function() {
-			var title	= currentOpts.title,
-				width	= final_pos.width - (currentOpts.padding * 2),
-				titlec	= 'fancybox-title-' + currentOpts.titlePosition;
-				
-			$('#fancybox-title').remove();
-
-			titleh = 0;
-
-			if (currentOpts.titleShow === false) {
+		cancel: function () {
+			if (F.coming && false === F.trigger('onCancel')) {
 				return;
 			}
 
-			title = $.isFunction(currentOpts.titleFormat) ? currentOpts.titleFormat(title, currentArray, currentIndex, currentOpts) : fancybox_format_title(title);
+			F.coming = null;
 
-			if (!title || title === '') {
+			F.hideLoading();
+
+			if (F.ajaxLoad) {
+				F.ajaxLoad.abort();
+			}
+
+			F.ajaxLoad = null;
+
+			if (F.imgPreload) {
+				F.imgPreload.onload = F.imgPreload.onabort = F.imgPreload.onerror = null;
+			}
+		},
+
+		close: function (a) {
+			F.cancel();
+
+			if (!F.current || false === F.trigger('beforeClose')) {
 				return;
 			}
 
-			$('<div id="fancybox-title" class="' + titlec + '" />').css({
-				'width'			: width,
-				'paddingLeft'	: currentOpts.padding,
-				'paddingRight'	: currentOpts.padding
-			}).html(title).appendTo('body');
+			F.unbindEvents();
 
-			switch (currentOpts.titlePosition) {
-				case 'inside':
-					titleh = $("#fancybox-title").outerHeight(true) - currentOpts.padding;
-					final_pos.height += titleh;
-				break;
+			//If forced or is still opening then remove immediately
+			if (!F.isOpen || (a && a[0] === true)) {
+				$(".fancybox-wrap").stop().trigger('onReset').remove();
 
-				case 'over':
-					$('#fancybox-title').css('bottom', currentOpts.padding);
-				break;
+				F._afterZoomOut();
 
-				default:
-					$('#fancybox-title').css('bottom', $("#fancybox-title").outerHeight(true) * -1);
-				break;
+			} else {
+				F.isOpen = F.isOpened = false;
+
+				$(".fancybox-item, .fancybox-nav").remove();
+
+				F.wrap.stop(true).removeClass('fancybox-opened');
+				F.inner.css('overflow', 'hidden');
+
+				F.transitions[F.current.closeMethod]();
 			}
-
-			$('#fancybox-title').appendTo( outer ).hide();
 		},
 
-		fancybox_set_navigation = function() {
-			$(document).unbind('keydown.fb').bind('keydown.fb', function(e) {
-				if (e.keyCode == 27 && currentOpts.enableEscapeButton) {
-					e.preventDefault();
-					$.fancybox.close();
+		// Start/stop slideshow
+		play: function (a) {
+			var clear = function () {
+					clearTimeout(F.player.timer);
+				},
+				set = function () {
+					clear();
 
-				} else if (e.keyCode == 37) {
-					e.preventDefault();
-					$.fancybox.prev();
+					if (F.current && F.player.isActive) {
+						F.player.timer = setTimeout(F.next, F.current.playSpeed);
+					}
+				},
+				stop = function () {
+					clear();
 
-				} else if (e.keyCode == 39) {
-					e.preventDefault();
-					$.fancybox.next();
+					$('body').unbind('.player');
+
+					F.player.isActive = false;
+
+					F.trigger('onPlayEnd');
+				},
+				start = function () {
+					if (F.current && (F.current.loop || F.current.index < F.group.length - 1)) {
+						F.player.isActive = true;
+
+						$('body').bind({
+							'afterShow.player onUpdate.player': set,
+							'onCancel.player beforeClose.player': stop,
+							'beforeLoad.player': clear
+						});
+
+						set();
+
+						F.trigger('onPlayStart');
+					}
+				};
+
+			if (F.player.isActive || (a && a[0] === false)) {
+				stop();
+			} else {
+				start();
+			}
+		},
+
+		next: function () {
+			if (F.current) {
+				F.jumpto(F.current.index + 1);
+			}
+		},
+
+		prev: function () {
+			if (F.current) {
+				F.jumpto(F.current.index - 1);
+			}
+		},
+
+		jumpto: function (index) {
+			if (!F.current) {
+				return;
+			}
+
+			index = parseInt(index, 10);
+
+			if (F.group.length > 1 && F.current.loop) {
+				if (index >= F.group.length) {
+					index = 0;
+
+				} else if (index < 0) {
+					index = F.group.length - 1;
 				}
-			});
+			}
 
-			if ($.fn.mousewheel) {
-				wrap.unbind('mousewheel.fb');
+			if (typeof F.group[index] !== 'undefined') {
+				F.cancel();
 
-				if (currentArray.length > 1) {
-					wrap.bind('mousewheel.fb', function(e, delta) {
+				F._start(index);
+			}
+		},
+
+		reposition: function (a) {
+			if (F.isOpen) {
+				F.wrap.css(F._getPosition(a));
+			}
+		},
+
+		update: function (e) {
+			if (F.isOpen) {
+				// It's a very bad idea to attach handlers to the window scroll event, run this code after a delay
+				if (!didResize) {
+					resizeTimer = setTimeout(function () {
+						var current = F.current;
+
+						if (didResize) {
+							didResize = false;
+
+							if (current) {
+								if (current.autoResize || (e && e.type === 'orientationchange')) {
+									if (current.autoSize) {
+										F.inner.height('auto');
+										current.height = F.inner.height();
+									}
+
+									F._setDimension();
+
+									if (current.canGrow) {
+										F.inner.height('auto');
+									}
+								}
+
+								if (current.autoCenter) {
+									F.reposition();
+								}
+
+								F.trigger('onUpdate');
+							}
+						}
+					}, 100);
+				}
+
+				didResize = true;
+			}
+		},
+
+		toggle: function () {
+			if (F.isOpen) {
+				F.current.fitToView = !F.current.fitToView;
+
+				F.update();
+			}
+		},
+
+		hideLoading: function () {
+			$("#fancybox-loading").remove();
+		},
+
+		showLoading: function () {
+			F.hideLoading();
+
+			$('<div id="fancybox-loading"><div></div></div>').click(F.cancel).appendTo('body');
+		},
+
+		getViewport: function () {
+			return {
+				x: W.scrollLeft(),
+				y: W.scrollTop(),
+				w: W.width(),
+				h: W.height()
+			};
+		},
+
+		// Unbind the keyboard / clicking actions
+		unbindEvents: function () {
+			if (F.wrap) {
+				F.wrap.unbind('.fb');
+			}
+
+			D.unbind('.fb');
+			W.unbind('.fb');
+		},
+
+		bindEvents: function () {
+			var current = F.current,
+				keys = current.keys;
+
+			if (!current) {
+				return;
+			}
+
+			W.bind('resize.fb, orientationchange.fb', F.update);
+
+			if (keys) {
+				D.bind('keydown.fb', function (e) {
+					var code;
+
+					// Ignore key combinations and key events within form elements
+					if (!e.ctrlKey && !e.altKey && !e.shiftKey && !e.metaKey && $.inArray(e.target.tagName.toLowerCase(), ['input', 'textarea', 'select', 'button']) < 0) {
+						code = e.keyCode;
+
+						if ($.inArray(code, keys.close) > -1) {
+							F.close();
+							e.preventDefault();
+
+						} else if ($.inArray(code, keys.next) > -1) {
+							F.next();
+							e.preventDefault();
+
+						} else if ($.inArray(code, keys.prev) > -1) {
+							F.prev();
+							e.preventDefault();
+						}
+					}
+				});
+			}
+
+			if ($.fn.mousewheel && current.mouseWheel && F.group.length > 1) {
+				F.wrap.bind('mousewheel.fb', function (e, delta) {
+					var target = $(e.target).get(0);
+
+					if (target.clientHeight === 0 || (target.scrollHeight === target.clientHeight && target.scrollWidth === target.clientWidth)) {
 						e.preventDefault();
 
-						if (busy || delta === 0) {
-							return;
-						}
-
-						if (delta > 0) {
-							$.fancybox.prev();
-						} else {
-							$.fancybox.next();
-						}
-					});
-				}
-			}
-
-			if (!currentOpts.showNavArrows) { return; }
-
-			if ((currentOpts.cyclic && currentArray.length > 1) || currentIndex !== 0) {
-				nav_left.show();
-			}
-
-			if ((currentOpts.cyclic && currentArray.length > 1) || currentIndex != (currentArray.length -1)) {
-				nav_right.show();
-			}
+						F[delta > 0 ? 'prev' : 'next']();
+					}
+				});
+			}	
 		},
 
-		fancybox_preload_images = function() {
-			var href, 
-				objNext;
-				
-			if ((currentArray.length -1) > currentIndex) {
-				href = currentArray[ currentIndex + 1 ].href;
+		trigger: function (event) {
+			var ret, obj = F[ $.inArray(event, ['onCancel', 'beforeLoad', 'afterLoad']) > -1 ? 'coming' : 'current' ];
 
-				if (typeof href !== 'undefined' && href.match(imgRegExp)) {
-					objNext = new Image();
-					objNext.src = href;
-				}
+			if (!obj) {
+				return;
 			}
 
-			if (currentIndex > 0) {
-				href = currentArray[ currentIndex - 1 ].href;
-
-				if (typeof href !== 'undefined' && href.match(imgRegExp)) {
-					objNext = new Image();
-					objNext.src = href;
-				}
+			if ($.isFunction( obj[event] )) {
+				ret = obj[event].apply(obj, Array.prototype.slice.call(arguments, 1));
 			}
+
+			if (ret === false) {
+				return false;
+			}
+
+			if (obj.helpers) {
+				$.each(obj.helpers, function (helper, opts) {
+					if (opts && typeof F.helpers[helper] !== 'undefined' && $.isFunction(F.helpers[helper][event])) {
+						F.helpers[helper][event](opts, obj);
+					}
+				});
+			}
+
+			$.event.trigger(event + '.fb');
 		},
 
-		_finish = function () {
-			inner.css('overflow', (currentOpts.scrolling == 'auto' ? (currentOpts.type == 'image' || currentOpts.type == 'iframe' || currentOpts.type == 'swf' ? 'hidden' : 'auto') : (currentOpts.scrolling == 'yes' ? 'auto' : 'visible')));
+		isImage: function (str) {
+			return str && str.match(/\.(jpg|gif|png|bmp|jpeg)(.*)?$/i);
+		},
 
-			if (!$.support.opacity) {
-				inner.get(0).style.removeAttribute('filter');
-				wrap.get(0).style.removeAttribute('filter');
+		isSWF: function (str) {
+			return str && str.match(/\.(swf)(.*)?$/i);
+		},
+
+		_start: function (index) {
+			var coming = {},
+				element = F.group[index] || null,
+				isDom,
+				href,
+				type,
+				rez;
+
+			if (element && (element.nodeType || element instanceof $)) {
+				isDom = true;
+
+				if ($.metadata) {
+					coming = $(element).metadata();
+				}
 			}
 
-			$('#fancybox-title').show();
+			coming = $.extend(true, {}, F.opts, {index : index, element : element}, ($.isPlainObject(element) ? element : coming));
 
-			if (currentOpts.hideOnContentClick)	{
-				inner.one('click', $.fancybox.close);
+			// Re-check overridable options
+			$.each(['href', 'title', 'content', 'type'], function(i,v) {
+				coming[v] = F.opts[ v ] || (isDom && $(element).attr( v )) || coming[ v ] || null;
+			});
+
+			// Convert margin property to array - top, right, bottom, left
+			if (typeof coming.margin === 'number') {
+				coming.margin = [coming.margin, coming.margin, coming.margin, coming.margin];
 			}
-			if (currentOpts.hideOnOverlayClick)	{
-				overlay.one('click', $.fancybox.close);
+
+			// 'modal' propery is just a shortcut
+			if (coming.modal) {
+				$.extend(true, coming, {
+					closeBtn : false,
+					closeClick: false,
+					nextClick : false,
+					arrows : false,
+					mouseWheel : false,
+					keys : null,
+					helpers: {
+						overlay : {
+							css: {
+								cursor : 'auto'
+							},
+							closeClick : false
+						}
+					}
+				});
 			}
 
-			if (currentOpts.showCloseButton) {
-				close.show();
+			//Give a chance for callback or helpers to update coming item (type, title, etc)
+			F.coming = coming;
+
+			if (false === F.trigger('beforeLoad')) {
+				F.coming = null;
+				return;
 			}
 
-			fancybox_set_navigation();
+			type = coming.type;
+			href = coming.href || element;
 
-			$(window).bind("resize.fb", $.fancybox.center);
+			///Check if content type is set, if not, try to get
+			if (!type) {
+				if (isDom) {
+					rez = $(element).data('fancybox-type');
 
-			if (currentOpts.centerOnScroll) {
-				$(window).bind("scroll.fb", $.fancybox.center);
+					if (!rez && element.className) {
+						rez = element.className.match(/fancybox\.(\w+)/);
+						type = rez ? rez[1] : null;
+					}
+				}
+
+				if (!type && $.type(href) === "string") {
+					if (F.isImage(href)) {
+						type = 'image';
+
+					} else if (F.isSWF(href)) {
+						type = 'swf';
+
+					} else if (href.match(/^#/)) {
+						type = 'inline';
+					}
+				}
+
+				// ...if not - display element itself
+				if (!type) {
+					type = isDom ? 'inline' : 'html';
+				}
+
+				coming.type = type;
+			}
+
+			// Check before try to load; 'inline' and 'html' types need content, others - href
+			if (type === 'inline' || type === 'html') {
+				if (!coming.content) {
+					if (type === 'inline') {
+						coming.content = $( $.type(href) === "string" ? href.replace(/.*(?=#[^\s]+$)/, '') : href ); //strip for ie7
+
+					} else {
+						coming.content = element;
+					}
+				}
+
+				if (!coming.content || !coming.content.length) {
+					type = null;
+				}
+
+			} else if (!href) {
+				type = null;
+			}
+
+			/*
+				Add reference to the group, so it`s possible to access from callbacks, example:
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+
+			*/
+
+			coming.group = F.group;
+			coming.isDom = isDom;
+			coming.href = href;
+
+			if (type === 'image') {
+				F._loadImage();
+
+			} else if (type === 'ajax') {
+				F._loadAjax();
+
+			} else if (type) {
+				F._afterLoad();
+
 			} else {
-				$(window).unbind("scroll.fb");
-			}
-
-			if ($.isFunction(currentOpts.onComplete)) {
-				currentOpts.onComplete(currentArray, currentIndex, currentOpts);
-			}
-
-			busy = false;
-
-			fancybox_preload_images();
-		},
-
-		fancybox_draw = function(pos) {
-			var width	= Math.round(start_pos.width	+ (final_pos.width	- start_pos.width)	* pos),
-				height	= Math.round(start_pos.height	+ (final_pos.height	- start_pos.height)	* pos),
-
-				top		= Math.round(start_pos.top	+ (final_pos.top	- start_pos.top)	* pos),
-				left	= Math.round(start_pos.left	+ (final_pos.left	- start_pos.left)	* pos);
-
-			wrap.css({
-				'width'		: width		+ 'px',
-				'height'	: height	+ 'px',
-				'top'		: top		+ 'px',
-				'left'		: left		+ 'px'
-			});
-
-			width	= Math.max(width - currentOpts.padding * 2, 0);
-			height	= Math.max(height - (currentOpts.padding * 2 + (titleh * pos)), 0);
-
-			inner.css({
-				'width'		: width		+ 'px',
-				'height'	: height	+ 'px'
-			});
-
-			if (typeof final_pos.opacity !== 'undefined') {
-				wrap.css('opacity', (pos < 0.5 ? 0.5 : pos));
+				F._error( 'type' );
 			}
 		},
 
-		fancybox_get_obj_pos = function(obj) {
-			var pos		= obj.offset();
+		_error: function ( type ) {
+			F.hideLoading();
 
-			pos.top		+= parseFloat( obj.css('paddingTop') )	|| 0;
-			pos.left	+= parseFloat( obj.css('paddingLeft') )	|| 0;
+			$.extend(F.coming, {
+				type : 'html',
+				autoSize : true,
+				minHeight : 0,
+				hasError : type,
+				content : F.coming.tpl.error
+			});
 
-			pos.top		+= parseFloat( obj.css('border-top-width') )	|| 0;
-			pos.left	+= parseFloat( obj.css('border-left-width') )	|| 0;
+			F._afterLoad();
+		},
 
-			pos.width	= obj.width();
-			pos.height	= obj.height();
+		_loadImage: function () {
+			// Reset preload image so it is later possible to check "complete" property
+			F.imgPreload = new Image();
+
+			F.imgPreload.onload = function () {
+				this.onload = this.onerror = null;
+
+				F.coming.width = this.width;
+				F.coming.height = this.height;
+
+				F._afterLoad();
+			};
+
+			F.imgPreload.onerror = function () {
+				this.onload = this.onerror = null;
+
+				F._error( 'image' );
+			};
+
+			F.imgPreload.src = F.coming.href;
+
+			if (!F.imgPreload.width) {
+				F.showLoading();
+			}
+		},
+
+		_loadAjax: function () {
+			F.showLoading();
+
+			F.ajaxLoad = $.ajax($.extend({}, F.coming.ajax, {
+				url: F.coming.href,
+				error: function (jqXHR, textStatus) {
+					if (textStatus !== 'abort') {
+						F._error( 'ajax', jqXHR );
+
+					} else {
+						F.hideLoading();
+					}
+				},
+				success: function (data, textStatus) {
+					if (textStatus === 'success') {
+						F.coming.content = data;
+
+						F._afterLoad();
+					}
+				}
+			}));
+		},
+
+		_preloadImages: function() {
+			var group = F.group,
+				current = F.current,
+				len = group.length,
+				item,
+				href;
+
+			if (!current.preload || group.length < 2) {
+				return;
+			}
+
+			for (var i = 1; i <= Math.min(current.preload, len - 1); i++) {
+				item = group[ (current.index + i ) % len ];
+				href = $( item ).attr('href') || item;
+
+				if (href) {
+					new Image().src = href;
+				}
+			}
+		},
+
+		_afterLoad: function () {
+			F.hideLoading();
+
+			if (!F.coming || false === F.trigger('afterLoad', F.current)) {
+				F.coming = false;
+
+				return;
+			}
+
+			if (F.isOpened) {
+				$(".fancybox-item").remove();
+
+				F.wrap.stop(true).removeClass('fancybox-opened');
+				F.inner.css('overflow', 'hidden');
+
+				F.transitions[F.current.prevMethod]();
+
+			} else {
+				$(".fancybox-wrap").stop().trigger('onReset').remove();
+
+				F.trigger('afterClose');
+			}
+
+			F.unbindEvents();
+
+			F.isOpen = false;
+			F.current = F.coming;
+
+			//Build the neccessary markup
+			F.wrap = $(F.current.tpl.wrap).addClass('fancybox-' + (isMobile ? 'mobile' : 'desktop') + ' fancybox-tmp ' + F.current.wrapCSS).appendTo('body');
+			F.outer = $('.fancybox-outer', F.wrap).css('padding', F.current.padding + 'px');
+			F.inner = $('.fancybox-inner', F.wrap);
+
+			F._setContent();
+		},
+
+		_setContent: function () {
+			var content, loadingBay, iframe, current = F.current, type = current.type;
+
+			switch (type) {
+				case 'inline':
+				case 'ajax':
+				case 'html':
+					content = current.content;
+
+					if (content instanceof $) {
+						content = content.show().detach();
+
+						if (content.parent().hasClass('fancybox-inner')) {
+							content.parents('.fancybox-wrap').trigger('onReset').remove();
+						}
+
+						$(F.wrap).bind('onReset', function () {
+							content.appendTo('body').hide();
+						});
+					}
+
+					if (current.autoSize) {
+						loadingBay = $('<div class="fancybox-tmp ' + F.current.wrapCSS + '"></div>').appendTo('body').append(content);
+						current.width = loadingBay.width();
+						current.height = loadingBay.height();
+
+						// Re-check to fix 1px bug in some browsers
+						loadingBay.width( F.current.width );
+
+						if (loadingBay.height() > current.height) {
+							loadingBay.width(current.width + 1);
+
+							current.width = loadingBay.width();
+							current.height = loadingBay.height();
+						}
+
+						content = loadingBay.contents().detach();
+
+						loadingBay.remove();
+					}
+
+				break;
+
+				case 'image':
+					content = current.tpl.image.replace('{href}', current.href);
+
+					current.aspectRatio = true;
+				break;
+
+				case 'swf':
+					content = current.tpl.swf.replace(/\{width\}/g, current.width).replace(/\{height\}/g, current.height).replace(/\{href\}/g, current.href);
+				break;
+			}
+
+			if (type === 'iframe') {
+				content = $(current.tpl.iframe.replace('{rnd}', new Date().getTime()) ).attr('scrolling', current.scrolling);
+
+				current.scrolling = 'auto';
+
+				// Set auto height for iframes
+				if (current.autoSize) {
+					content.width( current.width );
+
+					F.showLoading();
+
+					content.data('ready', false).appendTo(F.inner).bind({
+						onCancel : function() {
+							$(this).unbind();
+
+							F._afterZoomOut();
+						},
+						load : function() {
+							var iframe = $(this), height;
+
+							try {
+								if (this.contentWindow.document.location) {
+									height = iframe.contents().find('body').height() + 12;
+
+									iframe.height( height );
+								}
+
+							} catch (e) {
+								current.autoSize = false;
+							}
+
+							if (iframe.data('ready') === false) {
+								F.hideLoading();
+
+								if (height) {
+									F.current.height = height;
+								}
+
+								F._beforeShow();
+
+								iframe.data('ready', true);
+
+							} else if (height) {
+								F.update();
+							}
+						}
+
+					}).attr('src', current.href);
+
+					return;
+
+				} else {
+					content.attr('src', current.href);
+				}
+
+			} else if (type === 'image' || type === 'swf') {
+				current.autoSize = false;
+				current.scrolling = 'visible';
+			}
+
+			F.inner.append(content);
+
+			F._beforeShow();
+		},
+
+		_beforeShow : function() {
+			F.coming = null;
+
+			//Give a chance for helpers or callbacks to update elements
+			F.trigger('beforeShow');
+
+			//Set initial dimensions and hide
+			F._setDimension();
+
+			F.wrap.hide().removeClass('fancybox-tmp');
+
+			F.bindEvents();
+			F._preloadImages();
+
+			F.transitions[ F.isOpened ? F.current.nextMethod : F.current.openMethod ]();
+		},
+
+		_setDimension: function () {
+			var wrap = F.wrap,
+				outer = F.outer,
+				inner = F.inner,
+				current = F.current,
+				viewport = F.getViewport(),
+				margin = current.margin,
+				padding2 = current.padding * 2,
+				width = current.width,
+				height = current.height,
+				maxWidth = current.maxWidth,
+				maxHeight = current.maxHeight,
+				minWidth = current.minWidth,
+				minHeight = current.minHeight,
+				ratio,
+				height_,
+				space;
+
+			viewport.w -= (margin[1] + margin[3]);
+			viewport.h -= (margin[0] + margin[2]);
+
+			if (width.toString().indexOf('%') > -1) {
+				width = (((viewport.w - padding2) * parseFloat(width)) / 100);
+			}
+
+			if (height.toString().indexOf('%') > -1) {
+				height = (((viewport.h - padding2) * parseFloat(height)) / 100);
+			}
+
+			ratio = width / height;
+
+			width += padding2;
+			height += padding2;
+
+			if (current.fitToView) {
+				maxWidth = Math.min(viewport.w, maxWidth);
+				maxHeight = Math.min(viewport.h, maxHeight);
+			}
+
+			if (current.aspectRatio) {
+				if (width > maxWidth) {
+					width = maxWidth;
+					height = ((width - padding2) / ratio) + padding2;
+				}
+
+				if (height > maxHeight) {
+					height = maxHeight;
+					width = ((height - padding2) * ratio) + padding2;
+				}
+
+				if (width < minWidth) {
+					width = minWidth;
+					height = ((width - padding2) / ratio) + padding2;
+				}
+
+				if (height < minHeight) {
+					height = minHeight;
+					width = ((height - padding2) * ratio) + padding2;
+				}
+
+			} else {
+				width = Math.max(minWidth, Math.min(width, maxWidth));
+				height = Math.max(minHeight, Math.min(height, maxHeight));
+			}
+
+			width = Math.round(width);
+			height = Math.round(height);
+
+			//Reset dimensions
+			$(wrap.add(outer).add(inner)).width('auto').height('auto');
+
+			inner.width(width - padding2).height(height - padding2);
+			wrap.width(width);
+
+			height_ = wrap.height(); // Real wrap height
+
+			//Fit wrapper inside
+			if (width > maxWidth || height_ > maxHeight) {
+				while ((width > maxWidth || height_ > maxHeight) && width > minWidth && height_ > minHeight) {
+					height = height - 10;
+
+					if (current.aspectRatio) {
+						width = Math.round(((height - padding2) * ratio) + padding2);
+
+						if (width < minWidth) {
+							width = minWidth;
+							height = ((width - padding2) / ratio) + padding2;
+						}
+
+					} else {
+						width = width - 10;
+					}
+
+					inner.width(width - padding2).height(height - padding2);
+					wrap.width(width);
+
+					height_ = wrap.height();
+				}
+			}
+
+			current.dim = {
+				width: width,
+				height: height_
+			};
+
+			current.canGrow = current.autoSize && height > minHeight && height < maxHeight;
+			current.canShrink = false;
+			current.canExpand = false;
+
+			if ((width - padding2) < current.width || (height - padding2) < current.height) {
+				current.canExpand = true;
+
+			} else if ((width > viewport.w || height_ > viewport.h) && width > minWidth && height > minHeight) {
+				current.canShrink = true;
+			}
+
+			space = height_ - padding2;
+
+			F.innerSpace = space - inner.height();
+			F.outerSpace = space - outer.height();
+		},
+
+		_getPosition: function (a) {
+			var current = F.current,
+				viewport = F.getViewport(),
+				margin = current.margin,
+				width = F.wrap.width() + margin[1] + margin[3],
+				height = F.wrap.height() + margin[0] + margin[2],
+				rez = {
+					position: 'absolute',
+					top: margin[0] + viewport.y,
+					left: margin[3] + viewport.x
+				};
+
+			if (current.fixed && (!a || a[0] === false) && height <= viewport.h && width <= viewport.w) {
+				rez = {
+					position: 'fixed',
+					top: margin[0],
+					left: margin[3]
+				};
+			}
+
+			rez.top = Math.ceil(Math.max(rez.top, rez.top + ((viewport.h - height) * current.topRatio))) + 'px';
+			rez.left = Math.ceil(Math.max(rez.left, rez.left + ((viewport.w - width) * 0.5))) + 'px';
+
+			return rez;
+		},
+
+		_afterZoomIn: function () {
+			var current = F.current, scrolling = current.scrolling;
+
+			F.isOpen = F.isOpened = true;
+
+			F.wrap.addClass('fancybox-opened').css('overflow', 'visible');
+
+			F.update();
+
+			F.inner.css('overflow', scrolling === 'yes' ? 'scroll' : (scrolling === 'no' ? 'hidden' : scrolling));
+
+			//Assign a click event
+			if (current.closeClick || current.nextClick) {
+				F.inner.css('cursor', 'pointer').bind('click.fb', current.nextClick ? F.next : F.close);
+			}
+
+			//Create a close button
+			if (current.closeBtn) {
+				$(current.tpl.closeBtn).appendTo(F.outer).bind('click.fb', F.close);
+			}
+
+			//Create navigation arrows
+			if (current.arrows && F.group.length > 1) {
+				if (current.loop || current.index > 0) {
+					$(current.tpl.prev).appendTo(F.inner).bind('click.fb', F.prev);
+				}
+
+				if (current.loop || current.index < F.group.length - 1) {
+					$(current.tpl.next).appendTo(F.inner).bind('click.fb', F.next);
+				}
+			}
+
+			F.trigger('afterShow');
+
+			if (F.opts.autoPlay && !F.player.isActive) {
+				F.opts.autoPlay = false;
+
+				F.play();
+			}
+		},
+
+		_afterZoomOut: function () {
+			F.trigger('afterClose');
+
+			F.wrap.trigger('onReset').remove();
+
+			$.extend(F, {
+				group: {},
+				opts: {},
+				current: null,
+				isActive: false,
+				isOpened: false,
+				isOpen: false,
+				wrap: null,
+				outer: null,
+				inner: null
+			});
+		}
+	});
+
+	/*
+	 *	Default transitions
+	 */
+
+	F.transitions = {
+		getOrigPosition: function () {
+			var current = F.current,
+				element = current.element,
+				padding = current.padding,
+				orig = $(current.orig),
+				pos = {},
+				width = 50,
+				height = 50,
+				viewport;
+
+			if (!orig.length && current.isDom && $(element).is(':visible')) {
+				orig = $(element).find('img:first');
+
+				if (!orig.length) {
+					orig = $(element);
+				}
+			}
+
+			if (orig.length) {
+				pos = orig.offset();
+
+				if (orig.is('img')) {
+					width = orig.outerWidth();
+					height = orig.outerHeight();
+				}
+
+			} else {
+				viewport = F.getViewport();
+
+				pos.top = viewport.y + (viewport.h - height) * 0.5;
+				pos.left = viewport.x + (viewport.w - width) * 0.5;
+			}
+
+			pos = {
+				top: Math.ceil(pos.top - padding) + 'px',
+				left: Math.ceil(pos.left - padding) + 'px',
+				width: Math.ceil(width + padding * 2) + 'px',
+				height: Math.ceil(height + padding * 2) + 'px'
+			};
 
 			return pos;
 		},
 
-		fancybox_get_zoom_from = function() {
-			var orig = selectedOpts.orig ? $(selectedOpts.orig) : false,
-				from = {},
-				pos,
-				view;
+		step: function (now, fx) {
+			var ratio, innerValue, outerValue;
 
-			if (orig && orig.length) {
-				pos = fancybox_get_obj_pos(orig);
+			if (fx.prop === 'width' || fx.prop === 'height') {
+				innerValue = outerValue = Math.ceil(now - (F.current.padding * 2));
 
-				from = {
-					width	: (pos.width	+ (currentOpts.padding * 2)),
-					height	: (pos.height	+ (currentOpts.padding * 2)),
-					top		: (pos.top		- currentOpts.padding - shadow),
-					left	: (pos.left		- currentOpts.padding - shadow)
-				};
-				
-			} else {
-				view = fancybox_get_viewport();
+				if (fx.prop === 'height') {
+					ratio = (now - fx.start) / (fx.end - fx.start);
 
-				from = {
-					width	: 1,
-					height	: 1,
-					top		: view[3] + view[1] * 0.5,
-					left	: view[2] + view[0] * 0.5
-				};
-			}
-
-			return from;
-		},
-
-		fancybox_show = function() {
-			loading.hide();
-
-			if (wrap.is(":visible") && $.isFunction(currentOpts.onCleanup)) {
-				if (currentOpts.onCleanup(currentArray, currentIndex, currentOpts) === false) {
-					$.event.trigger('fancybox-cancel');
-
-					busy = false;
-					return;
-				}
-			}
-
-			currentArray	= selectedArray;
-			currentIndex	= selectedIndex;
-			currentOpts		= selectedOpts;
-
-			inner.get(0).scrollTop	= 0;
-			inner.get(0).scrollLeft	= 0;
-
-			if (currentOpts.overlayShow) {
-				if (isIE6) {
-					$('select:not(#fancybox-tmp select)').filter(function() {
-						return this.style.visibility !== 'hidden';
-					}).css({'visibility':'hidden'}).one('fancybox-cleanup', function() {
-						this.style.visibility = 'inherit';
-					});
-				}
-
-				overlay.css({
-					'background-color'	: currentOpts.overlayColor,
-					'opacity'			: currentOpts.overlayOpacity
-				}).unbind().show();
-			}
-
-			final_pos = fancybox_get_zoom_to();
-
-			fancybox_process_title();
-
-			if (wrap.is(":visible")) {
-				$( close.add( nav_left ).add( nav_right ) ).hide();
-
-				var pos = wrap.position(),
-					equal;
-
-				start_pos = {
-					top		:	pos.top ,
-					left	:	pos.left,
-					width	:	wrap.width(),
-					height	:	wrap.height()
-				};
-
-				equal = (start_pos.width == final_pos.width && start_pos.height == final_pos.height);
-
-				inner.fadeOut(currentOpts.changeFade, function() {
-					var finish_resizing = function() {
-						inner.html( tmp.contents() ).fadeIn(currentOpts.changeFade, _finish);
-					};
-					
-					$.event.trigger('fancybox-change');
-
-					inner.empty().css('overflow', 'hidden');
-
-					if (equal) {
-						inner.css({
-							top			: currentOpts.padding,
-							left		: currentOpts.padding,
-							width		: Math.max(final_pos.width	- (currentOpts.padding * 2), 1),
-							height		: Math.max(final_pos.height	- (currentOpts.padding * 2) - titleh, 1)
-						});
-						
-						finish_resizing();
-
-					} else {
-						inner.css({
-							top			: currentOpts.padding,
-							left		: currentOpts.padding,
-							width		: Math.max(start_pos.width	- (currentOpts.padding * 2), 1),
-							height		: Math.max(start_pos.height	- (currentOpts.padding * 2), 1)
-						});
-						
-						fx.prop = 0;
-
-						$(fx).animate({ prop: 1 }, {
-							 duration	: currentOpts.changeSpeed,
-							 easing		: currentOpts.easingChange,
-							 step		: fancybox_draw,
-							 complete	: finish_resizing
-						});
+					if (fx.start > fx.end) {
+						ratio = 1 - ratio;
 					}
-				});
 
-				return;
-			}
-
-			wrap.css('opacity', 1);
-
-			if (currentOpts.transitionIn == 'elastic') {
-				start_pos = fancybox_get_zoom_from();
-
-				inner.css({
-						top			: currentOpts.padding,
-						left		: currentOpts.padding,
-						width		: Math.max(start_pos.width	- (currentOpts.padding * 2), 1),
-						height		: Math.max(start_pos.height	- (currentOpts.padding * 2), 1)
-					})
-					.html( tmp.contents() );
-
-				wrap.css(start_pos).show();
-
-				if (currentOpts.opacity) {
-					final_pos.opacity = 0;
+					innerValue -= F.innerSpace * ratio;
+					outerValue -= F.outerSpace * ratio;
 				}
 
-				fx.prop = 0;
+				F.inner[fx.prop](innerValue);
+				F.outer[fx.prop](outerValue);
+			}
+		},
 
-				$(fx).animate({ prop: 1 }, {
-					 duration	: currentOpts.speedIn,
-					 easing		: currentOpts.easingIn,
-					 step		: fancybox_draw,
-					 complete	: _finish
+		zoomIn: function () {
+			var wrap = F.wrap,
+				current = F.current,
+				startPos,
+				endPos,
+				dim = current.dim;
+
+			if (current.openEffect === 'elastic') {
+				endPos = $.extend({}, dim, F._getPosition(true));
+
+				//Remove "position" property
+				delete endPos.position;
+
+				startPos = this.getOrigPosition();
+
+				if (current.openOpacity) {
+					startPos.opacity = 0;
+					endPos.opacity = 1;
+				}
+
+				F.outer.add(F.inner).width('auto').height('auto');
+
+				wrap.css(startPos).show();
+
+				wrap.animate(endPos, {
+					duration: current.openSpeed,
+					easing: current.openEasing,
+					step: this.step,
+					complete: F._afterZoomIn
 				});
 
 			} else {
-				inner.css({
-						top			: currentOpts.padding,
-						left		: currentOpts.padding,
-						width		: Math.max(final_pos.width	- (currentOpts.padding * 2), 1),
-						height		: Math.max(final_pos.height	- (currentOpts.padding * 2) - titleh, 1)
-					})
-					.html( tmp.contents() );
+				wrap.css($.extend({}, dim, F._getPosition()));
 
-				wrap.css( final_pos ).fadeIn( currentOpts.transitionIn == 'none' ? 0 : currentOpts.speedIn, _finish );
-			}
-		},
+				if (current.openEffect === 'fade') {
+					wrap.fadeIn(current.openSpeed, F._afterZoomIn);
 
-		fancybox_process_inline = function() {
-			tmp.width(	selectedOpts.width );
-			tmp.height(	selectedOpts.height );
-
-			if (selectedOpts.width	== 'auto') {
-				selectedOpts.width = tmp.width();
-			}
-			if (selectedOpts.height	== 'auto') {
-				selectedOpts.height	= tmp.height();
-			}
-
-			fancybox_show();
-		},
-		
-		fancybox_process_image = function() {
-			busy = true;
-
-			selectedOpts.width	= imgPreloader.width;
-			selectedOpts.height	= imgPreloader.height;
-
-			$("<img />").attr({
-				'id'	: 'fancybox-img',
-				'src'	: imgPreloader.src,
-				'alt'	: selectedOpts.title
-			}).appendTo( tmp );
-
-			fancybox_show();
-		},
-
-		fancybox_start = function() {
-			fancybox_abort();
-
-			var obj	= selectedArray[ selectedIndex ],
-				href, 
-				type, 
-				title,
-				str,
-				emb,
-				selector,
-				data;
-
-			selectedOpts = $.extend({}, $.fn.fancybox.defaults, (typeof $(obj).data('fancybox') == 'undefined' ? selectedOpts : $(obj).data('fancybox')));
-			title = obj.title || $(obj).title || selectedOpts.title || '';
-			
-			if (obj.nodeName && !selectedOpts.orig) {
-				selectedOpts.orig = $(obj).children("img:first").length ? $(obj).children("img:first") : $(obj);
-			}
-
-			if (title === '' && selectedOpts.orig) {
-				title = selectedOpts.orig.attr('alt');
-			}
-
-			if (obj.nodeName && (/^(?:javascript|#)/i).test(obj.href)) {
-				href = selectedOpts.href || null;
-			} else {
-				href = selectedOpts.href || obj.href || null;
-			}
-
-			if (selectedOpts.type) {
-				type = selectedOpts.type;
-
-				if (!href) {
-					href = selectedOpts.content;
-				}
-				
-			} else if (selectedOpts.content) {
-				type	= 'html';
-
-			} else if (href) {
-				if (href.match(imgRegExp)) {
-					type = 'image';
-
-				} else if (href.match(swfRegExp)) {
-					type = 'swf';
-
-				} else if ($(obj).hasClass("iframe")) {
-					type = 'iframe';
-
-				} else if (href.match(/#/)) {
-					obj = href.substr(href.indexOf("#"));
-
-					type = $(obj).length > 0 ? 'inline' : 'ajax';
 				} else {
-					type = 'ajax';
+					wrap.show();
+					F._afterZoomIn();
 				}
+			}
+		},
+
+		zoomOut: function () {
+			var wrap = F.wrap,
+				current = F.current,
+				endPos;
+
+			if (current.closeEffect === 'elastic') {
+				if (wrap.css('position') === 'fixed') {
+					wrap.css(F._getPosition(true));
+				}
+
+				endPos = this.getOrigPosition();
+
+				if (current.closeOpacity) {
+					endPos.opacity = 0;
+				}
+
+				wrap.animate(endPos, {
+					duration: current.closeSpeed,
+					easing: current.closeEasing,
+					step: this.step,
+					complete: F._afterZoomOut
+				});
+
 			} else {
-				type = 'inline';
+				wrap.fadeOut(current.closeEffect === 'fade' ? current.closeSpeed : 0, F._afterZoomOut);
 			}
+		},
 
-			selectedOpts.type	= type;
-			selectedOpts.href	= href;
-			selectedOpts.title	= title;
+		changeIn: function () {
+			var wrap = F.wrap,
+				current = F.current,
+				startPos;
 
-			if (selectedOpts.autoDimensions && selectedOpts.type !== 'iframe' && selectedOpts.type !== 'swf') {
-				selectedOpts.width		= 'auto';
-				selectedOpts.height		= 'auto';
-			}
+			if (current.nextEffect === 'elastic') {
+				startPos = F._getPosition(true);
+				startPos.opacity = 0;
+				startPos.top = (parseInt(startPos.top, 10) - 200) + 'px';
 
-			if (selectedOpts.modal) {
-				selectedOpts.overlayShow		= true;
-				selectedOpts.hideOnOverlayClick	= false;
-				selectedOpts.hideOnContentClick	= false;
-				selectedOpts.enableEscapeButton	= false;
-				selectedOpts.showCloseButton	= false;
-			}
+				wrap.css(startPos).show().animate({
+					opacity: 1,
+					top: '+=200px'
+				}, {
+					duration: current.nextSpeed,
+					easing: current.nextEasing,
+					complete: F._afterZoomIn
+				});
 
-			if ($.isFunction(selectedOpts.onStart)) {
-				if (selectedOpts.onStart(selectedArray, selectedIndex, selectedOpts) === false) {
-					busy = false;
-					return;
+			} else {
+				wrap.css(F._getPosition());
+
+				if (current.nextEffect === 'fade') {
+					wrap.hide().fadeIn(current.nextSpeed, F._afterZoomIn);
+
+				} else {
+					wrap.show();
+					F._afterZoomIn();
 				}
 			}
-
-			tmp.css('padding', (shadow + selectedOpts.padding + selectedOpts.margin));
-
-			$('.fancybox-inline-tmp').unbind('fancybox-cancel').bind('fancybox-change', function() {
-				$(this).replaceWith(inner.children());
-			});
-
-			switch (type) {
-				case 'html' :
-					tmp.html( selectedOpts.content );
-					fancybox_process_inline();
-				break;
-
-				case 'inline' :
-					$('<div class="fancybox-inline-tmp" />').hide().insertBefore( $(obj) ).bind('fancybox-cleanup', function() {
-						$(this).replaceWith(inner.children());
-					}).bind('fancybox-cancel', function() {
-						$(this).replaceWith(tmp.children());
-					});
-
-					$(obj).appendTo(tmp);
-
-					fancybox_process_inline();
-				break;
-
-				case 'image':
-					busy = false;
-
-					$.fancybox.showActivity();
-
-					imgPreloader = new Image();
-
-					imgPreloader.onerror = function() {
-						fancybox_error();
-					};
-
-					imgPreloader.onload = function() {
-						imgPreloader.onerror = null;
-						imgPreloader.onload = null;
-						fancybox_process_image();
-					};
-
-					imgPreloader.src = href;
-		
-				break;
-
-				case 'swf':
-					str = '<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="' + selectedOpts.width + '" height="' + selectedOpts.height + '"><param name="movie" value="' + href + '"></param>';
-					emb = '';
-					
-					$.each(selectedOpts.swf, function(name, val) {
-						str += '<param name="' + name + '" value="' + val + '"></param>';
-						emb += ' ' + name + '="' + val + '"';
-					});
-
-					str += '<embed src="' + href + '" type="application/x-shockwave-flash" width="' + selectedOpts.width + '" height="' + selectedOpts.height + '"' + emb + '></embed></object>';
-
-					tmp.html(str);
-
-					fancybox_process_inline();
-				break;
-
-				case 'ajax':
-					selector	= href.split('#', 2);
-					data		= selectedOpts.ajax.data || {};
-
-					if (selector.length > 1) {
-						href = selector[0];
-
-						if (typeof data == "string") {
-							data += '&selector=' + selector[1];
-						} else {
-							data.selector = selector[1];
-						}
-					}
-
-					busy = false;
-					$.fancybox.showActivity();
-
-					ajaxLoader = $.ajax($.extend(selectedOpts.ajax, {
-						url		: href,
-						data	: data,
-						error	: fancybox_error,
-						success : function(data, textStatus, XMLHttpRequest) {
-							if (ajaxLoader.status == 200) {
-								tmp.html( data );
-								fancybox_process_inline();
-							}
-						}
-					}));
-
-				break;
-
-				case 'iframe' :
-					$('<iframe id="fancybox-frame" name="fancybox-frame' + new Date().getTime() + '" frameborder="0" hspace="0" scrolling="' + selectedOpts.scrolling + '" src="' + selectedOpts.href + '"></iframe>').appendTo(tmp);
-					fancybox_show();
-				break;
-			}
 		},
 
-		fancybox_animate_loading = function() {
-			if (!loading.is(':visible')){
-				clearInterval(loadingTimer);
-				return;
+		changeOut: function () {
+			var wrap = F.wrap,
+				current = F.current,
+				cleanUp = function () {
+					$(this).trigger('onReset').remove();
+				};
+
+			wrap.removeClass('fancybox-opened');
+
+			if (current.prevEffect === 'elastic') {
+				wrap.animate({
+					'opacity': 0,
+					top: '+=200px'
+				}, {
+					duration: current.prevSpeed,
+					easing: current.prevEasing,
+					complete: cleanUp
+				});
+
+			} else {
+				wrap.fadeOut(current.prevEffect === 'fade' ? current.prevSpeed : 0, cleanUp);
 			}
-
-			$('div', loading).css('top', (loadingFrame * -40) + 'px');
-
-			loadingFrame = (loadingFrame + 1) % 12;
-		},
-
-		fancybox_init = function() {
-			if ($("#fancybox-wrap").length) {
-				return;
-			}
-
-			$('body').append(
-				tmp			= $('<div id="fancybox-tmp"></div>'),
-				loading		= $('<div id="fancybox-loading"><div></div></div>'),
-				overlay		= $('<div id="fancybox-overlay"></div>'),
-				wrap		= $('<div id="fancybox-wrap"></div>')
-			);
-
-			if (!$.support.opacity) {
-				wrap.addClass('fancybox-ie');
-				loading.addClass('fancybox-ie');
-			}
-
-			outer = $('<div id="fancybox-outer"></div>')
-				.append('<div class="fancy-bg" id="fancy-bg-n"></div><div class="fancy-bg" id="fancy-bg-ne"></div><div class="fancy-bg" id="fancy-bg-e"></div><div class="fancy-bg" id="fancy-bg-se"></div><div class="fancy-bg" id="fancy-bg-s"></div><div class="fancy-bg" id="fancy-bg-sw"></div><div class="fancy-bg" id="fancy-bg-w"></div><div class="fancy-bg" id="fancy-bg-nw"></div>')
-				.appendTo( wrap );
-
-			outer.append(
-				inner		= $('<div id="fancybox-inner"></div>'),
-				close		= $('<a id="fancybox-close"></a>'),
-
-				nav_left	= $('<a href="javascript:;" id="fancybox-left"><span class="fancy-ico" id="fancybox-left-ico"></span></a>'),
-				nav_right	= $('<a href="javascript:;" id="fancybox-right"><span class="fancy-ico" id="fancybox-right-ico"></span></a>')
-			);
-
-			close.click($.fancybox.close);
-			loading.click($.fancybox.cancel);
-
-			nav_left.click(function(e) {
-				e.preventDefault();
-				$.fancybox.prev();
-			});
-
-			nav_right.click(function(e) {
-				e.preventDefault();
-				$.fancybox.next();
-			});
-
-			if (isIE6) {
-				overlay.get(0).style.setExpression('height',	"document.body.scrollHeight > document.body.offsetHeight ? document.body.scrollHeight : document.body.offsetHeight + 'px'");
-				loading.get(0).style.setExpression('top',		"(-20 + (document.documentElement.clientHeight ? document.documentElement.clientHeight/2 : document.body.clientHeight/2 ) + ( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop )) + 'px'");
-
-				outer.prepend('<iframe id="fancybox-hide-sel-frame" src="javascript:\'\';" scrolling="no" frameborder="0" ></iframe>');
-			}
-		};
+		}
+	};
 
 	/*
-	 * Public methods 
+	 *	Overlay helper
 	 */
 
-	$.fn.fancybox = function(options) {
-		$(this)
-			.data('fancybox', $.extend({}, options, ($.metadata ? $(this).metadata() : {})))
-			.unbind('click.fb').bind('click.fb', function(e) {
-				e.preventDefault();
+	F.helpers.overlay = {
+		overlay: null,
 
-				if (busy) {
-					return;
+		update: function () {
+			var width, scrollWidth, offsetWidth;
+
+			//Reset width/height so it will not mess
+			this.overlay.width(0).height(0);
+
+			if ($.browser.msie) {
+				scrollWidth = Math.max(document.documentElement.scrollWidth, document.body.scrollWidth);
+				offsetWidth = Math.max(document.documentElement.offsetWidth, document.body.offsetWidth);
+
+				width = scrollWidth < offsetWidth ? W.width() : scrollWidth;
+
+			} else {
+				width = D.width();
+			}
+
+			this.overlay.width(width).height(D.height());
+		},
+
+		beforeShow: function (opts) {
+			if (this.overlay) {
+				return;
+			}
+
+			opts = $.extend(true, {
+				speedIn : 'fast',
+				closeClick : true,
+				opacity : 1,
+				css : {
+					background: 'black'
+				}
+			}, opts);
+
+			this.overlay = $('<div id="fancybox-overlay"></div>').css(opts.css).appendTo('body');
+
+			this.update();
+
+			if (opts.closeClick) {
+				this.overlay.bind('click.fb', F.close);
+			}
+
+			W.bind("resize.fb", $.proxy(this.update, this));
+
+			this.overlay.fadeTo(opts.speedIn, opts.opacity);
+		},
+
+		onUpdate: function () {
+			//Update as content may change document dimensions
+			this.update();
+		},
+
+		afterClose: function (opts) {
+			if (this.overlay) {
+
+				this.overlay.fadeOut(opts.speedOut || 0, function () {
+					$(this).remove();
+				});
+			}
+
+			this.overlay = null;
+		}
+	};
+
+	/*
+	 *	Title helper
+	 */
+
+	F.helpers.title = {
+		beforeShow: function (opts) {
+			var title, text = F.current.title;
+
+			if (text) {
+				title = $('<div class="fancybox-title fancybox-title-' + opts.type + '-wrap">' + text + '</div>').appendTo('body');
+
+				if (opts.type === 'float') {
+					//This helps for some browsers
+					title.width(title.width());
+
+					title.wrapInner('<span class="child"></span>');
+
+					//Increase bottom margin so this title will also fit into viewport
+					F.current.margin[2] += Math.abs(parseInt(title.css('margin-bottom'), 10));
 				}
 
-				busy = true;
+				title.appendTo(opts.type === 'over' ? F.inner : (opts.type === 'outside' ? F.wrap : F.outer));
+			}
+		}
+	};
 
-				$(this).blur();
+	// jQuery plugin initialization
+	$.fn.fancybox = function (options) {
+		var that = $(this),
+			selector = this.selector || '',
+			index,
+			run = function(e) {
+				var what = this, relType = 'rel', relVal = what[ relType ], idx = index;
 
-				selectedArray	= [];
-				selectedIndex	= 0;
+				if (!(e.ctrlKey || e.altKey || e.shiftKey || e.metaKey)) {
+					e.preventDefault();
 
-				var rel = $(this).attr('rel') || '';
+					if (!relVal) {
+						relType = 'data-fancybox-group';
+						relVal = $(what).attr('data-fancybox-group');
+					}
 
-				if (!rel || rel == '' || rel === 'nofollow') {
-					selectedArray.push(this);
+					if (relVal && relVal !== '' && relVal !== 'nofollow') {
+						what = selector.length ? $(selector) : that;
+						what = what.filter('[' + relType + '="' + relVal + '"]');
+						idx = what.index(this);
+					}
 
-				} else {
-					selectedArray	= $("a[rel=" + rel + "], area[rel=" + rel + "]");
-					selectedIndex	= selectedArray.index( this );
+					options.index = idx;
+
+					F.open(what, options);
 				}
+			};
 
-				fancybox_start();
+		options = options || {};
+		index = options.index || 0;
 
-				return false;
-			});
+		if (selector) {
+			D.undelegate(selector, 'click.fb-start').delegate(selector, 'click.fb-start', run);
+
+		} else {
+			that.unbind('click.fb-start').bind('click.fb-start', run);
+		}
 
 		return this;
 	};
 
-	$.fancybox = function(obj) {
-		if (busy) {
-			return;
-		}
-
-		busy = true;
-
-		var opts = typeof arguments[1] !== 'undefined' ? arguments[1] : {};
-
-		selectedArray	= [];
-		selectedIndex	= opts.index || 0;
-
-		if ($.isArray(obj)) {
-			for (var i = 0, j = obj.length; i < j; i++) {
-				if (typeof obj[i] == 'object') {
-					$(obj[i]).data('fancybox', $.extend({}, opts, obj[i]));
-				} else {
-					obj[i] = $({}).data('fancybox', $.extend({content : obj[i]}, opts));
-				}
-			}
-
-			selectedArray = jQuery.merge(selectedArray, obj);
-
-		} else {
-			if (typeof obj == 'object') {
-				$(obj).data('fancybox', $.extend({}, opts, obj));
-			} else {
-				obj = $({}).data('fancybox', $.extend({content : obj}, opts));
-			}
-
-			selectedArray.push(obj);
-		}
-
-		if (selectedIndex > selectedArray.length || selectedIndex < 0) {
-			selectedIndex = 0;
-		}
-
-		fancybox_start();
-	};
-
-	$.fancybox.showActivity = function() {
-		clearInterval(loadingTimer);
-
-		loading.show();
-		loadingTimer = setInterval(fancybox_animate_loading, 66);
-	};
-
-	$.fancybox.hideActivity = function() {
-		loading.hide();
-	};
-
-	$.fancybox.next = function() {
-		return $.fancybox.pos( currentIndex + 1);
-	};
-	
-	$.fancybox.prev = function() {
-		return $.fancybox.pos( currentIndex - 1);
-	};
-
-	$.fancybox.pos = function(pos) {
-		if (busy) {
-			return;
-		}
-
-		pos = parseInt(pos, 10);
-
-		if (pos > -1 && currentArray.length > pos) {
-			selectedIndex = pos;
-			fancybox_start();
-		}
-
-		if (currentOpts.cyclic && currentArray.length > 1 && pos < 0) {
-			selectedIndex = currentArray.length - 1;
-			fancybox_start();
-		}
-
-		if (currentOpts.cyclic && currentArray.length > 1 && pos >= currentArray.length) {
-			selectedIndex = 0;
-			fancybox_start();
-		}
-
-		return;
-	};
-
-	$.fancybox.cancel = function() {
-		if (busy) {
-			return;
-		}
-
-		busy = true;
-
-		$.event.trigger('fancybox-cancel');
-
-		fancybox_abort();
-
-		if (selectedOpts && $.isFunction(selectedOpts.onCancel)) {
-			selectedOpts.onCancel(selectedArray, selectedIndex, selectedOpts);
-		}
-
-		busy = false;
-	};
-
-	// Note: within an iframe use - parent.$.fancybox.close();
-	$.fancybox.close = function() {
-		if (busy || wrap.is(':hidden')) {
-			return;
-		}
-
-		busy = true;
-
-		if (currentOpts && $.isFunction(currentOpts.onCleanup)) {
-			if (currentOpts.onCleanup(currentArray, currentIndex, currentOpts) === false) {
-				busy = false;
-				return;
-			}
-		}
-
-		fancybox_abort();
-
-		$(close.add( nav_left ).add( nav_right )).hide();
-
-		$('#fancybox-title').remove();
-
-		wrap.add(inner).add(overlay).unbind();
-
-		$(window).unbind("resize.fb scroll.fb");
-		$(document).unbind('keydown.fb');
-
-		function _cleanup() {
-			overlay.fadeOut('fast');
-
-			wrap.hide();
-
-			$.event.trigger('fancybox-cleanup');
-
-			inner.empty();
-
-			if ($.isFunction(currentOpts.onClosed)) {
-				currentOpts.onClosed(currentArray, currentIndex, currentOpts);
-			}
-
-			currentArray	= selectedOpts	= [];
-			currentIndex	= selectedIndex	= 0;
-			currentOpts		= selectedOpts	= {};
-
-			busy = false;
-		}
-
-		inner.css('overflow', 'hidden');
-
-		if (currentOpts.transitionOut == 'elastic') {
-			start_pos = fancybox_get_zoom_from();
-
-			var pos = wrap.position();
-
-			final_pos = {
-				top		:	pos.top ,
-				left	:	pos.left,
-				width	:	wrap.width(),
-				height	:	wrap.height()
-			};
-
-			if (currentOpts.opacity) {
-				final_pos.opacity = 1;
-			}
-
-			fx.prop = 1;
-
-			$(fx).animate({ prop: 0 }, {
-				 duration	: currentOpts.speedOut,
-				 easing		: currentOpts.easingOut,
-				 step		: fancybox_draw,
-				 complete	: _cleanup
-			});
-
-		} else {
-			wrap.fadeOut( currentOpts.transitionOut == 'none' ? 0 : currentOpts.speedOut, _cleanup);
-		}
-	};
-
-	$.fancybox.resize = function() {
-		var c, h;
-		
-		if (busy || wrap.is(':hidden')) {
-			return;
-		}
-
-		busy = true;
-
-		c = inner.wrapInner("<div style='overflow:auto'></div>").children();
-		h = c.height();
-
-		wrap.css({height:	h + (currentOpts.padding * 2) + titleh});
-		inner.css({height:	h});
-
-		c.replaceWith(c.children());
-
-		$.fancybox.center();
-	};
-
-	$.fancybox.center = function() {
-		busy = true;
-
-		var view	= fancybox_get_viewport(),
-			margin	= currentOpts.margin,
-			to		= {};
-
-		to.top	= view[3] + ((view[1] - ((wrap.height() - titleh) + (shadow * 2 ))) * 0.5);
-		to.left	= view[2] + ((view[0] - (wrap.width() + (shadow * 2 ))) * 0.5);
-
-		to.top	= Math.max(view[3] + margin, to.top);
-		to.left	= Math.max(view[2] + margin, to.left);
-
-		wrap.css(to);
-
-		busy = false;
-	};
-
-	$.fn.fancybox.defaults = {
-		padding				:	10,
-		margin				:	20,
-		opacity				:	false,
-		modal				:	false,
-		cyclic				:	false,
-		scrolling			:	'auto',	// 'auto', 'yes' or 'no'
-
-		width				:	560,
-		height				:	340,
-
-		autoScale			:	true,
-		autoDimensions		:	true,
-		centerOnScroll		:	false,
-
-		ajax				:	{},
-		swf					:	{ wmode: 'transparent' },
-
-		hideOnOverlayClick	:	true,
-		hideOnContentClick	:	false,
-
-		overlayShow			:	true,
-		overlayOpacity		:	0.3,
-		overlayColor		:	'#666',
-
-		titleShow			:	true,
-		titlePosition		:	'outside',	// 'outside', 'inside' or 'over'
-		titleFormat			:	null,
-
-		transitionIn		:	'fade',	// 'elastic', 'fade' or 'none'
-		transitionOut		:	'fade',	// 'elastic', 'fade' or 'none'
-
-		speedIn				:	300,
-		speedOut			:	300,
-
-		changeSpeed			:	300,
-		changeFade			:	'fast',
-
-		easingIn			:	'swing',
-		easingOut			:	'swing',
-
-		showCloseButton		:	true,
-		showNavArrows		:	true,
-		enableEscapeButton	:	true,
-
-		onStart				:	null,
-		onCancel			:	null,
-		onComplete			:	null,
-		onCleanup			:	null,
-		onClosed			:	null
-	};
-
-	$(document).ready(function() {
-		fancybox_init();
-	});
-
-})(jQuery);
+}(window, document, jQuery));
