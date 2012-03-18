@@ -5,9 +5,9 @@ from imagekit import processors
 
 class ResizeThumb(processors.Resize):
     ''' Thumbnail resize proccessor'''
-    height = 260
-    width = 180
-    crop = False
+    height = 210
+    width = 210
+    crop = True
 
 class ResizeIndexThumb(processors.Resize):
     ''' Thumbnail resize proccessor'''

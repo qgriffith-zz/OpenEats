@@ -65,11 +65,13 @@ ul.grocery-item-list input{margin:3px;}
 .recipe-toolbar li {margin-right: 15px;}
 .recipe-toolbar .btn-info:hover {color:#fff; font-weight: bold; }
 
-/*cook view*/
-div#recipe-cook{ width: 300px; padding:5px; margin-bottom:5px; border:dotted 1px #E6E5CB; background-color: #FEFDF2; -moz-border-radius: .8em; -webkit-border-radius: .8em; }
-div#recipe-cook ul {text-align: center; color:#484846; font-size: 1.1em;}
-div#recipe-cook li {display:inline; list-style: none; padding-right:15px;}
+/*recipe view info*/
+div#recipe-cook{ margin-bottom:5px; border:dotted 1px #E6E5CB; background-color: #f5f5f5; -moz-border-radius: .8em; -webkit-border-radius: .8em; }
+div#recipe-cook li {display:inline; list-style: none; font-size: 90%}
 div#recipe-cook li span {font-weight:bold;}
+ul.recipe-groups li {display:inline; list-style: none;}
+
+div#tags {background-color: #f5f5f5; float:right; margin-right:20px; padding:8px; width:250px; border:1px gainsboro solid;  -moz-border-radius: .8em; -webkit-border-radius: .8em; }
 
 
 /* 404 Page */

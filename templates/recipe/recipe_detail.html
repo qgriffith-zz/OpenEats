@@ -114,8 +114,9 @@
 
 {% block content %}
     <div id="alert alert-info" style="display:none;"></div>
-    <h2>{{ recipe.title }}</h2>
-
+    <div class="page-header">
+      <h1>{{ recipe.title }}</h1>
+    </div>
     <ul class="nav nav-pills recipe-toolbar">
         <li><a class="btn-info" href="/recipe/print/{{ recipe.slug }}/">{%trans 'print' %}</a></li>
         <li><a class="btn-info" id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a></li>
@@ -130,7 +131,38 @@
             <li>{% report_link request.user recipe.id %}</li>
         {% endif %}
     </ul>
+    <div id="tags">
+        <p><i class="icon-tags"></i> {% trans 'tags:' %}</p>
+        {% for tag in recipe.tags.all|slice:":10" %}
+           <a href="{% url recipe_tags tag=tag.slug %}" rel="tag" alt="{tag}">{{ tag }}</a>
+        {% endfor %}
 
+    </div>
+    <ul class="thumbnails">
+      <li class="span3">
+          <div class="thumbnail">
+              <p><span>{%trans "Chef:" %}</span> <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+            {% if recipe.photo %}
+              <a id="recipe-photo" href="{{recipe.display.url }}"> <img src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe }} photo" /></a>
+            {% else %}
+              <a id="recipe-photo" href="{{ STATIC_URL  }}images/parsley.jpg"> <img src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
+            {% endif %}
+           <div class="caption">
+            <div id="recipe-cook">
+               <ul>
+                <li><i class="icon-info-sign"></i> <span>{%trans "serves" %}</span> {{ recipe.servings }}</li>
+                <li><i class="icon-time"></i> <span>{%trans "cook time" %}</span> {{ recipe.cook_time }} minute{{ recipe.cook_time|pluralize }}</li>
+               </ul>
+            </div>
+                <ul class="recipe-groups">
+               <li><span>{%trans "Course:" %}</span> <a href="{% url course_recipes slug=recipe.course.slug %}">{{ recipe.course }}</a></li>
+               <li><span>{%trans "Cuisine:" %}</span> <a href="{% url cuisine_recipes slug=recipe.cuisine.slug %}">{{ recipe.cuisine }}</a></li>
+               </ul>
+               <p>{{recipe.info|sanitize_html|safe}}</p>
+          </div>
+          </div>
+      </li>
+    </ul>
 
 {% endblock %}
 
