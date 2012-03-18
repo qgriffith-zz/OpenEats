@@ -17,7 +17,7 @@ $(document).ready(function() {
         'closeClick': true,
         'height': 1000,
         'width': 1000,
-        'scrolling':auto
+        'scrolling':'auto'
     });
 
 });
