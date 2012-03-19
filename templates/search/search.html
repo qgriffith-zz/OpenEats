@@ -24,41 +24,39 @@
             $(".{{ result.object.slug }}-rate").stars("selectID", selectid); //set the select value to the avg rate
         });
     </script>
-    <div class="recipe" id="recipe-{{result.object.id}}">
-        {% if result.object.photo %}
-            <img id="list-thumb"src="{{ result.object.list_thumbnail.url }}" alt="{{ result.object.photo.name }}" />
-        {% else %}
-            <img id="list-thumb"src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ result.object.title }} photo" />
-        {% endif %}
-        <h4><a href="{{ result.object.get_absolute_url }}">{{result.object.title}}</a></h4>
-        <p class="chef">{%trans 'Chef:' %} <a href="{{ result.object.author.get_profile.get_absolute_url }}">{{ result.object.author }}</a> </p>
-        <p>{{ recipe.info|sanitize_html|safe }}</p>
-        <form>
-            <div class="{{ result.object.slug }}-rate recipe-rate">
-                <p class="rating-title""><strong>{%trans 'Average Rating:' %}</strong> <span class="rating-cap"></span></p>
-                <select name="selrate">
-                    <option value="1">{% trans 'Poor' %}</option>
-                    <option value="2">{% trans 'Fair' %}</option>
-                    <option value="3">{% trans 'OK' %}</option>
-                    <option value="4">{% trans 'Good' %}</option>
-                    <option value="5">{% trans 'Wow' %}</option>
-                </select>
-            </div>
-        </form>
-        <br />
-        <a class="recipe-more" href="{{ result.object.get_absolute_url }}"><em><b>{%trans 'Read More' %}</b></em></a>
-        <br />
+    <div class="recipe well" id="recipe-{{result.object.id}}">
+        <h3><a href="{{ result.object.get_absolute_url  }}">{{result.object.title}}</a></h3>
+        <ul class="thumbnails">
+            <li class="span3">
+                <div>
+                  {% if result.object.photo %}
+                    <img id="list-thumb"src="{{result.object.list_thumbnail.url }}" alt="{{  result.object.photo.name }}" />
+                  {% else %}
+                    <img id="list-thumb"src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ result.object.title }} photo" />
+                  {% endif %}
+                  <p class="chef">{%trans 'Chef:' %} <a href="{{result.object.author.get_profile.get_absolute_url }}">{{  result.object.author }}</a></p>
+                  <form>
+                      <div class="{{ result.object.slug }}-rate recipe-rate">
+                         <p class="rating-title"><strong>{%trans 'Average Rating:' %}</strong> <span class="rating-cap"></span></p>
+                            <select name="selrate">
+                              <option value="1">{% trans 'Poor' %}</option>
+                              <option value="2">{% trans 'Fair' %}</option>
+                              <option value="3">{% trans 'OK' %}</option>
+                              <option value="4">{% trans 'Good' %}</option>
+                              <option value="5">{% trans 'Wow' %}</option>
+                            </select>
+                       </div>
+                   </form>
+                </div>
+            </li>
+        </ul>
+       <div class="recipe-info">
+           <p>{{ result.object.info|striptags|truncatewords:'100' }}</p>
+           <p><a class="btn btn-primary btn-large" href="{{ result.object.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
+       </div>
     </div>
     {% empty %}
         <p>{%trans 'No Results found for search query' %} {{ query }} </p>
     {% endfor %}
 
-    {# pagination #}
-    {% if page.has_previous or page.has_next %}
-    <div>
-        {% if page.has_previous %}<a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">{% endif %}&laquo; Previous{% if page.has_previous %}</a>{% endif %}
-        |
-        {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">{% endif %}Next &raquo;{% if page.has_next %}</a>{% endif %}
-    </div>
-    {% endif %}
 {% endblock %}
