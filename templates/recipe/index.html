@@ -38,9 +38,9 @@
 
     <div id="tag-cloud" class="accordion">
       <div class="accordion-heading">
-          <a class="btn-primary accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#tags" > <i class="icon-tags icon-white"></i> {% trans 'recipe tags' %}</a>
+          <a class="btn-primary accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#tagcloud" > <i class="icon-tags icon-white"></i> {% trans 'recipe tags' %}</a>
       </div>
-      <div id="tags" class="accordion-body collapse">
+      <div id="tagcloud" class="accordion-body collapse">
         {% get_tagcloud as tags for 'recipe' %}
         <ul class="well">
           {% for tag in tags %}
