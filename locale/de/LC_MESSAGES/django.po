@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-09-25 10:12-0500\n"
+"POT-Creation-Date: 2012-03-31 12:48-0500\n"
 "PO-Revision-Date: 2011-08-20 09:04\n"
 "Last-Translator:   <qgriffith@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -163,7 +163,7 @@ msgstr "Rezept"
 msgid "Aisle with this name already exists for your account"
 msgstr "Aisle mit diesem Namen existiert bereits für Ihr Konto"
 
-#: list/forms.py:95
+#: list/forms.py:95 recipe/forms.py:61
 msgid "email address"
 msgstr "E-Mail Adresse"
 
@@ -175,23 +175,21 @@ msgstr "Lebensmittelgeschäft Liste aus"
 msgid "Can not get grocery list id from invalid form data"
 msgstr "Can't get Einkaufsliste von ungültigen Daten bilden id"
 
-#: list/forms.py:118
+#: list/forms.py:118 recipe/forms.py:86
 msgid "Can not get to_email from invalid form data"
 msgstr "Can't get to_email von ungültigen Formulardaten"
 
-#: list/forms.py:128
+#: list/forms.py:128 recipe/forms.py:98
 msgid "Invalid header found."
 msgstr "Ungültiger Header gefunden."
 
-#: list/forms.py:129
+#: list/forms.py:129 recipe/forms.py:99
 msgid "Email Sent"
 msgstr "E-Mail gesendet"
 
-#: list/models.py:8 list/models.py:46 list/models.py:57 list/models.py:74
-#: templates/list/grocery_addrecipe.html:3
-#: templates/list/grocery_detail.html:3 templates/list/grocery_index.html:6
-#: templates/profiles/profile_detail.html:63 templates/sidebar/grocery.html:80
-msgid "grocery list"
+#: list/models.py:8
+#, fuzzy
+msgid "grocery list title"
 msgstr "Einkaufsliste"
 
 #: list/models.py:9 news/models.py:7 recipe/models.py:19
@@ -202,6 +200,14 @@ msgstr "Schnecke"
 #: list/models.py:36
 msgid "aisle"
 msgstr "Gang"
+
+#: list/models.py:46 list/models.py:57 list/models.py:74
+#: templates/list/grocery_addrecipe.html:3
+#: templates/list/grocery_detail.html:3 templates/list/grocery_index.html:6
+#: templates/list/grocerylist_form.html:19
+#: templates/profiles/profile_detail.html:74 templates/sidebar/grocery.html:37
+msgid "grocery list"
+msgstr "Einkaufsliste"
 
 #: list/models.py:47
 msgid "item"
@@ -246,18 +252,36 @@ msgid "content"
 msgstr "Inhalt"
 
 #: news/models.py:9
+msgid "frontpage"
+msgstr ""
+
+#: news/models.py:10
 msgid "image"
 msgstr "Bild"
 
 #: pagination/templates/pagination/pagination.html:6
 #: pagination/templates/pagination/pagination.html:8
+#: templates/pagination/pagination.html:7
+#: templates/pagination/pagination.html:9
 msgid "previous"
 msgstr "vorhergehenden"
 
 #: pagination/templates/pagination/pagination.html:22
 #: pagination/templates/pagination/pagination.html:24
+#: templates/pagination/pagination.html:23
+#: templates/pagination/pagination.html:25
 msgid "next"
 msgstr "nächste"
+
+#: recipe/forms.py:72
+#, fuzzy
+msgid "Can not get the recipe id from invalid form data"
+msgstr "Can't get Einkaufsliste von ungültigen Daten bilden id"
+
+#: recipe/forms.py:90
+#, fuzzy
+msgid " recipe: "
+msgstr "Rezept"
 
 #: recipe/models.py:14
 msgid "Share"
@@ -283,11 +307,11 @@ msgstr "Natürlich"
 msgid "cuisine"
 msgstr "Küche"
 
-#: recipe/models.py:24
+#: recipe/models.py:24 templates/profiles/profile_detail.html:47
 msgid "info"
 msgstr "info"
 
-#: recipe/models.py:25 templates/recipe/recipe_detail.html:169
+#: recipe/models.py:25 templates/recipe/recipe_detail.html:167
 #: templates/recipe/recipe_print.html:24
 msgid "cook time"
 msgstr "Garzeit"
@@ -366,26 +390,22 @@ msgstr ""
 msgid "return to site"
 msgstr "Rückkehr zum Ort"
 
-#: templates/base.html:11
+#: templates/base.html:13
 msgid "Top Recipe Feed"
 msgstr "Top Rezept-Feed"
 
-#: templates/base.html:57
-msgid "Search"
-msgstr "Suche"
-
-#: templates/base.html:69 templates/profiles/create_profile.html:5
+#: templates/base.html:48 templates/profiles/create_profile.html:5
 #: templates/profiles/edit_profile.html:6
-#: templates/profiles/profile_detail.html:6
-#: templates/profiles/profile_detail.html:37
+#: templates/profiles/profile_detail.html:7
+#: templates/profiles/profile_detail.html:39
 msgid "profile"
 msgstr "Profil"
 
-#: templates/base.html:70
+#: templates/base.html:49
 msgid "grocery lists"
 msgstr "Einkaufszettel"
 
-#: templates/base.html:71 templates/profiles/profile_detail.html:74
+#: templates/base.html:51 templates/profiles/profile_detail.html:86
 msgid "logout"
 msgstr "Abmelden"
 
@@ -396,23 +416,6 @@ msgstr "Anmelden"
 #: templates/accounts/signIn_page.html:20
 msgid "sign up"
 msgstr "Registriere dich"
-
-#: templates/form/popadd.html:8
-msgid "Add"
-msgstr "Hinzufügen"
-
-#: templates/form/popadd.html:12
-#, python-format
-msgid "Add %(field)s"
-msgstr "Schreibe %(field)s "
-
-#: templates/form/popadd.html:18
-msgid "submit"
-msgstr "Eintragen"
-
-#: templates/form/popadd.html:18
-msgid "Cancel"
-msgstr "Abbrechen"
 
 #: templates/friends/_feed.html:8
 msgid "new recipe added- "
@@ -430,7 +433,7 @@ msgstr "von 5 -"
 msgid "new shared list- "
 msgstr "neue gemeinsame Liste-"
 
-#: templates/friends/feed.html:4
+#: templates/friends/feed.html:5
 msgid "feed for "
 msgstr "Futtermittel für"
 
@@ -438,27 +441,28 @@ msgstr "Futtermittel für"
 msgid "chefs I'm following-"
 msgstr "Köche, ich bin nach-"
 
-#: templates/friends/list.html:11
+#: templates/friends/list.html:14
 msgid "un-follow"
 msgstr "UN-folgen"
 
-#: templates/friends/list.html:17
+#: templates/friends/list.html:22
 msgid "chefs following me-"
 msgstr "Köche, mir zu folgen-"
 
-#: templates/friends/list.html:21
+#: templates/friends/list.html:29
 msgid "follow"
 msgstr "folgen"
 
-#: templates/friends/list.html:21
+#: templates/friends/list.html:29
 msgid "block"
 msgstr "Block"
 
-#: templates/friends/list.html:30
-msgid "chefs I'm blocking --"
+#: templates/friends/list.html:37
+#, fuzzy
+msgid "chefs I'm blocking-"
 msgstr "Köche ich bin blockiert -"
 
-#: templates/friends/list.html:34
+#: templates/friends/list.html:44
 msgid "unblock"
 msgstr "unblock"
 
@@ -471,36 +475,42 @@ msgstr "Aktuelle Aisles"
 msgid "you have not created any aisles yet!"
 msgstr "Sie haben keine Lieblingsrezepte hat noch nicht!"
 
-#: templates/list/_list.html:11 templates/list/grocery_index.html:13
+#: templates/list/_list.html:10 templates/list/grocery_index.html:13
 msgid "created on "
 msgstr "erstellt am"
 
-#: templates/list/grocery_addrecipe.html:5 templates/sidebar/grocery.html:55
-msgid "actions"
-msgstr "Aktionen"
-
-#: templates/list/grocery_addrecipe.html:13
+#: templates/list/grocery_addrecipe.html:11
+#: templates/list/grocery_share.html:8 templates/list/groceryaisle_form.html:9
 #, fuzzy
-msgid "create list"
-msgstr "schaffen"
+msgid "save"
+msgstr "Empfehlen"
 
-#: templates/list/grocery_ajax.html:31
+#: templates/list/grocery_addrecipe.html:12
+#: templates/list/grocery_share.html:9
+#: templates/list/groceryaisle_form.html:10
+#: templates/list/grocerylist_form.html:51
+#: templates/recipe/recipe_form.html:164
+#, fuzzy
+msgid "cancel"
+msgstr "Abbrechen"
+
+#: templates/list/grocery_ajax.html:29
 msgid "You have not added any grocery list yet!"
 msgstr "Sie haben keine Einkaufsliste hinzugefügt!"
 
-#: templates/list/grocery_ajax.html:32 templates/list/grocery_index.html:22
+#: templates/list/grocery_ajax.html:30 templates/list/grocery_index.html:24
 msgid "create a grocery list"
 msgstr "erstellen Sie eine Einkaufsliste"
 
-#: templates/list/grocery_detail.html:7
+#: templates/list/grocery_detail.html:8
 msgid "this list is currently shared by"
 msgstr "Diese Liste wird derzeit durch gemeinsame"
 
-#: templates/list/grocery_detail.html:7
+#: templates/list/grocery_detail.html:8
 msgid "to user"
 msgstr ", Benutzerhandbuch"
 
-#: templates/list/grocery_detail.html:9
+#: templates/list/grocery_detail.html:11
 msgid "grocery list -"
 msgstr "Einkaufsliste -"
 
@@ -509,19 +519,20 @@ msgstr "Einkaufsliste -"
 msgid "Grocery List"
 msgstr "Einkaufsliste"
 
-#: templates/list/grocery_index.html:21
+#: templates/list/grocery_index.html:23
 msgid "You do not have any grocery list created"
 msgstr "Sie haben noch keine Einkaufsliste erstellt"
 
-#: templates/list/grocery_index.html:25
+#: templates/list/grocery_index.html:28
 msgid "shared list"
 msgstr "freigegebene Liste"
 
-#: templates/list/grocery_index.html:31
+#: templates/list/grocery_index.html:34
 msgid "shared by "
 msgstr "geteilt durch"
 
 #: templates/list/grocery_mail_body.html:8
+#: templates/recipe/recipe_mail_body.html:8
 #, fuzzy
 msgid "Email"
 msgstr "E-Mail"
@@ -536,27 +547,37 @@ msgstr "Einkaufsliste"
 msgid "Print"
 msgstr "drucken"
 
-#: templates/list/groceryaisle_form.html:6
+#: templates/list/groceryaisle_form.html:5
 msgid "add new aisle"
 msgstr "Hinzufügen neuer Gang"
 
-#: templates/list/groceryaisle_form.html:10
-#, fuzzy
-msgid "new aisle"
-msgstr "Gang"
-
-#: templates/list/grocerylist_form.html:28
+#: templates/list/grocerylist_form.html:29
 msgid "items"
 msgstr "Begriffe"
 
-#: templates/list/grocerylist_form.html:53
+#: templates/list/grocerylist_form.html:50
 #, fuzzy
 msgid "save list"
 msgstr "freigegebene Liste"
 
+#: templates/news/entry_list.html:4
+#, fuzzy
+msgid "news"
+msgstr "Gang"
+
+#: templates/news/entry_list.html:13 templates/news/front_page.html:11
+#: templates/recipe/_list.html:47 templates/search/search.html:56
+#, fuzzy
+msgid "read more"
+msgstr "Lesen Sie weiter"
+
+#: templates/news/entry_list.html:18
+msgid "There currently isn't any news"
+msgstr ""
+
 #: templates/profiles/create_profile.html:5
 #: templates/profiles/edit_profile.html:6
-#: templates/recipe/recipe_detail.html:123
+#: templates/recipe/recipe_detail.html:119
 msgid "edit"
 msgstr "bearbeiten"
 
@@ -577,168 +598,158 @@ msgstr "mit der gleichen E-Mail-Adresse, die Sie für diese Website verwendet"
 msgid "Change Password"
 msgstr "Passwort ändern"
 
-#: templates/profiles/profile_detail.html:43
+#: templates/profiles/profile_detail.html:49
 msgid "location:"
 msgstr "Standort:"
 
-#: templates/profiles/profile_detail.html:46
+#: templates/profiles/profile_detail.html:52
 msgid "gender:"
 msgstr "Geschlecht:"
 
-#: templates/profiles/profile_detail.html:49
+#: templates/profiles/profile_detail.html:55
 msgid "website:"
 msgstr "Website:"
 
-#: templates/profiles/profile_detail.html:52
+#: templates/profiles/profile_detail.html:62
 msgid "all about me"
 msgstr "alles über mich"
 
-#: templates/profiles/profile_detail.html:59
+#: templates/profiles/profile_detail.html:70
 msgid "recipes"
 msgstr "Rezepte"
 
-#: templates/profiles/profile_detail.html:61
+#: templates/profiles/profile_detail.html:72
 msgid "private recipes"
 msgstr "privaten Rezepte"
 
-#: templates/profiles/profile_detail.html:62
+#: templates/profiles/profile_detail.html:73
 msgid "favorites"
 msgstr "Favoriten"
 
-#: templates/profiles/profile_detail.html:64
+#: templates/profiles/profile_detail.html:75
 msgid "followers"
 msgstr "Anhänger"
 
-#: templates/profiles/profile_detail.html:65
+#: templates/profiles/profile_detail.html:76
 msgid "feed"
 msgstr "Futtermittel"
 
-#: templates/profiles/profile_detail.html:66
+#: templates/profiles/profile_detail.html:77
 msgid "settings"
 msgstr "Einstellungen"
 
-#: templates/profiles/profile_detail.html:72
+#: templates/profiles/profile_detail.html:84
 msgid "edit Profile"
 msgstr "Profil bearbeiten"
 
-#: templates/profiles/profile_detail.html:73
-#: templates/registration/password_change_form.html:14
+#: templates/profiles/profile_detail.html:85
+#: templates/registration/password_change_form.html:16
 msgid "change password"
 msgstr "Passwort ändern"
 
-#: templates/recipe/_list.html:29 templates/recipe/recipe_detail.html:164
-#: templates/recipe/recipe_print.html:17 templates/search/search.html:35
+#: templates/recipe/_list.html:29 templates/recipe/recipe_detail.html:155
+#: templates/recipe/recipe_print.html:17 templates/search/search.html:38
 msgid "Chef:"
 msgstr "Chefkoch:"
 
-#: templates/recipe/_list.html:33 templates/search/search.html:39
+#: templates/recipe/_list.html:32 templates/search/search.html:41
 msgid "Average Rating:"
 msgstr "Durchschnittliche Bewertung:"
 
-#: templates/recipe/_list.html:35 templates/recipe/recipe_detail.html:152
-#: templates/search/search.html:41
+#: templates/recipe/_list.html:34 templates/recipe/recipe_detail.html:143
+#: templates/search/search.html:43
 msgid "Poor"
 msgstr "Schlecht"
 
-#: templates/recipe/_list.html:36 templates/recipe/recipe_detail.html:153
-#: templates/search/search.html:42
+#: templates/recipe/_list.html:35 templates/recipe/recipe_detail.html:144
+#: templates/search/search.html:44
 msgid "Fair"
 msgstr "Messe"
 
-#: templates/recipe/_list.html:37 templates/recipe/recipe_detail.html:154
-#: templates/search/search.html:43
+#: templates/recipe/_list.html:36 templates/recipe/recipe_detail.html:145
+#: templates/search/search.html:45
 msgid "OK"
 msgstr "OK"
 
-#: templates/recipe/_list.html:38 templates/recipe/recipe_detail.html:155
-#: templates/search/search.html:44
+#: templates/recipe/_list.html:37 templates/recipe/recipe_detail.html:146
+#: templates/search/search.html:46
 msgid "Good"
 msgstr "Gute"
 
-#: templates/recipe/_list.html:39 templates/recipe/recipe_detail.html:156
-#: templates/search/search.html:45
+#: templates/recipe/_list.html:38 templates/recipe/recipe_detail.html:147
+#: templates/search/search.html:47
 msgid "Wow"
 msgstr "Wow"
 
-#: templates/recipe/_list.html:44 templates/search/search.html:50
-msgid "Read More"
-msgstr "Lesen Sie weiter"
-
-#: templates/recipe/index.html:10
-msgid "Fresh from the Oven!"
-msgstr "Frisch aus dem Ofen!"
-
-#: templates/recipe/index.html:15
-msgid "chef: "
-msgstr "Koch:"
-
-#: templates/recipe/index.html:21
+#: templates/recipe/index.html:41
 #, fuzzy
-msgid "more recent recipes"
-msgstr "Besuche Rezepte"
-
-#: templates/recipe/index.html:23
-msgid "Recipe Tags"
+msgid "recipe tags"
 msgstr "Rezept Tags"
 
-#: templates/recipe/recipe_cook.html:7
-msgid "Cook View"
-msgstr "Cook anzeigen"
-
-#: templates/recipe/recipe_cook.html:11 templates/recipe/recipe_print.html:14
+#: templates/recipe/recipe_cook.html:8 templates/recipe/recipe_print.html:14
 msgid "Recipe is marked Private and you are not the author of it!"
 msgstr "Das Rezept ist gekennzeichnet Private und du bist nicht der Autor es!"
 
-#: templates/recipe/recipe_cook.html:16
-#: templates/recipe/recipe_detail.html:178
+#: templates/recipe/recipe_cook.html:15
+#: templates/recipe/recipe_detail.html:183
 #: templates/recipe/recipe_print.html:28
 msgid "Ingredients"
 msgstr "Zutaten"
 
-#: templates/recipe/recipe_cook.html:31
-#: templates/recipe/recipe_detail.html:195
+#: templates/recipe/recipe_cook.html:32
+#: templates/recipe/recipe_detail.html:201
 msgid "Directions"
 msgstr "Anfahrt"
 
-#: templates/recipe/recipe_detail.html:120
+#: templates/recipe/recipe_detail.html:115
 msgid "print"
 msgstr "drucken"
 
-#: templates/recipe/recipe_detail.html:121
+#: templates/recipe/recipe_detail.html:116
 msgid "cook"
 msgstr "kochen"
 
-#: templates/recipe/recipe_detail.html:128
+#: templates/recipe/recipe_detail.html:126
 msgid "add to list"
 msgstr "Zur Liste"
 
-#: templates/recipe/recipe_detail.html:135
+#: templates/recipe/recipe_detail.html:127
+#, fuzzy
+msgid "email recipe "
+msgstr "bewertete ein Rezept"
+
+#: templates/recipe/recipe_detail.html:127
+#, fuzzy
+msgid "email"
+msgstr "E-Mail"
+
+#: templates/recipe/recipe_detail.html:133
 msgid "tags:"
 msgstr "Stichworte:"
 
-#: templates/recipe/recipe_detail.html:150
+#: templates/recipe/recipe_detail.html:141
 msgid "rate this:"
 msgstr "Bewerten Sie:"
 
-#: templates/recipe/recipe_detail.html:162
-msgid "Course:"
-msgstr "Kurs:"
-
-#: templates/recipe/recipe_detail.html:163
-msgid "Cuisine:"
-msgstr "Küche:"
-
-#: templates/recipe/recipe_detail.html:168
+#: templates/recipe/recipe_detail.html:166
 #: templates/recipe/recipe_print.html:23
 msgid "serves"
 msgstr "dient"
 
-#: templates/recipe/recipe_detail.html:205
+#: templates/recipe/recipe_detail.html:172
+msgid "Course:"
+msgstr "Kurs:"
+
+#: templates/recipe/recipe_detail.html:173
+msgid "Cuisine:"
+msgstr "Küche:"
+
+#: templates/recipe/recipe_detail.html:211
 #: templates/recipe/recipe_print.html:52
 msgid "Your Notes:"
 msgstr "Ihre Notizen:"
 
-#: templates/recipe/recipe_detail.html:234
+#: templates/recipe/recipe_detail.html:224
 msgid "comments"
 msgstr "Kommentare"
 
@@ -747,11 +758,17 @@ msgstr "Kommentare"
 msgid "Add Recipe"
 msgstr "Neue Rezepte"
 
-#: templates/recipe/recipe_form.html:100
-msgid "ingredients"
+#: templates/recipe/recipe_form.html:55
+#, fuzzy
+msgid "recipe info"
+msgstr "Rezepte auf"
+
+#: templates/recipe/recipe_form.html:139
+#, fuzzy
+msgid "ingedients"
 msgstr "Zutaten"
 
-#: templates/recipe/recipe_form.html:125
+#: templates/recipe/recipe_form.html:163
 #, fuzzy
 msgid "save recipe"
 msgstr "Besuche Rezepte"
@@ -766,6 +783,11 @@ msgstr ""
 msgid "%(title)s"
 msgstr "Titel"
 
+#: templates/recipe/recipe_mail_body.html:13
+#, fuzzy
+msgid " has shared a recipe with you"
+msgstr "hat noch keine Rezepte hat noch nicht!"
+
 #: templates/recipe/recipe_print.html:24
 msgid "mintues"
 msgstr "mintues"
@@ -774,7 +796,7 @@ msgstr "mintues"
 msgid "Steps"
 msgstr "Steps"
 
-#: templates/recipe/recipe_userfav.html:31
+#: templates/recipe/recipe_userfav.html:32
 msgid "You have not added any favorite recipes yet!"
 msgstr "Sie haben keine Lieblingsrezepte hat noch nicht!"
 
@@ -794,9 +816,45 @@ msgstr "Liste der Kurse"
 msgid "Cuisine List"
 msgstr "Cuisine Liste"
 
+#: templates/recipe_groups/popadd.html:8
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: templates/recipe_groups/popadd.html:12
+#, python-format
+msgid "Add %(field)s"
+msgstr "Schreibe %(field)s "
+
+#: templates/recipe_groups/popadd.html:17
+msgid "submit"
+msgstr "Eintragen"
+
+#: templates/recipe_groups/popadd.html:17
+msgid "Cancel"
+msgstr "Abbrechen"
+
 #: templates/recipe_groups/recipe_list.html:14
 msgid "Recipes in "
 msgstr "Rezepte auf"
+
+#: templates/registration/_create_form.html:5
+#: templates/registration/_login_form.html:5
+msgid "Alert!"
+msgstr ""
+
+#: templates/registration/_create_form.html:46
+#, fuzzy
+msgid "create account"
+msgstr "ein Kundenkonto eröffnen"
+
+#: templates/registration/_login_form.html:5
+msgid "Your username and password didn't match. Please try again."
+msgstr ""
+
+#: templates/registration/_login_form.html:26
+#, fuzzy
+msgid "login"
+msgstr "Anmelden"
 
 #: templates/registration/activate.html:5
 msgid "Account activation key is invalid!"
@@ -959,76 +1017,93 @@ msgstr " %(To_user_username)s  Profil"
 msgid "Search Results"
 msgstr "Search Results"
 
-#: templates/search/search.html:54
+#: templates/search/search.html:60
 msgid "No Results found for search query"
 msgstr "Keine Ergebnisse für Suchbegriff"
 
-#: templates/sidebar/browse.html:4
+#: templates/sidebar/browse.html:6
 msgid "last viewed"
 msgstr "zuletzt angesehen"
 
-#: templates/sidebar/browse.html:12
+#: templates/sidebar/browse.html:15
 msgid "browse"
 msgstr "blättern"
 
-#: templates/sidebar/browse.html:14
+#: templates/sidebar/browse.html:16
 #, fuzzy
 msgid "top recipes"
 msgstr "Rezepte"
 
-#: templates/sidebar/browse.html:15
+#: templates/sidebar/browse.html:17
 #, fuzzy
 msgid "recent recipes"
 msgstr "Besuche Rezepte"
 
-#: templates/sidebar/grocery.html:57
+#: templates/sidebar/grocery.html:10
+msgid "actions"
+msgstr "Aktionen"
+
+#: templates/sidebar/grocery.html:11
 msgid "print "
 msgstr "drucken"
 
-#: templates/sidebar/grocery.html:58
+#: templates/sidebar/grocery.html:12
 msgid "edit "
 msgstr "bearbeiten"
 
-#: templates/sidebar/grocery.html:59
+#: templates/sidebar/grocery.html:13
 msgid "send list "
 msgstr "senden Liste"
 
-#: templates/sidebar/grocery.html:59
+#: templates/sidebar/grocery.html:13
 msgid "email "
 msgstr "E-Mail"
 
-#: templates/sidebar/grocery.html:61
+#: templates/sidebar/grocery.html:15
 msgid "delete "
 msgstr "löschen"
 
-#: templates/sidebar/grocery.html:65
+#: templates/sidebar/grocery.html:19
 msgid "share"
 msgstr "Aktie"
 
-#: templates/sidebar/grocery.html:67
+#: templates/sidebar/grocery.html:21
 msgid "un-share"
 msgstr "UN-Aktie"
 
-#: templates/sidebar/grocery.html:75
+#: templates/sidebar/grocery.html:26
+#, fuzzy
+msgid "recipes on list"
+msgstr "Rezepte auf"
+
+#: templates/sidebar/grocery.html:30
 #, fuzzy
 msgid "no recipes"
 msgstr "Rezepte"
 
-#: templates/sidebar/grocery.html:82
+#: templates/sidebar/grocery.html:38
 msgid "create"
 msgstr "schaffen"
 
-#: templates/sidebar/grocery.html:83
+#: templates/sidebar/grocery.html:39
 msgid "list"
 msgstr "Liste"
 
-#: templates/sidebar/grocery.html:84
+#: templates/sidebar/grocery.html:40
 msgid "manage aisles"
 msgstr "Verwaltung Gängen"
 
-#: templates/sidebar/grocery.html:85
+#: templates/sidebar/grocery.html:41
 msgid "browse recipes"
 msgstr "Besuche Rezepte"
+
+#: templatetags/front_page.py:14
+msgid "No Front page News"
+msgstr ""
+
+#: templatetags/front_page.py:15
+msgid "Currently not any front page news on this site"
+msgstr ""
 
 #: templatetags/recipe_links.py:13
 msgid "bookmakred"
@@ -1046,6 +1121,26 @@ msgstr "gemeldet!"
 #: templatetags/recipe_links.py:30
 msgid "report"
 msgstr "Bericht"
+
+#~ msgid "Search"
+#~ msgstr "Suche"
+
+#, fuzzy
+#~ msgid "create list"
+#~ msgstr "schaffen"
+
+#~ msgid "Fresh from the Oven!"
+#~ msgstr "Frisch aus dem Ofen!"
+
+#~ msgid "chef: "
+#~ msgstr "Koch:"
+
+#, fuzzy
+#~ msgid "more recent recipes"
+#~ msgstr "Besuche Rezepte"
+
+#~ msgid "Cook View"
+#~ msgstr "Cook anzeigen"
 
 #~ msgid "New Recipe"
 #~ msgstr "Neue Rezepte"
@@ -1097,9 +1192,6 @@ msgstr "Bericht"
 
 #~ msgid "Created object"
 #~ msgstr "erstellt am"
-
-#~ msgid "Save"
-#~ msgstr "Empfehlen"
 
 #~ msgid "Change"
 #~ msgstr "Abbrechen"
