@@ -55,3 +55,16 @@ Version 2.3
 * Upgraded django-imagekit to 0.4.0
 * Changed the site Logo
 
+Version 2.4
+--------------
+* Added a new news section now you can have more then one news story and decide which one appears on the front page
+* Added the ability to email recipes to friends
+* Added grocery list API
+* Upgraded django-tastypie
+* Complete UI over haul using Twitter Bootstrap
+* Changed image size for recipe pictures
+* Upgraded Grapelli to version 2.3.7
+* Removed un-needed java script libraries
+* Code clean up
+* several small bug fixes
+

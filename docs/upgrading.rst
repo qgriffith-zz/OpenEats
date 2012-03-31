@@ -238,3 +238,68 @@ After the upgrade you can run the following command to start the internal Django
 test your site::
 
     ./manage.py runserver 8000
+
+
+Upgrade 2.3 to 2.4
+=====================
+This procedure covers how to upgrade your existing 2.3 OpenEats2 site to version 2.4.  If you are upgrading from 2.0 to 2.4
+you will need to follow the steps from Config File Changes down in the *Upgrading from 2.0 to 2.1* section.
+
+Install
+---------
+* Download the latest package from `github`_
+* Unzip the file
+* Backup your database
+* Backup your current site files
+* From the unzip file, copy everything other then the settings.py, site-media/upload and site-media/uploads file into your current openeats directory, over writing
+  what is already there
+
+Settings Changes
+-----------------
+
+Remove the following from the installed_apps section of the settings.py file::
+
+      'reversion',
+      'django_generic_flatblocks',
+
+
+Upgrade third party apps
+-------------------------
+
+To upgrade all the packages that OpenEats2 requires perform the following steps.
+
+* Activate your virtualenv
+* Change to the directory that you unzipped the OpenEats2 files into
+* Run the following command::
+
+    pip install -r OE2_Requirements.txt --upgrade
+
+
+Database changes
+------------------
+
+Run the following command from the OpenEats2 directory::
+
+    ./manage.py migrate
+
+Update Static Files
+------------------------
+To update the static files from the third party applications run the following command::
+
+    ./manage.py collectstatic
+
+
+Update Recipe Picture cache
+-----------------------------
+The size of the recipe pictures has changed to re-create the current pictures to the new size run::
+
+    ./mange.py ikflush
+
+Running
+-------
+After the upgrade you can run the following command to start the internal Django webserver.  This will allow you to
+test your site::
+
+    ./manage.py runserver 8000
+
+

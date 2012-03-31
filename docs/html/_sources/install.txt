@@ -19,14 +19,13 @@ Requirements
 * `feedparser`_ 4.1
 * `html5lib`_ 0.90
 * `whoosh`_ 1.8.4
-* `django-generic-flatblocks`_ 0.9.1
 * `django-haystack`_ 1.2.4
 * `django-taggit-templatetags`_ 0.4.6dev
 * `reportlab`_ 2.5
 * `django-registration`_ 0.8-alpha-1
 * `django-relationships`_ 0.3.0
 * `django-ratings`_ 0.3.6
-* `django-grappelli`_ 2.3.4
+* `django-grappelli`_ 2.3.7
 
 ************
 Optional
@@ -39,7 +38,7 @@ Optional
 * `django-extensions`_ 0.6 extra management commands
 * `django-rosetta`_ 0.6.2 used to ease translations
 * `django-debug-toolbar`_ 0.8.5 used to help troubleshooting
-* `django-tastypie`_ 0.9.9
+* `django-tastypie`_ 0.9.11
 * `lxml`_ 2.3
 
 .. _Python: http://www.python.org

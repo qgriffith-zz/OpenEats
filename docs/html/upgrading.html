@@ -7,13 +7,13 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3. Upgrade &mdash; OpenEats2 v2.4Alpha documentation</title>
+    <title>3. Upgrade &mdash; OpenEats2 v2.4.0 documentation</title>
     <link rel="stylesheet" href="_static/default.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
-        VERSION:     '2.4Alpha',
+        VERSION:     '2.4.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="OpenEats2 v2.4Alpha documentation" href="index.html" />
+    <link rel="top" title="OpenEats2 v2.4.0 documentation" href="index.html" />
     <link rel="next" title="4. Configuration" href="config.html" />
     <link rel="prev" title="2. Installation" href="install.html" /> 
   </head>
@@ -39,7 +39,7 @@
         <li class="right" >
           <a href="install.html" title="2. Installation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">OpenEats2 v2.4Alpha documentation</a> &raquo;</li> 
+        <li><a href="index.html">OpenEats2 v2.4.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -280,6 +280,69 @@ test your site:</p>
 </div>
 </div>
 </div>
+<div class="section" id="upgrade-2-3-to-2-4">
+<h2>3.4. Upgrade 2.3 to 2.4<a class="headerlink" href="#upgrade-2-3-to-2-4" title="Permalink to this headline">¶</a></h2>
+<p>This procedure covers how to upgrade your existing 2.3 OpenEats2 site to version 2.4.  If you are upgrading from 2.0 to 2.4
+you will need to follow the steps from Config File Changes down in the <em>Upgrading from 2.0 to 2.1</em> section.</p>
+<div class="section" id="id9">
+<h3>3.4.1. Install<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Download the latest package from <a class="reference external" href="https://github.com/qgriffith/OpenEats">github</a></li>
+<li>Unzip the file</li>
+<li>Backup your database</li>
+<li>Backup your current site files</li>
+<li>From the unzip file, copy everything other then the settings.py, site-media/upload and site-media/uploads file into your current openeats directory, over writing
+what is already there</li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3>3.4.2. Settings Changes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Remove the following from the installed_apps section of the settings.py file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="s">&#39;reversion&#39;</span><span class="p">,</span>
+<span class="s">&#39;django_generic_flatblocks&#39;</span><span class="p">,</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id11">
+<h3>3.4.3. Upgrade third party apps<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>To upgrade all the packages that OpenEats2 requires perform the following steps.</p>
+<ul>
+<li><p class="first">Activate your virtualenv</p>
+</li>
+<li><p class="first">Change to the directory that you unzipped the OpenEats2 files into</p>
+</li>
+<li><p class="first">Run the following command:</p>
+<div class="highlight-python"><pre>pip install -r OE2_Requirements.txt --upgrade</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>3.4.4. Database changes<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Run the following command from the OpenEats2 directory:</p>
+<div class="highlight-python"><pre>./manage.py migrate</pre>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>3.4.5. Update Static Files<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h3>
+<p>To update the static files from the third party applications run the following command:</p>
+<div class="highlight-python"><pre>./manage.py collectstatic</pre>
+</div>
+</div>
+<div class="section" id="update-recipe-picture-cache">
+<h3>3.4.6. Update Recipe Picture cache<a class="headerlink" href="#update-recipe-picture-cache" title="Permalink to this headline">¶</a></h3>
+<p>The size of the recipe pictures has changed to re-create the current pictures to the new size run:</p>
+<div class="highlight-python"><pre>./mange.py ikflush</pre>
+</div>
+</div>
+<div class="section" id="id14">
+<h3>3.4.7. Running<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<p>After the upgrade you can run the following command to start the internal Django webserver.  This will allow you to
+test your site:</p>
+<div class="highlight-python"><pre>./manage.py runserver 8000</pre>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -315,6 +378,16 @@ test your site:</p>
 <li><a class="reference internal" href="#id7">3.3.4. Database changes</a></li>
 <li><a class="reference internal" href="#update-static-files">3.3.5. Update Static Files</a></li>
 <li><a class="reference internal" href="#id8">3.3.6. Running</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#upgrade-2-3-to-2-4">3.4. Upgrade 2.3 to 2.4</a><ul>
+<li><a class="reference internal" href="#id9">3.4.1. Install</a></li>
+<li><a class="reference internal" href="#id10">3.4.2. Settings Changes</a></li>
+<li><a class="reference internal" href="#id11">3.4.3. Upgrade third party apps</a></li>
+<li><a class="reference internal" href="#id12">3.4.4. Database changes</a></li>
+<li><a class="reference internal" href="#id13">3.4.5. Update Static Files</a></li>
+<li><a class="reference internal" href="#update-recipe-picture-cache">3.4.6. Update Recipe Picture cache</a></li>
+<li><a class="reference internal" href="#id14">3.4.7. Running</a></li>
 </ul>
 </li>
 </ul>
@@ -361,11 +434,11 @@ test your site:</p>
         <li class="right" >
           <a href="install.html" title="2. Installation"
              >previous</a> |</li>
-        <li><a href="index.html">OpenEats2 v2.4Alpha documentation</a> &raquo;</li> 
+        <li><a href="index.html">OpenEats2 v2.4.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, Quenten Griffith.
+        &copy; Copyright 2012, Quenten Griffith.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7.
     </div>
   </body>
