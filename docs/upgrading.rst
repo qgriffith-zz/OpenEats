@@ -259,8 +259,7 @@ Settings Changes
 
 Remove the following from the installed_apps section of the settings.py file::
 
-      'reversion',
-      'django_generic_flatblocks',
+       'django_generic_flatblocks',
 
 
 Upgrade third party apps
@@ -293,7 +292,7 @@ Update Recipe Picture cache
 -----------------------------
 The size of the recipe pictures has changed to re-create the current pictures to the new size run::
 
-    ./mange.py ikflush
+    ./manage.py ikflush recipe
 
 Running
 -------
