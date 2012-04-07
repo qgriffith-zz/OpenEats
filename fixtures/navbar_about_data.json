@@ -90,7 +90,7 @@
             "name": "blog", 
             "parent": null, 
             "title": "development blog", 
-            "url": "http://oe2.openeats.org", 
+            "url": "http://dev.openeats.org",
             "user_type": "E", 
             "groups": [], 
             "path_type": "P", 
