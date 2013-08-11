@@ -148,8 +148,6 @@ INSTALLED_APPS = (
     'imagekit',
     'djangoratings',
     'haystack',
-    'sentry',
-    'sentry.client',
     'pagination',
     'django_extensions',
     'relationships',

@@ -17,7 +17,6 @@ whoosh==1.8.4
 django-haystack==1.2.4
 django-rosetta==0.6.2
 django-taggit-templatetags==0.4.6dev
-django-sentry==1.10.1
 django-extensions==0.6
 django-indexer==0.3.0
 django-paging==0.2.4
