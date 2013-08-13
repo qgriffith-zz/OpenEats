@@ -1,0 +1,5 @@
+*.pyc
+db/*
+local_settings.py
+static-files/*
+*.log
