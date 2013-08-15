@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 from django.views.generic import list_detail
 from helpers.recipe_views import RecentRecipeView, TopRecipeView
 from models import Recipe
