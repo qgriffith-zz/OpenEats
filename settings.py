@@ -113,6 +113,11 @@ MIDDLEWARE_CLASSES = (
     
 )
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+)
+
 LOCALE_PATHS = (
   os.path.join(BASE_PATH, 'locale',)
 )
