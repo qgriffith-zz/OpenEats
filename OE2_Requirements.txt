@@ -1,7 +1,7 @@
 #Third party package requirements for OpenEats 2
 
 django==1.5.2
-django-debug-toolbar==0.8.5
+django-debug-toolbar==0.9.4
 django-disqus==0.4.1
 django-imagekit==0.4.0
 django-reversion==1.5
