@@ -9,7 +9,7 @@
     <input type='hidden' name='recipe_id' value="{{ recipe.id }}" />
     <div class="form-actions">
       <button type="submit" class="btn btn-primary">{% trans 'save' %}</button>
-      <a class="btn" href="{% url recipe_index %}">{% trans 'cancel' %}</a>
+      <a class="btn" href="{% url 'recipe_index' %}">{% trans 'cancel' %}</a>
     </div>
    </form>
 {% endblock %}

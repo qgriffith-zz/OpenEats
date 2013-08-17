@@ -48,7 +48,7 @@
     <div class="form-actions">
       {{ formset.management_form }}
        <button type="submit" class="btn btn-primary">{% trans 'save list' %}</button>
-       <a class="btn" href="{% url grocery_list %}">{% trans 'cancel' %}</a>
+       <a class="btn" href="{% url 'grocery_list' %}">{% trans 'cancel' %}</a>
     </div>
   </form>
 {% endblock %}

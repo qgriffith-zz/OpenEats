@@ -114,15 +114,15 @@
         <li><a class="btn-info fancybox.iframe" id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a></li>
 
         {% if recipe.author == request.user %}
-         <li><a class="btn-info" href="{% url recipe_edit user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a></li>
+         <li><a class="btn-info" href="{% url 'recipe_edit' user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a></li>
         {% endif %}
 
         <li>{% fav_link request.user recipe.id %}</li>
-        <li><a class="btn-info" href="{% url recipe_export slug=recipe.slug %}">pdf</a></li>
+        <li><a class="btn-info" href="{% url 'recipe_export' slug=recipe.slug %}">pdf</a></li>
 
         {% if request.user.is_authenticated %}
-           <li><a class="btn-info" href="{% url grocery_addrecipe recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a></li>
-           <li><a class="btn-info" title="{% trans 'email recipe ' %} {{ recipe }}" id='email-link' href="{% url recipe_mail id=recipe.id %}">{% trans 'email' %}</a></li>
+           <li><a class="btn-info" href="{% url 'grocery_addrecipe' recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a></li>
+           <li><a class="btn-info" title="{% trans 'email recipe ' %} {{ recipe }}" id='email-link' href="{% url 'recipe_mail' id=recipe.id %}">{% trans 'email' %}</a></li>
            <li>{% report_link request.user recipe.id %}</li>
         {% endif %}
     </ul>
@@ -130,7 +130,7 @@
     <div class="pull-right" id="tags">
         <p><i class="icon-tags"></i> {% trans 'tags:' %}</p>
         {% for tag in recipe.tags.all|slice:":10" %}
-          <a href="{% url recipe_tags tag=tag.slug %}" rel="tag" alt="{tag}">{{ tag }}</a>
+          <a href="{% url 'recipe_tags' tag=tag.slug %}" rel="tag" alt="{tag}">{{ tag }}</a>
         {% endfor %}
     </div>
 
@@ -167,8 +167,8 @@
               </div>
 
                <ul class="recipe-groups">
-                 <li><span>{%trans "Course:" %}</span> <a href="{% url course_recipes slug=recipe.course.slug %}">{{ recipe.course }}</a></li>
-                 <li><span>{%trans "Cuisine:" %}</span> <a href="{% url cuisine_recipes slug=recipe.cuisine.slug %}">{{ recipe.cuisine }}</a></li>
+                 <li><span>{%trans "Course:" %}</span> <a href="{% url 'course_recipes' slug=recipe.course.slug %}">{{ recipe.course }}</a></li>
+                 <li><span>{%trans "Cuisine:" %}</span> <a href="{% url 'cuisine_recipes' slug=recipe.cuisine.slug %}">{{ recipe.cuisine }}</a></li>
                </ul>
 
                 <p>{{recipe.info|sanitize_html|safe}}</p>

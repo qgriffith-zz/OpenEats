@@ -5,7 +5,7 @@
     <h2>{% trans 'Cuisine List' %}</h2>
     <ul>
         {% for cuisine in cuisine_list %}
-            <li> {{ cuisine.title }}(<a href="{% url cuisine_recipes slug=cuisine.slug %}">{{ cuisine.recipe_count }}</a>) </li>
+            <li> {{ cuisine.title }}(<a href="{% url 'cuisine_recipes' slug=cuisine.slug %}">{{ cuisine.recipe_count }}</a>) </li>
         {% endfor %}
     </ul>
 {% endblock  %}

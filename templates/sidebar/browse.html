@@ -13,12 +13,12 @@
 
 <ul class="nav nav-list">
     <li class="nav-header">{% trans 'browse' %}</li>
-    <li><a href="{% url recipe_top %}"> {% trans 'top recipes' %}</a></li>
-    <li><a href="{% url recipe_recent %}"> {% trans 'recent recipes' %}</a></li>
+    <li><a href="{% url 'recipe_top' %}"> {% trans 'top recipes' %}</a></li>
+    <li><a href="{% url 'recipe_recent' %}"> {% trans 'recent recipes' %}</a></li>
     {% for course in course_list %}
-    <li><a href="{% url course_recipes slug=course.slug %}">{{ course }}</a>  </li>
+    <li><a href="{% url 'course_recipes' slug=course.slug %}">{{ course }}</a>  </li>
     {% endfor %}
     {% for cuisine in cuisine_list %}
-    <li> <a href="{% url cuisine_recipes slug=cuisine.slug %}">{{ cuisine }}</a> </li>
+    <li> <a href="{% url 'cuisine_recipes' slug=cuisine.slug %}">{{ cuisine }}</a> </li>
     {% endfor %}
 </ul>

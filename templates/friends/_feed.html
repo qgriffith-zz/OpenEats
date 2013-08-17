@@ -22,7 +22,7 @@
     {% if lists.count > 0 %}
         <ul>
             {%  for shared in lists %}
-                <li>{% trans 'new shared list- ' %}<a href="{% url grocery_show user=following slug=shared.list.slug %}">{{  shared.list }}</a> </li>
+                <li>{% trans 'new shared list- ' %}<a href="{% url 'grocery_show' user=following slug=shared.list.slug %}">{{  shared.list }}</a> </li>
             {% endfor %}
         </ul>
     {% endif %}
