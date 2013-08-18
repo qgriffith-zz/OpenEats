@@ -150,7 +150,7 @@ INSTALLED_APPS = (
     'profiles',
     'imagekit',
     'djangoratings',
-    'haystack',
+    #'haystack',
     'pagination',
     'django_extensions',
     'relationships',
@@ -202,7 +202,7 @@ EMAIL_PORT =''
 LOGIN_REDIRECT_URL = "/recipe/"
 ACCOUNT_ACTIVATION_DAYS = 7
 
-#Haystack config
+Haystack config
 HAYSTACK_SITECONF = 'openeats.search_sites'
 HAYSTACK_SEARCH_ENGINE = 'whoosh'
 HAYSTACK_WHOOSH_PATH =  os.path.join(BASE_PATH, 'search_index')
@@ -211,58 +211,6 @@ GRAPPELLI_ADMIN_TITLE = OETITLE
 GRAPPELLI_INDEX_DASHBOARD = 'openeats.dashboard.CustomIndexDashboard'
 
 PAGINATION_DEFAULT_PAGINATION = 10
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': True,
-    'formatters': {
-        'verbose': {
-            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'filters': {
-        'special': {
-            '()': 'project.logging.SpecialFilter',
-            'foo': 'bar',
-        }
-    },
-    'handlers': {
-        'null': {
-            'level': 'DEBUG',
-            'class': 'django.utils.log.NullHandler',
-        },
-        'console':{
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
-        'mail_admins': {
-            'level': 'ERROR',
-            'class': 'django.utils.log.AdminEmailHandler',
-            'filters': ['special']
-        }
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['null'],
-            'propagate': True,
-            'level': 'INFO',
-        },
-        'django.request': {
-            'handlers': ['mail_admins'],
-            'level': 'ERROR',
-            'propagate': False,
-        },
-        openeats.custom': {
-            'handlers': ['console', 'mail_admins'],
-            'level': 'INFO',
-            'filters': ['special']
-        }
-    }
-}
 
 
 try:
