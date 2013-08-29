@@ -150,7 +150,7 @@ INSTALLED_APPS = (
     'profiles',
     'imagekit',
     'djangoratings',
-    #'haystack',
+    'haystack',
     'pagination',
     'django_extensions',
     'relationships',
@@ -203,6 +203,7 @@ LOGIN_REDIRECT_URL = "/recipe/"
 ACCOUNT_ACTIVATION_DAYS = 7
 
 #Haystack config
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.simple_whoosh.WhooshEngine',
