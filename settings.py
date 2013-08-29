@@ -202,9 +202,12 @@ LOGIN_REDIRECT_URL = "/recipe/"
 ACCOUNT_ACTIVATION_DAYS = 7
 
 #Haystack config
-HAYSTACK_SITECONF = 'openeats.search_sites'
-HAYSTACK_SEARCH_ENGINE = 'whoosh'
-HAYSTACK_WHOOSH_PATH =  os.path.join(BASE_PATH, 'search_index')
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+         'PATH':   os.path.join(BASE_PATH, 'search_index'),
+    }
+}
 
 GRAPPELLI_ADMIN_TITLE = OETITLE
 GRAPPELLI_INDEX_DASHBOARD = 'openeats.dashboard.CustomIndexDashboard'
