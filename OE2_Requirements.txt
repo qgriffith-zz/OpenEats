@@ -13,8 +13,9 @@ django_navbar==0.3.0
 django-profiles==0.2
 feedparser==4.1
 html5lib==0.90
-whoosh==1.8.4
-django-haystack==1.2.4
+whoosh==2.5.2
+django-pagination==1.0.7
+django-haystack==2,1.0
 django-rosetta==0.6.2
 django-taggit-templatetags==0.4.6dev
 django-extensions==0.6
