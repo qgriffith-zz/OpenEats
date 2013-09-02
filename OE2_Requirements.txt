@@ -8,7 +8,7 @@ django-reversion==1.5
 django-taggit==0.9.3
 akismet==0.2.0
 pil==1.1.7
-south==0.7.3
+south==0.8.2
 django_navbar==0.3.0
 django-profiles==0.2
 feedparser==4.1

@@ -2,12 +2,12 @@ from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from recipe_groups.models import Course, Cuisine
-from imagekit.models import ImageModel
+from imagekit.models import ProcessedImageField
 from djangoratings.fields import RatingField
 from django_extensions.db.fields import AutoSlugField
 from django.utils.translation import ugettext_lazy as _
 
-class Recipe(ImageModel):
+class Recipe(models.Model):
     SHARE_SHARED = 0
     PRIVATE_SHARED = 1
     SHARED_CHOCIES = (
@@ -18,7 +18,7 @@ class Recipe(ImageModel):
     title = models.CharField(_("Recipe Title"), max_length=250)
     slug = AutoSlugField(_('slug'), populate_from='title', unique=True)
     author = models.ForeignKey(User, verbose_name=_('user'))
-    photo = models.ImageField(_('photo'), blank=True, upload_to="upload/recipe_photos")
+    photo =  ProcessedImageField(_('photo'), blank=True, upload_to="upload/recipe_photos")
     course = models.ForeignKey(Course, verbose_name=_('course'))
     cuisine = models.ForeignKey(Cuisine, verbose_name=_('cuisine'))
     info = models.TextField(_('info'), help_text="enter information about the recipe")

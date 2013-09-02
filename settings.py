@@ -206,7 +206,7 @@ ACCOUNT_ACTIVATION_DAYS = 7
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 HAYSTACK_CONNECTIONS = {
     'default': {
-        'ENGINE': 'haystack.backends.simple_whoosh.WhooshEngine',
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
         'PATH':    os.path.join(BASE_PATH, 'search_index')
     }
 }
