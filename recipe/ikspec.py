@@ -1,5 +1,5 @@
-from imagekit.specs import ImageSpec
-from imagekit import processors
+from imagekit import ImageSpec, register
+from imagekit.processors import ResizeToFill
 
 '''image kit module spec'''
 
@@ -45,7 +45,7 @@ class AdminThumbnail(ImageSpec):
     '''Admin thumbnail spec'''
     access_as ='admin_thumbnail'
     pre_cache = True
-    processors = [ResizeAdminThumb]
+    processors = [ResizeToFill(75, 75)]
 
 class IndexThumbnail(ImageSpec):
     '''List Thumbnail spec'''
@@ -58,3 +58,5 @@ class ListThumbnail(ImageSpec):
     access_as = 'list_thumbnail'
     pre_cache = True
     processors = [ResizeListThumb]
+
+register.generator('recipe:admin_thumbnail', AdminThumbnail)

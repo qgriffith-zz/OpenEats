@@ -1,5 +1,6 @@
 from django.contrib import admin
 from models import Recipe, StoredRecipe, NoteRecipe, ReportedRecipe
+from imagekit.admin import AdminThumbnail
 from ingredient.models import Ingredient
 from forms import IngItemFormSet
 from django.shortcuts import render_to_response
@@ -24,7 +25,8 @@ class RecipeAdmin(admin.ModelAdmin):
     actions=[export_MealMaster]
     #prepopulated_fields = { 'slug' : ['title']}
     inlines = [RecipeInline,]
-    list_display = ['title','admin_thumbnail_view', 'author', 'pub_date', 'shared']
+    list_display = ['title','admin_thumbnail', 'author', 'pub_date', 'shared']
+    admin_thumbnail = AdminThumbnail(image_field='photo')
     list_filter = ['shared', 'author', 'course', 'cuisine']
     search_fields = ['author__username', 'title',]
     radio_fields = {"shared": admin.HORIZONTAL}
