@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.forms.models import inlineformset_factory
 from django.http import HttpResponse, Http404
 from django.contrib.contenttypes.models import ContentType
+from django.views.generic import ListView
 from django.utils.translation import ugettext as _
 from models import Recipe, StoredRecipe, NoteRecipe,ReportedRecipe
 from ingredient.models import Ingredient
@@ -287,4 +288,7 @@ def recipeMail(request, id):
         form = RecipeSendMail(request=request)
     return render_to_response('recipe/recipe_email.html', {'form': form, 'id': id}, context_instance=RequestContext(request))
 
-    
+class CookList(ListView):
+    context_object_name = 'recipe'
+    queryset = Recipe.objects.all()
+    template_name = "recipe/recipe_cook.html"
