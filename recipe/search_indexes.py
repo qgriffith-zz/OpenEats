@@ -11,8 +11,8 @@ class RecipeIndex(indexes.SearchIndex, indexes.Indexable):
 
 
     def get_model(self):
-        return Recipe.SHARE_SHARED
+        return Recipe
 
     def index_queryset(self, using=None):
         """Used when the entire index for the recipe model is updated"""
-        return self.get_model(pub_date__lte=datetime.datetime.now()) #only index shared recipes no private
+        return self.get_model().objects.filter(pub_date__lte=datetime.datetime.now(), shared=0)

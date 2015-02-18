@@ -11,8 +11,8 @@ class Recipe(models.Model):
     SHARE_SHARED = 0
     PRIVATE_SHARED = 1
     SHARED_CHOCIES = (
-    (SHARE_SHARED, _('Share')),
-    (PRIVATE_SHARED, _('Private')),
+        (SHARE_SHARED, _('Share')),
+        (PRIVATE_SHARED, _('Private')),
     )
 
     title = models.CharField(_("Recipe Title"), max_length=250)

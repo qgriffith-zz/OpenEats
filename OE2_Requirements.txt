@@ -14,7 +14,7 @@ feedparser==5.1.3
 html5lib==0.95
 whoosh==2.5.2
 django-pagination==1.0.7
-django-haystack==2,1.0
+django-haystack==2,3.1
 django-rosetta==0.7.2
 django-taggit-templatetags==0.4.6dev
 django-extensions==1.2.0
