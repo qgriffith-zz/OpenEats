@@ -16,6 +16,7 @@
   <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.jeditable.js"> </script>
   <script type="text/javascript" src="{{ STATIC_URL }}js/oe_email.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}js/oe_recipeDetail.js"></script>
+
   <script type="text/javascript">
     $(function() {
       $("a, button", "#toolbar").button();
@@ -30,6 +31,20 @@
       });
     });
    });
+    //used to save a note on a recipe
+  $(function() {
+    $('#recipe-note p').editable('/recipe/ajaxnote/', {
+        indicator : 'Saving...',
+        tooltip   : 'Click to edit...',
+        type      : 'textarea',
+        cancel    : 'Cancel',
+        submit    : 'OK',
+        submitdata : {recipe: "{{ recipe.id }}"},
+        name       :  'note',
+        cssclass : 'editable',
+        event    : 'dblclick'
+    })
+});
   </script>
 
  {% rating_by_request request on recipe.rating as vote %}{% comment %}check to see if the user has voted on this before {% endcomment %}
@@ -214,7 +229,6 @@
          {% else %}
            <p class="note">click to add a note...</p>
          {% endif %}
-         <script type="text/javascript" src="{{ STATIC_URL }}js/oe_recipeNote.js"></script>
       </div>
    {% endif %}
 
