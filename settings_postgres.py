@@ -151,8 +151,6 @@ INSTALLED_APPS = (
     'haystack',
     'indexer',
     'paging',
-    'sentry',
-    'sentry.client',
     'pagination',
     'django_extensions',
     'relationships',
