@@ -170,7 +170,7 @@
              <p><span>{%trans "Chef:" %}</span> <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
 
              {% if recipe.photo %}
-               <a id="recipe-photo" href="{{recipe.display.url }}" title="{{ recipe }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe id="recipe-thumb" %}</a>
+               <a id="recipe-photo" href="{{recipe.photo.url }}" title="{{ recipe }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe id="recipe-thumb" %}</a>
             {% else %}
               <a href="{{ STATIC_URL  }}images/parsley.jpg"> <img src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
             {% endif %}
