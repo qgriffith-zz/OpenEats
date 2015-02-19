@@ -160,7 +160,7 @@
    <div class="form-actions">
      {{ formset.management_form }}
       <button type="submit" class="btn btn-primary">{% trans 'save recipe' %}</button>
-      <a class="btn" href="{% url recipe_index %}">{% trans 'cancel' %}</a>
+      <a class="btn" href="{% url 'recipe_index' %}">{% trans 'cancel' %}</a>
    </div>
 </form>
 

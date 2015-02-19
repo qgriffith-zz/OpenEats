@@ -1,0 +1,10 @@
+*.pyc
+db/*
+local_settings.py
+static-files/*
+*.log
+changelog.txt
+search_index/
+.idea/
+site-media/CACHE/
+site-media/upload/

@@ -46,9 +46,9 @@
                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user }} <b class="caret"></b></a>
                  <ul class="dropdown-menu">
                    <li><a href="{{request.user.get_profile.get_absolute_url}}"><i class="icon-user"></i> {% trans 'profile' %}</a></li>
-                   <li><a href="{% url grocery_list %}"><i class="icon-list"></i> {% trans 'grocery lists' %}</a></li>
+                   <li><a href="{% url 'grocery_list' %}"><i class="icon-list"></i> {% trans 'grocery lists' %}</a></li>
                    <li class="divider"></li>
-                   <li><a href="{% url accounts.views.logout_page %}"><i class="icon-asterisk"></i> {% trans 'logout' %}</a></li>
+                   <li><a href="{% url 'accounts.views.logout_page' %}"><i class="icon-asterisk"></i> {% trans 'logout' %}</a></li>
                  </ul>
                </li>
              </ul>
@@ -85,7 +85,7 @@
      <hr>
 
      <footer>
-        &copy;OpenEats 2012
+        &copy;OpenEats 2015
     </footer>
    </div><!--/.fluid-container-->
 

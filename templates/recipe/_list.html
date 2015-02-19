@@ -2,6 +2,8 @@
 
 {% load i18n %}
 {% load sanitize %}
+{% load imagekit %}
+
 {% block jscript %}
   <script type="text/javascript">
     $(document).ready(function () {
@@ -21,7 +23,7 @@
         <li class="span3">
             <div>
               {% if recipe.photo %}
-                <img id="list-thumb"src="{{ recipe.list_thumbnail.url }}" alt="{{ recipe.photo.name }}" />
+                  {% generateimage 'recipe:list' source=recipe.photo -- alt=recipe.photo.name id="list-thumb" %}
               {% else %}
                 <img id="list-thumb"src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" />
               {% endif %}

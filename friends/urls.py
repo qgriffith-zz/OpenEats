@@ -1,4 +1,4 @@
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 urlpatterns = patterns('',
     url(r'^following/(?P<username>[\w-]+)/$', 'friends.views.follow_list', name="friends_following"),

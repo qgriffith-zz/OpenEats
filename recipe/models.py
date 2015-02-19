@@ -2,17 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from recipe_groups.models import Course, Cuisine
-from imagekit.models import ImageModel
+from imagekit.models import ProcessedImageField
 from djangoratings.fields import RatingField
 from django_extensions.db.fields import AutoSlugField
 from django.utils.translation import ugettext_lazy as _
 
-class Recipe(ImageModel):
+class Recipe(models.Model):
     SHARE_SHARED = 0
     PRIVATE_SHARED = 1
     SHARED_CHOCIES = (
-    (SHARE_SHARED, _('Share')),
-    (PRIVATE_SHARED, _('Private')),
+        (SHARE_SHARED, _('Share')),
+        (PRIVATE_SHARED, _('Private')),
     )
 
     title = models.CharField(_("Recipe Title"), max_length=250)
@@ -31,13 +31,6 @@ class Recipe(ImageModel):
     related = models.OneToOneField('Recipe', verbose_name=_('related'),related_name='RecipeRelated', blank=True, null=True, help_text="relate another recipe")
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
-
-    class IKOptions:
-        '''image kit options'''
-        spec_module = 'recipe.ikspec'
-        cache_dir = 'upload/recipe_photos/cache'
-        image_field = 'photo'
-
 
     class Meta:
         ordering = ['pub_date', 'title']

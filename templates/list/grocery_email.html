@@ -1,6 +1,6 @@
 {%  load i18n %}
 <div>
-    <form action="{% url grocery_mail gid=gid %}" method="post">{% csrf_token %}
+    <form action="{% url 'grocery_mail' gid=gid %}" method="post">{% csrf_token %}
         {{ form.as_p }}
         <input type="hidden" name="gid" value="{{ gid }}" />
         

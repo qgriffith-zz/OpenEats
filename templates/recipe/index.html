@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load front_page %}
 {% load taggit_extras %}
+{% load imagekit %}
 
 {% block content %}
    {% frontpage_news %}
@@ -10,7 +11,7 @@
       <ul class="thumbnails">
         {% for recipe in new_recipes|slice:"0:3" %}
           <li class="span3">
-            <a href="{{ recipe.get_absolute_url }}"><img class="thumbnail" src="{{recipe.index_thumbnail.url}}" alt="{{ recipe.title }}"/></a>
+            <a href="{{ recipe.get_absolute_url }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe class="thumbnail" %} </a>
             <div class="caption">
               <h5>{{ recipe.title }}</h5>
                 <p>chef: <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
@@ -44,7 +45,7 @@
         {% get_tagcloud as tags for 'recipe' %}
         <ul class="well">
           {% for tag in tags %}
-            <li><a href="{% url recipe_tags tag=tag.slug %}" class="tag{{ tag.weight|floatformat:0 }}">{{tag}}</a></li>
+            <li><a href="{% url 'recipe_tags' tag=tag.slug %}" class="tag{{ tag.weight|floatformat:0 }}">{{tag}}</a></li>
           {% endfor %}
         </ul>
       </div>

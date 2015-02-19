@@ -6,6 +6,8 @@
 {% load sanitize %}
 {% load ratings %}
 {% load recipe_links %}
+{% load imagekit %}
+
 {%block title %}{{ block.super }}- {{ recipe }} {% endblock %}
 {% block keywords %}<meta name="keywords" content="{% recipe_keywords recipe.id 10 %}"/>{% endblock %}
 {% block jscript %}
@@ -16,6 +18,7 @@
   <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.jeditable.js"> </script>
   <script type="text/javascript" src="{{ STATIC_URL }}js/oe_email.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}js/oe_recipeDetail.js"></script>
+
   <script type="text/javascript">
     $(function() {
       $("a, button", "#toolbar").button();
@@ -30,11 +33,25 @@
       });
     });
    });
+    //used to save a note on a recipe
+  $(function() {
+    $('#recipe-note p').editable('/recipe/ajaxnote/', {
+        indicator : 'Saving...',
+        tooltip   : 'Click to edit...',
+        type      : 'textarea',
+        cancel    : 'Cancel',
+        submit    : 'OK',
+        submitdata : {recipe: "{{ recipe.id }}"},
+        name       :  'note',
+        cssclass : 'editable',
+        event    : 'dblclick'
+    })
+});
   </script>
 
  {% rating_by_request request on recipe.rating as vote %}{% comment %}check to see if the user has voted on this before {% endcomment %}
 
- {% if request.user.is_authenticated and vote == False %}
+ {% if request.user.is_authenticated and not vote %}
    <script type="text/javascript">
      $(document).ready(function () {
         // Create caption element
@@ -114,15 +131,15 @@
         <li><a class="btn-info fancybox.iframe" id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a></li>
 
         {% if recipe.author == request.user %}
-         <li><a class="btn-info" href="{% url recipe_edit user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a></li>
+         <li><a class="btn-info" href="{% url 'recipe_edit' user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a></li>
         {% endif %}
 
         <li>{% fav_link request.user recipe.id %}</li>
-        <li><a class="btn-info" href="{% url recipe_export slug=recipe.slug %}">pdf</a></li>
+        <li><a class="btn-info" href="{% url 'recipe_export' slug=recipe.slug %}">pdf</a></li>
 
         {% if request.user.is_authenticated %}
-           <li><a class="btn-info" href="{% url grocery_addrecipe recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a></li>
-           <li><a class="btn-info" title="{% trans 'email recipe ' %} {{ recipe }}" id='email-link' href="{% url recipe_mail id=recipe.id %}">{% trans 'email' %}</a></li>
+           <li><a class="btn-info" href="{% url 'grocery_addrecipe' recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a></li>
+           <li><a class="btn-info" title="{% trans 'email recipe ' %} {{ recipe }}" id='email-link' href="{% url 'recipe_mail' id=recipe.id %}">{% trans 'email' %}</a></li>
            <li>{% report_link request.user recipe.id %}</li>
         {% endif %}
     </ul>
@@ -130,7 +147,7 @@
     <div class="pull-right" id="tags">
         <p><i class="icon-tags"></i> {% trans 'tags:' %}</p>
         {% for tag in recipe.tags.all|slice:":10" %}
-          <a href="{% url recipe_tags tag=tag.slug %}" rel="tag" alt="{tag}">{{ tag }}</a>
+          <a href="{% url 'recipe_tags' tag=tag.slug %}" rel="tag" alt="{tag}">{{ tag }}</a>
         {% endfor %}
     </div>
 
@@ -153,7 +170,7 @@
              <p><span>{%trans "Chef:" %}</span> <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
 
              {% if recipe.photo %}
-               <a id="recipe-photo" href="{{recipe.display.url }}" title="{{ recipe }}"> <img id="recipe-thumb" src="{{ recipe.thumbnail_image.url }}" alt="{{ recipe }} photo" /></a>
+               <a id="recipe-photo" href="{{recipe.photo.url }}" title="{{ recipe }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe id="recipe-thumb" %}</a>
             {% else %}
               <a href="{{ STATIC_URL  }}images/parsley.jpg"> <img src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
             {% endif %}
@@ -167,8 +184,8 @@
               </div>
 
                <ul class="recipe-groups">
-                 <li><span>{%trans "Course:" %}</span> <a href="{% url course_recipes slug=recipe.course.slug %}">{{ recipe.course }}</a></li>
-                 <li><span>{%trans "Cuisine:" %}</span> <a href="{% url cuisine_recipes slug=recipe.cuisine.slug %}">{{ recipe.cuisine }}</a></li>
+                 <li><span>{%trans "Course:" %}</span> <a href="{% url 'course_recipes' slug=recipe.course.slug %}">{{ recipe.course }}</a></li>
+                 <li><span>{%trans "Cuisine:" %}</span> <a href="{% url 'cuisine_recipes' slug=recipe.cuisine.slug %}">{{ recipe.cuisine }}</a></li>
                </ul>
 
                 <p>{{recipe.info|sanitize_html|safe}}</p>
@@ -214,7 +231,6 @@
          {% else %}
            <p class="note">click to add a note...</p>
          {% endif %}
-         <script type="text/javascript" src="{{ STATIC_URL }}js/oe_recipeNote.js"></script>
       </div>
    {% endif %}
 

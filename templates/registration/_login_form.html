@@ -6,7 +6,7 @@
     </div>
 {% endif %}
 
-    <form class="well form-vertical" method="post" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
+    <form class="well form-vertical" method="post" action="{% url 'django.contrib.auth.views.login' %}">{% csrf_token %}
         {{ form.username.label_tag }}
         <div class="input-prepend">
             <span class="add-on">

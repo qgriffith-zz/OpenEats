@@ -36,6 +36,10 @@ TIME_ZONE = 'America/Chicago'
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
 
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = []
+
 ugettext = lambda s: s
 
 LANGUAGES = (
@@ -43,7 +47,6 @@ LANGUAGES = (
      ('de', ugettext('German')),
      ('es', ugettext('Spanish')),
    )
-
 
 SITE_ID = 1
 
@@ -69,12 +72,6 @@ STATIC_ROOT = os.path.join(BASE_PATH, 'static-files')
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
 MEDIA_URL = '/site-media/'
 STATIC_URL = '/static-files/'
-
-# URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
-# trailing slash.
-# Examples: "http://foo.com/media/", "/media/".
-#ADMIN_MEDIA_PREFIX = '/site-media/admin/'
-ADMIN_MEDIA_PREFIX = STATIC_URL + "grappelli/"
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'tk1ig_pa_p9^muz4vw4%#q@0no$=ce1*b$#s343jouyq9lj)k33j('
@@ -115,6 +112,11 @@ MIDDLEWARE_CLASSES = (
     
 )
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+)
+
 LOCALE_PATHS = (
   os.path.join(BASE_PATH, 'locale',)
 )
@@ -137,7 +139,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'django.contrib.staticfiles',
     'debug_toolbar',
-    'taggit',
+    'taggit', 
     'taggit_templatetags',
     'south',
     'navbar',
@@ -148,8 +150,6 @@ INSTALLED_APPS = (
     'imagekit',
     'djangoratings',
     'haystack',
-    'sentry',
-    'sentry.client',
     'pagination',
     'django_extensions',
     'relationships',
@@ -172,22 +172,10 @@ OETITLE = 'OpenEats2 Dev'
 INTERNAL_IPS = ('127.0.0.1',)
 
 ### DEBUG-TOOLBAR SETTINGS
+DEBUG_TOOLBAR_PATCH_SETTINGS = False
 DEBUG_TOOLBAR_CONFIG = {
 'INTERCEPT_REDIRECTS': False,
 }
-
-DEBUG_TOOLBAR_PANELS = (
-    'debug_toolbar.panels.version.VersionDebugPanel',
-    'debug_toolbar.panels.timer.TimerDebugPanel',
-    'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
-    'debug_toolbar.panels.headers.HeaderDebugPanel',
-    'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
-    'debug_toolbar.panels.template.TemplateDebugPanel',
-    'debug_toolbar.panels.sql.SQLDebugPanel',
-    'debug_toolbar.panels.signals.SignalDebugPanel',
-    'debug_toolbar.panels.logger.LoggingPanel',
-)
-
 
 #Email Server Settings
 DEFAULT_FROM_EMAIL = ''
@@ -202,14 +190,20 @@ LOGIN_REDIRECT_URL = "/recipe/"
 ACCOUNT_ACTIVATION_DAYS = 7
 
 #Haystack config
-HAYSTACK_SITECONF = 'openeats.search_sites'
-HAYSTACK_SEARCH_ENGINE = 'whoosh'
-HAYSTACK_WHOOSH_PATH =  os.path.join(BASE_PATH, 'search_index')
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH':    os.path.join(BASE_PATH, 'search_index')
+    }
+}
+
 
 GRAPPELLI_ADMIN_TITLE = OETITLE
 GRAPPELLI_INDEX_DASHBOARD = 'openeats.dashboard.CustomIndexDashboard'
 
 PAGINATION_DEFAULT_PAGINATION = 10
+
 
 try:
     from local_settings import *

@@ -3,6 +3,7 @@
 
 {% load i18n %}
 {% load sanitize %}
+{% load imagekit %}
 
 {% block jscript %}
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
@@ -30,7 +31,7 @@
             <li class="span3">
                 <div>
                   {% if result.object.photo %}
-                    <img id="list-thumb"src="{{result.object.list_thumbnail.url }}" alt="{{  result.object.photo.name }}" />
+                    {% generateimage 'recipe:list' source=result.object.photo -- alt=recipe.photo.name id="list-thumb" %}
                   {% else %}
                     <img id="list-thumb"src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ result.object.title }} photo" />
                   {% endif %}
