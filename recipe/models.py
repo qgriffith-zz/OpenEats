@@ -18,7 +18,7 @@ class Recipe(models.Model):
     title = models.CharField(_("Recipe Title"), max_length=250)
     slug = AutoSlugField(_('slug'), populate_from='title', unique=True)
     author = models.ForeignKey(User, verbose_name=_('user'))
-    photo =  ProcessedImageField(_('photo'), blank=True, upload_to="upload/recipe_photos")
+    photo = models.ImageField(_('photo'), blank=True, upload_to="upload/recipe_photos")
     course = models.ForeignKey(Course, verbose_name=_('course'))
     cuisine = models.ForeignKey(Cuisine, verbose_name=_('cuisine'))
     info = models.TextField(_('info'), help_text="enter information about the recipe")
@@ -31,13 +31,6 @@ class Recipe(models.Model):
     related = models.OneToOneField('Recipe', verbose_name=_('related'),related_name='RecipeRelated', blank=True, null=True, help_text="relate another recipe")
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
-
-    class IKOptions:
-        '''image kit options'''
-        spec_module = 'recipe.ikspec'
-        cache_dir = 'upload/recipe_photos/cache'
-        image_field = 'photo'
-
 
     class Meta:
         ordering = ['pub_date', 'title']

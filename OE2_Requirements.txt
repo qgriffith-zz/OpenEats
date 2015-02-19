@@ -1,17 +1,17 @@
 #Third party package requirements for OpenEats 2
 
-django==1.5.2
+django==1.5.12
 django-debug-toolbar==1.0
 django-disqus==0.4.1
-django-imagekit==0.4.0
+django-imagekit==3.2.4
 django-reversion==1.5
 django-taggit==0.10
 akismet==0.2.0
-pil==1.1.7
 south==0.8.2
 django_navbar==0.3.0
 feedparser==5.1.3
 html5lib==0.95
+pillow==2.7.0
 whoosh==2.5.2
 django-pagination==1.0.7
 django-haystack==2,3.1

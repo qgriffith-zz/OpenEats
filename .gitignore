@@ -6,3 +6,5 @@ static-files/*
 changelog.txt
 search_index/
 .idea/
+site-media/CACHE/
+site-media/upload/

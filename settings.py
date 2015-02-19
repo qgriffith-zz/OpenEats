@@ -48,7 +48,6 @@ LANGUAGES = (
      ('es', ugettext('Spanish')),
    )
 
-
 SITE_ID = 1
 
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
