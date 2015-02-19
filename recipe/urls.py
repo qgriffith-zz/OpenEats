@@ -1,8 +1,6 @@
 from django.conf.urls import *
-from django.views.generic import ListView
 from helpers.recipe_views import RecentRecipeView, TopRecipeView
 from recipe.views import CookList
-from models import Recipe
 
 
 urlpatterns = patterns('',
