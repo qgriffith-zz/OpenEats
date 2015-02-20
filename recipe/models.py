@@ -2,10 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from recipe_groups.models import Course, Cuisine
-from imagekit.models import ProcessedImageField
 from djangoratings.fields import RatingField
 from django_extensions.db.fields import AutoSlugField
 from django.utils.translation import ugettext_lazy as _
+
 
 class Recipe(models.Model):
     SHARE_SHARED = 0
@@ -28,7 +28,7 @@ class Recipe(models.Model):
     shared = models.IntegerField(_('shared'), choices=SHARED_CHOCIES, default=SHARE_SHARED, help_text="share the recipe with the community or mark it private")
     tags = TaggableManager(_('tags'), help_text="separate with commas", blank=True)
     rating = RatingField(range=5)
-    related = models.OneToOneField('Recipe', verbose_name=_('related'),related_name='RecipeRelated', blank=True, null=True, help_text="relate another recipe")
+    related = models.OneToOneField('Recipe', verbose_name=_('related'), related_name='RecipeRelated', blank=True, null=True, help_text="relate another recipe")
     pub_date = models.DateTimeField(auto_now_add=True)
     update_date = models.DateTimeField(auto_now=True)
 
@@ -39,7 +39,7 @@ class Recipe(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return "/recipe/%s/" %self.slug
+        return "/recipe/%s/" % self.slug
 
     def get_reported(self):
         if ReportedRecipe.objects.filter(recipe=self):
@@ -53,6 +53,7 @@ class StoredRecipe(models.Model):
     def __unicode__(self):
         return self.recipe.title
 
+
 class NoteRecipe(models.Model):
     recipe = models.ForeignKey(Recipe, verbose_name=_('recipe'))
     author = models.ForeignKey(User, verbose_name=_('author'))
@@ -62,7 +63,8 @@ class NoteRecipe(models.Model):
         verbose_name_plural = "Recipe Notes"
 
     def __unicode__(self):
-        return "%s note for %s"  %(self.author, self.recipe)
+        return "%s note for %s" % (self.author, self.recipe)
+
 
 class ReportedRecipe(models.Model):
     recipe = models.ForeignKey(Recipe, verbose_name=_('recipe'), unique=True)

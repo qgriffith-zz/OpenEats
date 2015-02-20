@@ -9,11 +9,11 @@ from relationships.models import RelationshipStatus
 @require_user
 @login_required
 def follow_list(request, username):
-    '''takes a user name and gets all the followers, friends and people the user is following'''
+    """takes a user name and gets all the followers, friends and people the user is following"""
     user = get_object_or_404(User, username=username)
 
     def get_status(status_slug):
-        '''get the relationship status object we're talking about'''
+        """get the relationship status object we're talking about"""
         try:
             status = RelationshipStatus.objects.by_slug(status_slug)
         except RelationshipStatus.DoesNotExist:
@@ -26,14 +26,14 @@ def follow_list(request, username):
     followers_list = user.relationships.get_related_to(status=follower_status)
     blocking_list = user.relationships.blocking()
 
-    return render_to_response('friends/list.html', {'following_list': following_list, 'followers_list': followers_list, 'blocking_list': blocking_list,'username':  user.username}, context_instance=RequestContext(request))
+    return render_to_response('friends/list.html', {'following_list': following_list, 'followers_list': followers_list, 'blocking_list': blocking_list, 'username':  user.username}, context_instance=RequestContext(request))
 
 
 @login_required
 def feed(request, username):
-    '''finds the followers of a user' and passes it to a template that uses template tags to pull the feeds'''
+    """inds the followers of a user' and passes it to a template that uses template tags to pull the feeds"""
+
     user = get_object_or_404(User, username=username)
     following = user.relationships.following()
 
     return render_to_response('friends/feed.html', {'following_list': following}, context_instance=RequestContext(request))
-    

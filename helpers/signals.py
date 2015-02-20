@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 from recipe.models import ReportedRecipe
 from django.core.mail import mail_admins
 
+
 def createUserProfile(sender, instance, **kwargs):
     """Listens to the save signal of the User class then 
        create a UserProfile object each time a User is activated ; and link it.
@@ -14,13 +15,12 @@ post_save.connect(createUserProfile, sender=User)
 
 
 def notifyAdminReportedRecipe(sender, instance, created, **kwargs):
-    '''Listens to the save signal for the report recipe class and
+    """Listens to the save signal for the report recipe class and
         sends an email to the admins
-    '''
+    """
     if created:
         subject = "A recipe has been reported"
         message = "Recipe %s was reported as being inappropriate" % instance.recipe
         mail_admins(subject, message)
 
 post_save.connect(notifyAdminReportedRecipe, sender=ReportedRecipe)
-        

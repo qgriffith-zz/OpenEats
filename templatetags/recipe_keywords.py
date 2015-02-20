@@ -3,7 +3,7 @@ register = template.Library()
 from recipe.models import Recipe
 @register.simple_tag
 def recipe_keywords(recipe_id, tag_count):
-    '''Used to get the recipe tags from a recipe and make them keywords'''
+    """Used to get the recipe tags from a recipe and make them keywords"""
     recipe = Recipe.objects.get(pk=recipe_id)
     keyword_list = []
     keyword_list.append(recipe.title)

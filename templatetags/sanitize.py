@@ -7,7 +7,7 @@ register = template.Library()
 @stringfilter
 @register.filter(name='sanitize_html')
 def sanitize_html(value):
-    '''A custom filter that sanitzes html output to make sure there is no bad stuff in it'''
+    """A custom filter that sanitzes html output to make sure there is no bad stuff in it"""
     p = html5lib.HTMLParser(tokenizer=sanitizer.HTMLSanitizer, tree=treebuilders.getTreeBuilder("dom"))
     dom_tree = p.parseFragment(value)
 

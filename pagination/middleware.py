@@ -8,6 +8,7 @@ def get_page(self):
     except (KeyError, ValueError, TypeError):
         return 1
 
+
 class PaginationMiddleware(object):
     """
     Inserts a variable representing the current page onto the request object if

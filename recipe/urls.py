@@ -21,4 +21,4 @@ urlpatterns = patterns('',
     url(r'^(?P<slug>[-\w]+)/$', 'recipe.views.recipeShow', name='recipe_show'),
     url(r'^export/(?P<slug>[-\w]+)/$', 'recipe.views.exportPDF', name='recipe_export'),
     url(r'^$', 'recipe.views.index', name='recipe_index'),
-   )
+)

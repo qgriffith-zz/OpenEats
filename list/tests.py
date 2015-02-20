@@ -10,7 +10,7 @@ class listViewsTestCase(TestCase):
         self.client.login(username="testUser", password='password')
 
     def test_index(self):
-        '''test we get a list of grocery list for a giving user'''
+        """test we get a list of grocery list for a giving user"""
         resp = self.client.get(reverse('grocery_list'))
         self.assertEqual(resp.status_code, 200)
         self.assertTrue('glists' in resp.context)
@@ -23,7 +23,7 @@ class listViewsTestCase(TestCase):
         self.assertRedirects(resp, '/accounts/login/?next=/list/grocery/')
 
     def test_detail(self):
-        '''test we get a list and all of its items'''
+        """test we get a list and all of its items"""
         resp = self.client.get(reverse('grocery_show', kwargs={'user':'testUser', 'slug':'test'}))
         self.assertEqual(resp.status_code, 200)
         self.assertTrue('list' in resp.context)
@@ -47,7 +47,7 @@ class listViewsTestCase(TestCase):
         self.assertRedirects(resp, reverse('grocery_list'))
 
     def test_post(self):
-        '''do a simple test to test the list edit form'''
+        """do a simple test to test the list edit form"""
         list = GroceryList.objects.get(pk=1)
         data = {
             'title':'test',
@@ -70,7 +70,7 @@ class listViewsTestCase(TestCase):
         self.assertEqual(list.items.count(), 3)
 
     def test_bad_post(self):
-        '''test that the grocery list form fails when it should'''
+        """test that the grocery list form fails when it should"""
 
         #make sure a non-existent list can't be edited
         resp = self.client.post(reverse('grocery_edit',kwargs={'user':'testUser', 'slug':'test333'}))
@@ -100,7 +100,7 @@ class listViewsTestCase(TestCase):
         self.assertEqual(resp.context['formset'].errors, [{'item': [u'This field is required.']}])
 
     def test_shared(self):
-        '''test sharing a list allows only the shared user to access the list'''
+        """test sharing a list allows only the shared user to access the list"""
         user1 = User.objects.get(pk=2)
         user2 = User.objects.get(pk=3)
         self.assertEqual(user1.username, 'testUser')
@@ -154,7 +154,7 @@ class listViewsTestCase(TestCase):
         self.assertFalse(list.get_shared())
 
     def test_delete(self):
-        '''test that only the owner of a list can delete it'''
+        """test that only the owner of a list can delete it"""
 
         #santity check make sure the list is owned by testUser
         list = GroceryList.objects.get(pk=1)
@@ -179,7 +179,7 @@ class listViewsTestCase(TestCase):
         self.assertFalse(GroceryList.objects.filter(pk=1))
 
     def test_addRecipe(self):
-        '''test adding recipe ingredients to a list'''
+        """test adding recipe ingredients to a list"""
         recipe = Recipe.objects.get(pk=1)
         list = GroceryList.objects.get(pk=1)
 

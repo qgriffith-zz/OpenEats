@@ -9,13 +9,13 @@ class recipeViewsTestCase(WebTest):
     csrf_checks = False
 
     def test_redirect(self):
-        '''test that if a user is not logged in and they try to create a recipe they are sent to the login page'''
+        """test that if a user is not logged in and they try to create a recipe they are sent to the login page"""
         resp = self.client.get(reverse('new_recipe'))
         self.assertEqual(resp.status_code, 302)
         self.assertRedirects(resp, '/accounts/login/?next=' + reverse('new_recipe'))
 
     def test_detail(self):
-        '''test that you can access a recipe detail page'''
+        """test that you can access a recipe detail page"""
         recipe = Recipe.objects.get(pk=1)
         resp = self.client.get(reverse('recipe_show',kwargs={'slug': recipe.slug}))
         self.assertEqual(resp.status_code, 200)
@@ -29,7 +29,7 @@ class recipeViewsTestCase(WebTest):
         self.assertEqual(resp.status_code, 404)
 
     def test_create(self):
-        '''test the creation of a recipe using the form'''
+        """test the creation of a recipe using the form"""
         resp = self.app.get(reverse('new_recipe'), user='testUser')
         self.assertEqual(resp.status, '200 OK')
         form = resp.forms[1]
@@ -54,7 +54,7 @@ class recipeViewsTestCase(WebTest):
         self.assertTrue(recipe)
 
     def test_private(self):
-        '''makes sure only the owner of a private recipe can view it'''
+        """makes sure only the owner of a private recipe can view it"""
 
         #sanity check make sure the recipe is private
         self.test_create() #call the create recipe test from above to load the DB with a private recipe
@@ -70,9 +70,9 @@ class recipeViewsTestCase(WebTest):
         self.assertEqual(resp.context['recipe'].title, 'my recipe')
 
     def test_rate(self):
-        '''test that you can rate a recipe'''
+        """test that you can rate a recipe"""
 
-        #sainty check there should be no ratings right now'''
+        #sainty check there should be no ratings right now"""
         recipe = Recipe.objects.get(pk=1)
         self.assertEqual(recipe.rating.votes, 0)
 
@@ -82,7 +82,7 @@ class recipeViewsTestCase(WebTest):
         self.assertTrue('Vote recorded.' in resp)
 
     def test_store(self):
-        '''test a user can store a recipe'''
+        """test a user can store a recipe"""
         recipe = Recipe.objects.get(pk=1)
         user = User.objects.get(username='testUser')
 
@@ -104,7 +104,7 @@ class recipeViewsTestCase(WebTest):
         self.assertTrue(stored)
 
     def test_unstore(self):
-        '''test a user can unstore a recipe'''
+        """test a user can unstore a recipe"""
         recipe = Recipe.objects.get(pk=1)
         user = User.objects.get(username='testUser')
 
@@ -122,7 +122,7 @@ class recipeViewsTestCase(WebTest):
         self.assertEqual(resp.status, '404 NOT FOUND')
 
     def test_report(self):
-        '''test that a recipe is reported bad when a user reports it'''
+        """test that a recipe is reported bad when a user reports it"""
         recipe = Recipe.objects.get(pk=1)
         self.assertFalse(recipe.get_reported())
         resp = self.app.post(reverse('recipe_report', kwargs={'slug':recipe.slug}),user='testUser2')
@@ -144,7 +144,7 @@ class recipeViewsTestCase(WebTest):
 
 
     def test_print(self):
-        '''test the print view comes up'''
+        """test the print view comes up"""
         recipe = Recipe.objects.get(pk=1)
         resp  = self.client.get(reverse('print_recipe', kwargs={'slug': recipe.slug}))
         self.assertEqual(resp.status_code, 200)

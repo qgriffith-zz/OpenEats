@@ -2,11 +2,11 @@ from django.conf.urls import *
 from recipe_groups.views import CourseList, CuisineList, CuisineCreate, CuisineUpdate, CourseCreate, CourseUpdate
 from models import Course, Cuisine
 
-course_info={
+course_info = {
                 "queryset":Course.objects.all(),
                 "template_object_name":"course",
             }
-cuisine_info={
+cuisine_info = {
                 "queryset":Cuisine.objects.all(),
                 "template_object_name": "cuisine",
              }

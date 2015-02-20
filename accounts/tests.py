@@ -6,7 +6,7 @@ class accountViewsTestCase(WebTest):
     fixtures = ['test_user_data.json']
     setup_auth = False
     def test_login(self):
-        '''used to test the login form'''
+        """used to test the login form"""
 
         #sanity check to make sure the data loaded
         user = User.objects.get(username="testUser")
@@ -22,7 +22,7 @@ class accountViewsTestCase(WebTest):
         self.assertEqual(resp.location, 'http://localhost:80' + reverse('recipe_index'))
 
     def test_bad_login(self):
-        '''make sure an error is thrown when someone can't login'''
+        """make sure an error is thrown when someone can't login"""
         form = self.app.get(reverse('auth_login')).forms[1]
         form['username'] = 'testUser'
         form['password'] = 'baspassword'
@@ -30,7 +30,7 @@ class accountViewsTestCase(WebTest):
         self.assertEqual(resp.status, '200 OK')
 
     def test_create_user(self):
-        '''test that a user can be created'''
+        """test that a user can be created"""
         form = self.app.get(reverse('registration_register')).forms[1]
         form['username'] = 'newUser'
         form['email'] = 'newUser@yahoo.com'

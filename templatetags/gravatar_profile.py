@@ -5,7 +5,7 @@ import urllib, hashlib
 register = template.Library()
 
 def gravatar(user, size=80):
-    '''A template tag that returns a users gravatar picture if they are registerd if not it returns the default picture'''
+    """A template tag that returns a users gravatar picture if they are registerd if not it returns the default picture"""
     gravatar_url = "http://www.gravatar.com/avatar.php?"
     gravatar_url += urllib.urlencode({
         'gravatar_id':hashlib.md5(user.email).hexdigest(),
