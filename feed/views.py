@@ -3,10 +3,11 @@ from django.conf import settings
 from django.utils.translation import ugettext as _
 from recipe.models import Recipe
 
+
 class RecentRecipesFeed(Feed):
     title = settings.OETITLE + _(" Recent Recipes")
     link = "/recipe/recent/"
-    description=_("Updates added on new recipes added to ") + settings.OETITLE
+    description = _("Updates added on new recipes added to ") + settings.OETITLE
 
     def items(self):
         return Recipe.objects.filter(shared=Recipe.SHARE_SHARED).order_by('-pub_date', 'title')[:10]
@@ -17,11 +18,11 @@ class RecentRecipesFeed(Feed):
     def item_description(self, item):
         return item.info
 
+
 class TopRecipesFeed(Feed):
     title = settings.OETITLE + _(" Top Recipes")
     link = "/recipe/top/"
-    description=_("Top recipes on ") + settings.OETITLE
-
+    description =_("Top recipes on ") + settings.OETITLE
 
     def items(self):
         rating_qs = Recipe.objects.extra(select={'rate': '((100/%s*rating_score/(rating_votes+%s))+100)/2' % (Recipe.rating.range, Recipe.rating.weight)})
