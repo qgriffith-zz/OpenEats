@@ -246,7 +246,7 @@ def exportPDF(request, slug):
 
     # add the recipe photo if the recipe has one
     if recipe.photo:
-        photo = settings.BASE_PATH + recipe.thumbnail_image.url
+        photo = settings.BASE_PATH + recipe.photo.url
         I = Image(photo)
         I.height = "CENTER"
         elements.append(I)
