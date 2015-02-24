@@ -1,7 +1,15 @@
 {% load i18n %}
 <div id="search">
     <form method="get" class="well form-search" action="/search/" >
-        <input type="text" class="input-medium search-query" id="id_q" name="q">
-        <button type="submit" class="btn"><i class="icon-search"></i></button>
+        <div class="row">
+            <div class="col-lg-10">
+                <div class="input-group">
+                    <input type="text" class="form-control search-query" id="id_q" name="q">
+                    <span class="input-group-btn">
+                        <button class="btn btn-dark" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </span>
+                </div>
+            </div>
+        </div>
      </form>
 </div>

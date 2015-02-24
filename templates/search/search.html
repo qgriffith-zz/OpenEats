@@ -28,7 +28,7 @@
     <div class="recipe well" id="recipe-{{result.object.id}}">
         <h3><a href="{{ result.object.get_absolute_url  }}">{{result.object.title}}</a></h3>
         <ul class="thumbnails">
-            <li class="span3">
+            <li class="col-md-3">
                 <div>
                   {% if result.object.photo %}
                     {% generateimage 'recipe:list' source=result.object.photo -- alt=recipe.photo.name id="list-thumb" %}
@@ -53,7 +53,7 @@
         </ul>
        <div class="recipe-info">
            <p>{{ result.object.info|striptags|truncatewords:'100' }}</p>
-           <p><a class="btn btn-primary btn-large" href="{{ result.object.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
+           <p><a class="btn btn-primary btn-lg" href="{{ result.object.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
        </div>
     </div>
     {% empty %}

@@ -20,7 +20,7 @@
 <div class="recipe well" id="recipe-{{recipe.id}}">
     <h3><a href="{{ recipe.get_absolute_url }}">{{recipe}}</a></h3>
     <ul class="thumbnails">
-        <li class="span3">
+        <li class="col-md-3">
             <div>
               {% if recipe.photo %}
                   {% generateimage 'recipe:list' source=recipe.photo -- alt=recipe.photo.name id="list-thumb" %}
@@ -45,6 +45,6 @@
     </ul>
    <div class="recipe-info">
        <p>{{ recipe.info|striptags|truncatewords:'100' }}</p>
-       <p><a class="btn btn-primary btn-large" href="{{ recipe.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
+       <p><a class="btn btn-primary btn-lg" href="{{ recipe.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
    </div>
 </div>

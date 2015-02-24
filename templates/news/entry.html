@@ -2,13 +2,13 @@
 {% load i18n %}
 {% block title %}{{ block.super }}- {{ entry.title }} {% endblock %}
 {% block content %}
-    <div class="hero-unit">
+    <div class="jumbotron">
       <h2> {{ entry.title }}</h2>
 
       {% if entry.image %}
        <ul class="thumbnails pull-right">
-          <li class="span2">
-            <a href="#" class="thumbnail"><img src="{{ MEDIA_URL }}{{ entry.image }}"/></a>
+          <li class="col-md-2">
+            <a href="#" class="img-thumbnail"><img src="{{ MEDIA_URL }}{{ entry.image }}"/></a>
           </li>
       </ul>
       {% endif %}

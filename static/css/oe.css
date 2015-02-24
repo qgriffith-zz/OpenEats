@@ -1,7 +1,7 @@
 /* Base Template */
 body{padding-top: 60px; padding-bottom: 40px;}
 .sidebar-nav { padding: 9px 0;}
-
+.navheader { padding-left: 6px;}
 
 /* Cook View */
 div#tenfoot{font-size:xx-large; width:800px;}
@@ -22,6 +22,14 @@ div#tag-cloud li a { padding: 0 2px; text-decoration: none;}
 .tag4 { font-size: 160%; }
 .tag5 { font-size: 180%; }
 .tag6 { font-size: 200%; }
+
+.btn .glyphicon {
+  margin-right: 8px;
+}
+
+.btn.btn-icon .glyphicon {
+  margin-right: 0;
+}
 
 /*Form Errors*/
 

@@ -145,7 +145,7 @@
     </ul>
 
     <div class="pull-right" id="tags">
-        <p><i class="icon-tags"></i> {% trans 'tags:' %}</p>
+        <p><i class="glyphicon glyphicon-tags"></i> {% trans 'tags:' %}</p>
         {% for tag in recipe.tags.all|slice:":10" %}
           <a href="{% url 'recipe_tags' tag=tag.slug %}" rel="tag" alt="{tag}">{{ tag }}</a>
         {% endfor %}
@@ -165,8 +165,8 @@
     </form>
 
     <ul class="thumbnails">
-      <li class="span3">
-          <div class="thumbnail">
+      <li class="col-md-3">
+          <div class="img-thumbnail">
              <p><span>{%trans "Chef:" %}</span> <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
 
              {% if recipe.photo %}
@@ -179,7 +179,7 @@
               <div id="recipe-cook">
                 <ul>
                   <li><i class="icon-info-sign"></i> <span>{%trans "serves" %}</span> {{ recipe.servings }}</li>
-                  <li><i class="icon-time"></i> <span>{%trans "cook time" %}</span> {{ recipe.cook_time }} minute{{ recipe.cook_time|pluralize }}</li>
+                  <li><i class="glyphicon glyphicon-time"></i> <span>{%trans "cook time" %}</span> {{ recipe.cook_time }} minute{{ recipe.cook_time|pluralize }}</li>
                  </ul>
               </div>
 
@@ -213,7 +213,7 @@
     </div>
 
     <div id="recipe-directions">
-       <h2><i class="icon-pencil"></i> {% trans "Directions" %}</h2>
+       <h2><i class="glyphicon glyphicon-pencil"></i> {% trans "Directions" %}</h2>
          {{ recipe.directions|sanitize_html|safe }}
          {% if recipe.related %}
            <h4>{{ recipe.related }}</h4>
