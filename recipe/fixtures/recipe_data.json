@@ -20,5 +20,49 @@
             "slug": "tasty-chili", 
             "cook_time": 60
         }
+    },
+      {
+        "pk": 3,
+        "model": "recipe.recipe",
+        "fields": {
+            "info": "<p>This chili is requested every winter by friends and family. &nbsp;I have been  making this chili every since I was a small child and learned from my  grandm</p>",
+            "cuisine": 10,
+            "author": 1,
+            "photo": "",
+            "title": "Tasty Chili2",
+            "related": null,
+            "rating_votes": 0,
+            "rating_score": 0,
+            "course": 4,
+            "servings": 8,
+            "directions": "<ol>\r\n<li>Brown the ground pork and ground sirlion in a medium pan. Add a   teaspoon of sereano pepper while browning the meat&nbsp;Season with kosher   salt and pepper.</li>\r\n<li>Chop the onion, bell pepper and one Serrano pepper and place them in a large pot.</li>\r\n<li>Open up and drain both cans of kidney beans and add them to the large pot.</li>\r\n<li>Open up both cans of stewed chili style tomatoes and add them to the pot.</li>\r\n<li>Drain the grease away from the browned meat and add the meat to the pot.</li>\r\n<li>Pour in the tomato juice over the meat mixture.</li>\r\n<li>Add kosher salt, black pepper, two table spoons of chili powder, and two teaspoons of ground cumin. Stir well.</li>\r\n<li>Cook slowly over medium low heat for an hour. If it starts to bubble   turn down the heat. Taste during the cooking process to check the   seasoning add more to taste.</li>\r\n</ol>",
+            "shared": 0,
+            "update_date": "2011-05-21 07:35:32",
+            "pub_date": "2011-05-21 07:35:32",
+            "slug": "tasty-chili2",
+            "cook_time": 60
+        }
+    },
+  {
+    "pk": 4,
+    "model": "recipe.recipe",
+    "fields": {
+      "info": "<p>This chili is requested every winter by friends and family. &nbsp;I have been  making this chili every since I was a small child and learned from my  grandm</p>",
+      "cuisine": 10,
+      "author": 1,
+      "photo": "",
+      "title": "Tasty Chili3",
+      "related": null,
+      "rating_votes": 0,
+      "rating_score": 0,
+      "course": 4,
+      "servings": 8,
+      "directions": "<ol>\r\n<li>Brown the ground pork and ground sirlion in a medium pan. Add a   teaspoon of sereano pepper while browning the meat&nbsp;Season with kosher   salt and pepper.</li>\r\n<li>Chop the onion, bell pepper and one Serrano pepper and place them in a large pot.</li>\r\n<li>Open up and drain both cans of kidney beans and add them to the large pot.</li>\r\n<li>Open up both cans of stewed chili style tomatoes and add them to the pot.</li>\r\n<li>Drain the grease away from the browned meat and add the meat to the pot.</li>\r\n<li>Pour in the tomato juice over the meat mixture.</li>\r\n<li>Add kosher salt, black pepper, two table spoons of chili powder, and two teaspoons of ground cumin. Stir well.</li>\r\n<li>Cook slowly over medium low heat for an hour. If it starts to bubble   turn down the heat. Taste during the cooking process to check the   seasoning add more to taste.</li>\r\n</ol>",
+      "shared": 0,
+      "update_date": "2011-05-21 07:35:32",
+      "pub_date": "2011-05-21 07:35:32",
+      "slug": "tasty-chili3",
+      "cook_time": 60
     }
+  }
 ]

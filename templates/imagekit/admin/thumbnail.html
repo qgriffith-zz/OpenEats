@@ -1,6 +1,6 @@
 
-{% if img-thumbnail %}
+{% if thumbnail %}
         <a href="{{ model.get_absolute_url|default:original_image.url }}">
-                <img src="{{ img-thumbnail.url }}" height="75" width="75" >
+                <img src="{{ thumbnail.url }}" height="75" width="75" >
         </a>
 {% endif %}
