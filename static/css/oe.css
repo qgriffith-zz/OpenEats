@@ -68,9 +68,8 @@ ul.grocery-item-list li{list-style:none; margin-bottom:5px;}
 ul.grocery-item-list input{margin:3px;}
 
 /*recipe detail*/
-.recipe-toolbar {padding-left:5px; padding-top:10px; height:45px; background-color:#f5f5f5; border:1px #dcdcdc solid; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+.recipe-toolbar {padding-left:5px; padding-top:10px; height:65px; background-color:#f5f5f5; border:1px #dcdcdc solid; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 .recipe-toolbar li {margin-right: 15px;}
-.recipe-toolbar .btn-info:hover {color:#fff; font-weight: bold; }
 
 /*recipe view info*/
 div.thumbnail img#recipe-thumb:hover {border: 1px solid #0088CC;}

@@ -11,8 +11,8 @@
 {%block title %}{{ block.super }}- {{ recipe }} {% endblock %}
 {% block keywords %}<meta name="keywords" content="{% recipe_keywords recipe.id 10 %}"/>{% endblock %}
 {% block jscript %}
-  <link rel="stylesheet" href="{{ STATIC_URL }}js/jquery/fancybox/jquery.fancybox.css" />
-  <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/fancybox/jquery.fancybox.pack.js"></script>
+  <link rel="stylesheet" href="{{ STATIC_URL }}js/jquery/fancybox/source/jquery.fancybox.css" />
+  <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/fancybox/source/jquery.fancybox.pack.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
   <link href="{{ STATIC_URL }}js/jquery.ui.stars/crystal-stars.css" rel="stylesheet" />
   <script type="text/javascript" src="{{ STATIC_URL }}js/jquery/jquery.jeditable.js"> </script>
@@ -126,23 +126,23 @@
       <h1>{{ recipe.title }}</h1>
     </div>
 
-    <ul class="nav nav-pills recipe-toolbar">
-        <li><a class="btn-info" href="/recipe/print/{{ recipe.slug }}/">{%trans 'print' %}</a></li>
-        <li><a class="btn-info fancybox.iframe" id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a></li>
+    <div class="recipe-toolbar">
+      <a class="btn btn-primary btn-sm" href="/recipe/print/{{ recipe.slug }}/">{%trans 'print' %}</a>
+      <a class="btn btn-primary btn-sm fancybox.iframe" id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a>
 
         {% if recipe.author == request.user %}
-         <li><a class="btn-info" href="{% url 'recipe_edit' user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a></li>
+        <a class="btn btn-primary btn-sm" href="{% url 'recipe_edit' user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a>
         {% endif %}
 
-        <li>{% fav_link request.user recipe.id %}</li>
-        <li><a class="btn-info" href="{% url 'recipe_export' slug=recipe.slug %}">pdf</a></li>
+        {% fav_link request.user recipe.id %}
+       <a class="btn btn-primary btn-sm" href="{% url 'recipe_export' slug=recipe.slug %}">pdf</a>
 
         {% if request.user.is_authenticated %}
-           <li><a class="btn-info" href="{% url 'grocery_addrecipe' recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a></li>
-           <li><a class="btn-info" title="{% trans 'email recipe ' %} {{ recipe }}" id='email-link' href="{% url 'recipe_mail' id=recipe.id %}">{% trans 'email' %}</a></li>
-           <li>{% report_link request.user recipe.id %}</li>
+           <a class="btn btn-primary btn-sm" href="{% url 'grocery_addrecipe' recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a>
+           <a class="btn btn-primary btn-sm" title="{% trans 'email recipe ' %} {{ recipe }}" id='email-link' href="{% url 'recipe_mail' id=recipe.id %}">{% trans 'email' %}</a>
+           {% report_link request.user recipe.id %}
         {% endif %}
-    </ul>
+    </div>
 
     <div class="pull-right" id="tags">
         <p><i class="glyphicon glyphicon-tags"></i> {% trans 'tags:' %}</p>
@@ -163,38 +163,43 @@
         </select>
       </div>
     </form>
+    <div class="row">
+        <div class="col-sm-6 col-md-4">
+            <div class="thumbnail">
+                {% if recipe.photo %}
+                    <a id="recipe-photo" href="{{ recipe.photo.url }}"
+                       title="{{ recipe }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe id="recipe-thumb" %}</a>
+                {% else %}
+                    <a href="{{ STATIC_URL }}images/parsley.jpg"> <img src="{{ STATIC_URL }}images/parsley.jpg"
+                                                                       alt="{{ recipe }} photo"/></a>
+                {% endif %}
+                <p><span>{% trans "Chef:" %}</span> <a
+                        href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
 
-    <ul class="thumbnails">
-      <li class="col-md-3">
-          <div class="img-thumbnail">
-             <p><span>{%trans "Chef:" %}</span> <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
-
-             {% if recipe.photo %}
-               <a id="recipe-photo" href="{{recipe.photo.url }}" title="{{ recipe }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe id="recipe-thumb" %}</a>
-            {% else %}
-              <a href="{{ STATIC_URL  }}images/parsley.jpg"> <img src="{{ STATIC_URL  }}images/parsley.jpg" alt="{{ recipe }} photo" /></a>
-            {% endif %}
-
-            <div class="caption">
-              <div id="recipe-cook">
-                <ul>
-                  <li><i class="icon-info-sign"></i> <span>{%trans "serves" %}</span> {{ recipe.servings }}</li>
-                  <li><i class="glyphicon glyphicon-time"></i> <span>{%trans "cook time" %}</span> {{ recipe.cook_time }} minute{{ recipe.cook_time|pluralize }}</li>
-                 </ul>
-              </div>
-
-               <ul class="recipe-groups">
-                 <li><span>{%trans "Course:" %}</span> <a href="{% url 'course_recipes' slug=recipe.course.slug %}">{{ recipe.course }}</a></li>
-                 <li><span>{%trans "Cuisine:" %}</span> <a href="{% url 'cuisine_recipes' slug=recipe.cuisine.slug %}">{{ recipe.cuisine }}</a></li>
-               </ul>
-
-                <p>{{recipe.info|sanitize_html|safe}}</p>
+                <div class="caption">
+                    <div id="recipe-cook">
+                        <ul>
+                            <li><i class="icon-info-sign"></i> <span>{% trans "serves" %}</span> {{ recipe.servings }}
+                            </li>
+                            <li><i class="glyphicon glyphicon-time"></i>
+                                <span>{% trans "cook time" %}</span> {{ recipe.cook_time }}
+                                minute{{ recipe.cook_time|pluralize }}</li>
+                        </ul>
+                    </div>
+                    <ul class="recipe-groups">
+                        <li><span>{% trans "Course:" %}</span> <a
+                                href="{% url 'course_recipes' slug=recipe.course.slug %}">{{ recipe.course }}</a></li>
+                        <li><span>{% trans "Cuisine:" %}</span> <a
+                                href="{% url 'cuisine_recipes' slug=recipe.cuisine.slug %}">{{ recipe.cuisine }}</a>
+                        </li>
+                    </ul>
+                    <p>{{ recipe.info|sanitize_html|safe }}</p>
+                </div>
             </div>
-          </div>
-      </li>
-    </ul>
+        </div>
+    </div>
 
-    <div id="recipe-ing">
+      <div id="recipe-ing">
       <h2><i class="icon-th-list"></i> {%trans "Ingredients" %}</h2>
        <ul>
          {% for ing in recipe.ingredients.all %}
