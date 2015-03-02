@@ -6,17 +6,18 @@
     </div>
 {% endif %}
 
-    <form class="well form-vertical" method="post" action="/accounts/register/">{% csrf_token %}
-
+<form class="well" method="post" action="/accounts/register/">{% csrf_token %}
+    <div class="form-group">
         <p>{{ form.username.label_tag }}</p>
         {{ form.username.errors }}
         <div class="input-group">
             <span class="input-group-addon">
                 <i class="glyphicon glyphicon-user"></i>
             </span>
-             {{ form.username }}
+            {{ form.username }}
         </div>
-
+    </div>
+    <div class="form-group">
         <p>{{ form.email.label_tag }}</p>
         {{ form.email.errors }}
         <div class="input-group">
@@ -25,7 +26,8 @@
             </span>
             {{ form.email }}
         </div>
-
+    </div>
+    <div class="form-group">
         <p>{{ form.password1.label_tag }}</p>
         {{ form.password1.errors }}
         <div class="input-group">
@@ -34,7 +36,8 @@
             </span>
             {{ form.password1 }}
         </div>
-
+    </div>
+    <div class="form-group">
         <p>{{ form.password2.label_tag }}</p>
         {{ form.password2.errors }}
         <div class="input-group">
@@ -43,5 +46,6 @@
             </span>
             {{ form.password2 }}
         </div>
-        <button type="submit" class="btn">{% trans 'create account' %}</button>
-    </form>
+    </div>
+    <button type="submit" class="btn btn-default">{% trans 'create account' %}</button>
+</form>
