@@ -32,18 +32,20 @@
 </script>
 
 {% endblock %}
-{% block content %}
-    <ul class="thumbnails">
-        <li class="col-md-3">
-            <h2>{{ profile.user.username }} {%trans 'profile' %}</h2>
-            {% if profile.user != request.user %}
-                <a href="/follow/add/{{ profile.user.username }}/following/">
-                    <img src="{{ STATIC_URL }}images/follow-me.png" /></a>
-            {% endif %}
 
-            <div class="img-thumbnail">
-                {% gravatar profile.user 120%}
-                <h5>{% trans 'info' %}</h5>
+{% block content %}
+
+  <div class="row">
+    <div class="col-sm-3">
+        <div class="thumbnail">
+          <h2>{{ profile.user.username }} {%trans 'profile' %}</h2>
+          {% if profile.user != request.user %}
+            <a href="/follow/add/{{ profile.user.username }}/following/">
+            <img src="{{ STATIC_URL }}images/follow-me.png" /></a>
+          {% endif %}
+          {% gravatar profile.user 120%}
+          <div class="caption">
+              <h5>{% trans 'info' %}</h5>
                 {% if profile.location %}
                     <p><span class="profile-info">{%trans 'location:' %}</span> {{ profile.location }}</p>
                 {% endif %}
@@ -53,11 +55,12 @@
                 {% if profile.url %}
                     <p><span class="profile-info">{%trans 'website:' %}</span> <a href="{{ profile.url }}"> {{ profile.url }}</a></p>
                 {% endif %}
-            </div>
-        </li>
+          </div>
+        </div>
+    </div>
+  </div>
 
-    </ul>
-    <div class="jumbotron">
+    <div class="well well-sm">
         <h3>{% trans 'all about me' %}</h3>
         <p>{{ profile.about }}</p>
     </div>
