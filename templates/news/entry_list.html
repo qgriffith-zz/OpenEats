@@ -6,8 +6,8 @@
     {% if entry_list.count > 0 %}
         {% autopaginate entry_list  %}
     {% for entry in entry_list %}
-       <div class="row-fluid">
-         <div class="span8 well">
+       <div class="row">
+         <div class="col-md-8 well">
              <h2>{{ entry.title }}</h2>
              <p>{{ entry.content|safe|truncatewords_html:150 }}</p>
              <p><a class="btn btn-primary" href="{{ entry.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>

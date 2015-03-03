@@ -7,39 +7,40 @@
 {% block content %}
    {% frontpage_news %}
 
-    <div class="row-fluid">
-      <ul class="thumbnails">
-        {% for recipe in new_recipes|slice:"0:3" %}
-          <li class="span3">
-            <a href="{{ recipe.get_absolute_url }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe class="thumbnail" %} </a>
-            <div class="caption">
-              <h5>{{ recipe.title }}</h5>
-                <p>chef: <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
-                <p>{{ recipe.info|striptags|truncatewords:50 }}</p>
+    <div class="row">
+     {% for recipe in new_recipes|slice:"0:3" %}
+      <div class="col-sm-9 col-md-3">
+            <div class="thumbnail">
+              <a href="{{ recipe.get_absolute_url }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe class="img-thumbnail" %}</a>
+                <div class="caption">
+                    <h4>{{ recipe.title }}</h4>
+                    <p>chef: <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+                    <p>{{ recipe.info|striptags|truncatewords:50 }}</p>
+                </div>
             </div>
-          </li>
-        {% endfor %}
-      </ul>
+      </div>
+     {% endfor %}
     </div>
-
-    <div class="row-fluid">
-      <ul class="thumbnails">
-        {% for recipe in new_recipes|slice:"3:6" %}
-          <li class="span3">
-            <a href="{{ recipe.get_absolute_url }}"><img class="thumbnail" src="{{recipe.index_thumbnail.url}}" alt="{{ recipe.title }}"/></a>
-            <div class="caption">
-              <h5>{{ recipe.title }}</h5>
-                <p>chef: <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
-                <p>{{ recipe.info|striptags|truncatewords:50 }}</p>
+    <div class="row">
+     {% for recipe in new_recipes|slice:"3:6" %}
+      <div class="col-sm-9 col-md-3">
+            <div class="thumbnail">
+              <a href="{{ recipe.get_absolute_url }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe class="img-thumbnail" %}</a>
+                <div class="caption">
+                    <h4>{{ recipe.title }}</h4>
+                    <p>chef: <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+                    <p>{{ recipe.info|striptags|truncatewords:50 }}</p>
+                </div>
             </div>
-          </li>
-        {% endfor %}
-      </ul>
+      </div>
+     {% endfor %}
     </div>
 
     <div id="tag-cloud" class="accordion">
       <div class="accordion-heading">
-          <a class="btn-primary accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#tagcloud" > <i class="icon-tags icon-white"></i> {% trans 'recipe tags' %}</a>
+          <button class=" btn btn-primary btn-block accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#tagcloud">
+              <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> {% trans 'recipe tags' %}
+          </button>
       </div>
       <div id="tagcloud" class="accordion-body collapse">
         {% get_tagcloud as tags for 'recipe' %}

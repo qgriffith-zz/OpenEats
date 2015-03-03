@@ -1,7 +1,7 @@
 /* Base Template */
 body{padding-top: 60px; padding-bottom: 40px;}
 .sidebar-nav { padding: 9px 0;}
-
+.navheader { padding-left: 6px;}
 
 /* Cook View */
 div#tenfoot{font-size:xx-large; width:800px;}
@@ -23,6 +23,14 @@ div#tag-cloud li a { padding: 0 2px; text-decoration: none;}
 .tag5 { font-size: 180%; }
 .tag6 { font-size: 200%; }
 
+.btn .glyphicon {
+  margin-right: 8px;
+}
+
+.btn.btn-icon .glyphicon {
+  margin-right: 0;
+}
+
 /*Form Errors*/
 
 form ul.errorlist {list-style:none;}
@@ -37,7 +45,7 @@ div#settings a:hover, .friend-feed a:hover, .grocery a:hover { color: #005580; t
 .remove-fav, .remove-grocery { float:right; margin:14px;}
 
 /*recipe list profile*/
-.recipe-info {width:60%;}
+.recipe-info {width:70%; padding:25px 10px;}
 .recipe-info a { color:#fff;}
 
 /*recipe form*/
@@ -60,9 +68,8 @@ ul.grocery-item-list li{list-style:none; margin-bottom:5px;}
 ul.grocery-item-list input{margin:3px;}
 
 /*recipe detail*/
-.recipe-toolbar {padding-left:5px; padding-top:10px; height:45px; background-color:#f5f5f5; border:1px #dcdcdc solid; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
+.recipe-toolbar {padding-left:5px; padding-top:10px; height:55px; background-color:#f5f5f5; border:1px #dcdcdc solid; margin-right:20px; margin-bottom:20px; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 .recipe-toolbar li {margin-right: 15px;}
-.recipe-toolbar .btn-info:hover {color:#fff; font-weight: bold; }
 
 /*recipe view info*/
 div.thumbnail img#recipe-thumb:hover {border: 1px solid #0088CC;}
@@ -75,12 +82,6 @@ ul.recipe-groups li {display:inline; list-style: none;}
 div#tags {background-color: #f5f5f5; margin-left:20px; padding:8px; width:250px; border:1px gainsboro solid;  -moz-border-radius: .8em; -webkit-border-radius: .8em; }
 div#recipe-rate{ margin-left:10%; background-color: #f5f5f5; padding:8px 40px 10px 5px; width:200px; border:1px gainsboro solid; -moz-border-radius: .8em; -webkit-border-radius: .8em;}
 
-div#recipe-ing{ float:left; width: 40%; margin-right:5px; border:1px gainsboro solid;  -moz-border-radius: .8em; -webkit-border-radius: .8em; padding:10px;}
-div#recipe-ing h2{  font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px; margin-left:8px;}
-div#recipe-ing ul {background-color: #f5f5f5; border:1px solid #E6E5CB; -moz-border-radius: .8em; -webkit-border-radius: .8em; padding:10px; }
-div#recipe-ing li {list-style: none; border-bottom: dotted 1px #E6E5CB; margin-bottom:15px; padding-bottom:14px;  color:#484846;}
-div#recipe-directions { padding:10px; margin-right:55px; margin-top:5px; float:right; color:#484846; width:45%;}
-div#recipe-directions h2{color:#434242; font-size:1.92em; font-weight:normal; line-height:1em; margin-bottom:10px;}
 
 div#recipe-comments{float:left; width:550px; margin-top:5px; clear:both;}
 div#recipe-note {  float:left; clear:left; padding:10px; width:40%; height: 200px;}

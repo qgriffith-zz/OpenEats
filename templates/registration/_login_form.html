@@ -1,23 +1,23 @@
 {# login form called via an include statement #}
 {% load i18n %}
 {% if form.errors %}
-    <div class="alert alert-error">
+    <div class="alert alert-danger">
         <strong>{% trans 'Alert!' %}</strong> {% trans "Your username and password didn't match. Please try again."%}
     </div>
 {% endif %}
 
     <form class="well form-vertical" method="post" action="{% url 'django.contrib.auth.views.login' %}">{% csrf_token %}
         {{ form.username.label_tag }}
-        <div class="input-prepend">
-            <span class="add-on">
-                <i class="icon-user"></i>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-user"></i>
             </span>
             {{ form.username }}
         </div>
         {{ form.password.label_tag  }}
-        <div class="input-prepend">
-            <span class="add-on">
-                <i class="icon-lock"></i>
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-lock"></i>
             </span>
             {{ form.password }}
         </div>

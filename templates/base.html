@@ -11,52 +11,51 @@
     {% block feeds %}
         <link href="/feed/recent/" rel="alternate" type="application/rss+xml"
               title="{{ OETITLE }}{% blocktrans %}Top Recipe Feed{% endblocktrans %}"/>{% endblock %}
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
-    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/themes/redmond/jquery-ui.css" rel="stylesheet"/>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/redmond/jquery-ui.css" rel="stylesheet"/>
     {% block jscript %}{% endblock %}
     <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.css"/>
-    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap-responsive.css"/>
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap-flatly-theme.css"/>
     <link rel="stylesheet" href="{{STATIC_URL}}css/oe.css" />
 
      <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-
   </head>
 
   <body>
-
-   <div class="navbar navbar-fixed-top">
-     <div class="navbar-inner">
-       <div class="container-fluid">
-         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-             <span class="icon-bar"></span>
-         </a>
-         <a class="brand" href="#">{{ OETITLE }}</a>
-         <div class="nav-collapse">
+   <nav class="navbar navbar-default navbar-fixed-top">
+     <div class="container-fluid">
+       <div class="navbar-header">
+         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+         </button>
+         <a class="navbar-brand" href="#">{{ OETITLE }}</a>
+       </div>
+         <div class="navbar-collapse collapse">
            {% load navbar %}
            {% navbars %}
            {% if request.user.is_authenticated %}
-             <ul class="nav pull-right">
-               <li class="dropdown">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user }} <b class="caret"></b></a>
-                 <ul class="dropdown-menu">
-                   <li><a href="{{request.user.get_profile.get_absolute_url}}"><i class="icon-user"></i> {% trans 'profile' %}</a></li>
-                   <li><a href="{% url 'grocery_list' %}"><i class="icon-list"></i> {% trans 'grocery lists' %}</a></li>
+               <ul class="nav navbar-nav navbar-right">
+                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                     {{ request.user }} <span class="caret"></span>
+                 </a>
+                 <ul class="dropdown-menu" role="menu">
+                   <li><a href="{{request.user.get_profile.get_absolute_url}}"><i class="glyphicon glyphicon-user"></i> {% trans 'profile' %}</a></li>
+                   <li><a href="{% url 'grocery_list' %}"><i class="glyphicon glyphicon-list"></i> {% trans 'grocery lists' %}</a></li>
                    <li class="divider"></li>
-                   <li><a href="{% url 'accounts.views.logout_page' %}"><i class="icon-asterisk"></i> {% trans 'logout' %}</a></li>
+                   <li><a href="{% url 'accounts.views.logout_page' %}"><i class="glyphicon glyphicon-asterisk"></i> {% trans 'logout' %}</a></li>
                  </ul>
                </li>
-             </ul>
+               </ul>
            {% endif %}
-         </div><!--/.nav-collapse -->
-       </div> <!--./container-flud -->
-     </div> <!--./nav-bar inner -->
-   </div> <!--./navbar -->
+           </div>
+         </div><!--/.navbar-collapse -->
+      </nav> <!--./navbar -->
 
    {% if messages %}
      {% for message in messages %}
@@ -67,8 +66,8 @@
    {% endif %}
 
    <div class="container-fluid">
-     <div class="row-fluid">
-       <div class="span3">
+     <div class="row">
+       <div class="col-sm-2">
          <div class="well sidebar-nav">
            {% block sidebar %}
            {% load sidebar %}
@@ -77,7 +76,7 @@
          </div><!--/.well -->
        </div><!--/span-->
 
-       <div class="span9">
+       <div class="col-md-9">
          {% block content %}{% endblock %}
        </div>
      </div><!--/row-->
@@ -92,8 +91,7 @@
     <!-- javascript
    ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap-dropdown.js"></script>
-   <script src="{{ STATIC_URL }}bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/oe.js"></script>
 
 

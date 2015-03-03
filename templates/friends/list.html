@@ -2,12 +2,12 @@
 {% load gravatar_profile %}
 {%  comment %} This page displays a list of followers friends and people a user is following.  This will be displayed on the users profile using a jquery ui tab{% endcomment %}
 <div class="well">
-    <div class="following row-fluid">
+    <div class="following row">
         <h3>{% trans "chefs I'm following-" %}</h3>
         <ul class="thumbnails">
           {% for user in following_list %}
-            <li class="span2">
-              <div class="thumbnail">
+            <li class="col-md-2">
+              <div class="img-thumbnail">
                   <a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a>
                   <h5>{{ user.username }}</h5>
                   <p><a href="/follow/remove/{{ user.username}}/following/">{% trans 'un-follow' %}</a></p>
@@ -17,12 +17,12 @@
         </ul>
     </div>
 
-    <div class="following row-fluid">
+    <div class="following row">
         <h3>{% trans "chefs following me-" %}</h3>
         <ul class="thumbnails">
             {% for user in followers_list %}
-            <li class="span2">
-              <div class="thumbnail">
+            <li class="col-md-2">
+              <div class="img-thumbnail">
                   <a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a>
                   <h5>{{ user.username }}</h5>
                   <p><a href="/follow/add/{{ user.username }}/following/">{% trans 'follow' %}</a> <a href="/follow/add/{{ user.username }}/blocking/">{% trans 'block' %}</a></p>
@@ -32,12 +32,12 @@
         </ul>
     </div>
     {% if username == request.user.username %}
-        <div class="following row-fluid">
+        <div class="following row">
                 <h3>{% trans "chefs I'm blocking-" %}</h3>
                 <ul class="thumbnails">
                     {% for user in blocking_list %}
-                    <li class="span2">
-                      <div class="thumbnail">
+                    <li class="col-md-2">
+                      <div class="img-thumbnail">
                           <a href="{{ user.profile.get_absolute_url }}" alt="{{ user }} profile">{% gravatar user 140 %}</a>
                           <h5>{{ user.username }}</h5>
                           <p><a href="/follow/remove/{{ user.username }}/blocking/">{% trans 'unblock' %}</a></p>

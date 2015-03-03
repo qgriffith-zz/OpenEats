@@ -5,27 +5,51 @@
 {% block title %}{%trans 'edit' %} {{ profile.user.username }} {%trans 'profile' %} {% endblock %}
 {% block content %}
 
+ <h2>edit contact info for {{ user }} </h2>
+
+<div class="row">
+  <div class="col-sm-3">
+      <div class="thumbnail">
+          {% gravatar profile.user 120 %}
+          <div class="caption">
+              <p><em>{%trans 'To change your profile picture you will need to create/login to' %} <a href="http://en.gravatar.com/">{%trans 'Gravata ' %}r</a>{%trans  'using the same email address you used for this site' %}</em></p>
+              <p><a href="/accounts/password/change" target="_blank">{%trans 'Change Password' %}</a></p>
+          </div>
+      </div>
+  </div>
+</div>
+
 <form method="POST" action="">{% csrf_token %}
-
-    <div id="profile-form">
-        <h2>edit contact info for {{ user }} </h2>
-        <div id="profile-pic">
-            {% gravatar profile.user 120 %}
-            <p><em>{%trans 'To change your profile picture you will need to create/login to' %} <a href="http://en.gravatar.com/" >{%trans 'Gravata' %}r</a>{%trans  'using the same email address you used for this site' %}</em></p>
+    <div class="control-group">
+        <label class="control-label" for="id_{{ form.about.id_for_label }}">about</label>
+        <div class="controls">
+          {{ form.about }} {{ form.about.errors }}
+       </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="id_{{ form.gender.id_for_label }}">gender</label>
+        <div class="controls checkbox">
+            {{ form.gender }} {{ form.gender.errors }}
         </div>
-
-        {{ form.about.errors }}
-        <p>{{ form.about.label_tag|lower }} {{ form.about }}</p>
-        {{ form.gender.errors }}
-        <p id="gender">{{ form.gender.label_tag|lower }} {{ form.gender }}</p>
-        {{ form.location.errors }}
-        <p>{{ form.location.label_tag|lower }} {{ form.location }}</p>
-        {{ form.url.errors }}
-        <p>{{ form.url.label_tag|lower }} {{ form.url }}</p>
-        {{ form.email.errors }}
-        <p>{{ form.email.label_tag|lower }} {{ form.email }}</p>
-        <p><a href="/accounts/password/change" target="_blank">{%trans 'Change Password' %}</a></p>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="id_{{ form.about.id_for_location }}">location</label>
+        <div class="controls">
+          {{ form.location }} {{ form.location.errors }}
+       </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="id_{{ form.email.id_for_label }}">email</label>
+        <div class="controls">
+          {{ form.email }} {{ form.email.errors }}
+       </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="id_{{ form.url.id_for_label }}">homepage</label>
+        <div class="controls">
+          {{ form.url }} {{ form.about.url }}
+       </div>
     </div>
     <input type="submit" name="submit" value="update" id="submit">
-</form>
+ </form>
 {% endblock %}

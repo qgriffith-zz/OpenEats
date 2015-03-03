@@ -1,24 +1,22 @@
 {% load i18n %}
 {% include "sidebar/search.html" %}
 {% if 'recipe_history' in request.session %}
-
-    <ul class="nav nav-list">
-        <li class="nav-header">{% trans 'last viewed' %}</li>
-        {% for t,l in request.session.recipe_history %}
-
-            <li><a href="{{ l }}" alt={{ t }}>{{ t }}</a></li>
-        {% endfor %}
+    <h4 class="page-header navheader">{% trans 'last viewed' %}</h4>
+    <ul class="list-group">
+    {% for t,l in request.session.recipe_history %}
+        <li class="list-group-item"><a href="{{ l }}" alt={{ t }}>{{ t }}</a></li>
+    {% endfor %}
     </ul>
 {% endif %}
 
-<ul class="nav nav-list">
-    <li class="nav-header">{% trans 'browse' %}</li>
-    <li><a href="{% url 'recipe_top' %}"> {% trans 'top recipes' %}</a></li>
-    <li><a href="{% url 'recipe_recent' %}"> {% trans 'recent recipes' %}</a></li>
+<h4 class="page-header navheader">{% trans 'browse' %}</h4>
+<ul class="list-group">
+    <li class="list-group-item" href="{% url 'recipe_top' %}"> {% trans 'top recipes' %}</a></li>
+    <li class="list-group-item"><a href="{% url 'recipe_recent' %}"> {% trans 'recent recipes' %}</a></li>
     {% for course in course_list %}
-    <li><a href="{% url 'course_recipes' slug=course.slug %}">{{ course }}</a>  </li>
+        <li class="list-group-item"><a href="{% url 'course_recipes' slug=course.slug %}">{{ course }}</a>  </li>
     {% endfor %}
     {% for cuisine in cuisine_list %}
-    <li> <a href="{% url 'cuisine_recipes' slug=cuisine.slug %}">{{ cuisine }}</a> </li>
+        <li class="list-group-item"> <a href="{% url 'cuisine_recipes' slug=cuisine.slug %}">{{ cuisine }}</a> </li>
     {% endfor %}
 </ul>
