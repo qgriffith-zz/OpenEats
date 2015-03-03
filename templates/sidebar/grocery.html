@@ -23,11 +23,11 @@
     </ul>
 
     <h4 class="page-header navheader">{% trans 'recipes on list' %}</h4>
-    <ul class="list-group>
-    {% for recipe  in list.groceryrecipe_set.all  %}
+    <ul class="list-group">
+    {% for recipe in list.groceryrecipe_set.all  %}
         <li class="list-group-item"><a href="{% url 'recipe_show' slug=recipe.recipe.slug %}">{{ recipe }}</a></li>
     {% empty %}
-        <li class="list-group-text">{% trans 'no recipes' %}</li>
+        <li class="list-group-item">{% trans 'no recipes' %}</li>
     {% endfor %}
     </ul>
 
