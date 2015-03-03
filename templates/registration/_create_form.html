@@ -1,7 +1,7 @@
 {%  load i18n %}
 {# create account form called via an include statement #}
 {% if form.non_field_errors %} {# this is a special error field for erros not associated with a field in the form this is used if the passwords don't match #}
-    <div class="alert alert-error">
+    <div class="alert alert-danger">
         <strong>{% trans 'Alert!' %}</strong> {{ form.non_field_errors }}
     </div>
 {% endif %}

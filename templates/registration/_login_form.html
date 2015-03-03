@@ -1,7 +1,7 @@
 {# login form called via an include statement #}
 {% load i18n %}
 {% if form.errors %}
-    <div class="alert alert-error">
+    <div class="alert alert-danger">
         <strong>{% trans 'Alert!' %}</strong> {% trans "Your username and password didn't match. Please try again."%}
     </div>
 {% endif %}
