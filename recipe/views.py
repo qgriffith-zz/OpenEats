@@ -91,7 +91,8 @@ def recipe(request, user=None, slug=None):
             return redirect(new_recipe.get_absolute_url())
     else:
         form = RecipeForm(instance=recipe_inst)
-        form.fields['related'].queryset = Recipe.objects.filter(author__username=request.user.username).exclude(related=F('id')).filter(related__isnull=True).order_by('-pub_date')[:5]
+        if not recipe_inst.related:  # if the related field has not been set on a recipe or it is a new recipe populate the drop down otherwise use the value that is already set
+            form.fields['related'].queryset = Recipe.objects.filter(author__username=request.user.username).exclude(related=F('id')).filter(related__isnull=True).order_by('-pub_date')
 
         if recipe_inst.id:   # if we are editing an existing recipe disable the title field so it can't be changed
             form.fields['title'].widget.attrs['readonly'] = True
