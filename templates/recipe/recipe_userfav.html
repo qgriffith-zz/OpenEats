@@ -21,7 +21,7 @@
   <body>
     <div id="user-fav">
       {% if recipe_list|length > 0 %}
-        {% autopaginate recipe_list  %}
+        {% autopaginate recipe_list 3 %}
           {% for recipe in recipe_list %}
             <a href ="#" onclick="return confirm('Are you sure you want to delete?')" id="{{ recipe.id}}" class="remove-fav"><img title="remove" alt="remove" src="{{ STATIC_URL }}/images/remove.gif" /></a>
            {% include '/recipe/_list.html' %}

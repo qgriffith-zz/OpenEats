@@ -10,7 +10,7 @@
  <script type="text/javascript">
     $(function() {
         var hijax = function(panel) {
-            $('div.pagination a', panel).click(function(){
+            $('ul.pagination a', panel).click(function(){
                 $(panel).load(this.href, {}, function() {
                     hijax(this);
                 });
