@@ -24,12 +24,12 @@
       $("a, button", "#toolbar").button();
       $('#recipe-store').click(function() {
         $.post('/recipe/store/{{ recipe.id }}/', function(data) {
-        $('#ajax-messages').html(data).fadeIn(600).delay(3000).fadeOut(600);
+        $('div.alert-info').html(data).fadeIn(600).delay(3000).fadeOut(900);
       });
     });
     $('#recipe-report').click(function() {
       $.post('/recipe/report/{{ recipe.slug }}/', function(data) {
-        $('#ajax-messages').html(data).fadeIn(600).delay(3000).fadeOut(600);
+        $('div.alert-info').html(data).fadeIn(600).delay(3000).fadeOut(900);
       });
     });
    });
@@ -120,7 +120,7 @@
 {% endblock %}
 
 {% block content %}
-    <div id="alert alert-info" style="display:none;"></div>
+    <div class="alert alert-info" style="display:none;"></div>
 
     <div class="page-header">
       <h1>{{ recipe.title }}</h1>
