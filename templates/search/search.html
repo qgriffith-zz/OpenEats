@@ -26,15 +26,15 @@
         });
     </script>
 
-    <div class="row">
-      <div class="col-lg-9">
+
+    <div class="col-lg-9">
         <div class="thumbnail well well-sm">
             <a href="{{ result.object.get_absolute_url }}">
-            {% if result.object.photo %}
-                {% generateimage 'recipe:list' source=result.object.photo -- alt=recipe.photo.name class="pull-right" %}
-            {% else %}
-                <img class="pull-right" src="{{ STATIC_URL }}images/parsley.jpg" alt="{{ result.object.title }} photo"/>
-            {% endif %}
+                {% if result.object.photo %}
+                    {% generateimage 'recipe:list' source=result.object.photo -- alt=recipe.photo.name class="pull-right" %}
+                {% else %}
+                    <img class="pull-right" src="{{ STATIC_URL }}images/parsley.jpg" alt="{{ result.object.title }} photo"/>
+                {% endif %}
             </a>
             <div class="caption">
                 <h3><a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a></h3>
@@ -65,5 +65,5 @@
 {% empty %}
     <p>{% trans 'No Results found for search query' %} {{ query }} </p>
 {% endfor %}
-</div>
+
 {% endblock %}
