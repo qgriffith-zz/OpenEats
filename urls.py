@@ -1,5 +1,6 @@
 from django.conf.urls import *
 from django.conf import settings
+from django.views.generic import TemplateView
 from openeats.accounts.forms import ProfileForm
 import helpers.signals  #needed to import the signal for when a user is saved their profile is created
 from registration.views import RegistrationView
@@ -33,6 +34,7 @@ urlpatterns = patterns('',
     (r'^tags/', include('tags.urls')),
     (r'^search/', include('haystack.urls')),
     (r'^news/', include('news.urls')),
+    (r'^robots.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     (r'^$', 'recipe.views.index'),
 
 )

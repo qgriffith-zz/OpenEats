@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /recipe/export/
+Disallow: /recipe/cook/
+Disallow: /recipe/export/
+Disallow: /recipe/report/
+Disallow: /recipe/store/
