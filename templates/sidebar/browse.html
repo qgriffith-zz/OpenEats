@@ -11,7 +11,7 @@
 
 <h4 class="page-header navheader">{% trans 'browse' %}</h4>
 <ul class="list-group">
-    <li class="list-group-item" href="{% url 'recipe_top' %}"> {% trans 'top recipes' %}</a></li>
+    <li class="list-group-item"> <a href="{% url 'recipe_top' %}"> {% trans 'top recipes' %}</a></li>
     <li class="list-group-item"><a href="{% url 'recipe_recent' %}"> {% trans 'recent recipes' %}</a></li>
     {% for course in course_list %}
         <li class="list-group-item"><a href="{% url 'course_recipes' slug=course.slug %}">{{ course }}</a>  </li>
