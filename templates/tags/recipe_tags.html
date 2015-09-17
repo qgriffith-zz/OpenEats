@@ -5,6 +5,7 @@
       <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.ui.stars/jquery.ui.stars.js"></script>
      <link href="{{ STATIC_URL }}js/jquery.ui.stars/crystal-stars.css" rel="stylesheet" />
 {% endblock %}
+{% block feeds %}<link href="/feed/tag/{{ recipe_tag }}" rel="alternate" type="application/rss+xml" title="{{ OETITLE }}{% blocktrans %} Feed: Recipes tagged {{ recipe_tag }}{% endblocktrans %}" />{% endblock %}
 
 {% block content %}
     {% autopaginate recipe_list  %}
