@@ -11,4 +11,7 @@ def recipeTags(request, tag):
     for recipe in recipes_tagged:
         recipe_list.append(recipe.content_object)
 
-    return render_to_response('tags/recipe_tags.html', {'recipe_list': recipe_list}, context_instance=RequestContext(request))
+    return render_to_response('tags/recipe_tags.html', {
+        'recipe_list': recipe_list,
+        'recipe_tag': tag
+    }, context_instance=RequestContext(request))
