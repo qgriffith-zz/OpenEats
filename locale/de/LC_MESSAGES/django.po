@@ -699,7 +699,7 @@ msgstr "Zutaten"
 #: templates/recipe/recipe_cook.html:32
 #: templates/recipe/recipe_detail.html:201
 msgid "Directions"
-msgstr "Anfahrt"
+msgstr "Zubereitung"
 
 #: templates/recipe/recipe_detail.html:115
 msgid "print"
