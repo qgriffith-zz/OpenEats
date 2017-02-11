@@ -1,7 +1,7 @@
 *.pyc
 db/*
 local_settings.py
-static-files/*
+web/openeats/static/*
 *.log
 changelog.txt
 search_index/

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load pagination_tags %}
+{% load static %}
+
+{% block jscript %}
+      <script type="text/javascript" src="{% static "js/jquery.ui.stars/jquery.ui.stars.js" %}"></script>
+     <link href="{% static "js/jquery.ui.stars/crystal-stars.css" %}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+    {% autopaginate recipe_list  %}
+        {% for recipe in recipe_list %}
+            {%  include 'recipe/_list.html' %}
+        {% endfor %}
+   {% paginate %}
+{% endblock %}

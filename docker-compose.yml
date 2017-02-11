@@ -1,0 +1,43 @@
+version: '2'
+services:
+#  web:
+#    build: web/
+#    restart: always
+#    depends_on:
+#      - db
+#    ports:
+#      - "8000:8000"
+#    environment:
+#      - DEBUG=True
+#      - MYSQL_DATABASE=openeats
+#      - MYSQL_ROOT_PASSWORD=root
+#      - API_URL=localhost
+#      - DJANGO_SECRET_KEY=sdfsadfas32e98zsdvhhsnz6udvbksjdhfi4galshjfg
+#      - DJANGO_TIME_ZONE=Europe/Madrid
+#      - DJANGO_SETTINGS_MODULE=base.settings
+#      - NODE_ENV=dev
+#      - NODE_URL=localhost
+#      - NODE_PORT=8080
+#      - NODE_API_URL=http://localhost
+#      - NODE_LOCALE=es
+#
+  db:
+    image: postgres:9.6
+    restart: unless-stopped
+    network_mode: bridge
+    volumes:
+      - database:/var/lib/postgresql
+
+    volumes:
+      - database:/var/lib/mysql
+    environment:
+      - POSTGRES_DB=openeats
+      - POSTGRES_USER=openeats
+      - POSTGRES_PASSWORD=admin
+    #expose:
+      #- "5432"
+    ports:
+       - "5432:5432"
+
+volumes:
+  database:

@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load static %}
+
+ <div class="jumbotron">
+   <h1>{{ news.title }}</h1>
+    <p>{{ news.content|safe|truncatewords_html:150 }}</p>
+    <div id="news-photo-wrap">
+      {% if entry.image %}
+        <img id="news-photo" src="{% static "{{ entry.image }}" %}" alt=""/>
+      {% endif %}
+    </div>
+    <p><a class="btn btn-primary btn-lg" href="{{ news.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
+</div>
