@@ -19,7 +19,7 @@ class UserProfiles(models.Model):
 
     class Meta:
         verbose_name_plural = _('User profiles')
-        
+
     def __unicode__(self):
         return self.user.username
 

@@ -75,6 +75,6 @@ class ReportedRecipe(models.Model):
 
     class Meta:
         ordering = ['pub_date', 'recipe']
-    
+
     def __unicode__(self):
         return self.recipe.title

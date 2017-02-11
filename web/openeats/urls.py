@@ -11,7 +11,7 @@ from django.conf import settings
 from django.views.generic import TemplateView
 from django.contrib import admin
 from django.views.static import serve
-from django.contrib.auth.views import login
+from django.contrib.auth import views as  auth_views
 
 from profiles.views import edit_profile
 
@@ -24,9 +24,9 @@ admin.autodiscover()
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^accounts/logout/$', views.logout_page),
-    url(r'^accounts/signIn/$', views.signIn_page),
-    url(r'^accounts/ajax-signIn/$', login, {'template_name': 'accounts/ajax_signIn.html',}),
+    url(r'^accounts/logout/$', views.logout_page, name='accounts.views.logout_page'),
+    url(r'^accounts/signIn/$', views.signIn_page, name='accounts.views.signIn_page'),
+    url(r'^accounts/ajax-signIn/$', auth_views.login, {'template_name': 'accounts/ajax_signIn.html',}, name='login'),
     url(r'^accounts/ajax-create/$', register, {'backend': 'registration.backends.default.DefaultBackend','template_name': 'accounts/ajax_create.html',}),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url('^profiles/edit', edit_profile, {'form_class': ProfileForm,}),
