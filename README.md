@@ -19,3 +19,4 @@ and several django plugins.  Some of the features of OpenEats are;
 You can try OpenEats2 now at the [demo site](http://new.openeats.org)
 
 Documentation can be found at [read the docs](http://openeats2.readthedocs.org/)
+

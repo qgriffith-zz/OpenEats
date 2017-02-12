@@ -134,8 +134,8 @@
         {% if recipe.author == request.user %}
         <a class="btn btn-primary btn-sm" href="{% url 'recipe_edit' user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a>
         {% endif %}
-
-        {% fav_link request.user recipe.id %}
+        {% autoescape off %}
+        {% fav_link request.user recipe.id as sex %}{{ sex }}
        <a class="btn btn-primary btn-sm" href="{% url 'recipe_export' slug=recipe.slug %}">pdf</a>
 
         {% if request.user.is_authenticated %}
@@ -143,6 +143,7 @@
            <a class="btn btn-primary btn-sm" title="{% trans 'email recipe ' %} {{ recipe }}" id='email-link' href="{% url 'recipe_mail' id=recipe.id %}">{% trans 'email' %}</a>
            {% report_link request.user recipe.id %}
         {% endif %}
+        {% endautoescape %}
     </div>
 
     <div class="pull-right" id="tags">
@@ -175,7 +176,7 @@
                                                                        alt="{{ recipe }} photo"/></a>
                 {% endif %}
                 <p><span>{% trans "Chef:" %}</span> <a
-                        href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+                        href="{{ recipe.author.profile.get_absolute_url }}">{{ recipe.author }}</a></p>
 
                 <div class="caption">
                     <div id="recipe-cook">

@@ -43,7 +43,9 @@
             <a href="/follow/add/{{ profile.user.username }}/following/">
             <img src="{% static "images/follow-me.png" %}" /></a>
           {% endif %}
+          {% autoescape off %}
           {% gravatar profile.user 120%}
+          {% endautoescape %}
           <div class="caption">
               <h5>{% trans 'info' %}</h5>
                 {% if profile.location %}

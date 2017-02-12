@@ -10,11 +10,13 @@
 <div class="row">
   <div class="col-sm-3">
       <div class="thumbnail">
+          {% autoescape off %}
           {% gravatar profile.user 120 %}
           <div class="caption">
               <p><em>{%trans 'To change your profile picture you will need to create/login to' %} <a href="http://en.gravatar.com/">{%trans 'Gravata ' %}r</a>{%trans  'using the same email address you used for this site' %}</em></p>
               <p><a href="/accounts/password/change" target="_blank">{%trans 'Change Password' %}</a></p>
           </div>
+          {% endautoescape %}
       </div>
   </div>
 </div>

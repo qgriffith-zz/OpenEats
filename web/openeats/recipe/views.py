@@ -1,10 +1,8 @@
-import json
-
 from django.shortcuts import render, get_object_or_404, redirect
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
 from django.forms.models import inlineformset_factory
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, JsonResponse
 from django.contrib.contenttypes.models import ContentType
 from django.views.generic import DetailView
 from django.utils.translation import ugettext as _
@@ -132,9 +130,8 @@ def recipeRate(request, object_id, score):
     avg = r.rating.score / r.rating.votes
     results['avg'] = avg
     results['votes'] = r.rating.votes
-    json_result = json.dumps(results)
-    return HttpResponse(json_result, mimetype="application/json")
 
+    return JsonResponse(results, safe=False)
 
 @login_required
 def recipeStore(request, object_id):

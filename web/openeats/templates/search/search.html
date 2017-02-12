@@ -41,7 +41,7 @@
                 <h3><a href="{{ result.object.get_absolute_url }}">{{ result.object.title }}</a></h3>
 
                 <p class="chef">{% trans 'Chef:' %} <a
-                        href="{{ result.object.author.get_profile.get_absolute_url }}">{{ result.object.author }}</a>
+                        href="{{ result.object.author.profile.get_absolute_url }}">{{ result.object.author }}</a>
                 </p>
 
                 <form>

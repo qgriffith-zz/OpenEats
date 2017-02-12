@@ -14,7 +14,7 @@
               <a href="{{ recipe.get_absolute_url }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe class="img-thumbnail" %}</a>
                 <div class="caption">
                     <h4>{{ recipe.title }}</h4>
-                    <p>chef: <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+                    <p>chef: <a href="{{ recipe.author.profile.get_absolute_url }}">{{ recipe.author }}</a></p>
                     <p>{{ recipe.info|striptags|truncatewords:50 }}</p>
                 </div>
             </div>
@@ -28,7 +28,7 @@
               <a href="{{ recipe.get_absolute_url }}"> {% generateimage 'recipe:detail' source=recipe.photo -- alt=recipe class="img-thumbnail" %}</a>
                 <div class="caption">
                     <h4>{{ recipe.title }}</h4>
-                    <p>chef: <a href="{{ recipe.author.get_profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+                    <p>chef: <a href="{{ recipe.author.profile.get_absolute_url }}">{{ recipe.author }}</a></p>
                     <p>{{ recipe.info|striptags|truncatewords:50 }}</p>
                 </div>
             </div>

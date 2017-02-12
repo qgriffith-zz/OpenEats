@@ -1,4 +1,0 @@
-{% load navbar %}{% for navbar in navbars %}
-<ul class="nav navbar-nav">{% for entry in navbar %}
-  <li{% if entry.selected %} class="active"{% endif %}><a href="{{ entry.url }}" {% if entry.selected %} class="active"{% endif %} title="{{ entry.title|escape }}">{{ entry.name|escape }}</a></li>{% endfor %}
-</ul>{% endfor %}

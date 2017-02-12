@@ -17,7 +17,7 @@ class RecentRecipeView(ListView):
 
 class TopRecipeView(ListView):
     context_object_name = "recipe_list"
-    rating_qs = Recipe.objects.extra(select={'rate': '((100/%s*rating_score/(rating_votes+%s))+100)/2' % (Recipe.rating.range, Recipe.rating.weight)})
+    rating_qs = Recipe.objects.extra(select={'rate': '((100/%s*rating_score/(rating_votes+%s+1))+100)/2' % (Recipe.rating.range, Recipe.rating.weight)})
     queryset=rating_qs.filter(shared=Recipe.SHARE_SHARED).order_by('-rate')[:20]
 
     def get_context_data(self, **kwargs):

@@ -7,3 +7,4 @@ changelog.txt
 search_index/
 .idea/
 site-media/
+.env

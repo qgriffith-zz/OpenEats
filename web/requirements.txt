@@ -10,8 +10,6 @@ django-extensions==1.7.6
 django-grappelli==2.9.1
 django-haystack==2.6.0
 django-imagekit==3.3
-django-pagination==1.0.7
-django-profiles2==0.7
 django-registration-redux==1.4
 django-reversion==2.0.8
 django-rosetta==0.7.12
@@ -23,6 +21,7 @@ django-webtest==1.8.0
 feedparser==5.2.1
 first==2.0.1
 funcsigs==1.0.2
+gunicorn==19.6.0
 html5lib==0.90
 lxml==3.7.2
 microsofttranslator==0.8
@@ -46,7 +45,6 @@ webencodings==0.5
 WebOb==1.7.1
 WebTest==2.0.25
 Whoosh==2.7.4
-git+https://github.com/pando85/django-navbar
 git+https://github.com/detrout/django-relationships
 git+https://github.com/wiledion/django-ratings
 

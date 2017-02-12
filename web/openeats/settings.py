@@ -17,10 +17,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'openeats',                      # Or path to database file if using sqlite3.
-        'USER': 'openeats',                      # Not used with sqlite3.
-        'PASSWORD': 'admin',                  # Not used with sqlite3.
-        'HOST': '127.0.0.1',                      # Set to empty string for localhost. Not used with sqlite3.
+        'NAME': os.environ.get('DATABASE_NAME', 'openeats'),                      # Or path to database file if using sqlite3.
+        'USER': os.environ.get('DATABASE_USER', 'openeats'),                      # Not used with sqlite3.
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'admin'),                      # Not used with sqlite3.
+        'HOST': 'database',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '5432',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
@@ -33,7 +33,7 @@ DATABASES = {
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
 
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = os.environ.get('TIME_ZONE', 'Europe/Madrid')
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -41,7 +41,7 @@ LANGUAGE_CODE = 'en-us'
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST', '127.0.0.1')]
 
 ugettext = lambda s: s
 
@@ -78,7 +78,8 @@ MEDIA_URL = '/site-media/'
 STATIC_URL = '/static/'
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'tk1ig_pa_p9^muz4vw4%#q@0no$=ce1*b$#s343jouyq9lj)k33j('
+
+SECRET_KEY = [os.environ.get('SECRET_KEY', 'tk1ig_pa_p9^muz4vw4%#q@0no$=ce1*b$#s343jouyq9lj)k33j(')]
 
 AUTH_PROFILE_MODULE = 'accounts.UserProfiles'
 
@@ -93,11 +94,7 @@ TEMPLATES = [{
             'django.template.context_processors.request',
             'django.contrib.auth.context_processors.auth',
             'django.contrib.messages.context_processors.messages',
-            #'django.core.context_processors.i18n',
-            #'django.core.context_processors.debug',
-            #'django.core.context_processors.media',
-            #'django.core.context_processors.static',
-            "navbar.context_processors.navbars",
+            'django.template.context_processors.media',
             "openeats.context_processors.oelogo",
             "openeats.context_processors.oetitle",
         ]
@@ -115,6 +112,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
     'pagination.middleware.PaginationMiddleware'
 )
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_PATH, 'static_files')
+]
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -140,11 +141,9 @@ INSTALLED_APPS = (
     'grappelli.dashboard',
     'taggit',
     'taggit_templatetags2',
-    'navbar',
     'disqus',
     'registration',
     'rosetta',
-    'profiles',
     'imagekit',
     'djangoratings',
     'django_extensions',
@@ -165,17 +164,17 @@ INSTALLED_APPS = (
 
 #OpenEats2 Settings
 OELOGO = 'images/oelogo.png'
-OETITLE = 'OpenEats2 Dev'
+OETITLE = os.environ.get('OETITLE', 'OpenEats2 Dev')
 
 
 INTERNAL_IPS = ('127.0.0.1',)
 
 #Email Server Settings
-DEFAULT_FROM_EMAIL = ''
-EMAIL_HOST = ''
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
-EMAIL_PORT =''
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL', '')
+EMAIL_HOST = os.environ.get('EMAIL_HOST', '')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', '')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', '')
+EMAIL_PORT = os.environ.get('EMAIL_PORT', '')
 #EMAIL_USE_TLS = True
 
 #registration

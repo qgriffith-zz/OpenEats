@@ -1,9 +1,10 @@
 {% comment %}This template is the template for the recipe print view{% endcomment %}
 {% load i18n %}
+{% load static %}
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" media="print" href="{{STATIC_URL}}css/grocery_print.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="{{STATIC_URL}}css/grocery_prints.css" />
+        <link rel="stylesheet" type="text/css" media="print" href="{% static "css/grocery_print.css" %}" />
+        <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/grocery_prints.css" %}" />
         <title>{{ OETITLE }} {% trans 'Print'%} {{ list }}</title>
     </head>
     <body>

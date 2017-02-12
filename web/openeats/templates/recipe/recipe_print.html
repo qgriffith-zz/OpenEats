@@ -1,10 +1,11 @@
 {% comment %}This template is the template for the recipe print view{% endcomment %}
 {% load i18n %}
+{% load static %}
 {% load sanitize %}
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" media="print" href="{{STATIC_URL}}/css/prints.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="{{STATIC_URL}}/css/print.css" />
+        <link rel="stylesheet" type="text/css" media="print" href="{% static "/css/prints.css" %}" />
+        <link rel="stylesheet" type="text/css" media="screen" href="{% static "/css/print.css" %}" />
         <title>{{ OETITLE }}{% trans 'Print'%} {{ recipe }}</title>
     </head>
     <body>

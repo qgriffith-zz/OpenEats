@@ -50,7 +50,7 @@
 {% endblock %}
 {% block content %}
 
-<form class="form-horizontal" id="recipe-form" action="" enctype="multipart/form-data" method="post">{% csrf_token %}
+<form class="form-horizontal" novalidate id="recipe-form" action="" enctype="multipart/form-data" method="post">{% csrf_token %}
   <fieldset>
     <legend>{% trans 'recipe info' %}</legend>
       <input type="hidden" id="id_author" name="author" value="{{ user.id }}" />

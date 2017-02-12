@@ -1,10 +1,13 @@
+import logging
+
 def get_page(self):
     """
     A function which will be monkeypatched onto the request to get the current
     integer representing the current page.
     """
     try:
-        return int(self.REQUEST['page'])
+        page = int(self.GET['page'])
+        return page if page > 0 else 1
     except (KeyError, ValueError, TypeError):
         return 1
 

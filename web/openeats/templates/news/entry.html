@@ -6,11 +6,7 @@
       <h2> {{ entry.title }}</h2>
 
       {% if entry.image %}
-       <ul class="thumbnails pull-right">
-          <li class="col-md-2">
-            <a href="#" class="img-thumbnail"><img src="{{ MEDIA_URL }}{{ entry.image }}"/></a>
-          </li>
-      </ul>
+            <img src="{{ MEDIA_URL }}{{ entry.image }}" style="max-width: 100%;"/>
       {% endif %}
 
       {{ entry.content|safe}}

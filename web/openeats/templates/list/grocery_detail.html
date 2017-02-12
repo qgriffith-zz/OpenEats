@@ -1,5 +1,6 @@
 {% extends 'list/grocery_base.html' %}
 {% load i18n %}
+{% load static %}
 {% block title %}{{ block.super }} | {{ list.author }} | {% trans 'grocery list' %} {% endblock %}
 
 {% block content %}
@@ -12,7 +13,7 @@
     <div class="well">
         {% if list.author == request.user %}
           <a href="{% url 'grocery_delete' id=list.id %}" onclick="return confirm('Are you sure you want to delete?')" >
-            <img class="grocery-delete" src="{{STATIC_URL}}/images/remove.gif" alt="remove"/></a>
+            <img class="grocery-delete" src="{% static "img/remove.gif" %}" alt="remove"/></a>
         {% endif %}
         {% load grocery_item %}
         {% item_tag list.items.all %}

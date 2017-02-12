@@ -1,6 +1,4 @@
-import json
-
-from django.http import HttpResponse
+from django.http import JsonResponse
 
 from openeats.ingredient.models import Ingredient
 
@@ -15,5 +13,5 @@ def autocomplete_ing(request):
     results = []
     for ing_item in ing_list:
         results.append(" ".join(ing_item))
-    json_result = json.dumps(results)
-    return HttpResponse(json_result, mimetype="application/json")
+
+    return JsonResponse(results, safe=False)

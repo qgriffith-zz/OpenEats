@@ -45,7 +45,7 @@ class Recipe(models.Model):
 
     def get_reported(self):
         if ReportedRecipe.objects.filter(recipe=self):
-            return True        
+            return True
 
 
 class StoredRecipe(models.Model):

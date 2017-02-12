@@ -1,6 +1,7 @@
 {% load i18n %}
 {% load gravatar_profile %}
 {%  comment %} This page displays a list of followers friends and people a user is following.  This will be displayed on the users profile using a jquery ui tab{% endcomment %}
+{% autoescape off %}
 <div class="well">
     <div class="following row">
         <h3>{% trans "chefs I'm following-" %}</h3>
@@ -48,5 +49,6 @@
             </div>
 
     {% endif %}
+{% endautoescape %}
 
 </div>

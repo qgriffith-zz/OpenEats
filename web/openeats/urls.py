@@ -13,7 +13,6 @@ from django.contrib import admin
 from django.views.static import serve
 from django.contrib.auth import views as  auth_views
 
-from profiles.views import edit_profile
 
 from openeats.accounts import views
 from openeats.accounts.forms import ProfileForm
@@ -29,8 +28,8 @@ urlpatterns = [
     url(r'^accounts/ajax-signIn/$', auth_views.login, {'template_name': 'accounts/ajax_signIn.html',}, name='login'),
     url(r'^accounts/ajax-create/$', register, {'backend': 'registration.backends.default.DefaultBackend','template_name': 'accounts/ajax_create.html',}),
     url(r'^accounts/', include('registration.backends.default.urls')),
-    url('^profiles/edit', edit_profile, {'form_class': ProfileForm,}),
-    url(r'^profiles/', include('profiles.urls')),
+    url(r'^profiles/edit', views.edit_profile, {'form_class': ProfileForm,}),
+    url(r'^profiles/', include('openeats.accounts.urls')),
     url(r'^rosetta/', include('rosetta.urls')),
     url(r'^follow/', include('relationships.urls')),
     url(r'^friends/', include('openeats.friends.urls')),
