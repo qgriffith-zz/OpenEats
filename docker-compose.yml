@@ -8,7 +8,6 @@ volumes:
 services:
   web:
     build: web/
-    restart: always
     depends_on:
       - database
     ports:
@@ -28,7 +27,6 @@ services:
 
   database:
     image: postgres:9.6
-    restart: unless-stopped
     volumes:
       - database:/var/lib/postgresql
     environment:

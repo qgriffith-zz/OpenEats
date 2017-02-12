@@ -8,7 +8,7 @@ volumes:
 services:
   nginx:
     image: nginx:latest
-    restart: always
+    restart: unless-stopped
     depends_on:
       - web
     volumes:
@@ -20,7 +20,7 @@ services:
 
   web:
     build: web/
-    restart: always
+    restart: unless-stopped
     depends_on:
       - database
     expose:
