@@ -15,7 +15,9 @@
                 <div class="caption">
                     <h4>{{ recipe.title }}</h4>
                     <p>chef: <a href="{{ recipe.author.profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+                    {% autoescape off %}
                     <p>{{ recipe.info|striptags|truncatewords:50 }}</p>
+                    {% endautoescape %}
                 </div>
             </div>
       </div>
@@ -29,7 +31,9 @@
                 <div class="caption">
                     <h4>{{ recipe.title }}</h4>
                     <p>chef: <a href="{{ recipe.author.profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+                    {% autoescape off %}
                     <p>{{ recipe.info|striptags|truncatewords:50 }}</p>
+                    {% endautoescape %}
                 </div>
             </div>
       </div>
