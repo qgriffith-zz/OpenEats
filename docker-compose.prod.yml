@@ -19,7 +19,7 @@ services:
       - "80:80"
 
   web:
-    build: web/
+    image: pando85/openeats:latest
     restart: unless-stopped
     depends_on:
       - database
@@ -35,6 +35,12 @@ services:
       - ALLOWED_HOST=localhost
       - SECRET_KEY=tk1igapawp92muz4vw4g5q20nosgce11bw2s343jouyq9ljgk33jh
       - OETITLE=OpenEats2 Dev
+      - DEFAULT_FROM_EMAIL=
+      - EMAIL_HOST=
+      - EMAIL_HOST_USER=
+      - EMAIL_HOST_PASSWORD=
+      - EMAIL_PORT=
+      - EMAIL_USE_TLS=False
     volumes:
       - static_files:/usr/src/app/openeats/static
       - media_files:/usr/src/app/openeats/site-media
