@@ -11,9 +11,9 @@ services:
     restart: unless-stopped
     depends_on:
       - web
+    volumes_from:
+      - web
     volumes:
-      - static_files:/var/www/html/static
-      - media_files:/var/www/html/site-media
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "80:80"
