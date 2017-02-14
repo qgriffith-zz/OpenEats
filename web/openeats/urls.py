@@ -41,6 +41,7 @@ urlpatterns = [
     url(r'^tags/', include('openeats.tags.urls')),
     url(r'^search/', include('haystack.urls')),
     url(r'^news/', include('openeats.news.urls')),
+    url(r'^languages/', include('openeats.languages.urls')),
     url(r'^robots.txt$', TemplateView.as_view(template_name='robots.txt', content_type='text/plain')),
     url(r'^$', recipe.views.index),
 ]

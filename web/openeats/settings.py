@@ -46,9 +46,9 @@ ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOST', '127.0.0.1')]
 ugettext = lambda s: s
 
 LANGUAGES = (
+     ('es', ugettext('Spanish')),
      ('en', ugettext('English')),
      ('de', ugettext('German')),
-     ('es', ugettext('Spanish')),
    )
 
 SITE_ID = 1
