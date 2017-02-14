@@ -145,26 +145,6 @@
         {% endif %}
         {% endautoescape %}
     </div>
-
-    <div class="pull-right" id="tags">
-        <p><i class="glyphicon glyphicon-tags"></i> {% trans 'tags:' %}</p>
-        {% for tag in recipe.tags.all|slice:":10" %}
-          <a href="{% url 'recipe_tags' tag=tag.slug %}" rel="tag" alt="{tag}">{{ tag }}</a>
-        {% endfor %}
-    </div>
-
-    <form>
-      <div class="pull-right"  id="recipe-rate">
-        <p id="rating-title"><strong>{%trans 'rate this:' %}</strong> <span id="rating-cap"></span></p>
-        <select name="selrate">
-            <option value="1">{%trans 'Poor' %}</option>
-            <option value="2">{%trans 'Fair' %}</option>
-            <option value="3">{%trans 'OK' %}</option>
-            <option value="4">{%trans 'Good' %}</option>
-            <option value="5">{%trans 'Wow' %}</option>
-        </select>
-      </div>
-    </form>
     <div class="row">
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail">
@@ -198,6 +178,24 @@
                     <p>{{ recipe.info|sanitize_html|safe }}</p>
                 </div>
             </div>
+        </div>
+        <div class="col-sm-3 col-md-2" id="recipe-rate">
+          <form>
+              <p id="rating-title"><strong>{%trans 'rate this:' %}</strong> <span id="rating-cap"></span></p>
+              <select name="selrate">
+                  <option value="1">{%trans 'Poor' %}</option>
+                  <option value="2">{%trans 'Fair' %}</option>
+                  <option value="3">{%trans 'OK' %}</option>
+                  <option value="4">{%trans 'Good' %}</option>
+                  <option value="5">{%trans 'Wow' %}</option>
+              </select>
+          </form>
+        </div>
+        <div class="col-sm-3 col-md-2" id="tags">
+            <p><i class="glyphicon glyphicon-tags"></i> {% trans 'tags:' %}</p>
+            {% for tag in recipe.tags.all|slice:":10" %}
+              <a href="{% url 'recipe_tags' tag=tag.slug %}" rel="tag" alt="{tag}">{{ tag }}</a>
+            {% endfor %}
         </div>
     </div>
     <div class="container-fluid">
