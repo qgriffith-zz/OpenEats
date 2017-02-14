@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-31 12:48-0500\n"
-"PO-Revision-Date: 2017-02-14 03:07+0100\n"
+"PO-Revision-Date: 2017-02-14 03:08+0100\n"
 "Last-Translator:   <pando85@msn.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -401,7 +401,7 @@ msgstr "listas de la compra"
 
 #: templates/base.html:51 templates/profiles/profile_detail.html:86
 msgid "logout"
-msgstr "cierre de sesión"
+msgstr "cerrar sesión"
 
 #: templates/accounts/signIn_page.html:19
 msgid "sign in"
