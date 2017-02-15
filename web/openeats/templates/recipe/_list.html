@@ -49,7 +49,9 @@
                 </form>
             </div>
             <div class="recipe-info">
+            {% autoescape off %}
                 <p>{{ recipe.info|striptags|truncatewords:'100' }}</p>
+            {% endautoescape %}
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-31 12:48-0500\n"
-"PO-Revision-Date: 2017-02-14 03:08+0100\n"
+"PO-Revision-Date: 2017-02-15 16:25+0100\n"
 "Last-Translator:   <pando85@msn.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -429,7 +429,7 @@ msgstr "nueva lista compartida -"
 
 #: templates/friends/feed.html:5
 msgid "feed for "
-msgstr "RSS para"
+msgstr "Seguimiento de"
 
 #: templates/friends/list.html:7
 msgid "chefs I'm following-"
@@ -617,7 +617,7 @@ msgstr "seguidores"
 
 #: templates/profiles/profile_detail.html:76
 msgid "feed"
-msgstr "RSS"
+msgstr "seguimiento"
 
 #: templates/profiles/profile_detail.html:77
 msgid "settings"
@@ -754,7 +754,7 @@ msgstr "guardar receta"
 #: templates/recipe/recipe_list.html:7
 #, python-format
 msgid "%(title)s Recipe Feed"
-msgstr "%(title)s Recetas RSS"
+msgstr "%(title)s Recetas en seguimiento"
 
 #: templates/recipe/recipe_list.html:16
 #, python-format
@@ -1050,7 +1050,7 @@ msgstr "no recetas"
 
 #: templates/sidebar/grocery.html:38
 msgid "create"
-msgstr "crear"
+msgstr "crear receta"
 
 #: templates/sidebar/grocery.html:39
 msgid "list"

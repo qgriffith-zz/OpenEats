@@ -175,7 +175,9 @@
                                 href="{% url 'cuisine_recipes' slug=recipe.cuisine.slug %}">{{ recipe.cuisine }}</a>
                         </li>
                     </ul>
+                    {% autoescape off %}
                     <p>{{ recipe.info|sanitize_html|safe }}</p>
+                    {% endautoescape %}
                 </div>
             </div>
         </div>
