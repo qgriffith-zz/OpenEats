@@ -32,7 +32,7 @@
                 <h3><a href="{{ recipe.get_absolute_url }}">{{ recipe }}</a></h3>
 
                 <p class="chef">{% trans 'Chef:' %} <a
-                        href="aaa{{ recipe.author.profile.get_absolute_url }}">{{ recipe.author }}</a></p>
+                        href="{{ recipe.author.profile.get_absolute_url }}">{{ recipe.author }}</a></p>
 
                 <form>
                     <div class="{{ recipe.slug }}-rate recipe-rate">
