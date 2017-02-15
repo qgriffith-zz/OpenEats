@@ -15,7 +15,6 @@ django-rosetta==0.7.12
 django-taggit==0.22.0
 django-taggit-templatetags2==1.6.1
 django-tastypie==0.13.3
-
 django-templatetag-sugar==1.0
 django-webtest==1.8.0
 feedparser==5.2.1
