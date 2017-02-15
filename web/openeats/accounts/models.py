@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+
 class UserProfiles(models.Model):
     """UserProfile fields extends the user model by adding extra fields tied to a users profile"""
     GENDER_CHOICES = (

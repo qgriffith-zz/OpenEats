@@ -56,6 +56,8 @@ SITE_ID = 1
 
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
+AUTHENTICATION_BACKENDS = ('openeats.accounts.backends.CaseInsensitiveModelBackend',)
+
 CACHE_BACKEND = "file://"+os.path.join(BASE_PATH, 'cache')
 
 # If you set this to False, Django will make some optimizations so as not
@@ -182,6 +184,7 @@ if os.environ.get('EMAIL_USE_TLS', 'True').lower() == 'true':
 #registration
 LOGIN_REDIRECT_URL = "/recipe/"
 ACCOUNT_ACTIVATION_DAYS = 7
+REGISTRATION_AUTO_LOGIN = True
 
 #Haystack config
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
