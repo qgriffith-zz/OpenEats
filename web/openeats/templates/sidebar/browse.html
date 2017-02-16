@@ -5,7 +5,7 @@
     <h4 class="page-header navheader">{% trans 'last viewed' %}</h4>
     <div class="btn-group-vertical">
     {% for t,l in request.session.recipe_history %}
-        <button type="button" class="btn btn-info" href="{{ l }}" alt={{ t }}>{{ t }}</button>
+        <a type="button" class="btn btn-info" href="{{ l }}" alt={{ t }}>{{ t }}</a>
     {% endfor %}
     </div>
 {% endif %}
@@ -13,13 +13,13 @@
 <center>
 <h4 class="page-header navheader">{% trans 'browse' %}</h4>
 <div class="btn-group-vertical">
-        <button type="button" class="btn btn-info" href="{% url 'recipe_top' %}"> {% trans 'top recipes' %}</button>
-        <button type="button" class="btn btn-info" href="{% url 'recipe_recent' %}"> {% trans 'recent recipes' %}</button>
+        <a type="button" class="btn btn-info" href="{% url 'recipe_top' %}"> {% trans 'top recipes' %}</a>
+        <a type="button" class="btn btn-info" href="{% url 'recipe_recent' %}"> {% trans 'recent recipes' %}</a>
     {% for course in course_list %}
-        <button type="button" class="btn btn-info" href="{% url 'course_recipes' slug=course.slug %}">{{ course }}</button>
+        <a type="button" class="btn btn-info" href="{% url 'course_recipes' slug=course.slug %}">{{ course }}</a>
     {% endfor %}
     {% for cuisine in cuisine_list %}
-        <button type="button" class="btn btn-info" href="{% url 'cuisine_recipes' slug=cuisine.slug %}">{{ cuisine }}</button>
+        <a type="button" class="btn btn-info" href="{% url 'cuisine_recipes' slug=cuisine.slug %}">{{ cuisine }}</a>
     {% endfor %}
 </div>
 </center>
