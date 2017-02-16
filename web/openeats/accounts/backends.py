@@ -8,7 +8,7 @@ class CaseInsensitiveModelBackend(ModelBackend):
   """
   def authenticate(self, username=None, password=None):
     try:
-      user = User.objects.get(username__iexact=username)
+      user = User.objects.get(username=username.lower())
       if user.check_password(password):
         return user
       else:
