@@ -113,7 +113,7 @@ class recipeViewsTestCase(WebTest):
         self.test_store()  #call this to store a recipe in the DB
 
         resp = self.app.post(reverse('recipe_unstore'),{'recipe_id':1}, user='testUser')
-        self.assertEqual(resp.status, '302 FOUND')
+        self.assertEqual(resp.status, '302 Found')
 
         #verify it was removed from the DB
         stored = StoredRecipe.objects.filter(user=user, recipe=recipe)
@@ -121,7 +121,7 @@ class recipeViewsTestCase(WebTest):
 
         #try to store a non-existent recipe should raise 404
         resp = self.app.post(reverse('recipe_unstore'),{'recipe_id':10000}, user='testUser', status=404)
-        self.assertEqual(resp.status, '404 NOT FOUND')
+        self.assertEqual(resp.status, '404 Not Found')
 
     def test_report(self):
         """test that a recipe is reported bad when a user reports it"""
@@ -137,7 +137,7 @@ class recipeViewsTestCase(WebTest):
 
         #try to report a recipe that does not exist
         resp = self.app.post(reverse('recipe_report', kwargs={'slug':'bad-recipe'}),user='testUser2', status=404)
-        self.assertEqual(resp.status, '404 NOT FOUND')
+        self.assertEqual(resp.status, '404 Not Found')
 
         #try to report a recipe that is already reported
         resp = self.app.post(reverse('recipe_report', kwargs={'slug':recipe.slug}),user='testUser2')
@@ -179,11 +179,11 @@ class recipeViewsTestCase(WebTest):
 
         #test editing a non-existant recipe
         resp = self.app.get(reverse('recipe_edit', kwargs={'user':'admin', 'slug':'bad-recipe'}), user='admin', status=404)
-        self.assertEqual(resp.status, '404 NOT FOUND')
+        self.assertEqual(resp.status, '404 Not Found')
 
         #try having another user edit someone elses recipe
         resp = self.app.get(reverse('recipe_edit', kwargs={'user':'admin', 'slug':recipe.slug}), user='testUser', status=404)
-        self.assertEqual(resp.status, '404 NOT FOUND')
+        self.assertEqual(resp.status, '404 Not Found')
 
 
 

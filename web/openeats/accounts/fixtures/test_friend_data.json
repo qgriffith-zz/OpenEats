@@ -32,6 +32,7 @@
             "to_user": 2,
             "status": 1, 
             "created": "2011-03-28 18:20:04", 
+            "updated_at": "2011-03-30 12:40:34", 
             "site": 1, 
             "from_user": 3
         }
@@ -42,7 +43,8 @@
         "fields": {
             "to_user": 3,
             "status": 1, 
-            "created": "2011-03-30 15:44:40", 
+            "created": "2011-03-28 18:20:04", 
+            "updated_at": "2011-03-31 15:40:10", 
             "site": 1, 
             "from_user": 2
         }

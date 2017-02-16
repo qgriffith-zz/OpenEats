@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-16 00:37+0100\n"
-"PO-Revision-Date: 2017-02-16 00:37+0100\n"
+"PO-Revision-Date: 2017-02-16 07:06+0100\n"
 "Last-Translator:   <pando85@msn.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -161,9 +161,8 @@ msgstr ""
 "formulario no válido"
 
 #: list/forms.py:119 recipe/forms.py:89
-#, fuzzy
 msgid "Can not get to_email from invalid form data"
-msgstr "No se puede obtener a partir de datos to_email forma inválida"
+msgstr "No se puede obtener to_email, datos en el formulario inválidos"
 
 #: list/forms.py:129 recipe/forms.py:101
 msgid "Invalid header found."
@@ -574,7 +573,6 @@ msgid "To change your profile picture you will need to create/login to"
 msgstr "Para cambiar su foto de perfil que se necesita para crear o acceder a"
 
 #: templates/profiles/edit_profile.html:17
-#, fuzzy
 #| msgid "Gravata"
 msgid "Gravata "
 msgstr "Gravata"

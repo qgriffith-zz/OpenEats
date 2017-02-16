@@ -46,4 +46,4 @@ WebTest==2.0.25
 Whoosh==2.7.4
 git+https://github.com/detrout/django-relationships
 git+https://github.com/wiledion/django-ratings
-git+https://github.com/pando85/django-registration
+git+https://github.com/pando85/django-registration.git@devel
