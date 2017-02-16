@@ -128,19 +128,19 @@
     </div>
 
     <div class="recipe-toolbar">
-      <a class="btn btn-primary btn-sm" href="/recipe/print/{{ recipe.slug }}/">{%trans 'print' %}</a>
-      <a class="btn btn-primary btn-sm fancybox.iframe" id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a>
+      <a class="btn btn-info btn-sm" href="/recipe/print/{{ recipe.slug }}/">{%trans 'print' %}</a>
+      <a class="btn btn-info btn-sm fancybox.iframe" id="cook-view" href="/recipe/cook/{{ recipe.slug }}/">{%trans 'cook' %}</a>
 
         {% if recipe.author == request.user %}
-        <a class="btn btn-primary btn-sm" href="{% url 'recipe_edit' user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a>
+        <a class="btn btn-info btn-sm" href="{% url 'recipe_edit' user=request.user.username slug=recipe.slug %}">{% trans 'edit' %}</a>
         {% endif %}
         {% autoescape off %}
         {% fav_link request.user recipe.id as sex %}{{ sex }}
-       <a class="btn btn-primary btn-sm" href="{% url 'recipe_export' slug=recipe.slug %}">pdf</a>
+       <a class="btn btn-info btn-sm" href="{% url 'recipe_export' slug=recipe.slug %}">pdf</a>
 
         {% if request.user.is_authenticated %}
-           <a class="btn btn-primary btn-sm" href="{% url 'grocery_addrecipe' recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a>
-           <a class="btn btn-primary btn-sm" title="{% trans 'email recipe ' %} {{ recipe }}" id='email-link' href="{% url 'recipe_mail' id=recipe.id %}">{% trans 'email' %}</a>
+           <a class="btn btn-info btn-sm" href="{% url 'grocery_addrecipe' recipe_slug=recipe.slug %}">{% trans 'add to list' %}</a>
+           <a class="btn btn-info btn-sm" title="{% trans 'email recipe ' %} {{ recipe }}" id='email-link' href="{% url 'recipe_mail' id=recipe.id %}">{% trans 'email' %}</a>
            {% report_link request.user recipe.id %}
         {% endif %}
         {% endautoescape %}

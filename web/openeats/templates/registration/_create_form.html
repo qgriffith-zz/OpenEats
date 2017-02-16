@@ -6,46 +6,53 @@
     </div>
 {% endif %}
 
-<form class="well" method="post" action="/accounts/register/">{% csrf_token %}
-    <div class="form-group">
-        <p>{{ form.email.label_tag }}</p>
-        {{ form.email.errors }}
-        <div class="input-group">
-            <span class="input-group-addon">
-                <i class="glyphicon glyphicon-envelope"></i>
-            </span>
-            {{ form.email }}
-        </div>
+<div class="container">
+    <div class="col-xs-12" style="height:50px;"></div>
+    <div class="col-md-4">
+        <form class="form-horizontal" method="post" action="/accounts/register/">{% csrf_token %}
+            <div class="form-group">
+                {{ form.email.errors }}
+                <label class="sr-only" for="id_email">{% trans 'Email' %}</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                        </span>
+                        <input autofocus="" class="form-control" placeholder="{% trans 'Email' %}" id="id_email"name="email" required="" type="email">
+                    </div>
+                </div>
+                {{ form.username.errors }}
+                <label class="sr-only" for="id_username">{% filter capfirst %}{% trans 'username'  %}{% endfilter %}</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-user"></i>
+                        </span>
+                        <input autofocus="" class="form-control" placeholder="{% filter capfirst %}{% trans 'username'  %}{% endfilter %}" id="id_username" maxlength="254" name="username" required="" type="text">
+                    </div>
+                </div>
+                {{ form.password1.errors }}
+                <label class="sr-only" for="id_password1">{% trans 'Password' %}</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        <input id="id_password1" class="form-control" placeholder="{% trans 'Password' %}" name="password1" required="" type="password">
+                    </div>
+                </div>
+                {{ form.password2.errors }}
+                <label class="sr-only" for="id_password2">{% trans 'Password (again)' %}</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        <input id="id_password2" class="form-control" placeholder="{% trans 'Password (again)' %}" name="password1" required="" type="password">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">{% trans 'create account' %}</button>
+        </form>
     </div>
-    <div class="form-group">
-    <div class="form-group">
-        <p>{{ form.username.label_tag }}</p>
-        {{ form.username.errors }}
-        <div class="input-group">
-            <span class="input-group-addon">
-                <i class="glyphicon glyphicon-user"></i>
-            </span>
-            {{ form.username }}
-        </div>
-    </div>
-        <p>{{ form.password1.label_tag }}</p>
-        {{ form.password1.errors }}
-        <div class="input-group">
-            <span class="input-group-addon">
-                <i class="glyphicon glyphicon-lock"></i>
-            </span>
-            {{ form.password1 }}
-        </div>
-    </div>
-    <div class="form-group">
-        <p>{{ form.password2.label_tag }}</p>
-        {{ form.password2.errors }}
-        <div class="input-group">
-            <span class="input-group-addon">
-                <i class="glyphicon glyphicon-lock"></i>
-            </span>
-            {{ form.password2 }}
-        </div>
-    </div>
-    <button type="submit" class="btn btn-default">{% trans 'create account' %}</button>
-</form>
+</div>

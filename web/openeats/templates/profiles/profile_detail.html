@@ -7,6 +7,7 @@
 
 {% block jscript %}
 {% load static %} 
+
  <script type="text/javascript">
     $(function() {
         var hijax = function(panel) {
@@ -29,6 +30,14 @@
             }
         });
     });
+
+    $(document).ready(function () {
+        $.each($('#navbar').find('li'), function() {
+            $(this).toggleClass('active',
+                '/' + $(this).find('a').attr('href') == window.location.pathname);
+        });
+    });
+
 </script>
 
 {% endblock %}

@@ -2,24 +2,29 @@
 {% load i18n %}
 {% block jscript %}
 <script type="text/javascript">
-    $(function() {
-        $("#login-tabs").tabs({
-            ajaxOptions: {
-                error: function(xhr, status, index, anchor) {
-                    $(anchor.hash).html("Couldn't load this tab. We'll try to fix this as soon as possible.");
-                }
-            }
+    $(document).ready(function () {
+        $.each($('#navbar').find('li'), function() {
+            $(this).toggleClass('active',
+                '/' + $(this).find('a').attr('href') == window.location.pathname);
         });
     });
 </script>
 {% endblock %}
 {% block content %}
-<div id="login-tabs">
-	<ul>
-		<li><a href="/accounts/ajax-signIn/">{%trans 'sign in' %}</a></li>
-		<li><a href="/accounts/ajax-create/">{%trans 'sign up' %}</a></li>
-
+<div class="col-xs-12" style="height:50px;"></div>
+<div class="collapse navbar-collapse">
+	<ul class="nav nav-tabs">
+		<li class="active"><a data-toggle="tab" href="#signIn">{%trans 'sign in' %}</a></li>
+		<li><a data-toggle="tab" href="#signUp">{%trans 'sign up' %}</a></li>
 	</ul>
+</div>
+<div class="tab-content">
+    <div id="signIn" class="tab-pane fade in active">
+        {% include 'registration/_login_form.html' %}
+    </div>
+    <div id="signUp" class="tab-pane fade">
+        {% include 'registration/_create_form.html' %}
+    </div>
 </div>
 
 {% endblock %}

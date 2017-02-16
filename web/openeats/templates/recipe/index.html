@@ -42,7 +42,7 @@
 
     <div id="tag-cloud" class="accordion">
       <div class="accordion-heading">
-          <button class=" btn btn-primary btn-block accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#tagcloud">
+          <button class=" btn btn-info btn-block accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#tagcloud">
               <span class="glyphicon glyphicon-tags" aria-hidden="true"></span> {% trans 'recipe tags' %}
           </button>
       </div>
@@ -50,7 +50,7 @@
         {% get_tagcloud as tags for 'recipe' %}
         <ul class="well">
           {% for tag in tags %}
-            <li><a href="{% url 'recipe_tags' tag=tag.slug %}" class="tag{{ tag.weight|floatformat:0 }}">{{tag}}</a></li>
+            <li><a class="btn btn-info" href="{% url 'recipe_tags' tag=tag.slug %}" class="tag{{ tag.weight|floatformat:0 }}">{{tag}}</a></li>
           {% endfor %}
         </ul>
       </div>

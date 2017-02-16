@@ -10,7 +10,7 @@
          <div class="col-md-8 well">
              <h2>{{ entry.title }}</h2>
              <p>{{ entry.content|safe|truncatewords_html:150 }}</p>
-             <p><a class="btn btn-primary" href="{{ entry.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
+             <p><a class="btn btn-info" href="{{ entry.get_absolute_url }}">{% trans 'read more' %} &raquo;</a></p>
          </div>
        </div>
     {% endfor %}

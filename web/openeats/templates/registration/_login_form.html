@@ -6,22 +6,32 @@
     </div>
 {% endif %}
 
-    <form class="well form-vertical" method="post" action="{% url 'login' %}">{% csrf_token %}
-        {{ form.username.label_tag }}
-        <div class="input-group">
-            <span class="input-group-addon">
-                <i class="glyphicon glyphicon-user"></i>
-            </span>
-            {{ form.username }}
-        </div>
-        {{ form.password.label_tag  }}
-        <div class="input-group">
-            <span class="input-group-addon">
-                <i class="glyphicon glyphicon-lock"></i>
-            </span>
-            {{ form.password }}
-        </div>
-
-        <input type="hidden" name="next" value="{{ next }}" />
-        <button type="submit" class="btn">{% trans 'login' %}</button>
-    </form>
+<div class="container">
+    <div class="col-xs-12" style="height:50px;"></div>
+    <div class="col-md-4">
+        <form class="form-horizontal" method="post" action="{% url 'login' %}">{% csrf_token %}
+            <div class="form-group">
+                <label class="sr-only" for="id_username">{% filter capfirst %}{% trans 'username'  %}{% endfilter %}</label>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-user"></i>
+                        </span>
+                        <input autofocus="" class="form-control" placeholder="{% filter capfirst %}{% trans 'username'  %}{% endfilter %}" id="id_username" maxlength="254" name="username" required="" type="text">
+                    </div>
+                </div>
+                <div class="cols-sm-10">
+                    <div class="input-group">
+                    <label class="sr-only" for="id_password">{% trans 'Password' %}</label>
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-lock"></i>
+                        </span>
+                        <input id="id_password" class="form-control" placeholder="{% trans 'Password' %}" name="password" required="" type="password">
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="next" value="{{ next }}" />
+            <button type="submit" class="btn">{% trans 'login' %}</button>
+        </form>
+    </div>
+</div>

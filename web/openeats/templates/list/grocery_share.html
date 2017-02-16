@@ -5,7 +5,7 @@
 <form class="well form-horizontal" action="" method="post">{% csrf_token %}
   {{ form.as_p }}
   <div class="form-actions">
-    <button type="submit" class="btn btn-primary">{% trans 'save' %}</button>
+    <button type="submit" class="btn btn-info">{% trans 'save' %}</button>
     <a class="btn" href="{% url 'grocery_list' %}">{% trans 'cancel' %}</a>
   </div>
 </form>
