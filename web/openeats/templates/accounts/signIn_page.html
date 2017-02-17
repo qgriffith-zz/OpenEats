@@ -11,19 +11,21 @@
 </script>
 {% endblock %}
 {% block content %}
-<div class="col-xs-12" style="height:50px;"></div>
-<div class="collapse navbar-collapse">
+<div class="row">
+    <div class="col-md-12" style="height:50px;"></div>
+</div>
+<div class="row">
 	<ul class="nav nav-tabs">
 		<li class="active"><a data-toggle="tab" href="#signIn">{%trans 'sign in' %}</a></li>
 		<li><a data-toggle="tab" href="#signUp">{%trans 'sign up' %}</a></li>
 	</ul>
-</div>
-<div class="tab-content">
-    <div id="signIn" class="tab-pane fade in active">
-        {% include 'registration/_login_form.html' %}
-    </div>
-    <div id="signUp" class="tab-pane fade">
-        {% include 'registration/_create_form.html' %}
+    <div class="tab-content">
+        <div id="signIn" class="tab-pane fade in active">
+            {% include 'registration/_login_form.html' %}
+        </div>
+        <div id="signUp" class="tab-pane fade">
+            {% include 'registration/_create_form.html' %}
+        </div>
     </div>
 </div>
 

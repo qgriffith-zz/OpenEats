@@ -3,23 +3,23 @@
 {% if 'recipe_history' in request.session %}
 <center>
     <h4 class="page-header navheader">{% trans 'last viewed' %}</h4>
-    <div class="btn-group-vertical">
+    <div class="list-group table-of-contents">
     {% for t,l in request.session.recipe_history %}
-        <a type="button" class="btn btn-info" href="{{ l }}" alt={{ t }}>{{ t }}</a>
+        <a class="list-group-item" href="{{ l }}" alt={{ t }}>{{ t }}</a>
     {% endfor %}
     </div>
 {% endif %}
 </center>
 <center>
 <h4 class="page-header navheader">{% trans 'browse' %}</h4>
-<div class="btn-group-vertical">
-        <a type="button" class="btn btn-info" href="{% url 'recipe_top' %}"> {% trans 'top recipes' %}</a>
-        <a type="button" class="btn btn-info" href="{% url 'recipe_recent' %}"> {% trans 'recent recipes' %}</a>
-    {% for course in course_list %}
-        <a type="button" class="btn btn-info" href="{% url 'course_recipes' slug=course.slug %}">{{ course }}</a>
-    {% endfor %}
-    {% for cuisine in cuisine_list %}
-        <a type="button" class="btn btn-info" href="{% url 'cuisine_recipes' slug=cuisine.slug %}">{{ cuisine }}</a>
-    {% endfor %}
-</div>
+    <div class="list-group table-of-contents">
+            <a class="list-group-item"  href="{% url 'recipe_top' %}"> {% trans 'top recipes' %}</a>
+            <a class="list-group-item"  href="{% url 'recipe_recent' %}"> {% trans 'recent recipes' %}</a>
+        {% for course in course_list %}
+            <a class="list-group-item"  href="{% url 'course_recipes' slug=course.slug %}">{{ course }}</a>
+        {% endfor %}
+        {% for cuisine in cuisine_list %}
+            <a class="list-group-item"  href="{% url 'cuisine_recipes' slug=cuisine.slug %}">{{ cuisine }}</a>
+        {% endfor %}
+    </div>
 </center>
