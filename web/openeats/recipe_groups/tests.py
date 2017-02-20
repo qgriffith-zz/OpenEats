@@ -11,7 +11,7 @@ class CourseTest(TestCase):
 
     def setUp(self):
         self.user = User.objects.get(pk=2)
-        self.assertEquals(self.user.username, 'testUser') #make sure the user works
+        self.assertEquals(self.user.username, 'testuser') #make sure the user works
 
     def testSlugAutoset(self):
         """Verify the slug is auto set when a slug is not provided"""

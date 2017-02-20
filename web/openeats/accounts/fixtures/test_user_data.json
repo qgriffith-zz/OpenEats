@@ -21,7 +21,7 @@
         "pk": 2,
         "model": "auth.user",
         "fields": {
-            "username": "testUser",
+            "username": "testuser",
             "first_name": "",
             "last_name": "",
             "is_active": true,
@@ -39,7 +39,7 @@
         "pk": 3,
         "model": "auth.user",
         "fields": {
-            "username": "testUser2",
+            "username": "testuser2",
             "first_name": "",
             "last_name": "",
             "is_active": true,
@@ -57,7 +57,7 @@
         "pk": 4,
         "model": "auth.user",
         "fields": {
-            "username": "testUser3",
+            "username": "testuser3",
             "first_name": "",
             "last_name": "",
             "is_active": true,
@@ -75,7 +75,7 @@
         "pk": 5, 
         "model": "auth.user",
         "fields": {
-            "username": "testUser4",
+            "username": "testuser4",
             "first_name": "",
             "last_name": "",
             "is_active": true,
