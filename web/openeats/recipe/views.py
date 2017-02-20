@@ -71,7 +71,7 @@ def recipePrint(request, slug):
 @login_required
 def recipe(request, user=None, slug=None):
     """used to create or edit a recipe"""
-    IngFormSet = inlineformset_factory(Recipe, Ingredient, fields='__all__', extra=15, formset=IngItemFormSet)  # create the ingredient form with 15 empty fields
+    IngFormSet = inlineformset_factory(Recipe, Ingredient, fields='__all__', extra=2, formset=IngItemFormSet)  # create the ingredient form with 15 empty fields
 
     if user and slug:  # must be editing a recipe
         recipe_inst = get_object_or_404(Recipe, author__username=request.user.username, slug=slug)

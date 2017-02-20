@@ -51,7 +51,7 @@ def groceryCreate(request, user=None, slug=None):
     else:
         owner = request.user  # must be coming in to create a new list and not edit another one this is the only way user wouldn't be passed
 
-    ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, fields='__all__', extra=15, formset=GroceryItemFormSet, can_delete=True)
+    ItemFormSet = inlineformset_factory(GroceryList, GroceryItem, fields='__all__', extra=1, formset=GroceryItemFormSet, can_delete=True)
     if user and slug:  # must be editing a list that is already created
         cur_list = get_object_or_404(GroceryList, author=owner, slug=slug)
 
