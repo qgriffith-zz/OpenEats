@@ -1,4 +1,5 @@
 #openeats Project
+[![Build Status](https://travis-ci.org/pando85/openeats.svg?branch=master)](https://travis-ci.org/pando85/openeats)
 
 **openeats** is a continuation from [qgriffith/OpenEats](https://github.com/qgriffith/OpenEats).
 
