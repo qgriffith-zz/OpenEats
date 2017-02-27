@@ -20,6 +20,24 @@ Deploy environment:
 ```
 docker-compose up -d
 ```
+### Tests
+Run tests:
+```
+docker-compose run --rm web python manage.py tests
+```
+
+
+Load fixtures:
+```
+docker-compose run --rm web python manage.py loaddata openeats/accounts/fixtures/test_user_data.json
+docker-compose run --rm web python manage.py loaddata openeats/list/fixtures/list_test_data.json
+docker-compose run --rm web python manage.py loaddata openeats/list/fixtures/aisle_data.json  alex@alex-laptop
+docker-compose run --rm web python manage.py loaddata openeats/accounts/fixtures/test_friend_data.json
+docker-compose run --rm web python manage.py loaddata openeats/recipe_groups/fixtures/course_data.json
+docker-compose run --rm web python manage.py loaddata openeats/recipe_groups/fixtures/cuisine_data.json
+docker-compose run --rm web python manage.py loaddata openeats/recipe/fixtures/recipe_data.json
+docker-compose run --rm web python manage.py loaddata openeats/ingredient/fixtures/ing_data.json
+```
 
 
 ## Prod deploy

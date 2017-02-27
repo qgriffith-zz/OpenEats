@@ -12,7 +12,7 @@
             "last_login": "2011-05-14 13:36:31",
             "groups": [],
             "user_permissions": [],
-            "password": "sha1$85854$583035f28668f85ad1b5f1c8d0539da275aab836",
+            "password": "pbkdf2_sha256$30000$oLWL0fImffjz$v+ye7F0aTy+xg06nZC/Bu3Yzk6WIRoyAIfdRqrz9x3w=",
             "email": "",
             "date_joined": "2011-05-14 13:36:31"
         }
@@ -30,7 +30,7 @@
             "last_login": "2010-10-31 10:42:40",
             "groups": [],
             "user_permissions": [],
-            "password": "sha1$4eb9e$a17f0e617e8c74cd147a60944d61308d1bc059cc",
+            "password": "pbkdf2_sha256$30000$oLWL0fImffjz$v+ye7F0aTy+xg06nZC/Bu3Yzk6WIRoyAIfdRqrz9x3w=",
             "email": "",
             "date_joined": "2010-08-12 19:44:57"
         }
@@ -48,7 +48,7 @@
             "last_login": "2010-10-31 10:42:40",
             "groups": [],
             "user_permissions": [],
-            "password": "sha1$4eb9e$a17f0e617e8c74cd147a60944d61308d1bc059cc",
+            "password": "pbkdf2_sha256$30000$oLWL0fImffjz$v+ye7F0aTy+xg06nZC/Bu3Yzk6WIRoyAIfdRqrz9x3w=",
             "email": "",
             "date_joined": "2010-08-12 19:44:57"
         }
@@ -66,7 +66,7 @@
             "last_login": "2010-10-31 10:42:40",
             "groups": [],
             "user_permissions": [],
-            "password": "sha1$4eb9e$a17f0e617e8c74cd147a60944d61308d1bc059cc",
+            "password": "pbkdf2_sha256$30000$oLWL0fImffjz$v+ye7F0aTy+xg06nZC/Bu3Yzk6WIRoyAIfdRqrz9x3w=",
             "email": "",
             "date_joined": "2010-08-12 19:44:57"
         }
@@ -84,7 +84,7 @@
             "last_login": "2010-10-31 10:42:40",
             "groups": [],
             "user_permissions": [],
-            "password": "sha1$4eb9e$a17f0e617e8c74cd147a60944d61308d1bc059cc",
+            "password": "pbkdf2_sha256$30000$oLWL0fImffjz$v+ye7F0aTy+xg06nZC/Bu3Yzk6WIRoyAIfdRqrz9x3w=",
             "email": "",
             "date_joined": "2010-08-12 19:44:57"
         }

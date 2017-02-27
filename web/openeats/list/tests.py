@@ -70,8 +70,8 @@ class listViewsTestCase(TestCase):
         resp = self.client.post(reverse('grocery_edit',kwargs={'user':'testuser', 'slug':'test'}), data)
         self.assertEqual(resp.status_code, 302)
         #FAIL
-        #self.assertRedirects(resp, reverse('grocery_show',kwargs={'user':'testuser', 'slug':'test'}))
-        self.assertRedirects(resp, '/accounts/login/?next=/list/grocery/edit/testuser/test/')
+        self.assertRedirects(resp, reverse('grocery_show',kwargs={'user':'testuser', 'slug':'test'}))
+        self.assertRedirects(resp, '/list/grocery/testuser/test/')
 
         self.assertEqual(list.items.count(), 3)
 
@@ -119,7 +119,7 @@ class listViewsTestCase(TestCase):
         #share the list to testuser2
         resp = self.client.post(reverse('grocery_share',kwargs={'user':'testuser', 'slug':'test'}),{'shared_to':3})
         self.assertEqual(resp.status_code, 302)
-        self.assertRedirects(resp, '/accounts/login/?next=/list/grocery/share/testuser/test/')
+        self.assertRedirects(resp, '/list/grocery/testuser/test/')
         list = GroceryList.objects.get(pk=1)
         self.assertTrue(list.get_shared())
         self.assertEqual(list.get_shared_to(), user2)
@@ -198,7 +198,7 @@ class listViewsTestCase(TestCase):
         resp = self.client.post(reverse('grocery_addrecipe',kwargs={'recipe_slug':recipe.slug}),
             {'lists':1, 'recipe_id':recipe.id})
         self.assertEqual(resp.status_code, 302)
-        self.assertEqual(resp['location'], '/accounts/login/?next=/list/grocery/recipe/tasty-chili/')
+        self.assertEqual(resp['location'], '/list/grocery/edit/testuser/test/')
 
         #test we now have more items
         updated_list = GroceryList.objects.get(pk=1)
