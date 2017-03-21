@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-16 00:37+0100\n"
+"POT-Creation-Date: 2017-03-21 06:53+0100\n"
 "PO-Revision-Date: 2011-08-20 09:04\n"
 "Last-Translator:   <qgriffith@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -136,11 +136,15 @@ msgid "quantity"
 msgstr "Menge"
 
 #: ingredient/models.py:10
-msgid "measurement"
+#, fuzzy
+#| msgid "measurement"
+msgid "measurement (optional)"
 msgstr "Messung"
 
 #: ingredient/models.py:11
-msgid "preparation"
+#, fuzzy
+#| msgid "preparation"
+msgid "preparation (optional)"
 msgstr "Vorbereitung"
 
 #: ingredient/models.py:12 list/models.py:80 recipe/models.py:52
@@ -193,7 +197,7 @@ msgstr "Gang"
 #: list/models.py:49 list/models.py:61 list/models.py:79
 #: templates/list/grocery_addrecipe.html:3 templates/list/grocery_detail.html:4
 #: templates/list/grocery_index.html:7 templates/list/grocerylist_form.html:20
-#: templates/profiles/profile_detail.html:79 templates/sidebar/grocery.html:37
+#: templates/profiles/profile_detail.html:88 templates/sidebar/grocery.html:37
 msgid "grocery list"
 msgstr "Einkaufsliste"
 
@@ -281,7 +285,7 @@ msgstr "Natürlich"
 msgid "cuisine"
 msgstr "Küche"
 
-#: recipe/models.py:26 templates/profiles/profile_detail.html:51
+#: recipe/models.py:26 templates/profiles/profile_detail.html:60
 msgid "info"
 msgstr "info"
 
@@ -404,7 +408,7 @@ msgstr "Gang"
 #: templates/base.html:59 templates/profiles/create_profile.html:5
 #: templates/profiles/edit_profile.html:6
 #: templates/profiles/profile_detail.html:7
-#: templates/profiles/profile_detail.html:42
+#: templates/profiles/profile_detail.html:51
 msgid "profile"
 msgstr "Profil"
 
@@ -412,7 +416,7 @@ msgstr "Profil"
 msgid "grocery lists"
 msgstr "Einkaufszettel"
 
-#: templates/base.html:62 templates/profiles/profile_detail.html:91
+#: templates/base.html:62 templates/profiles/profile_detail.html:100
 msgid "logout"
 msgstr "Abmelden"
 
@@ -487,7 +491,7 @@ msgstr "Empfehlen"
 #: templates/list/grocery_addrecipe.html:12 templates/list/grocery_share.html:9
 #: templates/list/groceryaisle_form.html:10
 #: templates/list/grocerylist_form.html:52
-#: templates/recipe/recipe_form.html:165
+#: templates/recipe/recipe_form.html:166
 #, fuzzy
 msgid "cancel"
 msgstr "Abbrechen"
@@ -531,6 +535,8 @@ msgstr "geteilt durch"
 
 #: templates/list/grocery_mail_body.html:9
 #: templates/recipe/recipe_mail_body.html:9
+#: templates/registration/_create_form.html:17
+#: templates/registration/_create_form.html:23
 #, fuzzy
 msgid "Email"
 msgstr "E-Mail"
@@ -602,51 +608,51 @@ msgstr "mit der gleichen E-Mail-Adresse, die Sie für diese Website verwendet"
 msgid "Change Password"
 msgstr "Passwort ändern"
 
-#: templates/profiles/profile_detail.html:53
+#: templates/profiles/profile_detail.html:62
 msgid "location:"
 msgstr "Standort:"
 
-#: templates/profiles/profile_detail.html:56
+#: templates/profiles/profile_detail.html:65
 msgid "gender:"
 msgstr "Geschlecht:"
 
-#: templates/profiles/profile_detail.html:59
+#: templates/profiles/profile_detail.html:68
 msgid "website:"
 msgstr "Website:"
 
-#: templates/profiles/profile_detail.html:67
+#: templates/profiles/profile_detail.html:76
 msgid "all about me"
 msgstr "alles über mich"
 
-#: templates/profiles/profile_detail.html:75
+#: templates/profiles/profile_detail.html:84
 msgid "recipes"
 msgstr "Rezepte"
 
-#: templates/profiles/profile_detail.html:77
+#: templates/profiles/profile_detail.html:86
 msgid "private recipes"
 msgstr "privaten Rezepte"
 
-#: templates/profiles/profile_detail.html:78
+#: templates/profiles/profile_detail.html:87
 msgid "favorites"
 msgstr "Favoriten"
 
-#: templates/profiles/profile_detail.html:80
+#: templates/profiles/profile_detail.html:89
 msgid "followers"
 msgstr "Anhänger"
 
-#: templates/profiles/profile_detail.html:81
+#: templates/profiles/profile_detail.html:90
 msgid "feed"
 msgstr "Futtermittel"
 
-#: templates/profiles/profile_detail.html:82
+#: templates/profiles/profile_detail.html:91
 msgid "settings"
 msgstr "Einstellungen"
 
-#: templates/profiles/profile_detail.html:89
+#: templates/profiles/profile_detail.html:98
 msgid "edit Profile"
 msgstr "Profil bearbeiten"
 
-#: templates/profiles/profile_detail.html:90
+#: templates/profiles/profile_detail.html:99
 #: templates/registration/password_change_form.html:16
 msgid "change password"
 msgstr "Passwort ändern"
@@ -765,12 +771,12 @@ msgstr "Neue Rezepte"
 msgid "recipe info"
 msgstr "Rezepte auf"
 
-#: templates/recipe/recipe_form.html:140
+#: templates/recipe/recipe_form.html:109
 #, fuzzy
 msgid "ingedients"
 msgstr "Zutaten"
 
-#: templates/recipe/recipe_form.html:164
+#: templates/recipe/recipe_form.html:165
 #, fuzzy
 msgid "save recipe"
 msgstr "Besuche Rezepte"
@@ -844,7 +850,28 @@ msgstr "Rezepte auf"
 msgid "Alert!"
 msgstr ""
 
-#: templates/registration/_create_form.html:50
+#: templates/registration/_create_form.html:27
+#: templates/registration/_create_form.html:33
+#: templates/registration/_login_form.html:16
+#: templates/registration/_login_form.html:22
+#, fuzzy
+#| msgid "user"
+msgid "username"
+msgstr "Benutzer"
+
+#: templates/registration/_create_form.html:37
+#: templates/registration/_create_form.html:43
+#: templates/registration/_login_form.html:27
+#: templates/registration/_login_form.html:31
+msgid "Password"
+msgstr "Passwort zurücksetzen"
+
+#: templates/registration/_create_form.html:47
+#: templates/registration/_create_form.html:53
+msgid "Password (again)"
+msgstr "Passwort zurücksetzen"
+
+#: templates/registration/_create_form.html:57
 #, fuzzy
 msgid "create account"
 msgstr "ein Kundenkonto eröffnen"
@@ -853,7 +880,7 @@ msgstr "ein Kundenkonto eröffnen"
 msgid "Your username and password didn't match. Please try again."
 msgstr ""
 
-#: templates/registration/_login_form.html:26
+#: templates/registration/_login_form.html:36
 #, fuzzy
 msgid "login"
 msgstr "Anmelden"
@@ -1023,20 +1050,20 @@ msgstr "Search Results"
 msgid "No Results found for search query"
 msgstr "Keine Ergebnisse für Suchbegriff"
 
-#: templates/sidebar/browse.html:4
+#: templates/sidebar/browse.html:5
 msgid "last viewed"
 msgstr "zuletzt angesehen"
 
-#: templates/sidebar/browse.html:12
+#: templates/sidebar/browse.html:14
 msgid "browse"
 msgstr "blättern"
 
-#: templates/sidebar/browse.html:14
+#: templates/sidebar/browse.html:16
 #, fuzzy
 msgid "top recipes"
 msgstr "Rezepte"
 
-#: templates/sidebar/browse.html:15
+#: templates/sidebar/browse.html:17
 #, fuzzy
 msgid "recent recipes"
 msgstr "Besuche Rezepte"
@@ -1204,12 +1231,6 @@ msgstr "Bericht"
 
 #~ msgid "Django administration"
 #~ msgstr "Django-Dokumentation"
-
-#~ msgid "Password"
-#~ msgstr "Passwort zurücksetzen"
-
-#~ msgid "Password (again)"
-#~ msgstr "Passwort zurücksetzen"
 
 #~ msgid "Password change"
 #~ msgstr "Kennwort geändert Erfolgreiche"

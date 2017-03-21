@@ -57,3 +57,9 @@ Deploy environment:
 ```
 docker-compose -f docker-compose.prod.yml up -d
 ```
+
+## Locale
+```bash
+cd web/openeats
+django-admin makemessages --all
+```

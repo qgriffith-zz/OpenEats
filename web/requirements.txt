@@ -1,5 +1,5 @@
 akismet==0.2.0
-appdirs==1.4.0
+appdirs==1.4.2
 beautifulsoup4==4.5.3
 click==6.7
 Django==1.10.5

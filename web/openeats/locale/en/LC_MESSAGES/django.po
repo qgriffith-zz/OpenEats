@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-16 00:37+0100\n"
+"POT-Creation-Date: 2017-03-21 06:53+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -128,11 +128,11 @@ msgid "quantity"
 msgstr ""
 
 #: ingredient/models.py:10
-msgid "measurement"
+msgid "measurement (optional)"
 msgstr ""
 
 #: ingredient/models.py:11
-msgid "preparation"
+msgid "preparation (optional)"
 msgstr ""
 
 #: ingredient/models.py:12 list/models.py:80 recipe/models.py:52
@@ -184,7 +184,7 @@ msgstr ""
 #: list/models.py:49 list/models.py:61 list/models.py:79
 #: templates/list/grocery_addrecipe.html:3 templates/list/grocery_detail.html:4
 #: templates/list/grocery_index.html:7 templates/list/grocerylist_form.html:20
-#: templates/profiles/profile_detail.html:79 templates/sidebar/grocery.html:37
+#: templates/profiles/profile_detail.html:88 templates/sidebar/grocery.html:37
 msgid "grocery list"
 msgstr ""
 
@@ -268,7 +268,7 @@ msgstr ""
 msgid "cuisine"
 msgstr ""
 
-#: recipe/models.py:26 templates/profiles/profile_detail.html:51
+#: recipe/models.py:26 templates/profiles/profile_detail.html:60
 msgid "info"
 msgstr ""
 
@@ -386,7 +386,7 @@ msgstr ""
 #: templates/base.html:59 templates/profiles/create_profile.html:5
 #: templates/profiles/edit_profile.html:6
 #: templates/profiles/profile_detail.html:7
-#: templates/profiles/profile_detail.html:42
+#: templates/profiles/profile_detail.html:51
 msgid "profile"
 msgstr ""
 
@@ -394,7 +394,7 @@ msgstr ""
 msgid "grocery lists"
 msgstr ""
 
-#: templates/base.html:62 templates/profiles/profile_detail.html:91
+#: templates/base.html:62 templates/profiles/profile_detail.html:100
 msgid "logout"
 msgstr ""
 
@@ -466,7 +466,7 @@ msgstr ""
 #: templates/list/grocery_addrecipe.html:12 templates/list/grocery_share.html:9
 #: templates/list/groceryaisle_form.html:10
 #: templates/list/grocerylist_form.html:52
-#: templates/recipe/recipe_form.html:165
+#: templates/recipe/recipe_form.html:166
 msgid "cancel"
 msgstr ""
 
@@ -508,6 +508,8 @@ msgstr ""
 
 #: templates/list/grocery_mail_body.html:9
 #: templates/recipe/recipe_mail_body.html:9
+#: templates/registration/_create_form.html:17
+#: templates/registration/_create_form.html:23
 msgid "Email"
 msgstr ""
 
@@ -572,51 +574,51 @@ msgstr ""
 msgid "Change Password"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:53
+#: templates/profiles/profile_detail.html:62
 msgid "location:"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:56
+#: templates/profiles/profile_detail.html:65
 msgid "gender:"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:59
+#: templates/profiles/profile_detail.html:68
 msgid "website:"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:67
+#: templates/profiles/profile_detail.html:76
 msgid "all about me"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:75
+#: templates/profiles/profile_detail.html:84
 msgid "recipes"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:77
+#: templates/profiles/profile_detail.html:86
 msgid "private recipes"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:78
+#: templates/profiles/profile_detail.html:87
 msgid "favorites"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:80
+#: templates/profiles/profile_detail.html:89
 msgid "followers"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:81
+#: templates/profiles/profile_detail.html:90
 msgid "feed"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:82
+#: templates/profiles/profile_detail.html:91
 msgid "settings"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:89
+#: templates/profiles/profile_detail.html:98
 msgid "edit Profile"
 msgstr ""
 
-#: templates/profiles/profile_detail.html:90
+#: templates/profiles/profile_detail.html:99
 #: templates/registration/password_change_form.html:16
 msgid "change password"
 msgstr ""
@@ -730,11 +732,11 @@ msgstr ""
 msgid "recipe info"
 msgstr ""
 
-#: templates/recipe/recipe_form.html:140
+#: templates/recipe/recipe_form.html:109
 msgid "ingedients"
 msgstr ""
 
-#: templates/recipe/recipe_form.html:164
+#: templates/recipe/recipe_form.html:165
 msgid "save recipe"
 msgstr ""
 
@@ -806,7 +808,26 @@ msgstr ""
 msgid "Alert!"
 msgstr ""
 
-#: templates/registration/_create_form.html:50
+#: templates/registration/_create_form.html:27
+#: templates/registration/_create_form.html:33
+#: templates/registration/_login_form.html:16
+#: templates/registration/_login_form.html:22
+msgid "username"
+msgstr ""
+
+#: templates/registration/_create_form.html:37
+#: templates/registration/_create_form.html:43
+#: templates/registration/_login_form.html:27
+#: templates/registration/_login_form.html:31
+msgid "Password"
+msgstr ""
+
+#: templates/registration/_create_form.html:47
+#: templates/registration/_create_form.html:53
+msgid "Password (again)"
+msgstr ""
+
+#: templates/registration/_create_form.html:57
 msgid "create account"
 msgstr ""
 
@@ -814,7 +835,7 @@ msgstr ""
 msgid "Your username and password didn't match. Please try again."
 msgstr ""
 
-#: templates/registration/_login_form.html:26
+#: templates/registration/_login_form.html:36
 msgid "login"
 msgstr ""
 
@@ -968,19 +989,19 @@ msgstr ""
 msgid "No Results found for search query"
 msgstr ""
 
-#: templates/sidebar/browse.html:4
+#: templates/sidebar/browse.html:5
 msgid "last viewed"
 msgstr ""
 
-#: templates/sidebar/browse.html:12
+#: templates/sidebar/browse.html:14
 msgid "browse"
 msgstr ""
 
-#: templates/sidebar/browse.html:14
+#: templates/sidebar/browse.html:16
 msgid "top recipes"
 msgstr ""
 
-#: templates/sidebar/browse.html:15
+#: templates/sidebar/browse.html:17
 msgid "recent recipes"
 msgstr ""
 

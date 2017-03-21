@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-16 00:37+0100\n"
-"PO-Revision-Date: 2017-02-16 07:06+0100\n"
-"Last-Translator:   <pando85@msn.com>\n"
+"POT-Creation-Date: 2017-03-21 06:53+0100\n"
+"PO-Revision-Date: 2017-03-21 06:54+0100\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -130,12 +130,14 @@ msgid "quantity"
 msgstr "cantidad"
 
 #: ingredient/models.py:10
-msgid "measurement"
-msgstr "medida"
+#| msgid "measurement"
+msgid "measurement (optional)"
+msgstr "medida (opcional)"
 
 #: ingredient/models.py:11
-msgid "preparation"
-msgstr "preparación"
+#| msgid "preparation"
+msgid "preparation (optional)"
+msgstr "preparación (opcional)"
 
 #: ingredient/models.py:12 list/models.py:80 recipe/models.py:52
 #: recipe/models.py:60 recipe/models.py:72
@@ -189,7 +191,7 @@ msgstr "pasillo"
 #: templates/list/grocery_addrecipe.html:3
 #: templates/list/grocery_detail.html:4 templates/list/grocery_index.html:7
 #: templates/list/grocerylist_form.html:20
-#: templates/profiles/profile_detail.html:79 templates/sidebar/grocery.html:37
+#: templates/profiles/profile_detail.html:88 templates/sidebar/grocery.html:37
 msgid "grocery list"
 msgstr "lista de la compra"
 
@@ -275,7 +277,7 @@ msgstr "plato"
 msgid "cuisine"
 msgstr "cocina"
 
-#: recipe/models.py:26 templates/profiles/profile_detail.html:51
+#: recipe/models.py:26 templates/profiles/profile_detail.html:60
 msgid "info"
 msgstr "Info"
 
@@ -397,7 +399,7 @@ msgstr "noticias"
 #: templates/base.html:59 templates/profiles/create_profile.html:5
 #: templates/profiles/edit_profile.html:6
 #: templates/profiles/profile_detail.html:7
-#: templates/profiles/profile_detail.html:42
+#: templates/profiles/profile_detail.html:51
 msgid "profile"
 msgstr "Ver el perfil"
 
@@ -405,7 +407,7 @@ msgstr "Ver el perfil"
 msgid "grocery lists"
 msgstr "listas de la compra"
 
-#: templates/base.html:62 templates/profiles/profile_detail.html:91
+#: templates/base.html:62 templates/profiles/profile_detail.html:100
 msgid "logout"
 msgstr "cerrar sesión"
 
@@ -478,7 +480,7 @@ msgstr "guardar"
 #: templates/list/grocery_share.html:9
 #: templates/list/groceryaisle_form.html:10
 #: templates/list/grocerylist_form.html:52
-#: templates/recipe/recipe_form.html:165
+#: templates/recipe/recipe_form.html:166
 msgid "cancel"
 msgstr "cancelar"
 
@@ -520,6 +522,8 @@ msgstr "compartida por"
 
 #: templates/list/grocery_mail_body.html:9
 #: templates/recipe/recipe_mail_body.html:9
+#: templates/registration/_create_form.html:17
+#: templates/registration/_create_form.html:23
 msgid "Email"
 msgstr "Correo electrónico"
 
@@ -573,7 +577,6 @@ msgid "To change your profile picture you will need to create/login to"
 msgstr "Para cambiar su foto de perfil que se necesita para crear o acceder a"
 
 #: templates/profiles/edit_profile.html:17
-#| msgid "Gravata"
 msgid "Gravata "
 msgstr "Gravata"
 
@@ -587,51 +590,51 @@ msgstr ""
 msgid "Change Password"
 msgstr "Cambiar contraseña"
 
-#: templates/profiles/profile_detail.html:53
+#: templates/profiles/profile_detail.html:62
 msgid "location:"
 msgstr "ubicación:"
 
-#: templates/profiles/profile_detail.html:56
+#: templates/profiles/profile_detail.html:65
 msgid "gender:"
 msgstr "género:"
 
-#: templates/profiles/profile_detail.html:59
+#: templates/profiles/profile_detail.html:68
 msgid "website:"
 msgstr "página web:"
 
-#: templates/profiles/profile_detail.html:67
+#: templates/profiles/profile_detail.html:76
 msgid "all about me"
 msgstr "acerca de mí"
 
-#: templates/profiles/profile_detail.html:75
+#: templates/profiles/profile_detail.html:84
 msgid "recipes"
 msgstr "recetas"
 
-#: templates/profiles/profile_detail.html:77
+#: templates/profiles/profile_detail.html:86
 msgid "private recipes"
 msgstr "recetas privadas"
 
-#: templates/profiles/profile_detail.html:78
+#: templates/profiles/profile_detail.html:87
 msgid "favorites"
 msgstr "favoritos"
 
-#: templates/profiles/profile_detail.html:80
+#: templates/profiles/profile_detail.html:89
 msgid "followers"
 msgstr "seguidores"
 
-#: templates/profiles/profile_detail.html:81
+#: templates/profiles/profile_detail.html:90
 msgid "feed"
 msgstr "seguimiento"
 
-#: templates/profiles/profile_detail.html:82
+#: templates/profiles/profile_detail.html:91
 msgid "settings"
 msgstr "configuración"
 
-#: templates/profiles/profile_detail.html:89
+#: templates/profiles/profile_detail.html:98
 msgid "edit Profile"
 msgstr "Editar Perfil"
 
-#: templates/profiles/profile_detail.html:90
+#: templates/profiles/profile_detail.html:99
 #: templates/registration/password_change_form.html:16
 msgid "change password"
 msgstr "cambiar la contraseña"
@@ -747,11 +750,11 @@ msgstr "Añadir receta"
 msgid "recipe info"
 msgstr "información de la receta"
 
-#: templates/recipe/recipe_form.html:140
+#: templates/recipe/recipe_form.html:109
 msgid "ingedients"
 msgstr "ingredientes"
 
-#: templates/recipe/recipe_form.html:164
+#: templates/recipe/recipe_form.html:165
 msgid "save recipe"
 msgstr "guardar receta"
 
@@ -823,7 +826,27 @@ msgstr "Recetas en"
 msgid "Alert!"
 msgstr " ¡Alerta!"
 
-#: templates/registration/_create_form.html:50
+#: templates/registration/_create_form.html:27
+#: templates/registration/_create_form.html:33
+#: templates/registration/_login_form.html:16
+#: templates/registration/_login_form.html:22
+#| msgid "user"
+msgid "username"
+msgstr "usuario"
+
+#: templates/registration/_create_form.html:37
+#: templates/registration/_create_form.html:43
+#: templates/registration/_login_form.html:27
+#: templates/registration/_login_form.html:31
+msgid "Password"
+msgstr "De restablecimiento de contraseña"
+
+#: templates/registration/_create_form.html:47
+#: templates/registration/_create_form.html:53
+msgid "Password (again)"
+msgstr "De restablecimiento de contraseña"
+
+#: templates/registration/_create_form.html:57
 msgid "create account"
 msgstr "crear una cuenta"
 
@@ -831,7 +854,7 @@ msgstr "crear una cuenta"
 msgid "Your username and password didn't match. Please try again."
 msgstr "Tu usuario y contraseña no coinciden. Inténtelo de nuevo, por favor."
 
-#: templates/registration/_login_form.html:26
+#: templates/registration/_login_form.html:36
 msgid "login"
 msgstr "login"
 
@@ -996,19 +1019,19 @@ msgstr "Resultados de la búsqueda"
 msgid "No Results found for search query"
 msgstr "No se encontraron resultados para la consulta de búsqueda"
 
-#: templates/sidebar/browse.html:4
+#: templates/sidebar/browse.html:5
 msgid "last viewed"
 msgstr "ultimás vistas"
 
-#: templates/sidebar/browse.html:12
+#: templates/sidebar/browse.html:14
 msgid "browse"
 msgstr "navegar"
 
-#: templates/sidebar/browse.html:14
+#: templates/sidebar/browse.html:16
 msgid "top recipes"
 msgstr "top recetas"
 
-#: templates/sidebar/browse.html:15
+#: templates/sidebar/browse.html:17
 msgid "recent recipes"
 msgstr "recetas recientes"
 
@@ -1176,12 +1199,6 @@ msgstr "reportar"
 
 #~ msgid "Django administration"
 #~ msgstr "Django documentación"
-
-#~ msgid "Password"
-#~ msgstr "De restablecimiento de contraseña"
-
-#~ msgid "Password (again)"
-#~ msgstr "De restablecimiento de contraseña"
 
 #~ msgid "Password change"
 #~ msgstr "Contraseña cambiada con éxito"

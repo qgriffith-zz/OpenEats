@@ -105,6 +105,30 @@
       </div>
 
       <div class="control-group">
+        <label class="control-label">{% trans 'ingedients' %}</label>
+        <p>{{ formset.non_form_errors }}</p>
+        <table class="table table-condensed table-bordered" id="ing-grid">
+           <tbody>
+            {% for form in formset.forms %}
+              <tr id="{{ form.prefix }}-row" class="{% cycle 'row1' 'row2' %}">
+                <td>{% for hid in form.hidden_fields %}{{ hid }}{% endfor %}
+                  {{  form.DELETE }}
+                  {{ form.quantity.errors }} {{ form.quantity.label_tag|lower }}
+                </td>
+                <td class="quantity">{{ form.quantity }}</td>
+                <td>{{ form.measurement.errors }} {{ form.measurement.label_tag|lower }}</td>
+                <td class="measurement">{{ form.measurement }}</td>
+                <td>{{ form.title.errors }} {{ form.title.label_tag|lower }}</td>
+                <td class="ing-field">{{ form.title }}</td>
+                <td>{{ form.preparation.errors }} {{ form.preparation.label_tag|lower }}</td>
+                <td class="preparation">{{ form.preparation }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="control-group">
         <label class="control-label" for="id_{{ form.directions.title}}">{{ form.directions.label|lower }}</label>
         <div class="controls">
           {{ form.directions }}{{ form.directions.errors }}
@@ -135,29 +159,6 @@
         </div>
       </div>
   </fieldset>
-  <fieldset>
-    <legend>{% trans 'ingedients' %}</legend>
-    <p>{{ formset.non_form_errors }}</p>
-    <table class="table table-condensed table-bordered" id="ing-grid">
-       <tbody>
-        {% for form in formset.forms %}
-          <tr id="{{ form.prefix }}-row" class="{% cycle 'row1' 'row2' %}">
-            <td>{% for hid in form.hidden_fields %}{{ hid }}{% endfor %}
-              {% if form.instance.pk %} {{  form.DELETE }}{% endif %}
-              {{ form.quantity.errors }} {{ form.quantity.label_tag|lower }}
-            </td>
-            <td class="quantity">{{ form.quantity }}</td>
-            <td>{{ form.measurement.errors }} {{ form.measurement.label_tag|lower }}</td>
-            <td class="measurement">{{ form.measurement }}</td>
-            <td>{{ form.title.errors }} {{ form.title.label_tag|lower }}</td>
-            <td class="ing-field">{{ form.title }}</td>
-            <td>{{ form.preparation.errors }} {{ form.preparation.label_tag|lower }}</td>
-            <td class="preparation">{{ form.preparation }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-   </fieldset>
    <div class="form-actions">
      {{ formset.management_form }}
       <button type="submit" class="btn btn-info">{% trans 'save recipe' %}</button>
