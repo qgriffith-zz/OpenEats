@@ -13,7 +13,7 @@ Install and create basic data:
 docker-compose up -d database && \
 docker-compose run --rm web python manage.py makemigrations && \
 docker-compose run --rm web python manage.py migrate && \
-docker-compose run --rm web python manage.py collectstatic --noinput && \
+docker-compose run --rm web python manage.py collectstatic --noinput --clear && \
 docker-compose run --rm web python manage.py createsuperuser
 ```
 
@@ -49,7 +49,7 @@ Install and create basic data:
 docker-compose -f docker-compose.prod.yml up -d database && \
 docker-compose -f docker-compose.prod.yml run --rm web python manage.py makemigrations && \
 docker-compose -f docker-compose.prod.yml run --rm web python manage.py migrate && \
-docker-compose -f docker-compose.prod.yml run --rm web python manage.py collectstatic --noinput && \
+docker-compose -f docker-compose.prod.yml run --rm web python manage.py collectstatic --noinput --clear && \
 docker-compose -f docker-compose.prod.yml run --rm web python manage.py createsuperuser
 ```
 
