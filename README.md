@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/pando85/openeats.svg?branch=master)](https://travis-ci.org/pando85/openeats)
 
 **openeats** is a continuation from [qgriffith/OpenEats](https://github.com/qgriffith/OpenEats).
+You can test it here: [recetas.grigri.cloud](https://recetas.grigri.cloud)
 
 ## Changes
 * Updated to Django 1.10
