@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-21 06:53+0100\n"
+"POT-Creation-Date: 2017-03-30 17:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -835,8 +835,12 @@ msgstr ""
 msgid "Your username and password didn't match. Please try again."
 msgstr ""
 
-#: templates/registration/_login_form.html:36
+#: templates/registration/_login_form.html:38
 msgid "login"
+msgstr ""
+
+#: templates/registration/_login_form.html:41
+msgid "password_reset"
 msgstr ""
 
 #: templates/registration/activate.html:5
