@@ -4,6 +4,7 @@ REPO_PATH="$( dirname $DIR)"
 
 cd $REPO_PATH
 
+docker-compose build
 docker-compose up -d database
 docker-compose run --rm web python manage.py makemigrations
 docker-compose run --rm web python manage.py migrate

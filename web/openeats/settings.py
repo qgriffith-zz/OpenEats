@@ -185,6 +185,7 @@ if os.environ.get('EMAIL_USE_TLS', 'True').lower() == 'true':
 LOGIN_REDIRECT_URL = "/recipe/"
 ACCOUNT_ACTIVATION_DAYS = 7
 REGISTRATION_AUTO_LOGIN = True
+REGISTRATION_FORM = "registration.forms.RegistrationFormUsernameLowercase"
 
 #Haystack config
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
