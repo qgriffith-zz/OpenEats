@@ -47,3 +47,13 @@ class accountViewsTestCase(WebTest):
         #check a unknown user throws a 404 on the profile page
         profile = self.app.get(reverse('profiles_profile_detail', kwargs={'username':'baduser'}),status=404)
         self.assertTrue(profile.status, '404 Not Found')
+
+    def test_fail_create_case_sensitive_user(self):
+        """test that a user can't be created"""
+        form = self.app.get(reverse('registration_register')).forms[0]
+        form['username'] = 'Testuser'
+        form['email'] = 'newUser@yahoo.com'
+        form['password1'] = 'password'
+        form['password2'] = 'password'
+        resp = form.submit()
+        self.assertTrue('A user with that username already exists' in resp.body)
