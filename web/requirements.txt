@@ -9,6 +9,7 @@ django-extensions==1.7.6
 django-grappelli==2.9.1
 django-haystack==2.6.0
 django-imagekit==3.3
+django-registration-redux==1.6
 django-reversion==2.0.8
 django-rosetta==0.7.12
 django-taggit==0.22.0
@@ -45,4 +46,3 @@ WebTest==2.0.25
 Whoosh==2.7.4
 git+https://github.com/detrout/django-relationships
 git+https://github.com/wiledion/django-ratings
-git+https://github.com/macropin/django-registration.git@e689b22fc7899c3673d9467266481cc2d27cab65
