@@ -26,5 +26,6 @@ django-relationships==0.3.3
 django-tastypie==0.10.0
 lxml==3.2.3
 django-registration-redux==1.1
+sqlparse==0.1.19
 https://github.com/qgriffith/django-ratings/zipball/stable
 https://bitbucket.org/fcurella/django-profiles/get/5c982ce7c040.zip
